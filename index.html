@@ -2,11 +2,87 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>我的個人網頁</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人空間</title>
+    <style>
+        /* 1. 全域設定：柔和的米色背景 */
+        body {
+            background-color: #fdfbf7; /* 像是米黃色的紙張 */
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; /* 使用微軟正黑體看起來比較舒服 */
+            color: #5a5a5a; /* 字體不用全黑，用深灰色比較溫柔 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 2. 主卡片區塊：像是放在桌上的一張卡片 */
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 400px; /* 控制寬度不要太寬 */
+            padding: 40px;
+            border-radius: 20px; /* 大圓角 */
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5); /* 淡淡的暖色陰影 */
+            text-align: center;
+        }
+
+        h1 {
+            color: #e67e22; /* 溫暖的橘色標題 */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* 3. 選項按鈕區 */
+        .menu {
+            display: flex;
+            flex-direction: column; /* 垂直排列 */
+            gap: 15px; /* 按鈕之間的距離 */
+        }
+
+        .btn {
+            display: block;
+            text-decoration: none;
+            background-color: #fff0e6; /* 淡淡的粉橘色背景 */
+            color: #d35400; /* 深橘色文字 */
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            transition: all 0.3s ease; /* 讓動畫平滑 */
+            border: 1px solid transparent;
+        }
+
+        /* 4. 滑鼠移上去的特效 */
+        .btn:hover {
+            background-color: #ffe0b2; /* 變深一點 */
+            transform: translateY(-3px); /* 微微浮起 */
+            box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
+        }
+
+    </style>
 </head>
-<body style="font-family: sans-serif; text-align: center; padding: 50px;">
-    <h1>Hello,親愛的伙伴們！</h1>
-    <p>這是屬於我們團隊的網頁。</p>
-    <p>很高興見到你！</p>
+<body>
+
+    <div class="card">
+        <h1>👋 Hello, 歡迎光臨！</h1>
+        <p>這是我在 GitHub 的小天地<br>整理了一些工作與學習的重點</p>
+
+        <div class="menu">
+            <a href="#" class="btn">📋 事前準備</a>
+            <a href="#" class="btn">🛠️ 工作項目</a>
+            <a href="#" class="btn">📚 相關文書</a>
+            <a href="#" class="btn">💡 工作重點</a>
+        </div>
+    </div>
+
 </body>
 </html>
