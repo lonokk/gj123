@@ -14,14 +14,14 @@
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* 內容較多，改為靠上對齊，避免被切掉 */
+            align-items: flex-start;
             min-height: 100vh;
         }
 
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 450px; /*稍微寬一點點*/
+            max-width: 500px; /* 因為字變多了，讓卡片稍微寬一點 */
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
@@ -31,51 +31,73 @@
         }
 
         h2 {
-            color: #d35400; /* 深橘色標題 */
+            color: #d35400;
             font-size: 22px;
             margin-bottom: 20px;
-            border-bottom: 2px solid #ffe0b2; /* 加一條底線裝飾 */
+            border-bottom: 2px solid #ffe0b2;
             padding-bottom: 10px;
         }
 
-        /* 連結列表區 */
         .link-list {
             display: flex;
             flex-direction: column;
-            gap: 12px; /* 按鈕之間的間隔 */
+            gap: 12px;
         }
 
         .link-btn {
-            display: flex; /* 讓圖示和文字並排 */
-            align-items: center;
+            display: flex;
+            align-items: center; /* 垂直居中 */
             text-decoration: none;
-            background-color: #fffaf5; /* 比背景再白一點的按鈕底色 */
+            background-color: #fffaf5;
             color: #555;
-            padding: 12px 18px;
-            border-radius: 10px;
-            font-size: 15px;
-            font-weight: 500;
-            border: 1px solid #eee; /* 淡淡的邊框 */
+            padding: 15px 18px; /* 增加一點高度 */
+            border-radius: 12px;
+            border: 1px solid #eee;
             transition: all 0.2s ease;
-            text-align: left; /* 文字靠左比較好閱讀 */
+            text-align: left;
         }
 
-        /* 圖示的樣式 */
-        .icon {
-            margin-right: 12px;
-            font-size: 18px;
-            min-width: 25px; /* 確保圖示對齊 */
+        /* 圖示區塊 */
+        .icon-box {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 30px; /* 固定寬度確保對齊 */
+            text-align: center;
+        }
+
+        /* 文字區塊 */
+        .text-box {
+            display: flex;
+            flex-direction: column; /* 讓主標題和副標題垂直排列 */
+        }
+
+        .main-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .sub-title {
+            font-size: 13px; /* 字體縮小 */
+            color: #888; /* 顏色變淡 */
+            font-weight: normal;
         }
 
         /* 滑鼠移上去的效果 */
         .link-btn:hover {
             background-color: #ffe0b2;
-            color: #d35400;
-            transform: translateX(5px); /* 輕微向右移動 */
+            transform: translateY(-2px); /* 輕微浮起 */
             border-color: #ffcc80;
+            box-shadow: 0 4px 10px rgba(211, 84, 0, 0.1);
+        }
+        
+        /* 讓副標題在 hover 時也稍微變色，增加互動感 */
+        .link-btn:hover .sub-title {
+            color: #d35400; 
+            opacity: 0.8;
         }
 
-        /* 回首頁按鈕 */
         .back-btn {
             display: inline-block;
             margin-top: 25px;
@@ -100,43 +122,83 @@
         
         <div class="link-list">
             <a href="https://vsis.vac.gov.tw/" target="_blank" class="link-btn">
-                <span class="icon">🖥️</span> 訪視系統離線版
+                <div class="icon-box">🖥️</div>
+                <div class="text-box">
+                    <span class="main-title">訪視系統離線版</span>
+                    <span class="sub-title">（訪視系統）</span>
+                </div>
             </a>
             
             <a href="https://epaper.vac.gov.tw/" target="_blank" class="link-btn">
-                <span class="icon">📰</span> 榮光雙周刊 (訂閱)
+                <div class="icon-box">📰</div>
+                <div class="text-box">
+                    <span class="main-title">榮光雙周刊</span>
+                    <span class="sub-title">（協助訂閱）</span>
+                </div>
             </a>
             
             <a href="https://mso.taitungcity.gov.tw/Default.aspx" target="_blank" class="link-btn">
-                <span class="icon">🕊️</span> 臺東市殯葬服務網
+                <div class="icon-box">🕊️</div>
+                <div class="text-box">
+                    <span class="main-title">臺東市公所殯葬服務網</span>
+                    <span class="sub-title">（火化、告別式、禮廳）</span>
+                </div>
             </a>
 
             <a href="https://mso.taitungcity.gov.tw/TaitungScroll/login.aspx" target="_blank" class="link-btn">
-                <span class="icon">🕯️</span> 臺東市電子輓額
+                <div class="icon-box">🕯️</div>
+                <div class="text-box">
+                    <span class="main-title">臺東市電子輓額</span>
+                    <span class="sub-title">（電子輓聯）</span>
+                </div>
             </a>
 
             <a href="https://ttgis.taitung.gov.tw/m_public/#" target="_blank" class="link-btn">
-                <span class="icon">🗺️</span> 臺東地籍導航通
+                <div class="icon-box">🗺️</div>
+                <div class="text-box">
+                    <span class="main-title">臺東地籍導航通</span>
+                    <span class="sub-title">（找門牌、找鄰里、找地號）</span>
+                </div>
             </a>
 
             <a href="https://adrid.moi.gov.tw/internet/singleQuery" target="_blank" class="link-btn">
-                <span class="icon">📍</span> 內政部地址識別碼
+                <div class="icon-box">📍</div>
+                <div class="text-box">
+                    <span class="main-title">內政部地址識別碼</span>
+                    <span class="sub-title">（找村里別、找大概位子）</span>
+                </div>
             </a>
 
             <a href="https://ecare.mohw.gov.tw/" target="_blank" class="link-btn">
-                <span class="icon">🛡️</span> 社會安全網通報
+                <div class="icon-box">🛡️</div>
+                <div class="text-box">
+                    <span class="main-title">社會安全網</span>
+                    <span class="sub-title">（通報社會安全網）</span>
+                </div>
             </a>
 
             <a href="https://emic.ttfd.gov.tw/dspost/public/" target="_blank" class="link-btn">
-                <span class="icon">⚠️</span> 臺東災情看板
+                <div class="icon-box">⚠️</div>
+                <div class="text-box">
+                    <span class="main-title">臺東災情看板</span>
+                    <span class="sub-title">（天災災情資訊彙整）</span>
+                </div>
             </a>
 
             <a href="https://docs.google.com/spreadsheets/d/1QTHl6xTqq9mj0usu_LqGE2fjOqzJCT7QYyjgEQYItg4/edit?gid=441785655#gid=441785655" target="_blank" class="link-btn">
-                <span class="icon">📦</span> 物資統計 (本處請領)
+                <div class="icon-box">📦</div>
+                <div class="text-box">
+                    <span class="main-title">物資統計</span>
+                    <span class="sub-title">（本處物資請領）</span>
+                </div>
             </a>
 
             <a href="https://law.vac.gov.tw/vaclaw/" target="_blank" class="link-btn">
-                <span class="icon">⚖️</span> 輔導會主管法規
+                <div class="icon-box">⚖️</div>
+                <div class="text-box">
+                    <span class="main-title">輔導會主管法規</span>
+                    <span class="sub-title">（法規查詢）</span>
+                </div>
             </a>
         </div>
 
