@@ -1,247 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訪視服務重點</title>
+    <title>訪視服務紀錄 - 工作資料夾</title>
     <style>
-        /* 1. 基礎設定：延續暖色風格 */
+        /* --- 全域設定 (與上一頁保持一致) --- */
+        * {
+            box-sizing: border-box; /* 確保 padding 不會撐大寬度 */
+        }
+
         body {
             background-color: #fdfbf7;
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #444;
+            color: #5a5a5a;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
+            align-items: flex-start; /* 內容多時從上方開始，避免置中被切掉 */
+            min-height: 100vh;
+        }
+
+        /* --- 卡片容器 --- */
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px; /* 表單頁面稍微寬一點，方便輸入 */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* --- 標題樣式 --- */
+        h2 {
+            color: #d35400;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ffe0b2;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+
+        /* --- 表單區塊樣式 --- */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #d35400; /* 標籤使用主色調 */
+            font-size: 15px;
+        }
+
+        /* 輸入框通用樣式 */
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #fffaf5; /* 極淡的暖色背景 */
+            color: #555;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        /* 輸入框被點擊時的聚焦效果 */
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #d35400;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(211, 84, 0, 0.2);
+        }
+
+        textarea {
+            resize: vertical; /* 允許垂直拉伸 */
+            min-height: 120px;
             line-height: 1.6;
         }
 
-        .container {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 600px; /* 閱讀型內容，寬度適中 */
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(230, 210, 200, 0.5);
-        }
-
-        /* 標題樣式 */
-        h2 {
-            color: #d35400;
-            border-bottom: 2px solid #ffe0b2;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        h3 {
-            color: #e67e22;
-            margin-top: 30px;
-            margin-bottom: 15px;
+        /* --- 按鈕區塊 --- */
+        .btn-group {
             display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* 主要按鈕 (儲存) */
+        .submit-btn {
+            flex: 2; /* 佔較大比例 */
+            background-color: #d35400;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
-        
-        h3 span {
-            margin-right: 8px; /* 圖示與文字的距離 */
+
+        .submit-btn:hover {
+            background-color: #bf4900;
+            box-shadow: 0 4px 12px rgba(211, 84, 0, 0.3);
+            transform: translateY(-2px);
         }
 
-        /* 重點強調框 */
-        .highlight-box {
-            background-color: #fff8e1;
-            border-left: 5px solid #ffca28;
-            padding: 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: #5d4037;
-        }
-
-        /* 表格樣式 (用於照顧分類與頻率) */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden; /* 讓圓角生效 */
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        th {
-            background-color: #ffe0b2;
-            color: #d35400;
-            font-weight: bold;
-            white-space: nowrap; /* 標題不換行 */
-        }
-        
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* 列表樣式 */
-        ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* 訪視人數的小卡片 */
-        .quota-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* 兩欄排列 */
-            gap: 10px;
-        }
-
-        .quota-item {
-            background-color: #fcefe6;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
-        }
-        
-        .quota-item strong {
-            display: block;
-            color: #d35400;
-            font-size: 16px;
-            margin-bottom: 3px;
-        }
-
-        /* 回上一頁按鈕 */
-        .back-btn {
-            display: block;
-            margin-top: 40px;
-            text-align: center;
-            color: #999;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 10px;
+        /* 次要按鈕 (返回) */
+        .cancel-btn {
+            flex: 1;
             background-color: #f0f0f0;
+            color: #777;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            font-size: 15px;
             transition: 0.3s;
         }
-        .back-btn:hover {
+
+        .cancel-btn:hover {
             background-color: #e0e0e0;
             color: #555;
         }
-        
-        /* 手機版調整 */
+
+        /* 手機版適配 */
         @media (max-width: 480px) {
-            .quota-list {
-                grid-template-columns: 1fr; /* 手機變成單欄 */
+            .card {
+                padding: 20px;
+            }
+            .btn-group {
+                flex-direction: column-reverse; /* 手機上讓返回鍵在下 */
+            }
+            .submit-btn, .cancel-btn {
+                width: 100%;
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2>👣 訪視服務作業規範</h2>
+    <div class="card">
+        <h2>📝 訪視服務紀錄表</h2>
 
-    <div class="highlight-box">
-        🎯 <strong>訪視目的：</strong><br>
-        掌握生活、預防風險、即時協助、持續關懷
+        <form id="visitForm" onsubmit="saveData(event)">
+            
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>📅 訪視日期</label>
+                    <input type="date" required id="visitDate">
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>⏰ 時間</label>
+                    <input type="time" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>👤 個案姓名</label>
+                <input type="text" placeholder="請輸入姓名" required>
+            </div>
+
+            <div class="form-group">
+                <label>📞 訪視方式</label>
+                <select>
+                    <option value="home">🏠 到宅訪視</option>
+                    <option value="phone">📱 電話問安</option>
+                    <option value="hospital">🏥 醫院探訪</option>
+                    <option value="office">🏢 機構面談</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>📋 訪視內容摘要 / 評估</label>
+                <textarea placeholder="請紀錄個案狀況、需求評估及後續計畫..."></textarea>
+            </div>
+
+            <div class="btn-group">
+                <a href="work-menu.html" class="cancel-btn">取消返回</a>
+                
+                <button type="submit" class="submit-btn">
+                    💾 確認儲存
+                </button>
+            </div>
+
+        </form>
     </div>
 
-    <h3><span>👥</span> 訪視對象</h3>
-    <ul>
-        <li><strong>榮民 (第一類退除役官兵)：</strong>
-            <ul>
-                <li>服志願役滿十年</li>
-                <li>因作戰或因公致病、傷或身心障礙</li>
-                <li>曾參加823戰役及其他經核定之重要戰役</li>
-            </ul>
-        </li>
-        <li><strong>第二類退除役官兵：</strong>
-            服志願役四年以上未滿十年
-        </li>
-        <li><strong>榮民遺眷</strong></li>
-        <li><strong>列管關懷個案</strong></li>
-    </ul>
+    <script>
+        // 自動填入今天的日期
+        document.getElementById('visitDate').valueAsDate = new Date();
 
-    <h3><span>📊</span> 照顧分類與頻率</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>分類</th>
-                <th>對象特徵</th>
-                <th>訪視頻率</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>特需照顧</strong></td>
-                <td>
-                    • 獨居、乏人照顧<br>
-                    • 失能、臥床<br>
-                    • 精神疾病/失智<br>
-                    • 90歲以上<br>
-                    • 高風險個案
-                </td>
-                <td style="color:#d35400; font-weight:bold;">每3日<br>1次</td>
-            </tr>
-            <tr>
-                <td><strong>較需照顧</strong></td>
-                <td>
-                    • 雙老家庭<br>
-                    • 單身住安養機構<br>
-                    • 需持續關懷者
-                </td>
-                <td style="color:#e67e22; font-weight:bold;">每2週<br>1次</td>
-            </tr>
-            <tr>
-                <td><strong>一般照顧</strong></td>
-                <td>
-                    • 生活穩定<br>
-                    • 有家庭支持
-                </td>
-                <td>
-                    榮民：1年/次<br>
-                    遺眷：2年/次
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h3><span>📝</span> 訪視重點</h3>
-    <ul>
-        <li>✅ 健康醫療 / 生活起居 / 經濟情形</li>
-        <li>✅ 家庭支持 / 居住安全 / 福利需求</li>
-        <li>✅ 特殊或緊急事件</li>
-        <li>📞 <strong>原則：</strong>實地訪視為主 (可輔以電話、視訊、村里鄰託人)</li>
-        <li>💻 <strong>紀錄：</strong>據實登打訪視紀錄</li>
-    </ul>
-
-    <h3><span>🔢</span> 訪視人數規定</h3>
-    <div class="quota-list">
-        <div class="quota-item">
-            <strong>15 人 / 月</strong>
-            各級主管
-        </div>
-        <div class="quota-item">
-            <strong>10 人 / 週</strong>
-            責任區輔導員
-        </div>
-        <div class="quota-item">
-            <strong>20 人 / 週</strong>
-            服務組長
-        </div>
-        <div class="quota-item">
-            <strong>5 人 / 週</strong>
-            服務員
-        </div>
-    </div>
-
-    <a href="work.html" class="back-btn">⬅️ 返回工作項目</a>
-</div>
+        // 模擬儲存功能的簡單腳本
+        function saveData(event) {
+            event.preventDefault(); // 阻止表單真正送出（因為沒有後端）
+            
+            // 這裡可以加入檢查邏輯或 API 串接
+            
+            // 顯示成功訊息
+            alert("✅ 紀錄已儲存成功！\n（這是示範頁面，資料不會真的上傳）");
+            
+            // 可以在這裡設定跳轉回列表
+            // window.location.href = "work-menu.html"; 
+        }
+    </script>
 
 </body>
 </html>
