@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工作項目 - 工作資料夾</title>
+    <style>
+        /* 保持一致的溫馨暖色風格 */
+        body {
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            color: #5a5a5a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #d35400;
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffe0b2;
+            padding-bottom: 10px;
+        }
+
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background-color: #fffaf5;
+            color: #555;
+            padding: 15px 18px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .icon-box {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+
+        .text-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .sub-title {
+            font-size: 13px;
+            color: #888;
+            font-weight: normal;
+        }
+
+        /* 滑鼠移上去的效果 */
+        .link-btn:hover {
+            background-color: #ffe0b2;
+            transform: translateY(-2px);
+            border-color: #ffcc80;
+            box-shadow: 0 4px 10px rgba(211, 84, 0, 0.1);
+        }
+
+        .link-btn:hover .sub-title {
+            color: #d35400;
+            opacity: 0.8;
+        }
+
+        /* 預留選項的特別樣式：看起來比較淡，表示暫時沒內容 */
+        .placeholder {
+            background-color: #f9f9f9;
+            color: #aaa;
+            border: 1px dashed #ddd; /* 虛線邊框 */
+        }
+        
+        .placeholder .main-title {
+            color: #999;
+        }
+        
+        .placeholder .icon-box {
+            filter: grayscale(100%); /* 讓圖示變灰 */
+            opacity: 0.5;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background-color: #f0f0f0;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #e0e0e0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🛠️ 工作項目</h2>
+        
+        <div class="link-list">
+            <a href="#" class="link-btn">
+                <div class="icon-box">👣</div>
+                <div class="text-box">
+                    <span class="main-title">訪視服務</span>
+                    <span class="sub-title">（業務執行與紀錄）</span>
+                </div>
+            </a>
+            
+            <a href="#" class="link-btn placeholder">
+                <div class="icon-box">➕</div>
+                <div class="text-box">
+                    <span class="main-title">預留選項 1</span>
+                    <span class="sub-title">（待新增）</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-btn placeholder">
+                <div class="icon-box">➕</div>
+                <div class="text-box">
+                    <span class="main-title">預留選項 2</span>
+                    <span class="sub-title">（待新增）</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-btn placeholder">
+                <div class="icon-box">➕</div>
+                <div class="text-box">
+                    <span class="main-title">預留選項 3</span>
+                    <span class="sub-title">（待新增）</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-btn placeholder">
+                <div class="icon-box">➕</div>
+                <div class="text-box">
+                    <span class="main-title">預留選項 4</span>
+                    <span class="sub-title">（待新增）</span>
+                </div>
+            </a>
+        </div>
+
+        <a href="index.html" class="back-btn">⬅️ 回到首頁</a>
+    </div>
+
+</body>
+</html>
