@@ -1,285 +1,220 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>訪視服務作業規範</title>
-    <style>
-        /* --- 1. 全域設定 --- */
-        * {
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<title>訪視服務作業規範</title>
 
-        body {
-            /* 背景：極淡的青色，像清晨的空氣 */
-            background-color: #e0f2f1;
-            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #37474f; /* 深灰藍色文字 */
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            line-height: 1.6;
-        }
+<style>
+body{
+    font-family: "Noto Sans TC", Arial, sans-serif;
+    background:#f4fbfb;
+    margin:0;
+    padding:30px;
+    color:#333;
+}
 
-        /* --- 2. 主要容器 --- */
-        .container {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 800px;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 121, 107, 0.15); /* 青色系的陰影 */
-            border-top: 6px solid #009688; /* 頂部青色裝飾線 */
-        }
+.container{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    padding:30px 40px;
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
 
-        /* --- 3. 標題樣式 --- */
-        h1 {
-            color: #00796b; /* 深青色 */
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
+h1{
+    text-align:center;
+    color:#0a7c86;
+    margin-bottom:30px;
+}
 
-        .subtitle {
-            text-align: center;
-            color: #5d6d7e;
-            font-size: 16px;
-            margin-bottom: 40px;
-            font-weight: normal;
-        }
+h2{
+    color:#0a7c86;
+    border-left:6px solid #18a2ac;
+    padding-left:10px;
+    margin-top:35px;
+}
 
-        h2 {
-            color: #00695c;
-            font-size: 20px;
-            border-left: 5px solid #26a69a; /* 左側醒目線條 */
-            padding-left: 12px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #e0f2f1, transparent); /* 漸層背景 */
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:12px;
+}
 
-        /* --- 4. 列表樣式 (用於訪視對象與重點) --- */
-        ul {
-            padding-left: 20px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
+th,td{
+    border:1px solid #d5ecee;
+    padding:10px 12px;
+    text-align:left;
+}
 
-        strong {
-            color: #00796b;
-        }
+th{
+    background:#e7f6f7;
+    color:#0a7c86;
+}
 
-        /* --- 5. 表格樣式 (重點設計) --- */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden; /* 讓圓角生效 */
-            box-shadow: 0 0 0 1px #b2dfdb; /* 細緻的邊框 */
-        }
+.section-box{
+    background:#f7fcfc;
+    border-left:5px solid #18a2ac;
+    padding:15px;
+    border-radius:8px;
+    margin-top:10px;
+}
 
-        th {
-            background-color: #00897b; /* 青色表頭 */
-            color: #ffffff;
-            padding: 12px 15px;
-            text-align: left;
-            font-weight: normal;
-            font-size: 16px;
-        }
+.highlight{
+    color:#0a7c86;
+    font-weight:bold;
+}
 
-        td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #e0f2f1;
-            color: #455a64;
-            vertical-align: top;
-        }
+.note{
+    background:#e9f8f9;
+    padding:12px;
+    border-radius:8px;
+    margin-top:10px;
+}
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* 表格隔行變色 */
-        tr:nth-child(even) {
-            background-color: #fafafr; 
-        }
-
-        tr:hover {
-            background-color: #e0f2f1; /* 滑鼠懸停效果 */
-        }
-
-        /* --- 6. 範例區塊樣式 --- */
-        .example-box {
-            background-color: #f1f8e9; /* 帶一點點綠的白，區分範例 */
-            border: 1px dashed #aed581;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-
-        .example-format {
-            font-family: Consolas, Monaco, monospace;
-            color: #558b2f;
-            background-color: #fff;
-            padding: 5px 10px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 15px;
-            font-size: 14px;
-            border: 1px solid #dcedc8;
-        }
-
-        .example-item {
-            margin-bottom: 12px;
-            padding-left: 15px;
-            border-left: 3px solid #81c784;
-        }
-
-        /* --- 7. 返回按鈕 --- */
-        .back-btn {
-            display: block;
-            width: fit-content;
-            margin: 40px auto 0;
-            padding: 10px 25px;
-            background-color: #00796b;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .back-btn:hover {
-            background-color: #004d40;
-            transform: translateY(-2px);
-        }
-
-        /* RWD */
-        @media (max-width: 600px) {
-            .container { padding: 20px; }
-            th, td { padding: 10px; font-size: 14px; }
-            h1 { font-size: 24px; }
-        }
-    </style>
+.footer{
+    text-align:center;
+    color:#888;
+    font-size:13px;
+    margin-top:30px;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
 
-    <div class="container">
-        <h1>訪視服務作業規範</h1>
-        <div class="subtitle">目的：掌握生活 • 預防風險 • 即時協助 • 持續關懷</div>
+<h1>訪視服務作業規範</h1>
 
-        <h2>👥 訪視對象</h2>
-        <ul>
-            <li>
-                <strong>一、榮民 (領有榮民証)</strong>
-                <ul>
-                    <li>服志願役滿十年</li>
-                    <li>因作戰或因公致病、傷或身心障礙</li>
-                    <li>曾參加823戰役及其他經核定之重要戰役</li>
-                </ul>
-            </li>
-            <li>
-                <strong>二、第二類退除役官兵</strong>
-                <ul>
-                    <li>服志願役四年以上未滿十年</li>
-                </ul>
-            </li>
-            <li><strong>三、榮民遺眷</strong></li>
-        </ul>
+<!-- 訪視目的 -->
+<h2>訪視目的</h2>
+<div class="section-box">
+掌握生活、預防風險、即時協助、持續關懷
+</div>
 
-        <h2>📊 照顧分類與頻率</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th width="20%">分類</th>
-                    <th width="55%">對象特徵</th>
-                    <th width="25%">訪視頻率</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>特需照顧</strong></td>
-                    <td>獨居、乏人照顧、失能、臥床、精神疾病/失智、90歲以上、高風險個案</td>
-                    <td style="color:#d81b60; font-weight:bold;">每 3 日 1 次</td>
-                </tr>
-                <tr>
-                    <td><strong>較需照顧</strong></td>
-                    <td>雙老家庭、單身住安養機構、需持續關懷者</td>
-                    <td style="color:#f57f17; font-weight:bold;">每 2 週 1 次</td>
-                </tr>
-                <tr>
-                    <td><strong>一般照顧</strong></td>
-                    <td>生活穩定、有家庭支持</td>
-                    <td>榮民 1 年/次<br>遺眷 2 年/次</td>
-                </tr>
-            </tbody>
-        </table>
+<!-- 訪視對象 -->
+<h2>訪視對象</h2>
+<table>
+<tr>
+<th>類別</th>
+<th>說明</th>
+</tr>
 
-        <h2>📝 訪視重點</h2>
-        <div style="background-color:#e0f2f1; padding:15px; border-radius:8px;">
-            <ul style="margin:0;">
-                <li><strong>生活與健康：</strong>健康醫療 / 生活起居 / 經濟情形</li>
-                <li><strong>環境與資源：</strong>家庭支持 / 居住安全 / 福利需求</li>
-                <li><strong>突發狀況：</strong>特殊或緊急事件</li>
-                <li><strong>執行原則：</strong>實地訪視為主 (可輔以電話、視訊、村里鄰託人)</li>
-                <li><strong>紀錄要求：</strong>據實登打訪視紀錄</li>
-            </ul>
-        </div>
+<tr>
+<td class="highlight">榮民</td>
+<td>
+・服志願役滿10年<br>
+・因作戰或因公致病、傷或身心障礙<br>
+・曾參加823戰役及其他經核定重要戰役
+</td>
+</tr>
 
-        <h2>💡 訪視紀錄撰寫範例</h2>
-        <div class="example-box">
-            <div class="example-format">
-                規格：&lt;訪視時在做什麼&gt;，&lt;反映什麼問題&gt;，&lt;如何處理&gt;，&lt;宣導事項&gt;
-            </div>
-            
-            <div class="example-item">
-                <strong>範例 1：</strong><br>
-                訪視時在客廳看電視，閒聊兒子剛畢業，轉介與本處就業站聯繫，宣導防詐與綠色通道。
-            </div>
-            
-            <div class="example-item">
-                <strong>範例 2：</strong><br>
-                訪視時人不在，電聯表示生病住院中，提醒保留診斷証明與醫療收據或可申請本處急難救助，請其安心養病。
-            </div>
-        </div>
+<tr>
+<td class="highlight">第二類退除役官兵</td>
+<td>服志願役4年以上未滿10年</td>
+</tr>
 
-        <h2>🔢 訪視人數規定</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>職稱</th>
-                    <th>規定人數</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>各級主管</td>
-                    <td>15 人 / 月</td>
-                </tr>
-                <tr>
-                    <td>責任區輔導員</td>
-                    <td>10 人 / 週</td>
-                </tr>
-                <tr>
-                    <td>服務組長</td>
-                    <td>20 人 / 週</td>
-                </tr>
-                <tr>
-                    <td>服務員</td>
-                    <td>5 人 / 週</td>
-                </tr>
-            </tbody>
-        </table>
+<tr>
+<td class="highlight">榮民遺眷</td>
+<td>符合規定之遺眷</td>
+</tr>
+</table>
 
-        <a href="#" class="back-btn" onclick="history.back()">⬅️ 返回上一頁</a>
-    </div>
+<!-- 照顧分類 -->
+<h2>照顧分類與訪視頻率</h2>
+<table>
+<tr>
+<th>分類</th>
+<th>對象特徵</th>
+<th>訪視頻率</th>
+</tr>
 
+<tr>
+<td class="highlight">特需照顧</td>
+<td>
+獨居、乏人照顧、失能、臥床、精神疾病/失智、90歲以上、高風險個案
+</td>
+<td>每3日1次</td>
+</tr>
+
+<tr>
+<td class="highlight">較需照顧</td>
+<td>
+雙老家庭、單身住安養機構、需持續關懷者
+</td>
+<td>每2週1次</td>
+</tr>
+
+<tr>
+<td class="highlight">一般照顧</td>
+<td>
+生活穩定、有家庭支持
+</td>
+<td>
+榮民：1年1次<br>
+遺眷：2年1次
+</td>
+</tr>
+</table>
+
+<!-- 訪視重點 -->
+<h2>訪視重點</h2>
+<div class="section-box">
+健康醫療 / 生活起居 / 經濟情形<br>
+家庭支持 / 居住安全 / 福利需求<br>
+特殊或緊急事件
+</div>
+
+<div class="note">
+<b>原則：</b>以實地訪視為主（可輔以電話、視訊、村里鄰長）<br>
+<b>紀錄：</b>據實登打訪視紀錄
+</div>
+
+<!-- 紀錄範例 -->
+<h2>訪視紀錄範例</h2>
+<div class="section-box">
+規格：<span class="highlight">在做什麼 → 反映問題 → 如何處理 → 宣導事項</span>
+</div>
+
+<table>
+<tr>
+<th>範例</th>
+<th>內容</th>
+</tr>
+
+<tr>
+<td>範例1</td>
+<td>
+訪視時在客廳看電視，閒聊兒子剛畢業，轉介與本處就業站聯繫，宣導防詐與綠色通道。
+</td>
+</tr>
+
+<tr>
+<td>範例2</td>
+<td>
+訪視時人不在，電聯表示生病住院中，提醒保留診斷證明與醫療收據，可申請本處急難救助，請其安心養病。
+</td>
+</tr>
+</table>
+
+<!-- 人數規定 -->
+<h2>訪視人數規定</h2>
+<table>
+<tr>
+<th>職務</th>
+<th>訪視量</th>
+</tr>
+
+<tr><td>各級主管</td><td>15人 / 月</td></tr>
+<tr><td>責任區輔導員</td><td>10人 / 週</td></tr>
+<tr><td>服務組長</td><td>20人 / 週</td></tr>
+<tr><td>服務員</td><td>5人 / 週</td></tr>
+</table>
+
+<div class="footer">
+榮民服務處訪視服務資訊頁
+</div>
+
+</div>
 </body>
 </html>
