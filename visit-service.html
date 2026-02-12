@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>訪視服務作業規範</title>
     <style>
-        /* --- 1. 全域設定 --- */
+        /* --- 1. 基礎設定：暖色風格 --- */
         * {
             box-sizing: border-box;
         }
 
         body {
-            /* 背景：極淡的青色，像清晨的空氣 */
+            /* 背景：米白色，溫暖舒適 */
             background-color: #fdfbf7;
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #37474f; /* 深灰藍色文字 */
+            color: #5a5a5a;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -28,41 +28,42 @@
             width: 100%;
             max-width: 800px;
             padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 121, 107, 0.15); /* 青色系的陰影 */
-            border-top: 6px solid #009688; /* 頂部青色裝飾線 */
+            border-radius: 20px;
+            /* 陰影：暖色系的柔和陰影 */
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            border-top: 6px solid #d35400; /* 頂部橙色裝飾線 */
         }
 
         /* --- 3. 標題樣式 --- */
         h1 {
-            color: #00796b; /* 深青色 */
+            color: #d35400; /* 焦橙色 */
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 26px;
+            margin-bottom: 5px;
             letter-spacing: 1px;
         }
 
         .subtitle {
             text-align: center;
-            color: #5d6d7e;
-            font-size: 16px;
+            color: #888;
+            font-size: 15px;
             margin-bottom: 40px;
             font-weight: normal;
         }
 
         h2 {
-            color: #00695c;
+            color: #e67e22; /* 亮橙色 */
             font-size: 20px;
-            border-left: 5px solid #26a69a; /* 左側醒目線條 */
+            border-left: 5px solid #ffca28; /* 左側醒目黃色線條 */
             padding-left: 12px;
             margin-top: 40px;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #e0f2f1, transparent); /* 漸層背景 */
+            background: linear-gradient(to right, #fff8e1, transparent); /* 漸層背景 */
             padding-top: 5px;
             padding-bottom: 5px;
         }
 
-        /* --- 4. 列表樣式 (用於訪視對象與重點) --- */
+        /* --- 4. 列表樣式 --- */
         ul {
             padding-left: 20px;
         }
@@ -72,7 +73,7 @@
         }
 
         strong {
-            color: #00796b;
+            color: #d35400;
         }
 
         /* --- 5. 表格樣式 (重點設計) --- */
@@ -81,24 +82,26 @@
             border-collapse: collapse;
             margin-top: 15px;
             background-color: #fff;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden; /* 讓圓角生效 */
-            box-shadow: 0 0 0 1px #b2dfdb; /* 細緻的邊框 */
+            box-shadow: 0 2px 8px rgba(211, 84, 0, 0.1); /* 橙色系微陰影 */
+            border: 1px solid #ffe0b2;
         }
 
         th {
-            background-color: #00897b; /* 青色表頭 */
-            color: #ffffff;
+            background-color: #ffecb3; /* 淺橙黃色表頭 */
+            color: #d35400;
             padding: 12px 15px;
             text-align: left;
-            font-weight: normal;
+            font-weight: bold;
             font-size: 16px;
+            border-bottom: 2px solid #ffcc80;
         }
 
         td {
             padding: 12px 15px;
-            border-bottom: 1px solid #e0f2f1;
-            color: #455a64;
+            border-bottom: 1px solid #fff3e0;
+            color: #555;
             vertical-align: top;
         }
 
@@ -106,19 +109,19 @@
             border-bottom: none;
         }
 
-        /* 表格隔行變色 */
+        /* 表格隔行變色：極淡的橙色 */
         tr:nth-child(even) {
-            background-color: #fafafr; 
+            background-color: #fffaf5; 
         }
 
         tr:hover {
-            background-color: #e0f2f1; /* 滑鼠懸停效果 */
+            background-color: #fff3e0; /* 滑鼠懸停效果 */
         }
 
         /* --- 6. 範例區塊樣式 --- */
         .example-box {
-            background-color: #f1f8e9; /* 帶一點點綠的白，區分範例 */
-            border: 1px dashed #aed581;
+            background-color: #fff8e1; /* 淡黃色背景 */
+            border: 1px dashed #ffb74d; /* 虛線邊框 */
             padding: 20px;
             border-radius: 10px;
             margin-top: 15px;
@@ -126,20 +129,20 @@
 
         .example-format {
             font-family: Consolas, Monaco, monospace;
-            color: #558b2f;
+            color: #e65100;
             background-color: #fff;
             padding: 5px 10px;
             border-radius: 4px;
             display: inline-block;
             margin-bottom: 15px;
             font-size: 14px;
-            border: 1px solid #dcedc8;
+            border: 1px solid #ffe0b2;
         }
 
         .example-item {
             margin-bottom: 12px;
             padding-left: 15px;
-            border-left: 3px solid #81c784;
+            border-left: 3px solid #ffca28; /* 黃色豎線 */
         }
 
         /* --- 7. 返回按鈕 --- */
@@ -147,25 +150,26 @@
             display: block;
             width: fit-content;
             margin: 40px auto 0;
-            padding: 10px 25px;
-            background-color: #00796b;
-            color: white;
+            padding: 10px 30px;
+            background-color: #f0f0f0;
+            color: #777;
             text-decoration: none;
             border-radius: 25px;
             transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 14px;
         }
 
         .back-btn:hover {
-            background-color: #004d40;
+            background-color: #e0e0e0;
+            color: #555;
             transform: translateY(-2px);
         }
 
-        /* RWD */
+        /* RWD 手機版適配 */
         @media (max-width: 600px) {
             .container { padding: 20px; }
             th, td { padding: 10px; font-size: 14px; }
-            h1 { font-size: 24px; }
+            h1 { font-size: 22px; }
         }
     </style>
 </head>
@@ -207,12 +211,12 @@
                 <tr>
                     <td><strong>特需照顧</strong></td>
                     <td>獨居、乏人照顧、失能、臥床、精神疾病/失智、90歲以上、高風險個案</td>
-                    <td style="color:#d81b60; font-weight:bold;">每 3 日 1 次</td>
+                    <td style="color:#d35400; font-weight:bold;">每 3 日 1 次</td>
                 </tr>
                 <tr>
                     <td><strong>較需照顧</strong></td>
                     <td>雙老家庭、單身住安養機構、需持續關懷者</td>
-                    <td style="color:#f57f17; font-weight:bold;">每 2 週 1 次</td>
+                    <td style="color:#e67e22; font-weight:bold;">每 2 週 1 次</td>
                 </tr>
                 <tr>
                     <td><strong>一般照顧</strong></td>
@@ -223,7 +227,7 @@
         </table>
 
         <h2>📝 訪視重點</h2>
-        <div style="background-color:#e0f2f1; padding:15px; border-radius:8px;">
+        <div style="background-color:#fffaf5; padding:15px; border-radius:8px; border:1px solid #eee;">
             <ul style="margin:0;">
                 <li><strong>生活與健康：</strong>健康醫療 / 生活起居 / 經濟情形</li>
                 <li><strong>環境與資源：</strong>家庭支持 / 居住安全 / 福利需求</li>
@@ -278,7 +282,7 @@
             </tbody>
         </table>
 
-        <a href="#" class="back-btn" onclick="history.back()">⬅️ 返回上一頁</a>
+        <a href="work-menu.html" class="back-btn" onclick="history.back()">⬅️ 返回上一頁</a>
     </div>
 
 </body>
