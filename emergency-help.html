@@ -11,29 +11,29 @@
         body {
             background-color: #fdfbf7; /* 米色背景 */
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #333;
+            color: #444;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .container {
             background-color: #ffffff;
             width: 100%;
-            max-width: 600px;
-            margin: 0 auto; /* 水平置中 */
+            max-width: 650px; /* 稍微加寬一點點以容納金額表 */
+            margin: 0 auto;
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
-            border-top: 6px solid #d35400; /* 頂部橙色線 */
+            border-top: 6px solid #d35400;
         }
 
         h1 {
             color: #d35400;
             text-align: center;
-            font-size: 24px;
+            font-size: 26px;
             margin-top: 0;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .source-note {
@@ -45,52 +45,130 @@
             padding-bottom: 15px;
         }
 
-        /* --- 2. 卡片樣式 --- */
+        /* --- 2. 章節標題 --- */
+        .section-title {
+            color: #e65100;
+            font-size: 20px;
+            border-left: 5px solid #ffca28; /* 黃色裝飾線 */
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff8e1, transparent);
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        /* 第一個標題不需要上方間距 */
+        .section-title:first-of-type {
+            margin-top: 10px;
+        }
+
+        /* --- 3. 資格卡片 (簡化版) --- */
         .simple-card {
-            background-color: #fffaf5; /* 極淡暖色底 */
+            background-color: #fffaf5;
             border: 1px solid #ffe0b2;
             border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
         }
 
         .card-title {
             color: #d35400;
-            font-size: 18px;
-            margin-bottom: 12px;
+            font-size: 17px;
+            margin-bottom: 8px;
             font-weight: bold;
-            display: flex;
-            align-items: center;
         }
 
         .card-content {
-            font-size: 16px;
-            color: #444;
+            font-size: 15px;
+            color: #555;
         }
         
-        /* 讓條列項目的間距舒服一點 */
         .card-content div {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
-        /* 強調文字 */
-        strong {
+        /* 居住地備註 */
+        .location-note {
+            background-color: #fbe9e7;
             color: #bf360c;
-        }
-
-        /* --- 3. 底部備註 --- */
-        .footer-note {
-            background-color: #fff3e0;
-            color: #e65100;
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
             text-align: center;
             font-weight: bold;
+            font-size: 14px;
             margin-top: 10px;
-            font-size: 15px;
         }
 
-        /* --- 4. 返回按鈕 --- */
+        /* --- 4. 申請項目卡片 (金額區) --- */
+        .item-card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .item-title {
+            font-size: 17px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #ffe0b2;
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .item-title span {
+            background-color: #d35400;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 14px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* 金額列樣式 */
+        .amount-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .amount-row:last-child {
+            border-bottom: none;
+        }
+
+        .target-text {
+            font-size: 14px;
+            color: #666;
+            flex: 1; /* 佔滿左邊空間 */
+            padding-right: 10px;
+        }
+
+        .money-text {
+            font-weight: bold;
+            color: #d35400;
+            font-size: 16px;
+            text-align: right;
+            white-space: nowrap; /* 金額不換行 */
+        }
+        
+        .highlight-money {
+            font-size: 18px;
+            color: #c0392b;
+        }
+
+        /* --- 5. 返回按鈕 --- */
         .back-btn {
             display: block;
             width: 100%;
@@ -117,6 +195,8 @@
             依據：國軍退除役官兵輔導委員會<br>榮民榮眷遺眷急難救助及慰問作業要點
         </div>
 
+        <h2 class="section-title">📝 申請資格</h2>
+
         <div class="simple-card">
             <div class="card-title">🎖️ 榮民</div>
             <div class="card-content">
@@ -139,8 +219,59 @@
             </div>
         </div>
 
-        <div class="footer-note">
+        <div class="location-note">
             ⚠️ 註：須居住於臺灣地區
+        </div>
+
+
+        <h2 class="section-title">💰 申請項目 & 最高金額</h2>
+
+        <div class="item-card">
+            <div class="item-title"><span>1</span>意外傷害致生活困難</div>
+            <div class="amount-row">
+                <div class="target-text">低收 / 中低收 / 中低老 / 特殊困難</div>
+                <div class="money-text">20,000 元</div>
+            </div>
+            <div class="amount-row">
+                <div class="target-text">一般榮民、榮眷、遺眷</div>
+                <div class="money-text">10,000 元</div>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-title"><span>2</span>罹患重病或無法工作致生活困難</div>
+            <div class="amount-row">
+                <div class="target-text">低收 / 中低收 / 中低老 / 特殊困難</div>
+                <div class="money-text">20,000 元</div>
+            </div>
+            <div class="amount-row">
+                <div class="target-text">一般榮民、榮眷、遺眷</div>
+                <div class="money-text">10,000 元</div>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-title"><span>3</span>榮民死亡無力殮葬</div>
+            <div class="amount-row">
+                <div class="target-text">榮民死亡且無力負擔喪葬</div>
+                <div class="money-text highlight-money">20,000 元</div>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-title"><span>4</span>榮民流落外地無車資返家</div>
+            <div class="amount-row">
+                <div class="target-text">需返家車資之榮民 (酌情)</div>
+                <div class="money-text highlight-money">1,000 元</div>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <div class="item-title"><span>5</span>就養榮民亡故之遺眷重點救助</div>
+            <div class="amount-row">
+                <div class="target-text">就養榮民死亡 6 個月內 (一次性)</div>
+                <div class="money-text highlight-money">30,000 元</div>
+            </div>
         </div>
 
         <a href="work.html" class="back-btn">⬅️ 返回工作項目</a>
