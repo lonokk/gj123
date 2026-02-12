@@ -5,19 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>訪視服務作業規範</title>
     <style>
-        /* --- 1. 基礎設定：暖色風格 (與 index.html 保持一致) --- */
+        /* --- 1. 基礎設定 --- */
         * {
             box-sizing: border-box;
         }
 
         body {
-            /* 背景：米白色 */
-            background-color: #fdfbf7;
+            background-color: #fdfbf7; /* 暖色米白背景 */
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
             color: #5a5a5a;
             margin: 0;
-            padding: 20px;
-            /* 讓內容在電腦版置中，手機版自然延伸 */
+            padding: 15px; /* 手機版邊距稍微縮小 */
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -25,26 +23,24 @@
             line-height: 1.6;
         }
 
-        /* --- 2. 主要容器卡片 --- */
+        /* --- 2. 主要容器 --- */
         .container {
             background-color: #ffffff;
             width: 100%;
             max-width: 800px; /* 電腦版最大寬度 */
             padding: 40px;
             border-radius: 20px;
-            /* 陰影：暖色系的柔和陰影，營造立體感 */
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
             border-top: 6px solid #d35400; /* 頂部橙色裝飾線 */
             margin-bottom: 20px;
         }
 
-        /* --- 3. 標題樣式 --- */
+        /* --- 3. 標題與文字 --- */
         h1 {
-            color: #d35400; /* 焦橙色 */
+            color: #d35400;
             text-align: center;
             font-size: 26px;
-            margin-bottom: 5px;
-            margin-top: 0;
+            margin: 0 0 5px 0;
             letter-spacing: 1px;
         }
 
@@ -57,9 +53,9 @@
         }
 
         h2 {
-            color: #e67e22; /* 亮橙色 */
+            color: #e67e22;
             font-size: 20px;
-            border-left: 5px solid #ffca28; /* 左側醒目黃色線條 */
+            border-left: 5px solid #ffca28;
             padding-left: 12px;
             margin-top: 35px;
             margin-bottom: 15px;
@@ -68,12 +64,11 @@
             padding-bottom: 5px;
         }
 
-        /* --- 4. 列表樣式 --- */
         ul {
             padding-left: 20px;
             margin: 0;
         }
-        
+
         li {
             margin-bottom: 8px;
         }
@@ -82,47 +77,120 @@
             color: #d35400;
         }
 
-        /* --- 5. 表格樣式 (手機版優化關鍵) --- */
-        /* 新增：表格外層容器，讓表格在手機上可以左右滑動 */
-        .table-scroll {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch; /* 讓手機滑動更順暢 */
-            margin-top: 15px;
-            border-radius: 12px;
-            border: 1px solid #ffe0b2;
-        }
-
-        table {
+        /* --- 4. RWD 表格設計 (核心技術) --- */
+        
+        .responsive-table {
             width: 100%;
-            min-width: 500px; /* 設定最小寬度，強迫手機版出現捲軸，避免字擠在一起 */
             border-collapse: collapse;
-            background-color: #fff;
         }
 
-        th {
+        /* 電腦版樣式 */
+        .responsive-table th {
             background-color: #ffecb3;
             color: #d35400;
             padding: 12px 15px;
             text-align: left;
             font-weight: bold;
-            font-size: 16px;
             border-bottom: 2px solid #ffcc80;
-            white-space: nowrap; /*標題不換行*/
         }
 
-        td {
+        .responsive-table td {
             padding: 12px 15px;
             border-bottom: 1px solid #fff3e0;
-            color: #555;
             vertical-align: top;
+            color: #555;
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+        /* --- 5. 手機版變形魔法 (Mobile Transformation) --- */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px; /* 手機版內距縮小 */
+            }
 
-        tr:nth-child(even) {
-            background-color: #fffaf5; 
+            h1 { font-size: 22px; }
+            h2 { font-size: 18px; margin-top: 25px; }
+
+            /* 強制將表格轉換為區塊 (Card Layout) */
+            .responsive-table, 
+            .responsive-table tbody, 
+            .responsive-table tr, 
+            .responsive-table td {
+                display: block;
+                width: 100%;
+            }
+
+            /* 隱藏原本的表頭 (Thead) */
+            .responsive-table thead {
+                display: none;
+            }
+
+            /* 每一列 (tr) 變成一張獨立卡片 */
+            .responsive-table tr {
+                margin-bottom: 15px;
+                border: 1px solid #ffe0b2;
+                border-radius: 12px;
+                background-color: #fff;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+                overflow: hidden; /* 圓角修飾 */
+            }
+
+            /* 每個儲存格 (td) 的樣式 */
+            .responsive-table td {
+                padding: 10px 15px;
+                border-bottom: 1px solid #eee;
+                text-align: left;
+            }
+
+            /* --- 針對「照顧分類表」的特殊處理 --- */
+            /* 第一個欄位 (分類名稱) 變成卡片標題 */
+            .care-table td:nth-child(1) {
+                background-color: #fff3e0;
+                color: #d35400;
+                font-weight: bold;
+                font-size: 16px;
+                border-bottom: 2px solid #ffe0b2;
+            }
+            
+            /* 第二個欄位 (特徵) 加上標籤 */
+            .care-table td:nth-child(2)::before {
+                content: "👤 對象：";
+                font-weight: bold;
+                color: #888;
+            }
+
+            /* 第三個欄位 (頻率) 加上標籤 */
+            .care-table td:nth-child(3)::before {
+                content: "⏰ 頻率：";
+                font-weight: bold;
+                color: #888;
+            }
+
+            /* --- 針對「人數規定表」的特殊處理 --- */
+            /* 讓職稱與人數在同一行顯示，節省空間 */
+            .quota-table tr {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5px 0;
+            }
+            
+            .quota-table td {
+                border-bottom: none; /* 移除分隔線 */
+                padding: 10px 15px;
+                width: auto; /* 自動寬度 */
+            }
+
+            .quota-table td:first-child {
+                font-weight: bold;
+                color: #555;
+            }
+
+            .quota-table td:last-child {
+                text-align: right;
+                color: #d35400;
+                font-weight: bold;
+                background-color: transparent; /* 移除背景 */
+            }
         }
 
         /* --- 6. 範例區塊樣式 --- */
@@ -144,8 +212,9 @@
             margin-bottom: 15px;
             font-size: 14px;
             border: 1px solid #ffe0b2;
-            max-width: 100%; /* 防止超出 */
-            word-wrap: break-word;
+            /* 強制換行，防止撐破畫面 */
+            word-wrap: break-word; 
+            max-width: 100%; 
         }
 
         .example-item {
@@ -154,7 +223,7 @@
             border-left: 3px solid #ffca28;
         }
 
-        /* --- 7. 返回按鈕 (修正版) --- */
+        /* --- 7. 返回按鈕 --- */
         .btn-container {
             margin-top: 40px;
             text-align: center;
@@ -162,56 +231,29 @@
 
         .back-btn {
             display: inline-block;
-            padding: 12px 35px;
-            background-color: #f0f0f0; /* 淺灰底 */
+            padding: 12px 40px;
+            background-color: #f0f0f0;
             color: #666;
             text-decoration: none;
             border-radius: 30px;
             transition: 0.3s;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             border: 1px solid #ddd;
         }
 
         .back-btn:hover {
-            background-color: #d35400; /* 懸停變主色 */
+            background-color: #d35400;
             color: #fff;
-            transform: translateY(-2px);
             border-color: #d35400;
             box-shadow: 0 4px 10px rgba(211, 84, 0, 0.2);
         }
 
-        /* --- 8. 手機版專屬調整 (Media Queries) --- */
+        /* 手機版按鈕全寬 */
         @media (max-width: 600px) {
-            body {
-                padding: 10px; /* 減少手機版外圍留白 */
-            }
-            
-            .container {
-                padding: 20px 15px; /* 減少卡片內距，爭取更多閱讀空間 */
-            }
-
-            h1 {
-                font-size: 22px;
-            }
-            
-            h2 {
-                font-size: 18px;
-                margin-top: 25px;
-            }
-
-            th, td {
-                padding: 10px; /* 表格內距縮小 */
-                font-size: 14px;
-            }
-            
-            .example-box {
-                padding: 15px;
-            }
-
             .back-btn {
-                width: 100%; /* 手機版按鈕全寬，比較好按 */
-                display: block; 
+                width: 100%;
+                display: block;
             }
         }
     </style>
@@ -242,37 +284,32 @@
         </ul>
 
         <h2>📊 照顧分類與頻率</h2>
-        <div class="table-scroll">
-            <table>
-                <thead>
-                    <tr>
-                        <th width="20%">分類</th>
-                        <th width="50%">對象特徵</th>
-                        <th width="30%">訪視頻率</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>特需照顧</strong></td>
-                        <td>獨居、乏人照顧、失能、臥床、精神疾病/失智、90歲以上、高風險個案</td>
-                        <td style="color:#d35400; font-weight:bold;">每 3 日 1 次</td>
-                    </tr>
-                    <tr>
-                        <td><strong>較需照顧</strong></td>
-                        <td>雙老家庭、單身住安養機構、需持續關懷者</td>
-                        <td style="color:#e67e22; font-weight:bold;">每 2 週 1 次</td>
-                    </tr>
-                    <tr>
-                        <td><strong>一般照顧</strong></td>
-                        <td>生活穩定、有家庭支持</td>
-                        <td>榮民 1 年/次<br>遺眷 2 年/次</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div style="text-align: center; color: #ccc; font-size: 12px; margin-top: 5px;">
-            (手機版若顯示不全，可左右滑動表格)
-        </div>
+        <table class="responsive-table care-table">
+            <thead>
+                <tr>
+                    <th width="20%">分類</th>
+                    <th width="50%">對象特徵</th>
+                    <th width="30%">訪視頻率</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>特需照顧</strong></td>
+                    <td>獨居、乏人照顧、失能、臥床、精神疾病/失智、90歲以上、高風險個案</td>
+                    <td style="color:#d35400; font-weight:bold;">每 3 日 1 次</td>
+                </tr>
+                <tr>
+                    <td><strong>較需照顧</strong></td>
+                    <td>雙老家庭、單身住安養機構、需持續關懷者</td>
+                    <td style="color:#e67e22; font-weight:bold;">每 2 週 1 次</td>
+                </tr>
+                <tr>
+                    <td><strong>一般照顧</strong></td>
+                    <td>生活穩定、有家庭支持</td>
+                    <td>榮民 1 年/次<br>遺眷 2 年/次</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2>📝 訪視重點</h2>
         <div style="background-color:#fffaf5; padding:15px; border-radius:8px; border:1px solid #eee;">
@@ -303,34 +340,32 @@
         </div>
 
         <h2>🔢 訪視人數規定</h2>
-        <div class="table-scroll">
-            <table>
-                <thead>
-                    <tr>
-                        <th>職稱</th>
-                        <th>規定人數</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>各級主管</td>
-                        <td>15 人 / 月</td>
-                    </tr>
-                    <tr>
-                        <td>責任區輔導員</td>
-                        <td>10 人 / 週</td>
-                    </tr>
-                    <tr>
-                        <td>服務組長</td>
-                        <td>20 人 / 週</td>
-                    </tr>
-                    <tr>
-                        <td>服務員</td>
-                        <td>5 人 / 週</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="responsive-table quota-table">
+            <thead>
+                <tr>
+                    <th>職稱</th>
+                    <th>規定人數</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>各級主管</td>
+                    <td>15 人 / 月</td>
+                </tr>
+                <tr>
+                    <td>責任區輔導員</td>
+                    <td>10 人 / 週</td>
+                </tr>
+                <tr>
+                    <td>服務組長</td>
+                    <td>20 人 / 週</td>
+                </tr>
+                <tr>
+                    <td>服務員</td>
+                    <td>5 人 / 週</td>
+                </tr>
+            </tbody>
+        </table>
 
         <div class="btn-container">
             <a href="work-menu.html" class="back-btn">⬅️ 返回工作項目</a>
