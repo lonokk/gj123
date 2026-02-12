@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>急難救助 & 慰問 - 作業規範</title>
+    <style>
+        /* --- 1. 基礎設定 (暖色系延續) --- */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            color: #5a5a5a;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            border-top: 6px solid #d35400;
+        }
+
+        h1 {
+            color: #d35400;
+            text-align: center;
+            font-size: 26px;
+            margin: 0 0 10px 0;
+        }
+
+        .source-note {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 30px;
+            background-color: #fff3e0;
+            padding: 8px;
+            border-radius: 20px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* --- 2. 身分判斷卡片設計 --- */
+        .identity-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-box {
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #eee;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+        }
+
+        /* 左側標題裝飾線 */
+        .card-box::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 15px;
+            bottom: 15px;
+            width: 5px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* 榮民配色 */
+        .role-veteran { border-left: 5px solid #2980b9; } /* 藍色 */
+        .role-veteran h3 { color: #2980b9; }
+        
+        /* 榮眷配色 */
+        .role-dependent { border-left: 5px solid #e67e22; } /* 橙色 */
+        .role-dependent h3 { color: #e67e22; }
+
+        /* 遺眷配色 */
+        .role-survivor { border-left: 5px solid #27ae60; } /* 綠色 */
+        .role-survivor h3 { color: #27ae60; }
+
+        .card-title {
+            font-size: 20px;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* --- 3. 條件邏輯區塊 (關鍵設計) --- */
+        .condition-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .condition-item {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* 邏輯連接詞樣式 (AND / OR) */
+        .logic-tag {
+            align-self: center;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            text-align: center;
+            margin: 5px 0;
+            width: fit-content;
+        }
+
+        .tag-and {
+            background-color: #dcedc8; /* 淺綠 */
+            color: #33691e;
+        }
+
+        .tag-or {
+            background-color: #ffccbc; /* 淺紅 */
+            color: #bf360c;
+        }
+
+        /* 裝飾圖示 */
+        .icon { margin-right: 10px; font-size: 18px; }
+
+        /* --- 4. 返回按鈕 --- */
+        .back-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            padding: 12px;
+            background-color: #f0f0f0;
+            color: #666;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #d35400;
+            color: white;
+        }
+
+        /* RWD */
+        @media (min-width: 600px) {
+            .back-btn { width: auto; padding: 12px 40px; margin: 30px auto 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚑 急難救助 & 慰問</h1>
+        <div class="source-note">
+            依據：國軍退除役官兵輔導委員會<br>榮民榮眷遺眷急難救助及慰問作業要點
+        </div>
+
+        <div class="identity-section">
+            
+            <div class="card-box role-veteran">
+                <h3 class="card-title">🎖️ 榮民 (符合下列任一項)</h3>
+                <div class="condition-group">
+                    <div style="background:#eef6fb; padding:10px; border-radius:8px;">
+                        <div class="condition-item">🇹🇼 具中華民國國籍</div>
+                        <div class="logic-tag tag-and">➕ 且</div>
+                        <div class="condition-item">🏠 居住於臺灣地區</div>
+                        <div class="logic-tag tag-and">➕ 且</div>
+                        <div class="condition-item">🪪 領有榮民證</div>
+                    </div>
+
+                    <div class="logic-tag tag-or">或 (OR)</div>
+
+                    <div style="background:#eef6fb; padding:10px; border-radius:8px;">
+                        <div class="condition-item">📂 本會服務照顧系統登錄有案之<br>義士、榮胞</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-box role-dependent">
+                <h3 class="card-title">👨‍👩‍👧‍👦 榮眷 (需同時符合)</h3>
+                <div class="condition-group">
+                    <div class="condition-item">🇹🇼 具中華民國國籍<br><span style="font-size:13px; color:#888; font-weight:normal;">(外籍配偶僅需居住於臺灣地區)</span></div>
+                    <div class="logic-tag tag-and">➕ 且</div>
+                    <div class="condition-item">🏠 居住於臺灣地區</div>
+                    
+                    <div class="logic-tag tag-and">➕ 且 (身分為下列之一)</div>
+
+                    <div style="background:#fff3e0; padding:15px; border-radius:8px; font-size:15px;">
+                        <ul style="margin:0; padding-left:20px; line-height:1.8;">
+                            <li>榮民之配偶</li>
+                            <li>榮民之父母</li>
+                            <li>未成年之子女</li>
+                            <li>已成年未婚之身心障礙子女</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-box role-survivor">
+                <h3 class="card-title">🕯️ 遺眷 (需同時符合)</h3>
+                <div class="condition-group">
+                    <div class="condition-item">🏠 居住於臺灣地區</div>
+                    
+                    <div class="logic-tag tag-and">➕ 且 (身分為下列之一)</div>
+
+                    <div style="background:#e8f5e9; padding:15px; border-radius:8px; font-size:15px;">
+                        <div><strong>故榮民之：</strong></div>
+                        <ul style="margin:5px 0 0 0; padding-left:20px; line-height:1.8;">
+                            <li>配偶</li>
+                            <li>父母</li>
+                            <li>未成年之子女</li>
+                            <li>已成年未婚之身心障礙子女</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <a href="work-menu.html" class="back-btn">⬅️ 返回工作項目</a>
+    </div>
+
+</body>
+</html>
