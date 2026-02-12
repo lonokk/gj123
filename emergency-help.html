@@ -14,7 +14,6 @@
             color: #333;
             margin: 0;
             padding: 20px;
-            /* 修正：移除 flex 設定，改用最傳統的 margin:auto 置中，避免部分瀏覽器相容問題導致空白 */
             line-height: 1.6;
         }
 
@@ -26,7 +25,7 @@
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
-            border-top: 6px solid #d35400;
+            border-top: 6px solid #d35400; /* 頂部橙色線 */
         }
 
         h1 {
@@ -48,7 +47,7 @@
 
         /* --- 2. 卡片樣式 --- */
         .simple-card {
-            background-color: #fffaf5;
+            background-color: #fffaf5; /* 極淡暖色底 */
             border: 1px solid #ffe0b2;
             border-radius: 12px;
             padding: 20px;
@@ -58,43 +57,25 @@
         .card-title {
             color: #d35400;
             font-size: 18px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
         }
 
         .card-content {
             font-size: 16px;
             color: #444;
         }
-
-        /* 榮民的 OR 分隔線 */
-        .or-divider {
-            text-align: center;
-            margin: 15px 0;
-            position: relative;
-            font-size: 14px;
-            color: #999;
-            font-weight: bold;
-        }
         
-        .or-divider::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 45%; /* 線條長度 */
-            height: 1px;
-            background-color: #ddd;
+        /* 讓條列項目的間距舒服一點 */
+        .card-content div {
+            margin-bottom: 8px;
         }
 
-        .or-divider::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: 0;
-            width: 45%; /* 線條長度 */
-            height: 1px;
-            background-color: #ddd;
+        /* 強調文字 */
+        strong {
+            color: #bf360c;
         }
 
         /* --- 3. 底部備註 --- */
@@ -139,10 +120,7 @@
         <div class="simple-card">
             <div class="card-title">🎖️ 榮民</div>
             <div class="card-content">
-                <div>1. 領有榮民證</div>
-                
-                <div class="or-divider">OR</div>
-                
+                <div>1. 領有榮民證之榮民。</div>
                 <div>2. 本會服務照顧系統登錄有案之義士、榮胞。</div>
             </div>
         </div>
