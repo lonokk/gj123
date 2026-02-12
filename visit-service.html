@@ -5,66 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>訪視服務作業規範</title>
     <style>
-        /* --- 1. 全域設定 --- */
+        /* --- 1. 基礎設定：暖色風格 (與 index.html 保持一致) --- */
         * {
             box-sizing: border-box;
         }
 
         body {
-            /* 背景：極淡的青色，像清晨的空氣 */
-            background-color: #e0f2f1;
+            /* 背景：米白色 */
+            background-color: #fdfbf7;
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #37474f; /* 深灰藍色文字 */
+            color: #5a5a5a;
             margin: 0;
             padding: 20px;
+            /* 讓內容在電腦版置中，手機版自然延伸 */
             display: flex;
             justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
             line-height: 1.6;
         }
 
-        /* --- 2. 主要容器 --- */
+        /* --- 2. 主要容器卡片 --- */
         .container {
             background-color: #ffffff;
             width: 100%;
-            max-width: 800px;
+            max-width: 800px; /* 電腦版最大寬度 */
             padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 121, 107, 0.15); /* 青色系的陰影 */
-            border-top: 6px solid #009688; /* 頂部青色裝飾線 */
+            border-radius: 20px;
+            /* 陰影：暖色系的柔和陰影，營造立體感 */
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            border-top: 6px solid #d35400; /* 頂部橙色裝飾線 */
+            margin-bottom: 20px;
         }
 
         /* --- 3. 標題樣式 --- */
         h1 {
-            color: #00796b; /* 深青色 */
+            color: #d35400; /* 焦橙色 */
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
+            font-size: 26px;
+            margin-bottom: 5px;
+            margin-top: 0;
             letter-spacing: 1px;
         }
 
         .subtitle {
             text-align: center;
-            color: #5d6d7e;
-            font-size: 16px;
-            margin-bottom: 40px;
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 30px;
             font-weight: normal;
         }
 
         h2 {
-            color: #00695c;
+            color: #e67e22; /* 亮橙色 */
             font-size: 20px;
-            border-left: 5px solid #26a69a; /* 左側醒目線條 */
+            border-left: 5px solid #ffca28; /* 左側醒目黃色線條 */
             padding-left: 12px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #e0f2f1, transparent); /* 漸層背景 */
+            margin-top: 35px;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fff8e1, transparent);
             padding-top: 5px;
             padding-bottom: 5px;
         }
 
-        /* --- 4. 列表樣式 (用於訪視對象與重點) --- */
+        /* --- 4. 列表樣式 --- */
         ul {
             padding-left: 20px;
+            margin: 0;
         }
         
         li {
@@ -72,33 +79,41 @@
         }
 
         strong {
-            color: #00796b;
+            color: #d35400;
         }
 
-        /* --- 5. 表格樣式 (重點設計) --- */
+        /* --- 5. 表格樣式 (手機版優化關鍵) --- */
+        /* 新增：表格外層容器，讓表格在手機上可以左右滑動 */
+        .table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch; /* 讓手機滑動更順暢 */
+            margin-top: 15px;
+            border-radius: 12px;
+            border: 1px solid #ffe0b2;
+        }
+
         table {
             width: 100%;
+            min-width: 500px; /* 設定最小寬度，強迫手機版出現捲軸，避免字擠在一起 */
             border-collapse: collapse;
-            margin-top: 15px;
             background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden; /* 讓圓角生效 */
-            box-shadow: 0 0 0 1px #b2dfdb; /* 細緻的邊框 */
         }
 
         th {
-            background-color: #00897b; /* 青色表頭 */
-            color: #ffffff;
+            background-color: #ffecb3;
+            color: #d35400;
             padding: 12px 15px;
             text-align: left;
-            font-weight: normal;
+            font-weight: bold;
             font-size: 16px;
+            border-bottom: 2px solid #ffcc80;
+            white-space: nowrap; /*標題不換行*/
         }
 
         td {
             padding: 12px 15px;
-            border-bottom: 1px solid #e0f2f1;
-            color: #455a64;
+            border-bottom: 1px solid #fff3e0;
+            color: #555;
             vertical-align: top;
         }
 
@@ -106,19 +121,14 @@
             border-bottom: none;
         }
 
-        /* 表格隔行變色 */
         tr:nth-child(even) {
-            background-color: #fafafr; 
-        }
-
-        tr:hover {
-            background-color: #e0f2f1; /* 滑鼠懸停效果 */
+            background-color: #fffaf5; 
         }
 
         /* --- 6. 範例區塊樣式 --- */
         .example-box {
-            background-color: #f1f8e9; /* 帶一點點綠的白，區分範例 */
-            border: 1px dashed #aed581;
+            background-color: #fff8e1;
+            border: 1px dashed #ffb74d;
             padding: 20px;
             border-radius: 10px;
             margin-top: 15px;
@@ -126,46 +136,83 @@
 
         .example-format {
             font-family: Consolas, Monaco, monospace;
-            color: #558b2f;
+            color: #e65100;
             background-color: #fff;
             padding: 5px 10px;
             border-radius: 4px;
             display: inline-block;
             margin-bottom: 15px;
             font-size: 14px;
-            border: 1px solid #dcedc8;
+            border: 1px solid #ffe0b2;
+            max-width: 100%; /* 防止超出 */
+            word-wrap: break-word;
         }
 
         .example-item {
             margin-bottom: 12px;
             padding-left: 15px;
-            border-left: 3px solid #81c784;
+            border-left: 3px solid #ffca28;
         }
 
-        /* --- 7. 返回按鈕 --- */
+        /* --- 7. 返回按鈕 (修正版) --- */
+        .btn-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
         .back-btn {
-            display: block;
-            width: fit-content;
-            margin: 40px auto 0;
-            padding: 10px 25px;
-            background-color: #00796b;
-            color: white;
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: #f0f0f0; /* 淺灰底 */
+            color: #666;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             transition: 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 15px;
+            font-weight: bold;
+            border: 1px solid #ddd;
         }
 
         .back-btn:hover {
-            background-color: #004d40;
+            background-color: #d35400; /* 懸停變主色 */
+            color: #fff;
             transform: translateY(-2px);
+            border-color: #d35400;
+            box-shadow: 0 4px 10px rgba(211, 84, 0, 0.2);
         }
 
-        /* RWD */
+        /* --- 8. 手機版專屬調整 (Media Queries) --- */
         @media (max-width: 600px) {
-            .container { padding: 20px; }
-            th, td { padding: 10px; font-size: 14px; }
-            h1 { font-size: 24px; }
+            body {
+                padding: 10px; /* 減少手機版外圍留白 */
+            }
+            
+            .container {
+                padding: 20px 15px; /* 減少卡片內距，爭取更多閱讀空間 */
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+            
+            h2 {
+                font-size: 18px;
+                margin-top: 25px;
+            }
+
+            th, td {
+                padding: 10px; /* 表格內距縮小 */
+                font-size: 14px;
+            }
+            
+            .example-box {
+                padding: 15px;
+            }
+
+            .back-btn {
+                width: 100%; /* 手機版按鈕全寬，比較好按 */
+                display: block; 
+            }
         }
     </style>
 </head>
@@ -195,35 +242,40 @@
         </ul>
 
         <h2>📊 照顧分類與頻率</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th width="20%">分類</th>
-                    <th width="55%">對象特徵</th>
-                    <th width="25%">訪視頻率</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>特需照顧</strong></td>
-                    <td>獨居、乏人照顧、失能、臥床、精神疾病/失智、90歲以上、高風險個案</td>
-                    <td style="color:#d81b60; font-weight:bold;">每 3 日 1 次</td>
-                </tr>
-                <tr>
-                    <td><strong>較需照顧</strong></td>
-                    <td>雙老家庭、單身住安養機構、需持續關懷者</td>
-                    <td style="color:#f57f17; font-weight:bold;">每 2 週 1 次</td>
-                </tr>
-                <tr>
-                    <td><strong>一般照顧</strong></td>
-                    <td>生活穩定、有家庭支持</td>
-                    <td>榮民 1 年/次<br>遺眷 2 年/次</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="20%">分類</th>
+                        <th width="50%">對象特徵</th>
+                        <th width="30%">訪視頻率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>特需照顧</strong></td>
+                        <td>獨居、乏人照顧、失能、臥床、精神疾病/失智、90歲以上、高風險個案</td>
+                        <td style="color:#d35400; font-weight:bold;">每 3 日 1 次</td>
+                    </tr>
+                    <tr>
+                        <td><strong>較需照顧</strong></td>
+                        <td>雙老家庭、單身住安養機構、需持續關懷者</td>
+                        <td style="color:#e67e22; font-weight:bold;">每 2 週 1 次</td>
+                    </tr>
+                    <tr>
+                        <td><strong>一般照顧</strong></td>
+                        <td>生活穩定、有家庭支持</td>
+                        <td>榮民 1 年/次<br>遺眷 2 年/次</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="text-align: center; color: #ccc; font-size: 12px; margin-top: 5px;">
+            (手機版若顯示不全，可左右滑動表格)
+        </div>
 
         <h2>📝 訪視重點</h2>
-        <div style="background-color:#e0f2f1; padding:15px; border-radius:8px;">
+        <div style="background-color:#fffaf5; padding:15px; border-radius:8px; border:1px solid #eee;">
             <ul style="margin:0;">
                 <li><strong>生活與健康：</strong>健康醫療 / 生活起居 / 經濟情形</li>
                 <li><strong>環境與資源：</strong>家庭支持 / 居住安全 / 福利需求</li>
@@ -251,34 +303,38 @@
         </div>
 
         <h2>🔢 訪視人數規定</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>職稱</th>
-                    <th>規定人數</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>各級主管</td>
-                    <td>15 人 / 月</td>
-                </tr>
-                <tr>
-                    <td>責任區輔導員</td>
-                    <td>10 人 / 週</td>
-                </tr>
-                <tr>
-                    <td>服務組長</td>
-                    <td>20 人 / 週</td>
-                </tr>
-                <tr>
-                    <td>服務員</td>
-                    <td>5 人 / 週</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>職稱</th>
+                        <th>規定人數</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>各級主管</td>
+                        <td>15 人 / 月</td>
+                    </tr>
+                    <tr>
+                        <td>責任區輔導員</td>
+                        <td>10 人 / 週</td>
+                    </tr>
+                    <tr>
+                        <td>服務組長</td>
+                        <td>20 人 / 週</td>
+                    </tr>
+                    <tr>
+                        <td>服務員</td>
+                        <td>5 人 / 週</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <a href="#" class="back-btn" onclick="history.back()">⬅️ 返回上一頁</a>
+        <div class="btn-container">
+            <a href="work-menu.html" class="back-btn">⬅️ 返回工作項目</a>
+        </div>
     </div>
 
 </body>
