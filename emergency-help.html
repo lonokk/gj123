@@ -5,37 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>急難救助 & 慰問</title>
     <style>
-        /* --- 1. 基礎設定 (暖色系) --- */
+        /* --- 1. 基礎設定 --- */
         * { box-sizing: border-box; }
+        
         body {
-            background-color: #fdfbf7;
+            background-color: #fdfbf7; /* 米色背景 */
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #5a5a5a;
+            color: #333;
             margin: 0;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* 讓內容從上方開始 */
-            min-height: 100vh;
+            padding: 20px;
+            /* 修正：移除 flex 設定，改用最傳統的 margin:auto 置中，避免部分瀏覽器相容問題導致空白 */
             line-height: 1.6;
         }
 
         .container {
             background-color: #ffffff;
             width: 100%;
-            max-width: 600px; /* 內容較簡潔，寬度不用太寬 */
+            max-width: 600px;
+            margin: 0 auto; /* 水平置中 */
             padding: 30px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
             border-top: 6px solid #d35400;
-            margin-bottom: 20px;
         }
 
         h1 {
             color: #d35400;
             text-align: center;
             font-size: 24px;
-            margin: 0 0 10px 0;
+            margin-top: 0;
+            margin-bottom: 10px;
         }
 
         .source-note {
@@ -47,9 +46,9 @@
             padding-bottom: 15px;
         }
 
-        /* --- 2. 簡化版卡片樣式 --- */
+        /* --- 2. 卡片樣式 --- */
         .simple-card {
-            background-color: #fffaf5; /* 極淡的暖色底 */
+            background-color: #fffaf5;
             border: 1px solid #ffe0b2;
             border-radius: 12px;
             padding: 20px;
@@ -57,12 +56,10 @@
         }
 
         .card-title {
-            color: #d35400; /* 主色標題 */
+            color: #d35400;
             font-size: 18px;
-            margin: 0 0 12px 0;
+            margin-bottom: 10px;
             font-weight: bold;
-            display: flex;
-            align-items: center;
         }
 
         .card-content {
@@ -70,33 +67,37 @@
             color: #444;
         }
 
-        /* 重點文字強調 */
-        strong {
-            color: #bf360c;
-        }
-
         /* 榮民的 OR 分隔線 */
         .or-divider {
             text-align: center;
-            margin: 10px 0;
+            margin: 15px 0;
             position: relative;
             font-size: 14px;
             color: #999;
             font-weight: bold;
         }
         
-        .or-divider::before, .or-divider::after {
+        .or-divider::before {
             content: "";
             position: absolute;
             top: 50%;
-            width: 40%;
+            left: 0;
+            width: 45%; /* 線條長度 */
             height: 1px;
-            background-color: #e0e0e0;
+            background-color: #ddd;
         }
-        .or-divider::before { left: 0; }
-        .or-divider::after { right: 0; }
 
-        /* --- 3. 底部備註 (居住地) --- */
+        .or-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 45%; /* 線條長度 */
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        /* --- 3. 底部備註 --- */
         .footer-note {
             background-color: #fff3e0;
             color: #e65100;
@@ -125,7 +126,6 @@
             background-color: #555;
             color: white;
         }
-
     </style>
 </head>
 <body>
