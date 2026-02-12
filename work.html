@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>工作項目 - 工作資料夾</title>
     <style>
-        /* 保持一致的溫馨暖色風格 */
+        /* --- 1. 全域設定 --- */
+        * {
+            box-sizing: border-box; /* 確保邊框不會撐大版面 */
+        }
+
         body {
-            background-color: #fdfbf7;
+            background-color: #fdfbf7; /* 溫暖的米色背景 */
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
             color: #5a5a5a;
             margin: 0;
@@ -18,6 +22,7 @@
             min-height: 100vh;
         }
 
+        /* --- 2. 卡片容器 --- */
         .card {
             background-color: #ffffff;
             width: 100%;
@@ -28,20 +33,23 @@
             text-align: center;
             margin-top: 20px;
             margin-bottom: 20px;
+            border-top: 5px solid #d35400; /* 頂部裝飾線 */
         }
 
         h2 {
             color: #d35400;
-            font-size: 22px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            margin-bottom: 25px;
             border-bottom: 2px solid #ffe0b2;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
         }
 
+        /* --- 3. 按鈕列表樣式 --- */
         .link-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px; /* 按鈕之間的距離 */
         }
 
         .link-btn {
@@ -50,82 +58,92 @@
             text-decoration: none;
             background-color: #fffaf5;
             color: #555;
-            padding: 15px 18px;
-            border-radius: 12px;
-            border: 1px solid #eee;
+            padding: 18px 20px; /* 加大一點點擊範圍 */
+            border-radius: 15px;
+            border: 1px solid #ffe0b2;
             transition: all 0.2s ease;
             text-align: left;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* 圖示區塊 */
         .icon-box {
-            font-size: 24px;
-            margin-right: 15px;
-            width: 30px;
+            font-size: 28px;
+            margin-right: 18px;
+            width: 35px;
             text-align: center;
         }
 
+        /* 文字區塊 */
         .text-box {
             display: flex;
             flex-direction: column;
         }
 
         .main-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            color: #333;
-            margin-bottom: 3px;
+            color: #d35400;
+            margin-bottom: 4px;
         }
 
         .sub-title {
-            font-size: 13px;
+            font-size: 14px;
             color: #888;
             font-weight: normal;
         }
 
-        /* 滑鼠移上去的效果 */
-        .link-btn:hover {
+        /* 滑鼠移上去的效果 (Active) */
+        .link-btn:not(.placeholder):hover {
             background-color: #ffe0b2;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             border-color: #ffcc80;
-            box-shadow: 0 4px 10px rgba(211, 84, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.15);
         }
 
-        .link-btn:hover .sub-title {
-            color: #d35400;
-            opacity: 0.8;
+        .link-btn:not(.placeholder):hover .sub-title {
+            color: #bf360c;
         }
 
-        /* 預留選項的特別樣式：看起來比較淡，表示暫時沒內容 */
+        /* --- 4. 預留選項樣式 (灰色無效狀態) --- */
         .placeholder {
             background-color: #f9f9f9;
-            color: #aaa;
             border: 1px dashed #ddd; /* 虛線邊框 */
+            pointer-events: none; /* 禁止點擊 */
+            cursor: default;
         }
         
         .placeholder .main-title {
-            color: #999;
+            color: #aaa;
+        }
+        
+        .placeholder .sub-title {
+            color: #ccc;
         }
         
         .placeholder .icon-box {
             filter: grayscale(100%); /* 讓圖示變灰 */
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
+        /* --- 5. 返回首頁按鈕 --- */
         .back-btn {
             display: inline-block;
-            margin-top: 25px;
-            color: #999;
+            margin-top: 35px;
+            color: #888;
             text-decoration: none;
-            font-size: 14px;
-            padding: 8px 15px;
-            border-radius: 20px;
+            font-size: 15px;
+            padding: 10px 25px;
+            border-radius: 30px;
             background-color: #f0f0f0;
             transition: 0.3s;
         }
         .back-btn:hover {
-            background-color: #e0e0e0;
-            color: #555;
+            background-color: #555;
+            color: #fff;
         }
+
     </style>
 </head>
 <body>
@@ -134,27 +152,20 @@
         <h2>🛠️ 工作項目</h2>
         
         <div class="link-list">
-            <a href="visit-service.html" class="link-btn">
+            
+            <a href="visit-guide.html" class="link-btn">
                 <div class="icon-box">👣</div>
                 <div class="text-box">
-                    <span class="main-title">訪視服務</span>
+                    <span class="main-title">訪視服務規範</span>
                     <span class="sub-title">（業務執行與紀錄）</span>
                 </div>
             </a>
             
-           <a href="#" class="link-btn placeholder">
-                <div class="icon-box">➕</div>
+            <a href="emergency-help.html" class="link-btn">
+                <div class="icon-box">🚑</div>
                 <div class="text-box">
-                    <span class="main-title">預留選項 1</span>
-                    <span class="sub-title">（待新增）</span>
-                </div>
-            </a>
-
-            <a href="#" class="link-btn placeholder">
-                <div class="icon-box">➕</div>
-                <div class="text-box">
-                    <span class="main-title">預留選項 2</span>
-                    <span class="sub-title">（待新增）</span>
+                    <span class="main-title">急難救助 & 慰問</span>
+                    <span class="sub-title">（對象資格判定）</span>
                 </div>
             </a>
 
