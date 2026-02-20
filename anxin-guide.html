@@ -140,11 +140,11 @@
 
         /* ✨ 展開後顯示的截圖樣式 ✨ */
         .inline-screenshot {
-            width: 100%;
+            width: 50%; /* 【修改處】將寬度從 100% 改為 50%，圖片就會縮小一半 */
             height: auto;
             border-radius: 8px;
             border: 1px solid #ddd;
-            margin-top: 12px; /* 讓圖片與上方的文字保持距離 */
+            margin: 12px auto 0 auto; /* 【修改處】加上 auto 讓縮小後的圖片保持水平置中 */
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             display: block;
         }
