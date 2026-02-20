@@ -39,7 +39,11 @@
             text-align: center;
         }
 
-        /* --- 摺疊模組設計 --- */
+        /* 隱藏預設的黑色小三角形 */
+        summary::-webkit-details-marker { display: none; }
+        summary { list-style: none; outline: none; }
+
+        /* ================= 第一層：模組選單設計 ================= */
         details.module-group {
             background-color: #fff;
             border: 1px solid #cce5ff;
@@ -47,25 +51,15 @@
             margin-bottom: 15px;
             box-shadow: 0 4px 10px rgba(41, 128, 185, 0.05);
             overflow: hidden;
-            transition: all 0.3s ease;
         }
-
-        /* 隱藏預設的黑色小三角形 */
-        summary::-webkit-details-marker { display: none; }
-        summary { list-style: none; outline: none; }
-
-        /* 摺疊按鈕的外觀 */
         .summary-header {
             display: flex;
             align-items: center;
             background-color: #f5fbff; 
-            color: #555;
             padding: 16px 20px;
             cursor: pointer;
-            position: relative;
         }
         .summary-header:hover { background-color: #e3f2fd; }
-
         .icon-box {
             font-size: 26px;
             margin-right: 15px;
@@ -75,7 +69,7 @@
         .text-box {
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* 佔滿剩餘空間 */
+            flex-grow: 1;
         }
         .main-title {
             font-size: 18px;
@@ -87,36 +81,71 @@
             font-size: 13px;
             color: #78909c;
         }
-        
-        /* 右側展開指示圖示 (+/-) */
         .toggle-icon {
             font-size: 20px;
             color: #90caf9;
             font-weight: bold;
             transition: transform 0.3s ease;
         }
-        /* 當 details 展開時，旋轉圖示 */
-        details[open] .toggle-icon { transform: rotate(45deg); color: #1565c0; }
+        details.module-group[open] > .summary-header .toggle-icon { 
+            transform: rotate(45deg); color: #1565c0; 
+        }
 
-        /* --- 展開後的內容區 --- */
+        /* 第一層展開後的灰色背景區 */
         .feature-list {
-            padding: 15px 20px;
+            padding: 15px;
             background-color: #fafbfc;
             border-top: 1px dashed #bbdefb;
         }
-        
-        .feature-item {
-            margin-bottom: 12px;
-            font-size: 14.5px;
-            line-height: 1.6;
-            color: #444;
+
+        /* ================= 第二層：具體功能選單設計 ================= */
+        details.function-item {
+            background-color: #ffffff;
+            border: 1px solid #e3f2fd;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
-        .feature-item strong {
-            color: #d35400; /* 重點字改用顯眼的橘色 */
-            margin-right: 5px;
+        .function-title {
+            padding: 12px 15px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #444;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+        }
+        .function-title:hover { background-color: #f0f7ff; color: #1565c0; }
+        
+        /* 功能點開時，標題變色 */
+        details.function-item[open] > .function-title {
+            color: #d35400;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .func-arrow {
+            font-size: 12px;
+            color: #aaa;
+            transition: transform 0.2s;
+        }
+        details.function-item[open] > .function-title .func-arrow {
+            transform: rotate(180deg);
+            color: #d35400;
         }
 
-        /* 反白顯示的按鈕標籤 */
+        /* 第二層展開後的「操作路徑」區塊 */
+        .function-path {
+            padding: 15px;
+            background-color: #fffaf5; /* 暖色底區隔 */
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* 路徑標籤 */
         .path-tag {
             background-color: #546e7a; 
             color: #ffffff;
@@ -126,9 +155,9 @@
             margin: 0 2px;
             display: inline-block;
         }
-        .arrow { color: #90caf9; font-size: 12px; margin: 0 2px; }
+        .arrow { color: #90caf9; font-size: 12px; margin: 0 2px; font-weight: bold;}
 
-        /* 前往圖文教學的獨立按鈕 */
+        /* 圖文教學按鈕 */
         .go-detail-btn {
             display: block;
             text-align: center;
@@ -140,10 +169,11 @@
             margin-top: 20px;
             font-weight: bold;
             transition: 0.2s;
+            border: none;
         }
         .go-detail-btn:hover { background-color: #0d47a1; }
 
-        /* 返回首頁 */
+        /* 返回按鈕 */
         .back-btn {
             display: block;
             text-align: center;
@@ -169,15 +199,27 @@
                 <div class="icon-box">🏠</div>
                 <div class="text-box">
                     <span class="main-title">1. 首頁</span>
-                    <span class="sub-title">點擊展開功能路徑</span>
+                    <span class="sub-title">點擊展開功能列表</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             <div class="feature-list">
-                <div class="feature-item"><strong>查看當日行程：</strong><span class="path-tag">首頁</span></div>
-                <div class="feature-item"><strong>訪視打卡：</strong><span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">點選個案</span> <span class="arrow">➔</span> <span class="path-tag">訪視打卡</span></div>
                 
-                <a href="anxin-home.html" class="go-detail-btn">📖 點擊查看【首頁】圖解教學</a>
+                <details class="function-item">
+                    <summary class="function-title">📌 查看當日行程 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">首頁</span> (預設顯示)
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 訪視打卡 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">點選個案行程摘要</span> <span class="arrow">➔</span> <span class="path-tag">訪視打卡</span>
+                    </div>
+                </details>
+
+                <a href="anxin-home.html" class="go-detail-btn">📖 查看【首頁】圖解教學</a>
             </div>
         </details>
 
@@ -186,18 +228,49 @@
                 <div class="icon-box">💬</div>
                 <div class="text-box">
                     <span class="main-title">2. 聊天室</span>
-                    <span class="sub-title">點擊展開功能路徑</span>
+                    <span class="sub-title">點擊展開功能列表</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             <div class="feature-list">
-                <div class="feature-item"><strong>新建群組：</strong><span class="path-tag">聊天室</span> <span class="arrow">➔</span> <span class="path-tag">新建群組</span></div>
-                <div class="feature-item"><strong>上傳圖片：</strong>進入群組 <span class="arrow">➔</span> 點選下方 <span class="path-tag">圖片圖示</span></div>
-                <div class="feature-item"><strong>管理/邀請成員：</strong>進入群組 <span class="arrow">➔</span> 點頂部 <span class="path-tag">></span> <span class="arrow">➔</span> <span class="path-tag">新增/刪除</span> 或 <span class="path-tag">分享</span></div>
-                <div class="feature-item"><strong>群組設定/會議：</strong>進入群組 <span class="arrow">➔</span> 點頂部 <span class="path-tag">></span> <span class="arrow">➔</span> 點擊 <span class="path-tag">鉛筆圖示</span></div>
-                <div class="feature-item"><strong>結構化紀錄：</strong>進入群組 <span class="arrow">➔</span> 點擊 <span class="path-tag">鍵盤圖示</span> (或輸入 <span class="path-tag">@</span>標記 <span class="path-tag">!</span>注意 <span class="path-tag">#</span>待辦)</div>
                 
-                <a href="anxin-chat.html" class="go-detail-btn">📖 點擊查看【聊天室】圖解教學</a>
+                <details class="function-item">
+                    <summary class="function-title">📌 新建群組 (專業/家屬/聊天) <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 右上角 <span class="path-tag">新建群組</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 上傳圖片 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        進入特定群組 <span class="arrow">➔</span> 點選下方 <span class="path-tag">圖片圖示</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 管理/邀請群組成員 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        進入特定群組 <span class="arrow">➔</span> 點擊頂部名稱旁 <span class="path-tag">></span> <span class="arrow">➔</span> <span class="path-tag">新增/刪除成員</span> 或 <span class="path-tag">分享(Line邀請)</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 編輯群組/發起會議 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        進入特定群組 <span class="arrow">➔</span> 點擊頂部名稱旁 <span class="path-tag">></span> <span class="arrow">➔</span> 點擊 <span class="path-tag">橘色鉛筆圖示</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 發送結構化紀錄與評估 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        進入特定群組 <span class="arrow">➔</span> 點擊下方 <span class="path-tag">結構化鍵盤圖示</span><br><br>
+                        <strong>快捷鍵：</strong>輸入 <span class="path-tag">@</span>標記人員、<span class="path-tag">!</span>新增注意、<span class="path-tag">#</span>新增待辦
+                    </div>
+                </details>
+
+                <a href="anxin-chat.html" class="go-detail-btn">📖 查看【聊天室】圖解教學</a>
             </div>
         </details>
 
@@ -206,17 +279,41 @@
                 <div class="icon-box">📅</div>
                 <div class="text-box">
                     <span class="main-title">3. 行事曆</span>
-                    <span class="sub-title">點擊展開功能路徑</span>
+                    <span class="sub-title">點擊展開功能列表</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             <div class="feature-list">
-                <div class="feature-item"><strong>查看同訪人員：</strong><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> <span class="path-tag">同訪人員</span></div>
-                <div class="feature-item"><strong>新增行程：</strong><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> <span class="path-tag">新增圖示 (+)</span></div>
-                <div class="feature-item"><strong>修改/退出/刪除：</strong>點選特定行程的 <span class="path-tag">鉛筆圖示</span> <span class="arrow">➔</span> 執行對應操作</div>
-                <div class="feature-item"><strong>複製行程：</strong>點選特定行程的 <span class="path-tag">複製圖示</span> <span class="arrow">➔</span> 修改日期並儲存</div>
                 
-                <a href="anxin-calendar.html" class="go-detail-btn">📖 點擊查看【行事曆】圖解教學</a>
+                <details class="function-item">
+                    <summary class="function-title">📌 查看同訪人員 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> <span class="path-tag">同訪人員</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 新增行程 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> 右上角 <span class="path-tag">新增圖示 (+)</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 修改 / 退出 / 刪除行程 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">行事曆</span> <span class="arrow">➔</span> 點選日期 <span class="arrow">➔</span> 點選行程的 <span class="path-tag">鉛筆圖示</span> <span class="arrow">➔</span> 執行對應操作
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 複製行程 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">行事曆</span> <span class="arrow">➔</span> 點選日期 <span class="arrow">➔</span> 點選行程的 <span class="path-tag">複製圖示</span> <span class="arrow">➔</span> 修改日期並儲存
+                    </div>
+                </details>
+
+                <a href="anxin-calendar.html" class="go-detail-btn">📖 查看【行事曆】圖解教學</a>
             </div>
         </details>
 
@@ -225,17 +322,41 @@
                 <div class="icon-box">📂</div>
                 <div class="text-box">
                     <span class="main-title">4. 清單 (個案資料)</span>
-                    <span class="sub-title">點擊展開功能路徑</span>
+                    <span class="sub-title">點擊展開功能列表</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             <div class="feature-list">
-                <div class="feature-item"><strong>編輯/分享個案：</strong><span class="path-tag">清單</span> <span class="arrow">➔</span> 個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">編輯</span> 或 <span class="path-tag">分享</span></div>
-                <div class="feature-item"><strong>查看健康數據：</strong><span class="path-tag">清單</span> <span class="arrow">➔</span> 個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">健康</span></div>
-                <div class="feature-item"><strong>填寫評估量表：</strong><span class="path-tag">清單</span> <span class="arrow">➔</span> 個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">評估</span></div>
-                <div class="feature-item"><strong>查看歷程：</strong><span class="path-tag">清單</span> <span class="arrow">➔</span> 個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> 點選 <span class="path-tag">家屬</span> 或 <span class="path-tag">專業</span></div>
                 
-                <a href="anxin-list.html" class="go-detail-btn">📖 點擊查看【清單】圖解教學</a>
+                <details class="function-item">
+                    <summary class="function-title">📌 編輯 / 分享個案 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">清單</span> <span class="arrow">➔</span> 點擊個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">編輯</span> 或 <span class="path-tag">分享</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 查看健康數據 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">清單</span> <span class="arrow">➔</span> 點擊個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">健康</span> <span class="arrow">➔</span> 切換子標籤 (生理/飲食/用藥等)
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 填寫與查詢評估量表 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">清單</span> <span class="arrow">➔</span> 點擊個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">評估</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 查看家屬/專業歷程 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">清單</span> <span class="arrow">➔</span> 點擊個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">家屬</span> 或 <span class="path-tag">專業</span>
+                    </div>
+                </details>
+
+                <a href="anxin-list.html" class="go-detail-btn">📖 查看【清單】圖解教學</a>
             </div>
         </details>
 
@@ -244,18 +365,48 @@
                 <div class="icon-box">🧰</div>
                 <div class="text-box">
                     <span class="main-title">5. 工具箱</span>
-                    <span class="sub-title">點擊展開功能路徑</span>
+                    <span class="sub-title">點擊展開功能列表</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             <div class="feature-list">
-                <div class="feature-item"><strong>修改密碼/個資：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">點擊頂部個人姓名</span></div>
-                <div class="feature-item"><strong>新增個案：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">新增個案</span></div>
-                <div class="feature-item"><strong>總覽數據：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> 點選 <span class="path-tag">評估</span> 或 <span class="path-tag">血壓分布</span></div>
-                <div class="feature-item"><strong>未讀通知設定：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">未讀通知</span></div>
-                <div class="feature-item"><strong>觀看教學/通訊錄：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">操作教學</span> 或 <span class="path-tag">機構通訊錄</span></div>
                 
-                <a href="anxin-basic.html" class="go-detail-btn">📖 點擊查看【工具箱(基本功能)】圖解教學</a>
+                <details class="function-item">
+                    <summary class="function-title">📌 修改密碼與個資 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">工具箱</span> <span class="arrow">➔</span> 點擊頂部 <span class="path-tag">個人姓名</span> <span class="arrow">➔</span> 修改基本資料/密碼
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 新增個案 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">新增個案</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 量表與血壓總覽 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">評估</span> 或 <span class="path-tag">血壓分布</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 未讀通知設定 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">未讀通知</span>
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 教學與機構通訊錄 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">操作教學</span> 或 <span class="path-tag">機構通訊錄</span>
+                    </div>
+                </details>
+
+                <a href="anxin-basic.html" class="go-detail-btn">📖 查看【工具箱(基本設定)】圖解教學</a>
             </div>
         </details>
 
