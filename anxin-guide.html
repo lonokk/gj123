@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安心御老操作指南</title>
+    <style>
+        /* 延續暖色系風格，保持視覺一致性 */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            color: #5a5a5a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-top: 5px solid #2980b9; /* 系統操作換個專業的藍色頂線 */
+        }
+        h2 {
+            color: #2980b9; /* 標題顏色改為藍色系區隔 */
+            font-size: 24px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #bbdefb;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .link-btn {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background-color: #f5fbff; /* 淡淡的藍色底 */
+            color: #555;
+            padding: 16px 20px;
+            border-radius: 15px;
+            border: 1px solid #cce5ff;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        .icon-box {
+            font-size: 26px;
+            margin-right: 18px;
+            width: 35px;
+            text-align: center;
+        }
+        .text-box {
+            display: flex;
+            flex-direction: column;
+        }
+        .main-title {
+            font-size: 17px;
+            font-weight: bold;
+            color: #1565c0; /* 深藍色文字 */
+        }
+        
+        /* 懸停效果 */
+        .link-btn:hover {
+            background-color: #bbdefb;
+            transform: translateY(-3px);
+            border-color: #90caf9;
+            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.15);
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 35px;
+            color: #888;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 10px 25px;
+            border-radius: 30px;
+            background-color: #f0f0f0;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background-color: #555;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>📱 安心御老操作指南</h2>
+        
+        <div class="link-list">
+            
+            <a href="#" class="link-btn">
+                <div class="icon-box">⚙️</div>
+                <div class="text-box">
+                    <span class="main-title">1. 基本功能</span>
+                </div>
+            </a>
+            
+            <a href="#" class="link-btn">
+                <div class="icon-box">📂</div>
+                <div class="text-box">
+                    <span class="main-title">2. 個案資料</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-btn">
+                <div class="icon-box">📅</div>
+                <div class="text-box">
+                    <span class="main-title">3. 行事曆</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-btn">
+                <div class="icon-box">📍</div>
+                <div class="text-box">
+                    <span class="main-title">4. 訪視打卡</span>
+                </div>
+            </a>
+
+            <a href="#" class="link-btn">
+                <div class="icon-box">💬</div>
+                <div class="text-box">
+                    <span class="main-title">5. 聊天室</span>
+                </div>
+            </a>
+
+        </div>
+
+        <a href="work.html" class="back-btn">⬅️ 返回工作項目</a>
+    </div>
+
+</body>
+</html>
