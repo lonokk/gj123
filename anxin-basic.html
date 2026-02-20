@@ -20,9 +20,9 @@
         }
 
         .container {
-            background-color: transparent; /* 背景透明，讓卡片浮出來 */
+            background-color: transparent; 
             width: 100%;
-            max-width: 500px; /* 限制寬度，避免手機截圖在電腦上變得太大 */
+            max-width: 500px; 
             margin: 0 auto;
         }
 
@@ -33,7 +33,7 @@
         }
         
         .page-title {
-            color: #1565c0; /* 深藍色 */
+            color: #1565c0; 
             font-size: 26px;
             margin: 0 0 10px 0;
             font-weight: bold;
@@ -51,10 +51,10 @@
             padding: 25px;
             margin-bottom: 25px;
             box-shadow: 0 8px 20px rgba(41, 128, 185, 0.1);
-            border-top: 5px solid #64b5f6; /* 頂部亮藍色裝飾線 */
+            border-top: 5px solid #64b5f6; 
         }
 
-        /* 步驟標題 (例如：Step 1) */
+        /* 步驟標題 */
         .step-badge {
             display: inline-block;
             background-color: #e3f2fd;
@@ -73,15 +73,28 @@
             margin-bottom: 15px;
         }
 
-        /* 手機截圖樣式限制 */
+        /* 單張手機截圖樣式 */
         .screenshot {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            border: 1px solid #eee; /* 給圖片一個淺色邊框，避免白色截圖融入背景 */
+            border: 1px solid #eee; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             display: block;
             margin: 0 auto 15px auto;
+        }
+
+        /* ✨ 新增：兩張圖片並排的容器樣式 */
+        .image-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px; /* 兩張圖片中間的空隙 */
+            margin-bottom: 15px;
+        }
+
+        .image-row .screenshot {
+            width: calc(50% - 6px); /* 讓兩張圖各佔一半的寬度 */
+            margin: 0; /* 移除原本的底部距離，讓排版更緊湊 */
         }
 
         .step-desc {
@@ -151,12 +164,14 @@
             <div class="step-badge">Step 3</div>
             <div class="step-title">個人資料維護 與 撥打專業人員電話</div>
             
-            <img src="images/axbas-stp03.jpg" alt="個人資料維護" class="screenshot">
             <div style="text-align: center; color: #888; font-size: 14px; margin-bottom: 15px; font-weight: bold;">
                 點擊<strong>個人姓名</strong> 會進入以下畫面 👇
             </div>
             
-            <img src="images/axbas-stp04.jpg" alt="設定畫面2" class="screenshot">
+            <div class="image-row">
+                <img src="images/axbas-stp03.jpg" alt="個人資料維護" class="screenshot">
+                <img src="images/axbas-stp04.jpg" alt="設定畫面2" class="screenshot">
+            </div>
             
             <div class="step-desc">
                 可修改個人資料、密碼，下方黃色按鈕可直接撥打專業人員電話請求協助。
