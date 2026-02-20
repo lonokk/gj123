@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>安心御老操作指南</title>
     <style>
-        /* --- 延續專業清爽的藍色系風格 --- */
+        /* --- 基礎設定 --- */
         * { box-sizing: border-box; }
         body {
             background-color: #fdfbf7;
@@ -21,11 +21,10 @@
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 500px;
-            padding: 30px;
+            max-width: 550px; /* 稍微加寬一點讓路徑好顯示 */
+            padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
-            text-align: center;
             margin-top: 20px;
             margin-bottom: 20px;
             border-top: 5px solid #2980b9; 
@@ -37,12 +36,20 @@
             border-bottom: 2px solid #bbdefb;
             padding-bottom: 15px;
             letter-spacing: 1px;
+            text-align: center;
         }
-        .link-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+
+        /* --- 模組卡片群組 (按鈕 + 下方重點清單) --- */
+        .module-group {
+            background-color: #fff;
+            border: 1px solid #cce5ff;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(41, 128, 185, 0.05);
+            overflow: hidden; /* 讓圓角邊界平滑 */
         }
+
+        /* 上半部：按鈕連結區 */
         .link-btn {
             display: flex;
             align-items: center;
@@ -50,14 +57,15 @@
             background-color: #f5fbff; 
             color: #555;
             padding: 16px 20px;
-            border-radius: 15px;
-            border: 1px solid #cce5ff;
             transition: all 0.2s ease;
             text-align: left;
         }
+        .link-btn:hover {
+            background-color: #e3f2fd;
+        }
         .icon-box {
             font-size: 26px;
-            margin-right: 18px;
+            margin-right: 15px;
             width: 35px;
             text-align: center;
         }
@@ -66,7 +74,7 @@
             flex-direction: column;
         }
         .main-title {
-            font-size: 17px;
+            font-size: 18px;
             font-weight: bold;
             color: #1565c0; 
             margin-bottom: 4px;
@@ -74,24 +82,58 @@
         .sub-title {
             font-size: 13px;
             color: #78909c;
-            font-weight: normal;
-        }
-        
-        /* 懸停效果 */
-        .link-btn:hover {
-            background-color: #bbdefb;
-            transform: translateY(-3px);
-            border-color: #90caf9;
-            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.15);
         }
 
-        .back-btn {
+        /* 下半部：重點功能清單區 */
+        .feature-list {
+            padding: 15px 20px;
+            background-color: #fafbfc; /* 極淺的灰底區隔 */
+            border-top: 1px dashed #bbdefb;
+        }
+        
+        .feature-item {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 粗體突顯功能名稱 */
+        .feature-item strong {
+            color: #333;
+            margin-right: 5px;
+        }
+
+        /* 反白顯示的按鈕標籤 */
+        .path-tag {
+            background-color: #455a64; /* 深灰色反白底 */
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            margin: 0 3px;
             display: inline-block;
+        }
+
+        /* 路徑箭頭 */
+        .arrow {
+            color: #90caf9;
+            font-weight: bold;
+            font-size: 12px;
+            margin: 0 2px;
+        }
+
+        /* 返回按鈕 */
+        .back-btn {
+            display: block;
+            text-align: center;
             margin-top: 35px;
             color: #888;
             text-decoration: none;
             font-size: 15px;
-            padding: 10px 25px;
+            padding: 12px 25px;
             border-radius: 30px;
             background-color: #f0f0f0;
             transition: 0.3s;
@@ -107,48 +149,97 @@
     <div class="card">
         <h2>📱 安心御老操作指南</h2>
         
-        <div class="link-list">
-            
+        <div class="module-group">
             <a href="anxin-home.html" class="link-btn">
                 <div class="icon-box">🏠</div>
                 <div class="text-box">
                     <span class="main-title">1. 首頁</span>
-                    <span class="sub-title">（行程小卡與訪視打卡）</span>
+                    <span class="sub-title">點擊查看詳細圖文教學</span>
                 </div>
             </a>
-            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>查看當日行程：</strong><span class="path-tag">首頁</span>
+                </div>
+                <div class="feature-item">
+                    <strong>訪視打卡：</strong><span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">點選個案</span> <span class="arrow">➔</span> <span class="path-tag">訪視打卡</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="module-group">
             <a href="anxin-chat.html" class="link-btn">
                 <div class="icon-box">💬</div>
                 <div class="text-box">
                     <span class="main-title">2. 聊天室</span>
-                    <span class="sub-title">（群組溝通與結構化紀錄）</span>
+                    <span class="sub-title">點擊查看詳細圖文教學</span>
                 </div>
             </a>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>新建群組：</strong><span class="path-tag">聊天室</span> <span class="arrow">➔</span> <span class="path-tag">右上角 +</span> <span class="arrow">➔</span> <span class="path-tag">新建群組</span>
+                </div>
+                <div class="feature-item">
+                    <strong>發送結構化紀錄：</strong>進入群組 <span class="arrow">➔</span> 點擊 <span class="path-tag">鍵盤圖示</span> 或輸入 <span class="path-tag">@</span>標記 <span class="path-tag">!</span>注意 <span class="path-tag">#</span>待辦
+                </div>
+            </div>
+        </div>
 
+        <div class="module-group">
             <a href="anxin-calendar.html" class="link-btn">
                 <div class="icon-box">📅</div>
                 <div class="text-box">
                     <span class="main-title">3. 行事曆</span>
-                    <span class="sub-title">（行程管理與同訪設定）</span>
+                    <span class="sub-title">點擊查看詳細圖文教學</span>
                 </div>
             </a>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>查看同訪人員：</strong><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> <span class="path-tag">同訪人員</span>
+                </div>
+                <div class="feature-item">
+                    <strong>新增行程：</strong><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> <span class="path-tag">新增圖示 (+)</span>
+                </div>
+            </div>
+        </div>
 
+        <div class="module-group">
             <a href="anxin-list.html" class="link-btn">
                 <div class="icon-box">📂</div>
                 <div class="text-box">
                     <span class="main-title">4. 清單 (個案資料)</span>
-                    <span class="sub-title">（健康數據與評估量表）</span>
+                    <span class="sub-title">點擊查看詳細圖文教學</span>
                 </div>
             </a>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>編輯/分享個案：</strong><span class="path-tag">清單</span> <span class="arrow">➔</span> <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">編輯</span> 或 <span class="path-tag">分享</span>
+                </div>
+                <div class="feature-item">
+                    <strong>填寫評估量表：</strong><span class="path-tag">清單</span> <span class="arrow">➔</span> <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">評估</span>
+                </div>
+            </div>
+        </div>
 
+        <div class="module-group">
             <a href="anxin-toolbox.html" class="link-btn">
                 <div class="icon-box">🧰</div>
                 <div class="text-box">
                     <span class="main-title">5. 工具箱</span>
-                    <span class="sub-title">（個人設定與系統輔助）</span>
+                    <span class="sub-title">點擊查看詳細圖文教學</span>
                 </div>
             </a>
-
+            <div class="feature-list">
+                <div class="feature-item">
+                    <strong>修改密碼/個資：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">點擊頂部個人姓名</span>
+                </div>
+                <div class="feature-item">
+                    <strong>新增個案：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">新增個案</span>
+                </div>
+                <div class="feature-item">
+                    <strong>觀看教學手冊：</strong><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">操作教學</span>
+                </div>
+            </div>
         </div>
 
         <a href="work.html" class="back-btn">⬅️ 返回工作項目</a>
