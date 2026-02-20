@@ -43,7 +43,7 @@
         summary::-webkit-details-marker { display: none; }
         summary { list-style: none; outline: none; }
 
-        /* ================= 模組卡片設計 (常駐顯示) ================= */
+        /* ================= 模組卡片設計 ================= */
         .module-group {
             background-color: #fff;
             border: 1px solid #cce5ff;
@@ -81,13 +81,13 @@
             color: #78909c;
         }
 
-        /* 模組下方的功能清單區 */
+        /* 功能清單區 */
         .feature-list {
             padding: 15px;
             background-color: #fafbfc;
         }
 
-        /* ================= 具體功能選單設計 (點擊展開路徑) ================= */
+        /* ================= 具體功能選單 ================= */
         details.function-item {
             background-color: #ffffff;
             border: 1px solid #e3f2fd;
@@ -117,6 +117,7 @@
         .func-arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
         details.function-item[open] > .function-title .func-arrow { transform: rotate(180deg); color: #d35400; }
 
+        /* 操作路徑與圖解區塊 */
         .function-path {
             padding: 15px;
             background-color: #fffaf5; 
@@ -125,6 +126,7 @@
             color: #555;
         }
 
+        /* 路徑標籤 */
         .path-tag {
             background-color: #546e7a; 
             color: #ffffff;
@@ -135,6 +137,17 @@
             display: inline-block;
         }
         .arrow { color: #90caf9; font-size: 12px; margin: 0 2px; font-weight: bold;}
+
+        /* ✨ 展開後顯示的截圖樣式 ✨ */
+        .inline-screenshot {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            margin-top: 12px; /* 讓圖片與上方的文字保持距離 */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            display: block;
+        }
 
         .go-detail-btn {
             display: block;
@@ -151,41 +164,21 @@
         }
         .go-detail-btn:hover { background-color: #0d47a1; }
 
-        /* ================= 第 6 模組：評鑑專屬樣式 ================= */
-        .eval-list {
-            padding: 0; /* 移除預設內距，讓選項滿版 */
-            background-color: #fff;
-        }
+        /* ================= 6. 評鑑專屬樣式 ================= */
+        .eval-list { padding: 0; background-color: #fff; }
         .eval-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px;
             border-bottom: 1px solid #eee;
-            cursor: pointer; /* 整列皆可點擊 */
+            cursor: pointer; 
             transition: 0.2s;
         }
         .eval-item:hover { background-color: #f9f9f9; }
         .eval-item:last-child { border-bottom: none; }
-        
-        .eval-text {
-            font-size: 14.5px;
-            color: #444;
-            flex-grow: 1;
-            padding-right: 15px;
-            line-height: 1.5;
-        }
-        
-        /* 自訂勾選框放大，方便手機點擊 */
-        .eval-cb {
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
-            accent-color: #d35400; /* 橘色勾選框 */
-            flex-shrink: 0;
-        }
-
-        /* 總分顯示儀表板 */
+        .eval-text { font-size: 14.5px; color: #444; flex-grow: 1; padding-right: 15px; line-height: 1.5; }
+        .eval-cb { width: 22px; height: 22px; cursor: pointer; accent-color: #d35400; flex-shrink: 0; }
         .score-board {
             background-color: #d35400;
             color: #fff;
@@ -196,17 +189,11 @@
             margin: 15px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(211, 84, 0, 0.2);
-            position: sticky; /* 讓它滑動時也可以吸附底部(視設備支援) */
+            position: sticky; 
             bottom: 20px;
         }
-        .score-number {
-            font-size: 36px;
-            color: #ffe0b2; /* 亮黃色數字 */
-            margin: 0 5px;
-            vertical-align: middle;
-        }
+        .score-number { font-size: 36px; color: #ffe0b2; margin: 0 5px; vertical-align: middle; }
 
-        /* 返回按鈕 */
         .back-btn {
             display: block;
             text-align: center;
@@ -259,9 +246,16 @@
                 </div>
             </div>
             <div class="feature-list">
+                
                 <details class="function-item">
                     <summary class="function-title">📌 新建群組 (專業/家屬/聊天) <span class="func-arrow">▼</span></summary>
-                    <div class="function-path"><span class="path-tag">聊天室</span> <span class="arrow">➔</span> 右上角 <span class="path-tag">新建群組</span></div>
+                    <div class="function-path">
+                        <div>
+                            <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 右上角 <span class="path-tag">新建群組</span>
+                        </div>
+                        
+                        <img src="images/chat-new-group.jpg" alt="新建群組圖解" class="inline-screenshot">
+                    </div>
                 </details>
                 <details class="function-item">
                     <summary class="function-title">📌 傳送圖片 <span class="func-arrow">▼</span></summary>
@@ -279,6 +273,7 @@
                     <summary class="function-title">📌 結構化紀錄與評估 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">點擊下方 <span class="path-tag">鍵盤圖示</span> (或輸入 <span class="path-tag">@</span>標記 <span class="path-tag">!</span>注意 <span class="path-tag">#</span>待辦)</div>
                 </details>
+                
                 <a href="anxin-chat.html" class="go-detail-btn">📖 查看【聊天室】圖解教學</a>
             </div>
         </div>
@@ -351,7 +346,7 @@
             </div>
             <div class="feature-list">
                 <details class="function-item">
-                    <summary class="function-title">📌 修改密碼與個資、撥打專業人員電話 <span class="func-arrow">▼</span></summary>
+                    <summary class="function-title">📌 修改密碼與個資 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">頂部 <span class="path-tag">個人姓名</span> <span class="arrow">➔</span> 修改基本資料/密碼</div>
                 </details>
                 <details class="function-item">
@@ -419,24 +414,13 @@
 
     <script>
         function calculateScore() {
-            // 取得畫面上所有的打勾框
             const checkboxes = document.querySelectorAll('.eval-cb');
             let checkedCount = 0;
-            
-            // 計算有幾個被打勾了
             checkboxes.forEach(function(cb) {
-                if (cb.checked) {
-                    checkedCount++;
-                }
+                if (cb.checked) { checkedCount++; }
             });
-            
-            // 總題數
             const totalItems = checkboxes.length;
-            
-            // 換算成 100 分制 (四捨五入)
             const score = Math.round((checkedCount / totalItems) * 100);
-            
-            // 將分數更新到網頁畫面上
             document.getElementById('totalScore').innerText = score;
         }
     </script>
