@@ -140,13 +140,25 @@
 
         /* ✨ 展開後顯示的截圖樣式 ✨ */
         .inline-screenshot {
-            width: 50%; /* 【修改處】將寬度從 100% 改為 50%，圖片就會縮小一半 */
+            width: 50%;
             height: auto;
             border-radius: 8px;
             border: 1px solid #ddd;
-            margin: 12px auto 0 auto; /* 【修改處】加上 auto 讓縮小後的圖片保持水平置中 */
+            margin: 12px auto 0 auto; 
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             display: block;
+        }
+
+        /* 針對兩張圖並排的容器 */
+        .img-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        .img-row .inline-screenshot {
+            width: calc(50% - 5px); /* 扣除中間的間距，讓兩張圖剛好各佔一半 */
+            margin: 0;
         }
 
         .go-detail-btn {
@@ -253,18 +265,30 @@
                         <div>
                             <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 右下角 <span class="path-tag">新建群組</span>
                         </div>
-                        
                         <img src="images/anxix-2-1-1.jpg" alt="新建群組圖解" class="inline-screenshot">
                     </div>
                 </details>
+
                 <details class="function-item">
                     <summary class="function-title">📌 傳送圖片 <span class="func-arrow">▼</span></summary>
-                    <div class="function-path">進入群組 <span class="arrow">➔</span> 點選下方 <span class="path-tag">圖片圖示</span></div>
+                    <div class="function-path">
+                        <div>進入群組 <span class="arrow">➔</span> 點選下方 <span class="path-tag">圖片圖示</span></div>
+                        <img src="images/anxix-2-2-1.jpg" alt="傳送圖片圖解" class="inline-screenshot">
+                    </div>
                 </details>
+
                 <details class="function-item">
                     <summary class="function-title">📌 管理與邀請成員 <span class="func-arrow">▼</span></summary>
-                    <div class="function-path">進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> <span class="path-tag">新增/刪除成員</span></div>
+                    <div class="function-path">
+                        <div>進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> <span class="path-tag">新增/刪除成員</span></div>
+                        
+                        <div class="img-row">
+                            <img src="images/anxix-2-3-1.jpg" alt="管理成員圖解1" class="inline-screenshot">
+                            <img src="images/anxix-2-3-2.jpg" alt="管理成員圖解2" class="inline-screenshot">
+                        </div>
+                    </div>
                 </details>
+
                 <details class="function-item">
                     <summary class="function-title">📌 編輯群組與發起會議 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> 點 <span class="path-tag">橘色鉛筆</span></div>
