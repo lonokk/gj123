@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>工作項目 - 工作資料夾</title>
     <style>
-        /* --- 1. 全域設定 --- */
-        * {
-            box-sizing: border-box; /* 確保邊框不會撐大版面 */
-        }
-
+        * { box-sizing: border-box; }
         body {
-            background-color: #fdfbf7; /* 溫暖的米色背景 */
+            background-color: #fdfbf7;
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
             color: #5a5a5a;
             margin: 0;
@@ -21,8 +17,6 @@
             align-items: flex-start;
             min-height: 100vh;
         }
-
-        /* --- 2. 卡片容器 --- */
         .card {
             background-color: #ffffff;
             width: 100%;
@@ -33,9 +27,8 @@
             text-align: center;
             margin-top: 20px;
             margin-bottom: 20px;
-            border-top: 5px solid #d35400; /* 頂部裝飾線 */
+            border-top: 5px solid #d35400;
         }
-
         h2 {
             color: #d35400;
             font-size: 24px;
@@ -44,21 +37,18 @@
             padding-bottom: 15px;
             letter-spacing: 1px;
         }
-
-        /* --- 3. 按鈕列表樣式 --- */
         .link-list {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* 按鈕之間的距離 */
+            gap: 15px;
         }
-
         .link-btn {
             display: flex;
             align-items: center;
             text-decoration: none;
             background-color: #fffaf5;
             color: #555;
-            padding: 18px 20px; /* 加大一點點擊範圍 */
+            padding: 18px 20px;
             border-radius: 15px;
             border: 1px solid #ffe0b2;
             transition: all 0.2s ease;
@@ -66,68 +56,48 @@
             position: relative;
             overflow: hidden;
         }
-
-        /* 圖示區塊 */
         .icon-box {
             font-size: 28px;
             margin-right: 18px;
             width: 35px;
             text-align: center;
         }
-
-        /* 文字區塊 */
         .text-box {
             display: flex;
             flex-direction: column;
         }
-
         .main-title {
             font-size: 18px;
             font-weight: bold;
             color: #d35400;
             margin-bottom: 4px;
         }
-
         .sub-title {
             font-size: 14px;
             color: #888;
             font-weight: normal;
         }
-
-        /* 滑鼠移上去的效果 (Active) */
         .link-btn:not(.placeholder):hover {
             background-color: #ffe0b2;
             transform: translateY(-3px);
             border-color: #ffcc80;
             box-shadow: 0 5px 15px rgba(211, 84, 0, 0.15);
         }
-
         .link-btn:not(.placeholder):hover .sub-title {
             color: #bf360c;
         }
-
-        /* --- 4. 預留選項樣式 (灰色無效狀態) --- */
         .placeholder {
             background-color: #f9f9f9;
-            border: 1px dashed #ddd; /* 虛線邊框 */
-            pointer-events: none; /* 禁止點擊 */
+            border: 1px dashed #ddd;
+            pointer-events: none;
             cursor: default;
         }
-        
-        .placeholder .main-title {
-            color: #aaa;
-        }
-        
-        .placeholder .sub-title {
-            color: #ccc;
-        }
-        
+        .placeholder .main-title { color: #aaa; }
+        .placeholder .sub-title { color: #ccc; }
         .placeholder .icon-box {
-            filter: grayscale(100%); /* 讓圖示變灰 */
+            filter: grayscale(100%);
             opacity: 0.4;
         }
-
-        /* --- 5. 返回首頁按鈕 --- */
         .back-btn {
             display: inline-block;
             margin-top: 35px;
@@ -143,7 +113,6 @@
             background-color: #555;
             color: #fff;
         }
-
     </style>
 </head>
 <body>
@@ -153,7 +122,7 @@
         
         <div class="link-list">
             
-            <a href="visit-service.html" class="link-btn">
+            <a href="visit-guide.html" class="link-btn">
                 <div class="icon-box">👣</div>
                 <div class="text-box">
                     <span class="main-title">訪視服務規範</span>
@@ -184,6 +153,15 @@
                     <span class="sub-title">（待新增）</span>
                 </div>
             </a>
+
+            <a href="anxin-guide.html" class="link-btn">
+                <div class="icon-box">📱</div>
+                <div class="text-box">
+                    <span class="main-title">安心御老操作指南</span>
+                    <span class="sub-title">（系統操作與功能說明）</span>
+                </div>
+            </a>
+
         </div>
 
         <a href="index.html" class="back-btn">⬅️ 回到首頁</a>
