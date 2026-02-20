@@ -157,24 +157,9 @@
             margin-top: 12px;
         }
         .img-row .inline-screenshot {
-            width: calc(50% - 5px); /* 扣除中間的間距，讓兩張圖剛好各佔一半 */
+            width: calc(50% - 5px); 
             margin: 0;
         }
-
-        .go-detail-btn {
-            display: block;
-            text-align: center;
-            background-color: #1565c0;
-            color: #fff;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 15px;
-            font-weight: bold;
-            transition: 0.2s;
-            border: none;
-        }
-        .go-detail-btn:hover { background-color: #0d47a1; }
 
         /* ================= 6. 評鑑專屬樣式 ================= */
         .eval-list { padding: 0; background-color: #fff; }
@@ -245,7 +230,6 @@
                         <span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">點選個案行程</span> <span class="arrow">➔</span> <span class="path-tag">訪視打卡</span>
                     </div>
                 </details>
-                <a href="anxin-home.html" class="go-detail-btn">📖 查看【首頁】圖解教學</a>
             </div>
         </div>
 
@@ -281,7 +265,6 @@
                     <summary class="function-title">📌 管理與邀請成員 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
                         <div>進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> <span class="path-tag">新增/刪除成員</span></div>
-                        
                         <div class="img-row">
                             <img src="images/anxix-2-3-1.jpg" alt="管理成員圖解1" class="inline-screenshot">
                             <img src="images/anxix-2-3-2.jpg" alt="管理成員圖解2" class="inline-screenshot">
@@ -293,7 +276,6 @@
                     <summary class="function-title">📌 編輯群組與發起會議 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
                         <div>進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> 點 <span class="path-tag">橘色鉛筆</span></div>
-                        
                         <div class="img-row">
                             <img src="images/anxix-2-4-1.jpg" alt="編輯群組圖解1" class="inline-screenshot">
                             <img src="images/anxix-2-4-2.jpg" alt="編輯群組圖解2" class="inline-screenshot">
@@ -305,7 +287,6 @@
                     <summary class="function-title">📌 結構化紀錄與評估 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
                         <div>點擊下方 <span class="path-tag">鍵盤圖示</span> (或輸入 <span class="path-tag">@</span>標記 <span class="path-tag">!</span>注意 <span class="path-tag">#</span>待辦)</div>
-                        
                         <div class="img-row">
                             <img src="images/anxix-2-5-1.jpg" alt="結構化紀錄圖解1" class="inline-screenshot">
                             <img src="images/anxix-2-5-2.jpg" alt="結構化紀錄圖解2" class="inline-screenshot">
@@ -313,7 +294,7 @@
                     </div>
                 </details>
                 
-                </div>
+            </div>
         </div>
 
         <div class="module-group">
@@ -341,7 +322,6 @@
                     <summary class="function-title">📌 複製行程 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">點選行程的 <span class="path-tag">複製圖示</span> <span class="arrow">➔</span> 修改日期並儲存</div>
                 </details>
-                <a href="anxin-calendar.html" class="go-detail-btn">📖 查看【行事曆】圖解教學</a>
             </div>
         </div>
 
@@ -370,7 +350,6 @@
                     <summary class="function-title">📌 查看家屬與專業歷程 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">家屬</span> 或 <span class="path-tag">專業</span></div>
                 </details>
-                <a href="anxin-list.html" class="go-detail-btn">📖 查看【清單】圖解教學</a>
             </div>
         </div>
 
@@ -399,7 +378,6 @@
                     <summary class="function-title">📌 教學與機構通訊錄 <span class="func-arrow">▼</span></summary>
                     <div class="function-path"><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">操作教學</span> 或 <span class="path-tag">通訊錄</span></div>
                 </details>
-                <a href="anxin-basic.html" class="go-detail-btn">📖 查看【工具箱】圖解教學</a>
             </div>
         </div>
 
@@ -423,44 +401,4 @@
                 <label class="eval-item"><span class="eval-text">8. 邀請專業人員綁定個案</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
                 <label class="eval-item"><span class="eval-text">9. 修改日期及時間功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
                 <label class="eval-item"><span class="eval-text">10. 行程備註及私人註記功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">11. 選擇個案、日期、時間、照護項目功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">12. 選擇同訪人員功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">13. 修改日期及時間功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">14. 刪除及退出行程功能操作，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">15. 選擇簽到、簽退時間、訪視方式及訪視問項</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">16. 輸入訪視註記(文字及語音輸入)</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">17. 上傳訪視照片</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">18. 健康資訊選擇及上傳生理數據、藥袋等照片</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">19. 暫存及儲存並上陳功能操作，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">20. 新增標籤、個人化標籤(含選擇個案)，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">21. 點選標籤分類個案功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">22. 標籤管理(刪除分類及管理個案)功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">23. 輸入文字及上傳照片功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">24. 標記人員功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">25. 視訊通話功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">26. 聊天室內容選擇為歷程功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-
-                <div class="score-board">
-                    👑 目前熟練度得分<br>
-                    <span id="totalScore" class="score-number">0</span> 分 / 100 分
-                </div>
-            </div>
-        </div>
-
-        <a href="work.html" class="back-btn">⬅️ 返回工作項目</a>
-    </div>
-
-    <script>
-        function calculateScore() {
-            const checkboxes = document.querySelectorAll('.eval-cb');
-            let checkedCount = 0;
-            checkboxes.forEach(function(cb) {
-                if (cb.checked) { checkedCount++; }
-            });
-            const totalItems = checkboxes.length;
-            const score = Math.round((checkedCount / totalItems) * 100);
-            document.getElementById('totalScore').innerText = score;
-        }
-    </script>
-</body>
-</html>
+                <label class="eval-item"><span class="eval-text">11. 選擇個案、日期、時間、照護項目功能操作</span><input type="checkbox" class="eval-cb" on
