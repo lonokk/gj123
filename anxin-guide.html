@@ -80,6 +80,18 @@
             font-size: 13px;
             color: #78909c;
         }
+        
+        /* 展開指示圖示 (+/-) 用於第一層的 summary */
+        .toggle-icon {
+            font-size: 20px;
+            color: #90caf9;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        details.module-group[open] > .module-header .toggle-icon,
+        details.sop-module[open] > .module-header .toggle-icon { 
+            transform: rotate(45deg); 
+        }
 
         /* 功能清單區 */
         .feature-list {
@@ -188,8 +200,132 @@
             box-shadow: 0 5px 15px rgba(211, 84, 0, 0.2);
             position: sticky; 
             bottom: 20px;
+            z-index: 10;
         }
         .score-number { font-size: 36px; color: #ffe0b2; margin: 0 5px; vertical-align: middle; }
+
+        /* ================= SOP 專屬樣式整合 ================= */
+        .section-title {
+            font-size: 17px;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .bordered-box {
+            background-color: #ffffff;
+            border: 2px solid #1565c0;
+            border-radius: 12px;
+            padding: 15px 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .core-flow {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+        }
+        .core-node {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 13.5px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #bbdefb;
+        }
+        .core-node.highlight { background-color: #1565c0; color: #fff; }
+        .core-node.end { background-color: #27ae60; color: #fff; border-color: #27ae60; }
+        .core-arrow { color: #90caf9; font-size: 16px; font-weight: bold; }
+
+        /* SOP四大類型 */
+        .highlight-container {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e1f0fc 100%);
+            border-radius: 16px;
+            padding: 20px 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 6px 15px rgba(21, 101, 192, 0.12);
+            border-left: 6px solid #f39c12;
+        }
+        .type-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        @media (min-width: 600px) { .type-grid { grid-template-columns: 1fr 1fr; } }
+        .type-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 12px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+            border-top: 5px solid;
+            display: flex;
+            flex-direction: column;
+        }
+        .type-medical { border-top-color: #e74c3c; } 
+        .type-disaster { border-top-color: #f39c12; } 
+        .type-housing { border-top-color: #27ae60; } 
+        .type-missing { border-top-color: #8e44ad; } 
+        .type-header { font-size: 15px; font-weight: bold; margin-bottom: 12px; text-align: center; }
+        .type-medical .type-header { color: #e74c3c; }
+        .type-disaster .type-header { color: #d35400; }
+        .type-housing .type-header { color: #27ae60; }
+        .type-missing .type-header { color: #8e44ad; }
+        
+        .mini-node {
+            background-color: #fdfdfd;
+            border: 1px solid #eee;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #444;
+            text-align: center;
+            position: relative;
+            line-height: 1.4;
+        }
+        .mini-node:not(:last-child)::after {
+            content: '▼';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #bbb;
+            font-size: 12px;
+        }
+        .mini-node:not(:last-child) { margin-bottom: 18px; }
+
+        /* SOP層級 */
+        .bordered-box-dark {
+            background-color: #ffffff;
+            border: 2px solid #34495e;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .hierarchy-list { display: flex; flex-direction: column; gap: 10px; }
+        .hierarchy-item {
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border-left: 5px solid #34495e;
+        }
+        .h-level { font-weight: bold; color: #e74c3c; width: 65px; flex-shrink: 0; font-size: 14.5px; }
+        .h-text { color: #333; font-size: 14.5px; font-weight: bold; }
+        .h-sub { color: #7f8c8d; font-size: 12px; margin-left: 4px; font-weight: normal; }
+
+        @media (max-width: 480px) {
+            .hierarchy-item { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .h-level { width: 100%; border-bottom: 1px dashed #ddd; padding-bottom: 4px; }
+            .h-sub { display: block; margin-left: 0; margin-top: 2px;}
+        }
 
         .back-btn {
             display: block;
@@ -211,6 +347,89 @@
     <div class="card">
         <h2>📱 安心御老操作指南</h2>
         
+        <details class="module-group sop-module" style="border-color: #ffcdd2;">
+            <summary class="module-header" style="background-color: #fff0f0; border-bottom: 2px solid #ffcdd2; cursor: pointer;">
+                <div class="icon-box">🚨</div>
+                <div class="text-box">
+                    <span class="main-title" style="color: #c0392b;">跨機關應變 SOP</span>
+                    <span class="sub-title" style="color: #e74c3c;">點擊展開標準作業流程圖</span>
+                </div>
+                <div class="toggle-icon" style="color: #e74c3c;">✚</div>
+            </summary>
+            
+            <div class="feature-list" style="background-color: #ffffff;">
+                
+                <div class="section-title">📌 一、核心流程</div>
+                <div class="bordered-box">
+                    <div class="core-flow">
+                        <div class="core-node highlight">異常通報</div>
+                        <span class="core-arrow">➔</span>
+                        <div class="core-node">訪視確認</div>
+                        <span class="core-arrow">➔</span>
+                        <div class="core-node">分類判定</div>
+                        <span class="core-arrow">➔</span>
+                        <div class="core-node">轉主責機關</div>
+                        <span class="core-arrow">➔</span>
+                        <div class="core-node">後續安置或救助</div>
+                        <span class="core-arrow">➔</span>
+                        <div class="core-node end">追蹤結案</div>
+                    </div>
+                </div>
+
+                <div class="highlight-container">
+                    <div class="section-title" style="margin-top: 0;">📌 二、四大類型處置流程</div>
+                    <div class="type-grid">
+                        <div class="type-card type-medical">
+                            <div class="type-header">🚑 (一) 醫療緊急類</div>
+                            <div class="mini-node">訪視確認</div>
+                            <div class="mini-node">通報 119與榮院</div>
+                            <div class="mini-node">個管評估與治療</div>
+                            <div class="mini-node">返家或榮家安置</div>
+                        </div>
+                        <div class="type-card type-disaster">
+                            <div class="type-header">🔥 (二) 災害安置類</div>
+                            <div class="mini-node">通報 119</div>
+                            <div class="mini-node">收容安置<br><span style="font-size:12px; color:#777;">(鄉鎮市、榮家)</span></div>
+                            <div class="mini-node">個管評估與治療</div>
+                            <div class="mini-node">急難救助</div>
+                        </div>
+                        <div class="type-card type-housing">
+                            <div class="type-header">🏠 (三) 居住危機類</div>
+                            <div class="mini-node">訪視確認</div>
+                            <div class="mini-node">通報社會處</div>
+                            <div class="mini-node">短期安置</div>
+                            <div class="mini-node">急難救助</div>
+                        </div>
+                        <div class="type-card type-missing">
+                            <div class="type-header">❓ (四) 失聯走失類</div>
+                            <div class="mini-node">通報 110</div>
+                            <div class="mini-node">警政協尋</div>
+                            <div class="mini-node">個管評估</div>
+                            <div class="mini-node">返家或榮家安置</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">📌 三、層級通報原則</div>
+                <div class="bordered-box-dark">
+                    <div class="hierarchy-list">
+                        <div class="hierarchy-item">
+                            <div class="h-level">第一層</div>
+                            <div class="h-text">社區服務組長即時通報</div>
+                        </div>
+                        <div class="hierarchy-item">
+                            <div class="h-level">第二層</div>
+                            <div class="h-text">責任區輔導員統籌協調</div>
+                        </div>
+                        <div class="hierarchy-item">
+                            <div class="h-level">第三層</div>
+                            <div class="h-text">陳報總幹事協處 <span class="h-sub">（重大案件陳報處長）</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </details>
         <div class="module-group">
             <div class="module-header">
                 <div class="icon-box">🏠</div>
