@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安心御老 - 跨機關應變 SOP</title>
+    <style>
+        /* --- 基礎設定 --- */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            color: #444;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 650px; /* 稍微加寬以容納流程圖 */
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-top: 6px solid #1565c0; 
+        }
+        h2 {
+            color: #1565c0; 
+            font-size: 22px;
+            margin-bottom: 5px;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .subtitle {
+            text-align: center;
+            color: #78909c;
+            font-size: 14px;
+            margin-bottom: 30px;
+            border-bottom: 2px dashed #e3f2fd;
+            padding-bottom: 15px;
+        }
+
+        /* --- 區塊標題 --- */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2980b9;
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 5px solid #2980b9;
+        }
+
+        /* ================= 1. 核心流程圖設計 ================= */
+        .core-flow {
+            display: flex;
+            flex-wrap: wrap; /* 允許換行 */
+            justify-content: center;
+            align-items: center;
+            background-color: #f5fbff;
+            padding: 20px 10px;
+            border-radius: 12px;
+            border: 1px solid #cce5ff;
+        }
+        .flow-node {
+            background-color: #1565c0;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 3px 6px rgba(21, 101, 192, 0.2);
+            margin: 5px;
+            white-space: nowrap;
+        }
+        .flow-node.highlight {
+            background-color: #d35400; /* 特別突顯的節點 */
+        }
+        .flow-arrow {
+            color: #90caf9;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+
+        /* ================= 2. 四大類型分支流程 ================= */
+        .type-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 手機單排 */
+            gap: 15px;
+        }
+        /* 電腦版雙排 */
+        @media (min-width: 600px) {
+            .type-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .type-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-top-width: 4px;
+        }
+        /* 替四種情境上不同的頂部邊框顏色 */
+        .type-medical { border-top-color: #e74c3c; } /* 紅色 */
+        .type-disaster { border-top-color: #f39c12; } /* 橘色 */
+        .type-housing { border-top-color: #27ae60; } /* 綠色 */
+        .type-missing { border-top-color: #8e44ad; } /* 紫色 */
+
+        .type-header {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        /* 四大類型的行內小流程 */
+        .mini-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .mini-node {
+            background-color: #f9f9f9;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13.5px;
+            color: #555;
+            position: relative;
+        }
+        /* 畫向下的小箭頭 */
+        .mini-node:not(:last-child)::after {
+            content: '↓';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ccc;
+            font-size: 14px;
+        }
+        .mini-node:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        /* ================= 3. 通報層級金字塔 ================= */
+        .pyramid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .level-box {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .level-title {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+        .level-desc {
+            font-size: 16px;
+        }
+
+        /* 第三層(最頂層) - 寬度較小，顏色最深 */
+        .lv3 { background: linear-gradient(135deg, #c0392b, #e74c3c); width: 80%; margin: 0 auto; }
+        /* 第二層(中間) */
+        .lv2 { background: linear-gradient(135deg, #d35400, #e67e22); width: 90%; margin: 0 auto; }
+        /* 第一層(最基層) - 寬度最寬，顏色較淺 */
+        .lv1 { background: linear-gradient(135deg, #2980b9, #3498db); width: 100%; margin: 0 auto; }
+
+        /* 返回按鈕 */
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 35px;
+            color: #888;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: #f0f0f0;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background-color: #555; color: #fff; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>臺東榮服處「安心御老」<br>跨機關應變標準作業流程</h2>
+        <div class="subtitle">Standard Operating Procedure (SOP)</div>
+
+        <div class="section-title">📌 一、核心流程</div>
+        <div class="core-flow">
+            <div class="flow-node highlight">異常通報</div>
+            <span class="flow-arrow">➔</span>
+            <div class="flow-node">榮服處確認</div>
+            <span class="flow-arrow">➔</span>
+            <div class="flow-node highlight">分類判定</div>
+            <span class="flow-arrow">➔</span>
+            <div class="flow-node">主責機關處理</div>
+            <span class="flow-arrow">➔</span>
+            <div class="flow-node">安置或救助</div>
+            <span class="flow-arrow">➔</span>
+            <div class="flow-node" style="background-color: #27ae60;">追蹤結案</div>
+        </div>
+
+        <div class="section-title">📌 二、四大類型處置流程</div>
+        <div class="type-grid">
+            
+            <div class="type-card type-medical">
+                <div class="type-header" style="color:#e74c3c;">🚑 (一) 醫療緊急類</div>
+                <div class="mini-flow">
+                    <div class="mini-node">1. 通報</div>
+                    <div class="mini-node">2. 119或分院處理</div>
+                    <div class="mini-node">3. 個管評估</div>
+                    <div class="mini-node">4. 返家或榮家安置</div>
+                </div>
+            </div>
+
+            <div class="type-card type-disaster">
+                <div class="type-header" style="color:#f39c12;">🔥 (二) 災害安置類</div>
+                <div class="mini-flow">
+                    <div class="mini-node">1. 民政啟動</div>
+                    <div class="mini-node">2. 收容安置</div>
+                    <div class="mini-node">3. 社會局補助</div>
+                    <div class="mini-node">4. 必要時轉榮家</div>
+                </div>
+            </div>
+
+            <div class="type-card type-housing">
+                <div class="type-header" style="color:#27ae60;">🏠 (三) 居住危機類</div>
+                <div class="mini-flow">
+                    <div class="mini-node">1. 訪視確認</div>
+                    <div class="mini-node">2. 社會局住宅資源</div>
+                    <div class="mini-node">3. 短期安置</div>
+                    <div class="mini-node">4. 急難救助</div>
+                </div>
+            </div>
+
+            <div class="type-card type-missing">
+                <div class="type-header" style="color:#8e44ad;">❓ (四) 失聯走失類</div>
+                <div class="mini-flow">
+                    <div class="mini-node">1. 通報</div>
+                    <div class="mini-node">2. 警政協尋</div>
+                    <div class="mini-node">3. 醫療評估</div>
+                    <div class="mini-node">4. 安置銜接</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="section-title">📌 三、通報層級原則</div>
+        <div class="pyramid">
+            <div class="level-box lv3">
+                <div class="level-title">第三層 (最高層)</div>
+                <div class="level-desc">重大案件始報處長</div>
+            </div>
+            <div class="level-box lv2">
+                <div class="level-title">第二層</div>
+                <div class="level-desc">社區服務組長統籌協調</div>
+            </div>
+            <div class="level-box lv1">
+                <div class="level-title">第一層 (基層處理)</div>
+                <div class="level-desc">責任區輔導員即時處理</div>
+            </div>
+        </div>
+
+        <a href="anxin-guide.html" class="back-btn">⬅️ 返回操作指南</a>
+    </div>
+
+</body>
+</html>
