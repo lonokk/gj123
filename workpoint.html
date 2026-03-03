@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工作重點 - 業務宣導</title>
+    <style>
+        /* --- 基礎設定 --- */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            color: #5a5a5a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 550px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-top: 5px solid #27ae60; /* 換成充滿活力的綠色 */
+        }
+        h2 {
+            color: #27ae60; 
+            font-size: 24px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #a8e6cf;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* 隱藏預設的黑色小三角形 */
+        summary::-webkit-details-marker { display: none; }
+        summary { list-style: none; outline: none; }
+
+        /* ================= 模組卡片設計 ================= */
+        .module-group {
+            background-color: #fff;
+            border: 1px solid #bce8d1;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.05);
+            overflow: hidden;
+        }
+        .module-header {
+            display: flex;
+            align-items: center;
+            background-color: #f0fdf4; 
+            padding: 16px 20px;
+            border-bottom: 2px solid #d4efdf;
+        }
+        .icon-box {
+            font-size: 26px;
+            margin-right: 15px;
+            width: 35px;
+            text-align: center;
+        }
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .main-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #229954; 
+            margin-bottom: 4px;
+        }
+        .sub-title {
+            font-size: 13px;
+            color: #79a38a;
+        }
+
+        /* 功能清單區 */
+        .feature-list {
+            padding: 15px;
+            background-color: #fafbfc;
+        }
+
+        /* ================= 具體功能選單 ================= */
+        details.function-item {
+            background-color: #ffffff;
+            border: 1px solid #e3f2fd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .function-title {
+            padding: 14px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+        }
+        .function-title:hover { background-color: #f4fbf7; color: #27ae60; }
+        
+        details.function-item[open] > .function-title {
+            color: #d35400;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .func-arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
+        details.function-item[open] > .function-title .func-arrow { transform: rotate(180deg); color: #d35400; }
+
+        /* 操作路徑與圖解區塊 */
+        .function-path {
+            padding: 15px;
+            background-color: #fffaf5; 
+            text-align: center;
+        }
+
+        /* ✨ 宣導海報專屬樣式 (較大版面) ✨ */
+        .promo-img {
+            width: 100%; /* 海報通常有文字，設定100%滿版比較好閱讀 */
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* 返回按鈕 */
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 35px;
+            color: #888;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: #f0f0f0;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background-color: #555; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>📢 業務宣導佈告欄</h2>
+        
+        <div class="module-group">
+            <div class="module-header">
+                <div class="icon-box">🎯</div>
+                <div class="text-box">
+                    <span class="main-title">本期工作重點</span>
+                    <span class="sub-title">點擊下方選項查看宣導海報</span>
+                </div>
+            </div>
+            
+            <div class="feature-list">
+                
+                <details class="function-item">
+                    <summary class="function-title">📌 綠色通道 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <img src="images/greenway-11412.jpg" alt="綠色通道宣導" class="promo-img">
+                    </div>
+                </details>
+
+                <details class="function-item">
+                    <summary class="function-title">📌 就學、就業、職訓 EDM <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <img src="images/tigerwing-114.jpg" alt="就學就業職訓EDM" class="promo-img">
+                    </div>
+                </details>
+
+            </div>
+        </div>
+
+        <a href="anxin-guide.html" class="back-btn">⬅️ 前往安心御老指南</a>
+    </div>
+
+</body>
+</html>
