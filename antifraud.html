@@ -3,60 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>防騙宣導歷史資料庫</title>
+    <title>防騙宣導網</title>
     <style>
+        /* --- 基礎設定 --- */
         * { box-sizing: border-box; }
         body {
             background-color: #fdfbf7;
             font-family: "Microsoft JhengHei", sans-serif;
             color: #444;
-            margin: 0; padding: 20px;
-            display: flex; justify-content: center; align-items: flex-start; min-height: 100vh;
+            margin: 0; 
+            padding: 20px;
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
+            min-height: 100vh;
         }
         .container {
             background-color: #ffffff;
-            width: 100%; max-width: 600px;
+            width: 100%; 
+            max-width: 450px; /* 稍微縮小寬度，讓 FB 貼文比例更好看 */
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(231, 76, 60, 0.15); 
             margin-bottom: 20px;
             border-top: 6px solid #e74c3c; 
+            text-align: center;
         }
-        h2 { color: #c0392b; font-size: 24px; text-align: center; margin-bottom: 5px; }
-        .subtitle { text-align: center; color: #7f8c8d; font-size: 14px; margin-bottom: 25px; }
-        
-        /* 載入中的動畫 */
-        #loading { text-align: center; color: #e74c3c; font-weight: bold; margin: 30px 0; font-size: 16px; letter-spacing: 1px;}
-        
-        /* 案例卡片樣式 */
-        .case-card {
-            background-color: #fffafafa;
-            border: 1px solid #fadbd8;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
-            border-left: 5px solid #e74c3c;
-            animation: fadeIn 0.5s ease-in-out; /* 卡片浮現的小動畫 */
+        h2 { 
+            color: #c0392b; 
+            font-size: 24px; 
+            margin-bottom: 15px; 
+            font-weight: bold;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* ✨ 動態時間顯示區塊 ✨ */
+        .time-display { 
+            background-color: #fdedec; 
+            color: #c0392b; 
+            display: inline-block; 
+            padding: 8px 18px; 
+            border-radius: 20px; 
+            font-size: 14.5px; 
+            font-weight: bold; 
+            margin-bottom: 25px; 
+            border: 1px dashed #fadbd8; 
+            letter-spacing: 1px;
         }
-
-        .case-header {
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px dashed #fadbd8; padding-bottom: 10px; margin-bottom: 15px;
+        
+        /* FB Iframe 容器 */
+        .fb-container { 
+            background: #f8f9fa; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); 
+            border: 1px solid #e1e8ed; 
+            display: flex; 
+            justify-content: center; 
+            padding: 15px 5px; 
         }
-        .case-type { background-color: #e74c3c; color: white; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: bold; }
-        .case-date { color: #999; font-size: 13px; }
-        .case-title { color: #c0392b; font-size: 18px; margin: 0 0 10px 0; font-weight: bold;}
-        .case-content { font-size: 15px; line-height: 1.6; color: #555; }
-
-        .back-btn {
-            display: block; text-align: center; margin-top: 30px; color: #888; text-decoration: none;
-            font-size: 15px; padding: 12px 25px; border-radius: 30px; background-color: #f0f0f0; transition: 0.3s;
+        
+        /* 返回按鈕 */
+        .back-btn { 
+            display: inline-block; 
+            text-align: center; 
+            margin-top: 30px; 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 15px; 
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            background-color: #f0f0f0; 
+            transition: 0.3s; 
         }
         .back-btn:hover { background-color: #555; color: #fff; }
     </style>
@@ -65,83 +82,44 @@
 
     <div class="container">
         <h2>🛡️ 榮服處防騙宣導網</h2>
-        <div class="subtitle">每日最新詐騙案例・歷史資料庫</div>
-
-        <div id="loading">⏳ 正在從雲端資料庫同步最新案例...</div>
         
-        <div id="cases-container"></div>
+        <div class="time-display" id="clock">🕒 載入時間中...</div>
+        
+        <div class="fb-container">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F165bear&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="340" height="500" style="border:none;overflow:hidden; max-width: 100%;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
     </div>
 
     <script>
-        // 🌟 這裡放您剛剛辛苦取得的 CSV 網址
-        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRNSFZYELZJchevrTuafg7CzHaMraCogJcKDl4oEMa4H3GXhJE-c9-brtOy3F2cXrbUviOkMRGsxWW6/pub?output=csv';
-
-        async function loadCases() {
-            const container = document.getElementById('cases-container');
-            const loading = document.getElementById('loading');
-
-            try {
-                // 1. 透過網路請求抓取試算表資料
-                const response = await fetch(SHEET_CSV_URL);
-                const csvText = await response.text();
-
-                // 2. 解析 CSV 文字 (以換行符號切割)
-                const rows = csvText.trim().split('\n');
-                const casesData = [];
-
-                // 3. 從第 2 列開始讀取 (第 1 列是標題：日期, 類型, 標題, 內容)
-                for (let i = 1; i < rows.length; i++) {
-                    // 使用正規表達式完美切割欄位，避免內文中的「逗號」被誤判為換格
-                    const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    
-                    if (cols.length >= 4) {
-                        casesData.push({
-                            // 清除前後多餘的雙引號與空白
-                            date: cols[0].replace(/^"|"$/g, '').trim(),
-                            type: cols[1].replace(/^"|"$/g, '').trim(),
-                            title: cols[2].replace(/^"|"$/g, '').trim(),
-                            content: cols[3].replace(/^"|"$/g, '').trim()
-                        });
-                    }
-                }
-
-                // 4. 反轉陣列，讓試算表最下方的「最新案例」排在網頁最上面！
-                casesData.reverse();
-
-                // 5. 隱藏載入中文字
-                loading.style.display = 'none';
-                
-                // 6. 檢查是否有資料
-                if(casesData.length === 0) {
-                    container.innerHTML = '<div style="text-align:center; color:#888; padding: 20px;">目前雲端資料庫還沒有內容喔！請在試算表中新增。</div>';
-                    return;
-                }
-
-                // 7. 將每一筆資料畫成精美的卡片
-                casesData.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'case-card';
-                    card.innerHTML = `
-                        <div class="case-header">
-                            <span class="case-type">${item.type}</span>
-                            <span class="case-date">發布日期：${item.date}</span>
-                        </div>
-                        <h4 class="case-title">${item.title}</h4>
-                        <div class="case-content">${item.content}</div>
-                    `;
-                    container.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error('讀取資料失敗:', error);
-                loading.innerHTML = '❌ 讀取資料失敗，請檢查網路連線或試算表設定。';
-            }
+        function updateTime() {
+            const now = new Date();
+            
+            // 設定日期與時間的格式
+            const options = { 
+                year: 'numeric', 
+                month: '2-digit', 
+                day: '2-digit', 
+                weekday: 'long', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit', 
+                hour12: false // 使用 24 小時制
+            };
+            
+            // 轉換為臺灣在地格式 (例如：2026/03/05 星期四 21:37:22)
+            const timeString = now.toLocaleString('zh-TW', options).replace(/,/g, '');
+            
+            // 將時間寫入網頁中
+            document.getElementById('clock').innerText = '🕒 ' + timeString;
         }
 
-        // 網頁一打開就自動執行
-        window.onload = loadCases;
+        // 網頁一載入就先執行一次，避免出現「載入時間中...」的空窗期
+        updateTime();
+        
+        // 設定每 1000 毫秒 (1 秒) 重新執行一次 updateTime 函數
+        setInterval(updateTime, 1000);
     </script>
 </body>
 </html>
