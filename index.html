@@ -3,74 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>臺東榮服 服務工作百寶箱</title>
+    <title>臺東榮服防騙宣導</title>
     <style>
+        /* --- 基礎設定 --- */
+        * { box-sizing: border-box; }
         body {
-            background-color: #fdfbf7; 
-            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; 
-            color: #5a5a5a; 
-            margin: 0;
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", sans-serif;
+            color: #444;
+            margin: 0; 
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
             min-height: 100vh;
         }
-        .card {
+        .container {
             background-color: #ffffff;
-            width: 100%;
-            max-width: 400px; 
-            padding: 40px;
-            border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5); 
+            width: 100%; 
+            max-width: 450px; 
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.15); 
+            margin-bottom: 20px;
+            border-top: 6px solid #e74c3c; 
             text-align: center;
         }
-        h1 { color: #e67e22; font-size: 24px; margin-bottom: 10px; }
-        p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 30px; }
-        .menu { display: flex; flex-direction: column; gap: 15px; }
-        
-        .btn {
-            display: block;
-            text-decoration: none;
-            background-color: #fff0e6; 
-            color: #d35400; 
-            padding: 15px 20px;
-            border-radius: 12px;
+        h2 { 
+            color: #c0392b; 
+            font-size: 24px; 
+            margin-bottom: 25px; /* 稍微增加標題下方的留白 */
             font-weight: bold;
-            transition: all 0.3s ease; 
-            border: 1px solid transparent;
-        }
-        .btn:hover {
-            background-color: #ffe0b2; 
-            transform: translateY(-3px); 
-            box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
         }
         
-        /* 針對防騙宣導特別設計的紅色按鈕 */
-        .btn-red {
-            background-color: #fdedec;
-            color: #c0392b;
+        /* FB Iframe 容器：使用「遮罩裁切」技巧隱藏標題列，並加長高度 */
+        .fb-wrapper {
+            width: 340px;
+            height: 600px; /* ✨ 高度加長，釋出更多空間給內文 ✨ */
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #e1e8ed;
+            position: relative;
+            background-color: #fff;
         }
-        .btn-red:hover {
-            background-color: #fadbd8;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+
+        .fb-wrapper iframe {
+            position: absolute;
+            top: -70px; /* 隱藏 165 標題列 */
+            left: 0;
+            width: 340px;
+            height: 670px; /* 配合外框加長，確保貼文內容充足 */
+            border: none;
         }
+        
+        /* 返回按鈕 */
+        .back-btn { 
+            display: inline-block; 
+            text-align: center; 
+            margin-top: 30px; 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 15px; 
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            background-color: #f0f0f0; 
+            transition: 0.3s; 
+        }
+        .back-btn:hover { background-color: #555; color: #fff; }
     </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>👋 Hello, 歡迎伙伴們！</h1>
-        <p>這是 臺東榮服 服務工作百寶箱<br>存放了工作上常用的道具與知識</p>
-
-        <div class="menu">
-            <a href="preparation.html" class="btn">📋 事前準備</a>
-            <a href="work.html" class="btn">🛠️ 工作項目</a>
-            <a href="#" class="btn">📚 相關文書</a>
-            <a href="workpoint.html" class="btn">📢 業務宣導</a>
-            
-            <a href="antifraud.html" class="btn btn-red">🛡️ 防騙宣導</a>
+    <div class="container">
+        <h2>🛡️ 臺東榮服防騙宣導</h2>
+        
+        <div class="fb-wrapper">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F165bear&tabs=timeline&width=340&height=670&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
+
+        <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
     </div>
 
 </body>
