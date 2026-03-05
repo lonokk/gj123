@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>臺東榮服處防詐騙宣導網</title>
+    <title>臺東榮服防騙宣導</title>
     <style>
         /* --- 基礎設定 --- */
         * { box-sizing: border-box; }
@@ -32,31 +32,17 @@
         h2 { 
             color: #c0392b; 
             font-size: 24px; 
-            margin-bottom: 15px; 
+            margin-bottom: 25px; /* 稍微增加標題下方的留白 */
             font-weight: bold;
         }
         
-        /* ✨ 動態時間顯示區塊 ✨ */
-        .time-display { 
-            background-color: #fdedec; 
-            color: #c0392b; 
-            display: inline-block; 
-            padding: 8px 18px; 
-            border-radius: 20px; 
-            font-size: 14.5px; 
-            font-weight: bold; 
-            margin-bottom: 25px; 
-            border: 1px dashed #fadbd8; 
-            letter-spacing: 1px;
-        }
-        
-        /* FB Iframe 容器：使用「遮罩裁切」技巧隱藏標題列 */
+        /* FB Iframe 容器：使用「遮罩裁切」技巧隱藏標題列，並加長高度 */
         .fb-wrapper {
             width: 340px;
-            height: 500px; /* 畫面實際顯示的高度 */
+            height: 600px; /* ✨ 高度加長，釋出更多空間給內文 ✨ */
             margin: 0 auto;
             border-radius: 12px;
-            overflow: hidden; /* 把超出框框的東西(例如往上推的標題)剪掉藏起來 */
+            overflow: hidden; 
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border: 1px solid #e1e8ed;
             position: relative;
@@ -65,10 +51,10 @@
 
         .fb-wrapper iframe {
             position: absolute;
-            top: -70px; /* 往上推 70px，剛好把 FB 的粉專名稱和追蹤按鈕藏起來 */
+            top: -70px; /* 隱藏 165 標題列 */
             left: 0;
             width: 340px;
-            height: 570px; /* iframe 總高度加長 70px，補足被往上推的空間，讓下方不會空掉 */
+            height: 670px; /* 配合外框加長，確保貼文內容充足 */
             border: none;
         }
         
@@ -91,42 +77,14 @@
 <body>
 
     <div class="container">
-        <h2>🛡️ 臺東榮服處防詐騙宣導網</h2>
-        
-        <div class="time-display" id="clock">🕒 載入時間中...</div>
+        <h2>🛡️ 臺東榮服防騙宣導</h2>
         
         <div class="fb-wrapper">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F165bear&tabs=timeline&width=340&height=570&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F165bear&tabs=timeline&width=340&height=670&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
     </div>
 
-    <script>
-        function updateTime() {
-            const now = new Date();
-            
-            // 設定日期與時間的格式
-            const options = { 
-                year: 'numeric', 
-                month: '2-digit', 
-                day: '2-digit', 
-                weekday: 'long', 
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit', 
-                hour12: false // 使用 24 小時制
-            };
-            
-            // 轉換為臺灣在地格式
-            const timeString = now.toLocaleString('zh-TW', options).replace(/,/g, '');
-            
-            // 將時間寫入網頁中
-            document.getElementById('clock').innerText = '🕒 ' + timeString;
-        }
-
-        updateTime();
-        setInterval(updateTime, 1000);
-    </script>
 </body>
 </html>
