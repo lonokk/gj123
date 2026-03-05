@@ -161,30 +161,48 @@
             </div>
             
             <div class="feature-list">
-                <details class="function-item">
-                    <summary class="function-title" style="color: #c0392b;">🚨 防詐騙宣導 (165即時看板) <span class="func-arrow">▼</span></summary>
-                    <div class="function-path">
+               <details class="function-item" open>
+                    <summary class="function-title" style="color: #2980b9;">🛡️ 最新防詐影音與快訊 (自動更新) <span class="func-arrow">▼</span></summary>
+                    <div class="function-path" style="background-color: #f4f9fc;">
+                        
                         <p style="font-size: 14px; color: #555; text-align: left; margin-bottom: 15px;">
-                            👇 下方為警政署 165 打詐儀表板即時數據，可直接滑動查看最新各縣市詐騙趨勢與案例。
+                            👇 此區塊將自動同步「165全民防騙」官方臉書最新宣導 DM，以及防詐短影音。
                         </p>
-                        
-                        <div style="position: relative; width: 100%; height: 500px; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                            <iframe 
-                                src="https://165dashboard.tw/city-case-summary" 
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-                                title="165打詐儀表板">
-                            </iframe>
-                        </div>
-                        
-                        <div class="action-buttons">
-                            <a href="https://165dashboard.tw/city-case-summary" target="_blank" class="action-btn" style="background-color: #fdedec; color: #c0392b; border-color: #c0392b;">🔲 原網頁全螢幕查看</a>
+
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
                             
-                            <button onclick="shareImage('https://165dashboard.tw/city-case-summary', '165打詐儀表板 - 即時詐騙案例宣導')" class="action-btn share-btn">📤 分享防詐資訊</button>
+                            <div style="flex: 1; min-width: 300px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e1e8ed;">
+                                <div style="background: #1877F2; color: #fff; padding: 10px; font-weight: bold; font-size: 15px; text-align: center;">
+                                    💬 165 官方最新快訊
+                                </div>
+                                <div style="padding: 10px; display: flex; justify-content: center;">
+                                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F165bear&tabs=timeline&width=300&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="300" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                </div>
+                            </div>
+
+                            <div style="flex: 1; min-width: 300px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e1e8ed; display: flex; flex-direction: column;">
+                                <div style="background: #FF0000; color: #fff; padding: 10px; font-weight: bold; font-size: 15px; text-align: center;">
+                                    ▶️ 宣導短影音
+                                </div>
+                                <div style="padding: 10px; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+                                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/1P3pZz5mFyk?si=r7k_C_B8kXj_M2_3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 5px;"></iframe>
+                                </div>
+                            </div>
+
                         </div>
+
                     </div>
                 </details>
                 ```
 
+### 🎯 這個模組的強大之處：
+1. **FB 動態牆 (全自動)**：左邊的區塊，我幫您串接了「165全民防騙」的官方臉書 (`facebook.com/165bear`)。只要他們小編發了最新的圖文或宣導 DM，這裡就會**自己更新**，您完全不用理它！使用者甚至可以直接在您的網頁裡滑動看歷史貼文。
+2. **YouTube 影片**：右邊的區塊是一個 YouTube 播放器。未來如果您看到警政署有新的宣導影片，只要把 `<iframe src="...">` 裡面的網址換掉，就能立刻更新。
+3. **響應式排版 (RWD)**：如果在電腦或平板上看，FB 跟 YT 會漂亮地「左右並排」；如果用手機看，它們會自動變成「上下排列」，完全不會破版。
+
+至於 **Instagram (IG)** 的部分，因為 IG 官方的限制比較嚴格，他們不開放像 FB 那樣「自動顯示整個動態牆」的外掛，通常只能「手動嵌入單一篇貼文」。因此，實務上最推薦使用 FB 粉專外掛，既美觀又全自動！
+
+您可以立刻貼上去預覽看看，直接在網頁裡滑動 FB 粉專的感覺非常棒！
                 
                 <details class="function-item">
                     <summary class="function-title">📌 綠色通道 <span class="func-arrow">▼</span></summary>
