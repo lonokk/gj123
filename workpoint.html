@@ -93,57 +93,30 @@
 
         .promo-img { width: 100%; max-width: 500px; height: auto; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
 
-        /* ================= ✨ 分享與全螢幕按鈕樣式 ✨ ================= */
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            justify-content: center;
-        }
-        .action-btn {
-            background-color: #e8f8f5;
-            color: #1abc9c;
-            border: 1px solid #1abc9c;
-            padding: 10px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex: 1; 
-            transition: 0.2s;
-        }
-        .action-btn:hover {
-            background-color: #1abc9c;
-            color: white;
-        }
-        .share-btn {
-            background-color: #ebf5fb;
-            color: #2980b9;
-            border-color: #2980b9;
-        }
-        .share-btn:hover {
-            background-color: #2980b9;
-            color: white;
-        }
+        /* ================= 分享與全螢幕按鈕樣式 ================= */
+        .action-buttons { display: flex; gap: 10px; margin-top: 15px; justify-content: center; }
+        .action-btn { background-color: #e8f8f5; color: #1abc9c; border: 1px solid #1abc9c; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 14px; display: flex; align-items: center; justify-content: center; flex: 1; transition: 0.2s; }
+        .action-btn:hover { background-color: #1abc9c; color: white; }
+        .share-btn { background-color: #ebf5fb; color: #2980b9; border-color: #2980b9; }
+        .share-btn:hover { background-color: #2980b9; color: white; }
 
         /* 返回按鈕 */
-        .back-btn {
-            display: block;
-            text-align: center;
-            margin-top: 35px;
-            color: #888;
-            text-decoration: none;
-            font-size: 15px;
-            padding: 12px 25px;
-            border-radius: 30px;
-            background-color: #f0f0f0;
-            transition: 0.3s;
-        }
+        .back-btn { display: block; text-align: center; margin-top: 35px; color: #888; text-decoration: none; font-size: 15px; padding: 12px 25px; border-radius: 30px; background-color: #f0f0f0; transition: 0.3s; }
         .back-btn:hover { background-color: #555; color: #fff; }
+
+        /* 計數器區塊樣式 (給您預備放到底部的樣式) */
+        .counter-box {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+            text-align: center;
+        }
+        .counter-box span {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 5px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -166,7 +139,6 @@
                     <summary class="function-title">📌 綠色通道 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
                         <img src="images/greenway-11412.png" alt="綠色通道宣導" class="promo-img">
-                        
                         <div class="action-buttons">
                             <a href="images/greenway-11412.png" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
                             <button onclick="shareImage('images/greenway-11412.png', '綠色通道宣導')" class="action-btn share-btn">📤 分享至其他 App</button>
@@ -174,11 +146,10 @@
                     </div>
                 </details>
 
-                <details class="function-item" > 
+                <details class="function-item" open> 
                     <summary class="function-title">📌 就學、就業、職訓 EDM <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
                         <img src="images/tigerwing-114.jpg" alt="就學就業職訓宣導" class="promo-img">
-                        
                         <div class="action-buttons">
                             <a href="images/tigerwing-114.jpg" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
                             <button onclick="shareImage('images/tigerwing-114.jpg', '就學、就業、職訓 EDM')" class="action-btn share-btn">📤 分享至其他 App</button>
@@ -190,14 +161,13 @@
         </div>
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
-    </div>
+
+        </div>
 
     <script>
         function shareImage(imagePath, titleText) {
             if (navigator.share) {
-                // 取得目前圖片的絕對路徑，方便 LINE 等通訊軟體抓取預覽圖
                 const fullUrl = new URL(imagePath, window.location.href).href;
-                
                 navigator.share({
                     title: titleText,
                     text: '【業務宣導】請查看臺東縣榮服處的最新資訊：' + titleText,
@@ -205,7 +175,7 @@
                 }).then(() => {
                     console.log('分享成功！');
                 }).catch((error) => {
-                    console.log('分享取消或發生錯誤', error);
+                    console.log('分享發生錯誤', error);
                 });
             } else {
                 alert('您目前的裝置或瀏覽器不支援直接分享功能，請點擊「全螢幕瀏覽」後複製網址分享！');
