@@ -21,7 +21,7 @@
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 600px; /* 稍微加寬讓版面更好看 */
+            max-width: 600px;
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
@@ -93,9 +93,46 @@
 
         .promo-img { width: 100%; max-width: 500px; height: auto; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: block; margin: 0 auto; }
 
+        /* ================= ✨ 分享與全螢幕按鈕樣式 ✨ ================= */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        .action-btn {
+            background-color: #e8f8f5;
+            color: #1abc9c;
+            border: 1px solid #1abc9c;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1; 
+            transition: 0.2s;
+        }
+        .action-btn:hover {
+            background-color: #1abc9c;
+            color: white;
+        }
+        .share-btn {
+            background-color: #ebf5fb;
+            color: #2980b9;
+            border-color: #2980b9;
+        }
+        .share-btn:hover {
+            background-color: #2980b9;
+            color: white;
+        }
+
         /* ================= ✨ 數位化 EDM 專屬樣式 ✨ ================= */
         .edm-container {
-            background: linear-gradient(to bottom, #ebf5fb, #ffffff); /* 模擬天空漸層 */
+            background: linear-gradient(to bottom, #ebf5fb, #ffffff); 
             padding: 25px 15px;
             border-radius: 10px;
             font-family: "Microsoft JhengHei", sans-serif;
@@ -122,7 +159,7 @@
             gap: 10px;
         }
         @media (max-width: 600px) {
-            .edm-columns { grid-template-columns: 1fr; gap: 20px; } /* 手機變成單欄上下排列 */
+            .edm-columns { grid-template-columns: 1fr; gap: 20px; } 
         }
         .edm-col {
             background: #fff;
@@ -138,7 +175,6 @@
             justify-content: center;
             align-items: center;
         }
-        /* 三大分類顏色 */
         .bg-blue { background-color: #7fb2d5; }
         .bg-pink { background-color: #eb7d7f; }
         .bg-orange { background-color: #f5a260; }
@@ -158,7 +194,7 @@
         }
         .edm-item { margin-bottom: 20px; font-size: 15px; color: #444; line-height: 1.6; }
         .edm-item-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; color: #333; }
-        .edm-highlight { color: #d53c39; /* 突顯數字用的紅色 */ }
+        .edm-highlight { color: #d53c39; }
         .edm-foot { padding: 10px 0; text-align: center; color: #fff; font-size: 14px; letter-spacing: 1px;}
         .edm-footer-info {
             text-align: right;
@@ -207,10 +243,16 @@
                     <summary class="function-title">📌 綠色通道 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
                         <img src="images/greenway-11412.png" alt="綠色通道宣導" class="promo-img">
+                        
+                        <div class="action-buttons">
+                            <a href="images/greenway-11412.png" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
+                            <button onclick="shareImage('images/greenway-11412.png', '綠色通道宣導')" class="action-btn share-btn">📤 分享至其他 App</button>
+                        </div>
                     </div>
                 </details>
 
-                <details class="function-item" open> <summary class="function-title">📌 就學、就業、職訓 EDM <span class="func-arrow">▼</span></summary>
+                <details class="function-item" open> 
+                    <summary class="function-title">📌 就學、就業、職訓 EDM <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
                         
                         <div class="edm-container">
@@ -288,8 +330,28 @@
             </div>
         </div>
 
-        <a href="anxin-guide.html" class="back-btn">⬅️ 前往安心御老指南</a>
+        <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
     </div>
 
+    <script>
+        function shareImage(imagePath, titleText) {
+            if (navigator.share) {
+                // 取得目前圖片的絕對路徑，方便 LINE 等通訊軟體抓取預覽圖
+                const fullUrl = new URL(imagePath, window.location.href).href;
+                
+                navigator.share({
+                    title: titleText,
+                    text: '【業務宣導】請查看臺東縣榮服處的最新資訊：' + titleText,
+                    url: fullUrl
+                }).then(() => {
+                    console.log('分享成功！');
+                }).catch((error) => {
+                    console.log('分享取消或發生錯誤', error);
+                });
+            } else {
+                alert('您目前的裝置或瀏覽器不支援直接分享功能，請點擊「全螢幕瀏覽」後複製網址分享！');
+            }
+        }
+    </script>
 </body>
 </html>
