@@ -130,83 +130,6 @@
             color: white;
         }
 
-        /* ================= ✨ 數位化 EDM 專屬樣式 ✨ ================= */
-        .edm-container {
-            background: linear-gradient(to bottom, #ebf5fb, #ffffff); 
-            padding: 25px 15px;
-            border-radius: 10px;
-            font-family: "Microsoft JhengHei", sans-serif;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border: 1px solid #d6eaf8;
-        }
-        .edm-title {
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #555;
-            display: inline-block;
-            padding-bottom: 5px;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .edm-columns {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        @media (max-width: 600px) {
-            .edm-columns { grid-template-columns: 1fr; gap: 20px; } 
-        }
-        .edm-col {
-            background: #fff;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.06);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        .edm-head {
-            padding: 20px 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .bg-blue { background-color: #7fb2d5; }
-        .bg-pink { background-color: #eb7d7f; }
-        .bg-orange { background-color: #f5a260; }
-        
-        .edm-circle {
-            background-color: transparent;
-            width: 70px; height: 70px;
-            border-radius: 50%;
-            border: 3px solid #fff;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 22px; font-weight: bold; color: #fff;
-        }
-        .edm-body {
-            padding: 20px 10px;
-            text-align: center;
-            flex-grow: 1;
-        }
-        .edm-item { margin-bottom: 20px; font-size: 15px; color: #444; line-height: 1.6; }
-        .edm-item-title { font-size: 18px; font-weight: bold; margin-bottom: 5px; color: #333; }
-        .edm-highlight { color: #d53c39; }
-        .edm-foot { padding: 10px 0; text-align: center; color: #fff; font-size: 14px; letter-spacing: 1px;}
-        .edm-footer-info {
-            text-align: right;
-            margin-top: 25px;
-            font-size: 12px;
-            color: #666;
-            line-height: 1.6;
-            border-top: 1px dashed #ccc;
-            padding-top: 15px;
-        }
-        @media (max-width: 600px) { .edm-footer-info { text-align: center; } }
-
         /* 返回按鈕 */
         .back-btn {
             display: block;
@@ -254,77 +177,13 @@
                 <details class="function-item" open> 
                     <summary class="function-title">📌 就學、就業、職訓 EDM <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
+                        <img src="images/tigerwing-114.jpg" alt="就學就業職訓宣導" class="promo-img">
                         
-                        <div class="edm-container">
-                            <div class="edm-title">退役官兵如虎添翼</div>
-                            
-                            <div class="edm-columns">
-                                <div class="edm-col">
-                                    <div class="edm-head bg-blue">
-                                        <div class="edm-circle">就學</div>
-                                    </div>
-                                    <div class="edm-body">
-                                        <div class="edm-item">
-                                            <div class="edm-item-title">就學補助</div>
-                                            <div class="edm-highlight">80000 / 學期</div>
-                                        </div>
-                                        <div class="edm-item">
-                                            <div class="edm-item-title">進修補助</div>
-                                            <div>總額 <span class="edm-highlight">120000</span></div>
-                                        </div>
-                                        <div class="edm-item">
-                                            <div class="edm-item-title">就業考試</div>
-                                            <div>總額 <span class="edm-highlight">50000</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="edm-foot bg-blue">☐ 了解更多</div>
-                                </div>
-
-                                <div class="edm-col">
-                                    <div class="edm-head bg-pink">
-                                        <div class="edm-circle">就業</div>
-                                    </div>
-                                    <div class="edm-body">
-                                        <div class="edm-item">
-                                            <div class="edm-item-title">就穩津貼</div>
-                                            <div>職訓就業 <span class="edm-highlight">120000</span></div>
-                                            <div>推介就業 <span class="edm-highlight">60000</span></div>
-                                        </div>
-                                        <div class="edm-item">
-                                            <div class="edm-item-title">創業輔導</div>
-                                            <div>創業諮詢 <span class="edm-highlight">免費</span></div>
-                                            <div>利息補貼 <span class="edm-highlight">50%</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="edm-foot bg-pink">☐ 了解更多</div>
-                                </div>
-
-                                <div class="edm-col">
-                                    <div class="edm-head bg-orange">
-                                        <div class="edm-circle">職訓</div>
-                                    </div>
-                                    <div class="edm-body">
-                                        <div class="edm-item">
-                                            <div class="edm-item-title">本會職訓</div>
-                                            <div>前四次 <span class="edm-highlight">免費</span></div>
-                                            <div>之後補助 <span class="edm-highlight">80%</span></div>
-                                        </div>
-                                        <div class="edm-item">
-                                            <div class="edm-item-title">公告職訓</div>
-                                            <div>至多 <span class="edm-highlight">120000</span></div>
-                                            <div>眷屬適用</div>
-                                        </div>
-                                    </div>
-                                    <div class="edm-foot bg-orange">☐ 了解更多</div>
-                                </div>
-                            </div>
-
-                            <div class="edm-footer-info">
-                                國軍退除役官兵輔導委員會 臺東縣榮民服務處<br>
-                                地址：臺東市青島街55號 &nbsp;&nbsp; 電話：089-220722
-                            </div>
+                        <div class="action-buttons">
+                            <a href="images/tigerwing-114.jpg" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
+                            <button onclick="shareImage('images/tigerwing-114.jpg', '就學、就業、職訓 EDM')" class="action-btn share-btn">📤 分享至其他 App</button>
                         </div>
-                        </div>
+                    </div>
                 </details>
 
             </div>
