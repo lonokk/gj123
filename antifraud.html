@@ -18,7 +18,7 @@
             width: 100%; max-width: 600px;
             padding: 30px 20px;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.15); /* 紅色系陰影 */
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.15); 
             margin-bottom: 20px;
             border-top: 6px solid #e74c3c; 
         }
@@ -26,7 +26,7 @@
         .subtitle { text-align: center; color: #7f8c8d; font-size: 14px; margin-bottom: 25px; }
         
         /* 載入中的動畫 */
-        #loading { text-align: center; color: #e74c3c; font-weight: bold; margin: 30px 0; }
+        #loading { text-align: center; color: #e74c3c; font-weight: bold; margin: 30px 0; font-size: 16px; letter-spacing: 1px;}
         
         /* 案例卡片樣式 */
         .case-card {
@@ -37,7 +37,14 @@
             margin-bottom: 15px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.03);
             border-left: 5px solid #e74c3c;
+            animation: fadeIn 0.5s ease-in-out; /* 卡片浮現的小動畫 */
         }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .case-header {
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px dashed #fadbd8; padding-bottom: 10px; margin-bottom: 15px;
@@ -60,7 +67,7 @@
         <h2>🛡️ 榮服處防騙宣導網</h2>
         <div class="subtitle">每日最新詐騙案例・歷史資料庫</div>
 
-        <div id="loading">⏳ 正在從雲端資料庫載入最新案例...</div>
+        <div id="loading">⏳ 正在從雲端資料庫同步最新案例...</div>
         
         <div id="cases-container"></div>
 
@@ -68,25 +75,52 @@
     </div>
 
     <script>
-        // 🌟 核心引擎：讀取資料庫並繪製畫面
+        // 🌟 這裡放您剛剛辛苦取得的 CSV 網址
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRNSFZYELZJchevrTuafg7CzHaMraCogJcKDl4oEMa4H3GXhJE-c9-brtOy3F2cXrbUviOkMRGsxWW6/pub?output=csv';
+
         async function loadCases() {
             const container = document.getElementById('cases-container');
             const loading = document.getElementById('loading');
 
-            // 【待會我們要換成您的 Google 試算表網址】
-            // 目前先用一組我為您準備好的「假資料」，讓您先看排版效果
-            const mockData = [
-                { date: "2026/03/05", type: "假投資", title: "輕信網路投資群組，退休金血本無歸", content: "臺東一名 65 歲民眾，於 Facebook 點擊「名人教你買飆股」廣告後加入 LINE 群組。遭誘騙面交現金，損失數百萬元。" },
-                { date: "2026/03/04", type: "解除分期", title: "假冒網購客服，詐騙女大生", content: "詐騙集團假冒網路書店客服，謊稱系統錯誤導致重複扣款，要求民眾操作 ATM 解除設定，騙走帳戶內 5 萬元存款。" },
-                { date: "2026/03/03", type: "猜猜我是誰", title: "假冒親友借錢，老翁險匯款", content: "民眾接獲未顯示號碼來電，對方哭訴更換號碼且急需用錢。民眾前往銀行欲匯款 30 萬元，幸遇行員機警通報攔阻。" }
-            ];
+            try {
+                // 1. 透過網路請求抓取試算表資料
+                const response = await fetch(SHEET_CSV_URL);
+                const csvText = await response.text();
 
-            // 模擬網路讀取的時間 (1秒)
-            setTimeout(() => {
-                loading.style.display = 'none'; // 隱藏載入中文字
+                // 2. 解析 CSV 文字 (以換行符號切割)
+                const rows = csvText.trim().split('\n');
+                const casesData = [];
+
+                // 3. 從第 2 列開始讀取 (第 1 列是標題：日期, 類型, 標題, 內容)
+                for (let i = 1; i < rows.length; i++) {
+                    // 使用正規表達式完美切割欄位，避免內文中的「逗號」被誤判為換格
+                    const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                    
+                    if (cols.length >= 4) {
+                        casesData.push({
+                            // 清除前後多餘的雙引號與空白
+                            date: cols[0].replace(/^"|"$/g, '').trim(),
+                            type: cols[1].replace(/^"|"$/g, '').trim(),
+                            title: cols[2].replace(/^"|"$/g, '').trim(),
+                            content: cols[3].replace(/^"|"$/g, '').trim()
+                        });
+                    }
+                }
+
+                // 4. 反轉陣列，讓試算表最下方的「最新案例」排在網頁最上面！
+                casesData.reverse();
+
+                // 5. 隱藏載入中文字
+                loading.style.display = 'none';
                 
-                // 把資料一筆一筆畫成精美的 HTML 卡片
-                mockData.forEach(item => {
+                // 6. 檢查是否有資料
+                if(casesData.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; color:#888; padding: 20px;">目前雲端資料庫還沒有內容喔！請在試算表中新增。</div>';
+                    return;
+                }
+
+                // 7. 將每一筆資料畫成精美的卡片
+                casesData.forEach(item => {
                     const card = document.createElement('div');
                     card.className = 'case-card';
                     card.innerHTML = `
@@ -99,10 +133,14 @@
                     `;
                     container.appendChild(card);
                 });
-            }, 1000);
+
+            } catch (error) {
+                console.error('讀取資料失敗:', error);
+                loading.innerHTML = '❌ 讀取資料失敗，請檢查網路連線或試算表設定。';
+            }
         }
 
-        // 網頁一打開就執行載入
+        // 網頁一打開就自動執行
         window.onload = loadCases;
     </script>
 </body>
