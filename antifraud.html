@@ -32,14 +32,14 @@
         h2 { 
             color: #c0392b; 
             font-size: 24px; 
-            margin-bottom: 25px; /* 稍微增加標題下方的留白 */
+            margin-bottom: 25px; 
             font-weight: bold;
         }
         
-        /* FB Iframe 容器：使用「遮罩裁切」技巧隱藏標題列，並加長高度 */
+        /* FB Iframe 容器 */
         .fb-wrapper {
             width: 340px;
-            height: 600px; /* ✨ 高度加長，釋出更多空間給內文 ✨ */
+            height: 600px; 
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden; 
@@ -51,10 +51,10 @@
 
         .fb-wrapper iframe {
             position: absolute;
-            top: -70px; /* 隱藏 165 標題列 */
+            top: -70px; 
             left: 0;
             width: 340px;
-            height: 670px; /* 配合外框加長，確保貼文內容充足 */
+            height: 670px; 
             border: none;
         }
         
@@ -72,6 +72,20 @@
             transition: 0.3s; 
         }
         .back-btn:hover { background-color: #555; color: #fff; }
+
+        /* 計數器區塊樣式 */
+        .counter-box {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #eee;
+            text-align: center;
+        }
+        .counter-box span {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 5px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -84,6 +98,12 @@
         </div>
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
+
+        <div class="counter-box">
+            <span>累積瀏覽人次</span>
+            <img src="https://api.visitorbadge.io/api/visitors?path=taitung-antifraud&countColor=%23e74c3c" alt="瀏覽計數器">
+        </div>
+
     </div>
 
 </body>
