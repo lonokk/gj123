@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防騙宣導歷史資料庫</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", sans-serif;
+            color: #444;
+            margin: 0; padding: 20px;
+            display: flex; justify-content: center; align-items: flex-start; min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            width: 100%; max-width: 600px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.15); /* 紅色系陰影 */
+            margin-bottom: 20px;
+            border-top: 6px solid #e74c3c; 
+        }
+        h2 { color: #c0392b; font-size: 24px; text-align: center; margin-bottom: 5px; }
+        .subtitle { text-align: center; color: #7f8c8d; font-size: 14px; margin-bottom: 25px; }
+        
+        /* 載入中的動畫 */
+        #loading { text-align: center; color: #e74c3c; font-weight: bold; margin: 30px 0; }
+        
+        /* 案例卡片樣式 */
+        .case-card {
+            background-color: #fffafafa;
+            border: 1px solid #fadbd8;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.03);
+            border-left: 5px solid #e74c3c;
+        }
+        .case-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px dashed #fadbd8; padding-bottom: 10px; margin-bottom: 15px;
+        }
+        .case-type { background-color: #e74c3c; color: white; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: bold; }
+        .case-date { color: #999; font-size: 13px; }
+        .case-title { color: #c0392b; font-size: 18px; margin: 0 0 10px 0; font-weight: bold;}
+        .case-content { font-size: 15px; line-height: 1.6; color: #555; }
+
+        .back-btn {
+            display: block; text-align: center; margin-top: 30px; color: #888; text-decoration: none;
+            font-size: 15px; padding: 12px 25px; border-radius: 30px; background-color: #f0f0f0; transition: 0.3s;
+        }
+        .back-btn:hover { background-color: #555; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🛡️ 榮服處防騙宣導網</h2>
+        <div class="subtitle">每日最新詐騙案例・歷史資料庫</div>
+
+        <div id="loading">⏳ 正在從雲端資料庫載入最新案例...</div>
+        
+        <div id="cases-container"></div>
+
+        <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
+    </div>
+
+    <script>
+        // 🌟 核心引擎：讀取資料庫並繪製畫面
+        async function loadCases() {
+            const container = document.getElementById('cases-container');
+            const loading = document.getElementById('loading');
+
+            // 【待會我們要換成您的 Google 試算表網址】
+            // 目前先用一組我為您準備好的「假資料」，讓您先看排版效果
+            const mockData = [
+                { date: "2026/03/05", type: "假投資", title: "輕信網路投資群組，退休金血本無歸", content: "臺東一名 65 歲民眾，於 Facebook 點擊「名人教你買飆股」廣告後加入 LINE 群組。遭誘騙面交現金，損失數百萬元。" },
+                { date: "2026/03/04", type: "解除分期", title: "假冒網購客服，詐騙女大生", content: "詐騙集團假冒網路書店客服，謊稱系統錯誤導致重複扣款，要求民眾操作 ATM 解除設定，騙走帳戶內 5 萬元存款。" },
+                { date: "2026/03/03", type: "猜猜我是誰", title: "假冒親友借錢，老翁險匯款", content: "民眾接獲未顯示號碼來電，對方哭訴更換號碼且急需用錢。民眾前往銀行欲匯款 30 萬元，幸遇行員機警通報攔阻。" }
+            ];
+
+            // 模擬網路讀取的時間 (1秒)
+            setTimeout(() => {
+                loading.style.display = 'none'; // 隱藏載入中文字
+                
+                // 把資料一筆一筆畫成精美的 HTML 卡片
+                mockData.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'case-card';
+                    card.innerHTML = `
+                        <div class="case-header">
+                            <span class="case-type">${item.type}</span>
+                            <span class="case-date">發布日期：${item.date}</span>
+                        </div>
+                        <h4 class="case-title">${item.title}</h4>
+                        <div class="case-content">${item.content}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            }, 1000);
+        }
+
+        // 網頁一打開就執行載入
+        window.onload = loadCases;
+    </script>
+</body>
+</html>
