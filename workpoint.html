@@ -104,7 +104,7 @@
         .back-btn { display: block; text-align: center; margin-top: 35px; color: #888; text-decoration: none; font-size: 15px; padding: 12px 25px; border-radius: 30px; background-color: #f0f0f0; transition: 0.3s; }
         .back-btn:hover { background-color: #555; color: #fff; }
 
-        /* 計數器區塊樣式 (給您預備放到底部的樣式) */
+        /* 計數器區塊樣式 */
         .counter-box {
             margin-top: 25px;
             padding-top: 15px;
@@ -135,24 +135,35 @@
             
             <div class="feature-list">
                 
-                <details class="function-item">
-                    <summary class="function-title">📌 綠色通道 <span class="func-arrow">▼</span></summary>
+                <details class="function-item" open>
+                    <summary class="function-title">📌 安心御老 <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
-                        <img src="images/greenway-11412.png" alt="綠色通道宣導" class="promo-img">
+                        <img src="images/wp-1-1.png" alt="安心御老宣導" class="promo-img">
                         <div class="action-buttons">
-                            <a href="images/greenway-11412.png" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
-                            <button onclick="shareImage('images/greenway-11412.png', '綠色通道宣導')" class="action-btn share-btn">📤 分享至其他 App</button>
+                            <a href="images/wp-1-1.png" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
+                            <button onclick="shareImage('images/wp-1-1.png', '安心御老宣導')" class="action-btn share-btn">📤 分享至其他 App</button>
                         </div>
                     </div>
                 </details>
 
-                <details class="function-item" > 
+                <details class="function-item">
+                    <summary class="function-title">📌 綠色通道 <span class="func-arrow">▼</span></summary>
+                    <div class="function-path">
+                        <img src="images/wp-2-1.png" alt="綠色通道宣導" class="promo-img">
+                        <div class="action-buttons">
+                            <a href="images/wp-2-1.png" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
+                            <button onclick="shareImage('images/wp-2-1.png', '綠色通道宣導')" class="action-btn share-btn">📤 分享至其他 App</button>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="function-item"> 
                     <summary class="function-title">📌 就學、就業、職訓 EDM <span class="func-arrow">▼</span></summary>
                     <div class="function-path">
-                        <img src="images/tigerwing-114.jpg" alt="就學就業職訓宣導" class="promo-img">
+                        <img src="images/wp-3-1.png" alt="就學就業職訓宣導" class="promo-img">
                         <div class="action-buttons">
-                            <a href="images/tigerwing-114.jpg" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
-                            <button onclick="shareImage('images/tigerwing-114.jpg', '就學、就業、職訓 EDM')" class="action-btn share-btn">📤 分享至其他 App</button>
+                            <a href="images/wp-3-1.png" target="_blank" class="action-btn">🔲 全螢幕瀏覽</a>
+                            <button onclick="shareImage('images/wp-3-1.png', '就學、就業、職訓 EDM宣導')" class="action-btn share-btn">📤 分享至其他 App</button>
                         </div>
                     </div>
                 </details>
@@ -162,7 +173,12 @@
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
 
+        <div class="counter-box">
+            <span>累積瀏覽人次</span>
+            <img src="https://api.visitorbadge.io/api/visitors?path=taitung-workpoint&countColor=%2327ae60" alt="瀏覽計數器">
         </div>
+
+    </div>
 
     <script>
         function shareImage(imagePath, titleText) {
