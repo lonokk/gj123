@@ -52,6 +52,11 @@
             border-bottom: 1px dashed #ddd; 
             font-size: 15px; 
             color: #444;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .task-item:last-child { 
             border-bottom: none; 
@@ -64,7 +69,7 @@
             margin-right: 12px; 
             width: 18px; 
             height: 18px; 
-            cursor: not-allowed; /* 游標變成禁止符號，提示無法點擊 */
+            cursor: not-allowed; 
         }
         
         /* 狀態標籤 */
@@ -92,20 +97,6 @@
             margin-right: auto;
         }
         .back-btn:hover { background-color: #555; color: #fff; }
-
-        /* --- 計數器區塊 --- */
-        .counter-box {
-            margin-top: 25px; 
-            padding-top: 15px; 
-            border-top: 1px dashed #eee; 
-            text-align: center;
-        }
-        .counter-box span { 
-            font-size: 13px; 
-            color: #999; 
-            margin-bottom: 5px; 
-            display: block; 
-        }
     </style>
 </head>
 <body>
@@ -114,35 +105,77 @@
         <h2>📋 處內任務看板</h2>
 
         <div class="task-list-box" id="tasks-container">
-            <div class="task-item">
-                <input type="checkbox" disabled>
-                <div class="task-content">
-                    <span class="tag-todo">待處理</span> 辦理 115 年度財物研習會 (徐敬詔)
-                </div>
-            </div>
-            
-            <div class="task-item">
-                <input type="checkbox" disabled>
-                <div class="task-content">
-                    <span class="tag-doing">進行中</span> 榮院安心御老教育訓練準備 (高士傑)
-                </div>
-            </div>
-            
-            <div class="task-item">
-                <input type="checkbox" checked disabled>
-                <div class="task-content task-done-text">
-                    <span class="tag-done">已完成</span> 提交 3 月份第 1 週工作管制表
-                </div>
-            </div>
+            <div style="text-align:center; color:#888; padding: 20px;">⏳ 正在同步雲端任務資料...</div>
         </div>
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
-
-        <div class="counter-box">
-            <span>累積瀏覽人次</span>
-            <img src="https://api.visitorbadge.io/api/visitors?path=taitung-tasks&countColor=%233498db" alt="瀏覽計數器">
-        </div>
     </div>
 
+    <script>
+        // 🌟 串接您專屬的 Google 試算表 CSV 網址
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThjJ2hCKz83LQLF4x7gnejAfRzHDFP8ziHSUyIk94PXbioHzTgPcdHu5mZxrTN9t0bu8JNNFLluouZ/pub?output=csv';
+
+        async function loadTasks() {
+            const container = document.getElementById('tasks-container');
+
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const csvText = await response.text();
+                const rows = csvText.trim().split('\n');
+                
+                let htmlContent = '';
+
+                // 如果只有標題列，沒有資料
+                if (rows.length <= 1) {
+                    container.innerHTML = '<div style="text-align:center; color:#888; padding: 20px;">目前沒有任何任務喔！</div>';
+                    return;
+                }
+
+                // 從第 2 列開始讀取 (第 1 列是標題：狀態, 任務名稱, 負責人)
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                    
+                    if (cols.length >= 3) {
+                        const status = cols[0].replace(/^"|"$/g, '').trim();
+                        const taskName = cols[1].replace(/^"|"$/g, '').trim();
+                        const owner = cols[2].replace(/^"|"$/g, '').trim();
+
+                        // 判斷狀態與對應的視覺樣式
+                        let tagClass = 'tag-todo'; // 預設紅色：待處理
+                        let isChecked = '';
+                        let textClass = '';
+
+                        if (status === '進行中') {
+                            tagClass = 'tag-doing'; // 橘色
+                        } else if (status === '已完成') {
+                            tagClass = 'tag-done';  // 灰色，且打勾並畫刪除線
+                            isChecked = 'checked';
+                            textClass = 'task-done-text';
+                        }
+
+                        // 將資料畫成一條一條的 HTML 任務
+                        htmlContent += `
+                            <div class="task-item">
+                                <input type="checkbox" disabled ${isChecked}>
+                                <div class="task-content ${textClass}">
+                                    <span class="${tagClass}">${status}</span> ${taskName} (${owner})
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                // 把組裝好的任務放入網頁
+                container.innerHTML = htmlContent;
+
+            } catch (error) {
+                console.error('讀取失敗:', error);
+                container.innerHTML = '<div style="text-align:center; color:#e74c3c; padding: 20px;">❌ 讀取資料失敗，請檢查網路連線或試算表設定。</div>';
+            }
+        }
+
+        // 網頁一打開就自動載入任務
+        window.onload = loadTasks;
+    </script>
 </body>
 </html>
