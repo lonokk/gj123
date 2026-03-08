@@ -100,23 +100,41 @@
         .sub-title:first-child { margin-top: 0; }
         
         ul.condition-list { margin-top: 5px; margin-bottom: 15px; padding-left: 22px; color: #444; }
-        ul.condition-list li { margin-bottom: 10px; line-height: 1.5; }
+        ul.condition-list li { margin-bottom: 10px; line-height: 1.6; }
 
-        /* ✨ 調整後的法規專屬標籤樣式 ✨ */
+        /* 法規專屬標籤樣式 */
         .law-tag {
             background-color: #fae5d3;
             color: #d35400;
             padding: 2px 6px;
-            border-radius: 6px; /* 稍微縮小圓角，更適合夾在文字中間 */
+            border-radius: 6px; 
             font-size: 13px;
             font-weight: bold;
-            margin: 0 5px; /* 左右留白，避免文字黏在一起 */
+            margin: 0 5px; 
             display: inline-block;
             border: 1px solid #f8c471;
             transform: translateY(-1px);
         }
 
-        /* --- 互動式勾選清單樣式 --- */
+        /* ✨ 行內互動打勾按鈕 (給第5款專用) ✨ */
+        .inline-check {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            background-color: #f4f6f7;
+            border: 1px solid #d5dbdb;
+            padding: 2px 6px;
+            border-radius: 6px;
+            margin: 2px 3px;
+            font-size: 14px;
+            color: #2c3e50;
+            white-space: nowrap; /* 確保框框和字不會被切斷 */
+            transition: 0.2s;
+        }
+        .inline-check:hover { background-color: #eaf2f8; border-color: #5dade2; }
+        .inline-check input[type="checkbox"] { margin: 0 5px 0 0; cursor: pointer; width: 14px; height: 14px;}
+
+        /* --- 獨立行互動式勾選清單樣式 --- */
         .checklist { list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 15px;}
         .checklist li { margin-bottom: 10px; display: flex; align-items: flex-start; }
         .checklist input[type="checkbox"] { 
@@ -179,22 +197,28 @@
                     <li>第3條第1項<span class="law-tag">第2款</span>罹患重病、其他原因無法工作致生活陷入困境者。</li>
                     <li>第3條第1項<span class="law-tag">第3款</span>榮民死亡致無力殮葬。</li>
                     <li>第3條第1項<span class="law-tag">第4款</span>流落外地，缺乏車資返家之榮民。</li>
-                    <li>第3條第1項<span class="law-tag">第5款</span>就養榮民亡故，自亡故之日起六個月內，其無職業現居住於臺灣地區之配偶或直系血親，持本人有效之榮民遺眷家戶代表證者或榮民證者，發給一次性重點救助金新臺幣3萬元。</li>
+                    <li>第3條第1項<span class="law-tag">第5款</span>
+                        <label class="inline-check"><input type="checkbox">就養榮民亡故</label>，自亡故之日起
+                        <label class="inline-check"><input type="checkbox">六個月內</label>，其
+                        <label class="inline-check"><input type="checkbox">無職業</label>
+                        <label class="inline-check"><input type="checkbox">現居臺灣</label>之
+                        <label class="inline-check"><input type="checkbox">配偶或直系血親</label>，持本人有效之榮民遺眷家戶代表證者或榮民證者，發給一次性重點救助金新臺幣3萬元。
+                    </li>
                 </ul>
 
                 <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
                 <ul class="checklist">
                     <li>
                         <input type="checkbox" id="doc1-1">
-                        <label for="doc1-1">政府機關核發有相片之身分證件</label>
+                        <label for="doc1-1">診斷證明書正本(傷病救助適用)</label>
                     </li>
                     <li>
                         <input type="checkbox" id="doc1-2">
-                        <label for="doc1-2">低、中低收入戶或領取中低收入老人生活津貼證明 (若有)</label>
+                        <label for="doc1-2">醫療收據(傷病救助適用)</label>
                     </li>
                     <li>
                         <input type="checkbox" id="doc1-3">
-                        <label for="doc1-3">診斷證明書及繳費收據 (傷病救助適用)</label>
+                        <label for="doc1-3">低收、中低收入或中低老證明 (若有)</label>
                     </li>
                     <li>
                         <input type="checkbox" id="doc1-4">
@@ -202,11 +226,11 @@
                     </li>
                     <li>
                         <input type="checkbox" id="doc1-5">
-                        <label for="doc1-5">身心障礙證明或重大傷病證明文件 (若有)</label>
+                        <label for="doc1-5">身心障礙或重大傷病証明 (若有)</label>
                     </li>
                     <li>
                         <input type="checkbox" id="doc1-6">
-                        <label for="doc1-6">其他相關佐證資料</label>
+                        <label for="doc1-6">其他佐證資料</label>
                     </li>
                 </ul>
             </div>
@@ -215,12 +239,12 @@
         <details class="function-item">
             <summary class="function-title">📌 喪葬慰問 <span class="func-arrow">▼</span></summary>
             <div class="function-content">
-                <div class="sub-title">✅ 申請條件</div>
-                <ul class="condition-list">
-                    <li>未就養且未領有軍公教等政府機關核發月退休俸（金）之有眷榮民死亡。</li>
-                    <li>現居住於臺灣地區之配偶或直系血親。</li>
-                    <li>未請領社會保險喪葬給付（津貼），且未申領政府機關編列預算發給喪葬補助費。</li>
-                    <li>自榮民亡故之日起六個月內提出申請。</li>
+                <div class="sub-title">✅ 申請條件 (點擊可勾選檢核)</div>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="cond2-1"><label for="cond2-1">未就養且未領有軍公教等政府機關核發月退休俸（金）之有眷榮民死亡。</label></li>
+                    <li><input type="checkbox" id="cond2-2"><label for="cond2-2">現居住於臺灣地區之配偶或直系血親。</label></li>
+                    <li><input type="checkbox" id="cond2-3"><label for="cond2-3">未請領社會保險喪葬給付（津貼），且未申領政府機關編列預算發給喪葬補助費。</label></li>
+                    <li><input type="checkbox" id="cond2-4"><label for="cond2-4">自榮民亡故之日起六個月內提出申請。</label></li>
                 </ul>
 
                 <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
@@ -240,9 +264,10 @@
             <div class="function-content">
                 <div class="sub-title">✅ 三節慰問申請條件</div>
                 <ul class="condition-list">
-                    <li>具低收入戶身分或有特殊事由經評估核認之榮民/遺眷。</li>
-                    <li>具中低收入戶身分或領取中低收入老人生活津貼之榮民/遺眷。</li>
-                    <li>八二三臺海保衛戰役及其他經國防部核定之重要戰役義務役參戰官兵未就養榮民。</li>
+                    <li>低收。</li>
+                    <li>中低收或中低老。</li>
+                    <li>八二三及其他核定之重要戰役義務役參戰官兵未就養榮民。</li>
+                    <li>核定因公殞命、因公受傷之人員。</li>
                     <li>因生活困苦經專案列管有案之人員。</li>
                 </ul>
 
