@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>榮民權益簡表 - 臺東榮服工作百寶箱</title>
+    <style>
+        /* --- 基礎設定 --- */
+        * { box-sizing: border-box; }
+        body {
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            color: #5a5a5a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 650px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-top: 5px solid #2980b9; 
+        }
+        h2 {
+            color: #2c3e50; 
+            font-size: 24px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 15px;
+        }
+
+        /* --- 區塊標題 --- */
+        .section-heading {
+            color: #2980b9;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        /* --- 互動式折疊選單 --- */
+        details.function-item {
+            background-color: #fff;
+            border: 1px solid #e3f2fd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .function-title {
+            padding: 14px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+            background-color: #f4fbf7;
+        }
+        .function-title:hover { color: #27ae60; }
+        details.function-item[open] > .function-title { color: #2980b9; border-bottom: 1px dashed #eee; background-color: #ebf5fb; }
+        .func-arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
+        details.function-item[open] > .function-title .func-arrow { transform: rotate(180deg); color: #2980b9; }
+        
+        .function-content {
+            padding: 15px 20px;
+            background-color: #fff;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* --- 內部條列與重點標示 --- */
+        .sub-title {
+            color: #d35400;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            border-bottom: 1px solid #f9e79f;
+            padding-bottom: 4px;
+        }
+        .sub-title:first-child { margin-top: 0; }
+        
+        ul.condition-list { margin-top: 5px; margin-bottom: 15px; padding-left: 22px; color: #444; }
+        ul.condition-list li { margin-bottom: 10px; line-height: 1.6; }
+
+        /* ✨ 數字與重點專屬標籤 ✨ */
+        .law-tag {
+            background-color: #fcf3cf;
+            color: #d35400;
+            padding: 2px 6px;
+            border-radius: 6px; 
+            font-size: 13.5px;
+            font-weight: bold;
+            margin: 0 3px; 
+            display: inline-block;
+            border: 1px solid #f8c471;
+            transform: translateY(-1px);
+        }
+
+        /* 引用標籤淡化處理 */
+        .cite {
+            color: #bdc3c7;
+            font-size: 11px;
+            margin-left: 5px;
+            user-select: none;
+        }
+
+        /* --- 返回按鈕 --- */
+        .back-btn { 
+            display: block; 
+            text-align: center; 
+            margin-top: 35px; 
+            color: #888; 
+            text-decoration: none; 
+            font-size: 15px; 
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            background-color: #f0f0f0; 
+            transition: 0.3s; 
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .back-btn:hover { background-color: #555; color: #fff; }
+
+        summary::-webkit-details-marker { display: none; }
+        summary { list-style: none; outline: none; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🛠️ 榮民權益簡表</h2>
+        <div class="subtitle">第一類退除役官兵各項福利與補助總覽</div>
+
+        <h3 class="section-heading">一、權益與福利項目</h3>
+        
+        <details class="function-item">
+            <summary class="function-title">🪪 申辦榮民證 <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">✅ 申請資格</div>
+                <ul class="condition-list">
+                    <li>志願服現役滿 <span class="law-tag">10年</span> 以上，依法退伍除役之軍士官兵。</li>
+                    <li>於79年2月9日前已入營服志願役軍(士)官、於94年8月9日前已入營之志願役士兵，經國防部證實現役年資符合當時規定者。</li>
+                    <li>因作戰或因公致病、傷或身心障礙而失去工作能力，於退伍除役後，生計艱難需長期醫療或就養者。</li>
+                    <li>曾參加民國47年八二三臺海保衛戰役之軍士官兵(含金馬民防)及其他核定關係國家安全之重要戰役者。</li>
+                </ul>
+
+                <div class="sub-title">📂 檢附文件</div>
+                <ul class="condition-list">
+                    <li>國民身分證(或附有照片之健保卡)正本。</li>
+                    <li>最近三個月內一吋脫帽半身照片數位檔(或實體照片一張)。</li>
+                    <li>申請表(本會資料庫已建置資料之新進退除役官兵可免)。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">❤️ 溫馨服務照顧 (救助與獎助學金) <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">💰 急難救助與三節慰問</div>
+                <ul class="condition-list">
+                    <li>榮民(眷)遇有急難重病或特殊災害時，可申請急難救助金。</li>
+                    <li>八二三戰役及重要戰役參戰未就養榮民核發三節慰問：春節每人 <span class="law-tag">3,000元</span>，端午及中秋每人 <span class="law-tag">2,000元</span>。</li>
+                    <li>遭受重大災害意外致死或重度身心障礙，可申請榮民榮眷基金會救助金 <span class="law-tag">3萬至6萬元</span>。</li>
+                </ul>
+
+                <div class="sub-title">🎓 就學補助與獎學金 (30歲以下子女)</div>
+                <ul class="condition-list">
+                    <li><strong>高中職以下：</strong>五專前三年及高中職每學期補助 <span class="law-tag">6,240元</span>；國中、小每學期 <span class="law-tag">500元</span>。</li>
+                    <li><strong>大學以上：</strong>就讀公、私立大學每學期補助 <span class="law-tag">1萬元</span>。</li>
+                    <li><strong>基金會獎學金：</strong>博、碩士生 <span class="law-tag">1萬5,000元</span>，大學生 <span class="law-tag">1萬2,000元</span>。</li>
+                    <li><strong>午餐補助：</strong>符合清寒等資格之國中小子女，例假日及寒暑假午餐補助每日以 <span class="law-tag">80元</span> 計。</li>
+                </ul>
+
+                <div class="sub-title">🛡️ 其他照顧</div>
+                <ul class="condition-list">
+                    <li>提供法律諮詢服務。</li>
+                    <li><strong>微型保險：</strong>協助75歲以下低收/中低收等弱勢榮民投保，最高理賠 <span class="law-tag">30萬元</span>。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">🏡 安居就養 (進住榮家) <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">✅ 公費安養</div>
+                <ul class="condition-list">
+                    <li>因戰(公)傷殘且無固定職業，或年滿61歲無固定職業且全戶所得低於標準，經核定就養者，每月可領取就養給付 <span class="law-tag">1萬5,471元</span>，並得公費進住榮家。</li>
+                </ul>
+
+                <div class="sub-title">✅ 自費安養</div>
+                <ul class="condition-list">
+                    <li>未公費就養之榮民，得自付服務費(安養每月 <span class="law-tag">6,000元</span>，養護每月 <span class="law-tag">6,800元</span>)至榮家安養或養護。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">🏥 安心就醫 (健保與醫療補助) <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">💳 掛號與健保費補助</div>
+                <ul class="condition-list">
+                    <li>榮民(無論有無職業)至國軍醫院及本會所屬醫療機構就醫，<strong>免繳掛號費</strong>。</li>
+                    <li>健保第6類第1目之無職榮民，本會補助<strong>全額健保費</strong>(每月 <span class="law-tag">1,377元</span>)；依附之無職業眷屬補助 <strong>70%</strong>(每月 <span class="law-tag">964元</span>)。</li>
+                </ul>
+
+                <div class="sub-title">🛏️ 住院與輔具補助</div>
+                <ul class="condition-list">
+                    <li>公費就養榮民至本會所屬機構住院，伙食費差額由本會補助。</li>
+                    <li>無職榮民及低收榮民於榮總住院，2人病房差額費由本會補助。</li>
+                    <li>提供輪椅、助聽器、眼鏡或義眼等輔具及鑲牙之補助。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">🛠️ 職訓與進修補助 <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">💼 職業訓練補助</div>
+                <ul class="condition-list">
+                    <li>參加外包或各級機關訓練，完訓6個月內就業，可申請補助。</li>
+                    <li>第一類退除役官兵總額度 <span class="law-tag">12萬元</span>；第二類總額度 <span class="law-tag">8萬元</span>。</li>
+                </ul>
+                <div class="sub-title">📚 考試與大專進修補助</div>
+                <ul class="condition-list">
+                    <li>參加國內大專校院學分班，每人補助上限 <span class="law-tag">12萬元</span> (身心障礙或低收/中低收上限 <span class="law-tag">16萬元</span>)。</li>
+                    <li>參加國家考試及國營事業進用考試補習，補助上限 <span class="law-tag">5萬元</span> (每年限1次，最多4次)。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">💼 就業津貼與服務 <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">💵 穩定就業津貼</div>
+                <ul class="condition-list">
+                    <li><strong>訓後就業津貼：</strong>參加全日制職訓後穩定就業，榮民前半年每月 <span class="law-tag">1萬2千元</span>，後半年每月 <span class="law-tag">8千元</span>。</li>
+                    <li><strong>推介就業津貼：</strong>經榮服處推介就業滿3個月，榮民發給每月 <span class="law-tag">8千元</span>。</li>
+                </ul>
+                <div class="sub-title">🤝 其他就業輔導</div>
+                <ul class="condition-list">
+                    <li>提供創業貸款利息補貼與顧問諮詢。</li>
+                    <li>輔導會轉投資事業機構甄試時，條件相當者優先錄用。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">💰 退除給付與其他優惠 <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">👨‍👩‍👧 眷屬權益</div>
+                <ul class="condition-list">
+                    <li>支領退休俸等中校以下人員，其子女就學可申請子女教育補助費。</li>
+                    <li>領俸人亡故，遺族可申請改支遺屬年金或遺屬一次金。</li>
+                </ul>
+                <div class="sub-title">⚡ 水電與農場優惠</div>
+                <ul class="condition-list">
+                    <li>支領退休俸官兵本人或眷屬，得以戶籍地址申辦水電優待 (僅限一戶)。</li>
+                    <li>榮民至本會所屬三高山農場，門票免費，住宿費享假日 <span class="law-tag">8折</span>、非假日 <span class="law-tag">5折</span> 優惠。</li>
+                </ul>
+                <div class="sub-title">✈️ 旅居海外</div>
+                <ul class="condition-list">
+                    <li>旅居美國地區可洽駐美退伍軍人事務組，或撥打免付費專線 0800-212-154。</li>
+                </ul>
+            </div>
+        </details>
+
+        <a href="work.html" class="back-btn">⬅️ 返回工作項目</a>
+
+    </div>
+
+</body>
+</html>
