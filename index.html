@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>臺東榮服 工作百寶箱</title>
     <style>
+        /* --- 基礎設定 --- */
         body {
             background-color: #fdfbf7; 
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; 
@@ -19,14 +20,59 @@
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 400px; 
+            max-width: 450px; /* 稍微加寬一點，讓任務文字更好閱讀 */
             padding: 40px;
             border-radius: 20px; 
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5); 
             text-align: center;
         }
         h1 { color: #e67e22; font-size: 24px; margin-bottom: 10px; }
-        p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 30px; }
+        p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 25px; }
+        
+        /* --- 任務看板樣式 (內嵌於首頁) --- */
+        .task-list-box { 
+            background: #f8f9fa; 
+            border: 1px solid #e1e8ed; 
+            border-radius: 12px; 
+            padding: 15px; 
+            margin-bottom: 25px; 
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.02); 
+            text-align: left; /* 任務文字靠左對齊 */
+        }
+        .task-list-title { 
+            font-size: 15px; 
+            font-weight: bold; 
+            color: #3498db; 
+            margin-bottom: 15px; 
+            border-bottom: 1px dashed #ddd; 
+            padding-bottom: 8px; 
+            text-align: center; 
+        }
+        .task-item { 
+            display: flex; 
+            align-items: flex-start; 
+            padding: 10px 0; 
+            border-bottom: 1px dashed #ddd; 
+            font-size: 14px; 
+            color: #444; 
+            animation: fadeIn 0.5s ease-in-out; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .task-item:last-child { border-bottom: none; padding-bottom: 0; }
+        
+        .task-item input[type="checkbox"] { margin-top: 3px; margin-right: 10px; width: 16px; height: 16px; cursor: not-allowed; }
+        
+        .tag-todo { background: #e74c3c; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 6px; font-weight: bold;}
+        .tag-doing { background: #f39c12; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 6px; font-weight: bold;}
+        .tag-done { background: #95a5a6; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 6px; font-weight: bold;}
+        
+        .task-content { flex-grow: 1; line-height: 1.4; }
+        .task-done-text { text-decoration: line-through; color: #aaa; }
+
+        /* --- 主選單按鈕 --- */
         .menu { display: flex; flex-direction: column; gap: 15px; }
         
         .btn {
@@ -46,29 +92,8 @@
             box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
         }
         
-        /* 針對防騙宣導特別設計的紅色按鈕 */
-        .btn-red {
-            background-color: #fdedec;
-            color: #c0392b;
-        }
-        .btn-red:hover {
-            background-color: #fadbd8;
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
-        }
-
-        /* 計數器區塊樣式 (給您預備放到底部的樣式) */
-        .counter-box {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px dashed #eee;
-            text-align: center;
-        }
-        .counter-box span {
-            font-size: 13px;
-            color: #999;
-            margin-bottom: 5px;
-            display: block;
-        }
+        .btn-red { background-color: #fdedec; color: #c0392b; }
+        .btn-red:hover { background-color: #fadbd8; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
     </style>
 </head>
 <body>
@@ -77,16 +102,81 @@
         <h1>👋 Hello, 歡迎工作伙伴！</h1>
         <p>這是 臺東榮服 工作百寶箱<br>保管工作常用的工具與道具</p>
 
+        <div class="task-list-box">
+            <div class="task-list-title">📋 處內重點任務進度</div>
+            <div id="tasks-container">
+                <div style="text-align:center; color:#888; padding: 10px; font-size: 14px;">⏳ 正在同步雲端任務...</div>
+            </div>
+        </div>
+
         <div class="menu">
             <a href="preparation.html" class="btn">📋 事前準備</a>
             <a href="work.html" class="btn">🛠️ 工作項目</a>
             <a href="#" class="btn">📚 相關文書</a>
             <a href="workpoint.html" class="btn">📢 業務宣導</a>
             <a href="antifraud.html" class="btn btn-red">🛡️ 防騙宣導</a>
-            <a href="calendar.html" class="btn" style="background-color: #ebf5fb; color: #2980b9;">📅 行程與待辦事項</a>
         </div>
+    </div>
 
-        </div>
+    <script>
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThjJ2hCKz83LQLF4x7gnejAfRzHDFP8ziHSUyIk94PXbioHzTgPcdHu5mZxrTN9t0bu8JNNFLluouZ/pub?output=csv';
 
+        async function loadTasks() {
+            const container = document.getElementById('tasks-container');
+
+            try {
+                const response = await fetch(SHEET_CSV_URL);
+                const csvText = await response.text();
+                const rows = csvText.trim().split('\n');
+                
+                let htmlContent = '';
+
+                if (rows.length <= 1) {
+                    container.innerHTML = '<div style="text-align:center; color:#888; padding: 10px; font-size: 14px;">✅ 目前沒有待辦任務！</div>';
+                    return;
+                }
+
+                for (let i = 1; i < rows.length; i++) {
+                    const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                    
+                    if (cols.length >= 3) {
+                        const status = cols[0].replace(/^"|"$/g, '').trim();
+                        const taskName = cols[1].replace(/^"|"$/g, '').trim();
+                        const owner = cols[2].replace(/^"|"$/g, '').trim();
+
+                        let tagClass = 'tag-todo'; 
+                        let isChecked = '';
+                        let textClass = '';
+
+                        if (status === '進行中') {
+                            tagClass = 'tag-doing';
+                        } else if (status === '已完成') {
+                            tagClass = 'tag-done'; 
+                            isChecked = 'checked';
+                            textClass = 'task-done-text';
+                        }
+
+                        htmlContent += `
+                            <div class="task-item">
+                                <input type="checkbox" disabled ${isChecked}>
+                                <div class="task-content ${textClass}">
+                                    <span class="${tagClass}">${status}</span> ${taskName} (${owner})
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                container.innerHTML = htmlContent;
+
+            } catch (error) {
+                console.error('讀取失敗:', error);
+                container.innerHTML = '<div style="text-align:center; color:#e74c3c; padding: 10px; font-size: 14px;">❌ 讀取資料失敗，請檢查網路連線。</div>';
+            }
+        }
+
+        // 網頁一打開就自動載入任務
+        window.onload = loadTasks;
+    </script>
 </body>
 </html>
