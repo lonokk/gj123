@@ -100,17 +100,17 @@
         .sub-title:first-child { margin-top: 0; }
         
         ul.condition-list { margin-top: 5px; margin-bottom: 15px; padding-left: 22px; color: #444; }
-        ul.condition-list li { margin-bottom: 10px; line-height: 1.5; } /* 加大了行距讓標籤更好閱讀 */
+        ul.condition-list li { margin-bottom: 10px; line-height: 1.5; }
 
-        /* ✨ 法規專屬標籤樣式 ✨ */
+        /* ✨ 調整後的法規專屬標籤樣式 ✨ */
         .law-tag {
             background-color: #fae5d3;
             color: #d35400;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 12.5px;
+            padding: 2px 6px;
+            border-radius: 6px; /* 稍微縮小圓角，更適合夾在文字中間 */
+            font-size: 13px;
             font-weight: bold;
-            margin-right: 8px;
+            margin: 0 5px; /* 左右留白，避免文字黏在一起 */
             display: inline-block;
             border: 1px solid #f8c471;
             transform: translateY(-1px);
@@ -173,13 +173,13 @@
         <details class="function-item">
             <summary class="function-title">📌 急難救助 <span class="func-arrow">▼</span></summary>
             <div class="function-content">
-                <div class="sub-title">✅ 申請條件 (符合其一即可)</div>
+                <div class="sub-title">✅ 申請項目</div>
                 <ul class="condition-list">
-                    <li><span class="law-tag">第3條第1項第1款</span>遭受意外傷害致生活陷於困境者。</li>
-                    <li><span class="law-tag">第3條第1項第2款</span>罹患重病、其他原因無法工作致生活陷入困境者。</li>
-                    <li><span class="law-tag">第3條第1項第3款</span>榮民死亡致無力殮葬。</li>
-                    <li><span class="law-tag">第3條第1項第4款</span>流落外地，缺乏車資返家之榮民。</li>
-                    <li><span class="law-tag">第3條第1項第5款</span>就養榮民亡故，自亡故之日起六個月內，其無職業現居住於臺灣地區之配偶或直系血親，持本人有效之榮民遺眷家戶代表證者或榮民證者，發給一次性重點救助金新臺幣3萬元。</li>
+                    <li>第3條第1項<span class="law-tag">第1款</span>遭受意外傷害致生活陷於困境者。</li>
+                    <li>第3條第1項<span class="law-tag">第2款</span>罹患重病、其他原因無法工作致生活陷入困境者。</li>
+                    <li>第3條第1項<span class="law-tag">第3款</span>榮民死亡致無力殮葬。</li>
+                    <li>第3條第1項<span class="law-tag">第4款</span>流落外地，缺乏車資返家之榮民。</li>
+                    <li>第3條第1項<span class="law-tag">第5款</span>就養榮民亡故，自亡故之日起六個月內，其無職業現居住於臺灣地區之配偶或直系血親，持本人有效之榮民遺眷家戶代表證者或榮民證者，發給一次性重點救助金新臺幣3萬元。</li>
                 </ul>
 
                 <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
