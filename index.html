@@ -49,14 +49,12 @@
             text-align: center; 
         }
         
-        /* ✨ 任務內容區塊：設定最高高度與卷軸 ✨ */
         #tasks-container {
-            max-height: 220px; /* 大約顯示 4-5 行任務的高度 */
-            overflow-y: auto;  /* 超過高度時自動出現上下卷軸 */
-            padding-right: 5px; /* 留一點空間給卷軸，避免文字貼齊邊緣 */
+            max-height: 220px; 
+            overflow-y: auto;  
+            padding-right: 5px; 
         }
         
-        /* 美化卷軸 (讓它細細的比較有質感) */
         #tasks-container::-webkit-scrollbar { width: 6px; }
         #tasks-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
         #tasks-container::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 4px; }
@@ -143,43 +141,62 @@
                 const csvText = await response.text();
                 const rows = csvText.trim().split('\n');
                 
-                let htmlContent = '';
-
                 if (rows.length <= 1) {
                     container.innerHTML = '<div style="text-align:center; color:#888; padding: 10px; font-size: 14px;">✅ 目前沒有待辦任務！</div>';
                     return;
                 }
 
+                // 1. 先把資料抓下來變成陣列 (Array)
+                let parsedTasks = [];
                 for (let i = 1; i < rows.length; i++) {
                     const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    
                     if (cols.length >= 3) {
-                        const status = cols[0].replace(/^"|"$/g, '').trim();
-                        const taskName = cols[1].replace(/^"|"$/g, '').trim();
-                        const owner = cols[2].replace(/^"|"$/g, '').trim();
-
-                        let tagClass = 'tag-todo'; 
-                        let isChecked = '';
-                        let textClass = '';
-
-                        if (status === '進行中') {
-                            tagClass = 'tag-doing';
-                        } else if (status === '已完成') {
-                            tagClass = 'tag-done'; 
-                            isChecked = 'checked';
-                            textClass = 'task-done-text';
-                        }
-
-                        htmlContent += `
-                            <div class="task-item">
-                                <input type="checkbox" disabled ${isChecked}>
-                                <div class="task-content ${textClass}">
-                                    <span class="${tagClass}">${status}</span> ${taskName} (${owner})
-                                </div>
-                            </div>
-                        `;
+                        parsedTasks.push({
+                            status: cols[0].replace(/^"|"$/g, '').trim(),
+                            taskName: cols[1].replace(/^"|"$/g, '').trim(),
+                            owner: cols[2].replace(/^"|"$/g, '').trim(),
+                            originalIndex: i // 記錄原本在試算表是第幾列
+                        });
                     }
                 }
+
+                // 2. 啟動排序大腦 (自動排序邏輯)
+                parsedTasks.sort((a, b) => {
+                    const aIsDone = (a.status === '已完成');
+                    const bIsDone = (b.status === '已完成');
+
+                    // 規則一：已完成的往下沉
+                    if (aIsDone && !bIsDone) return 1;
+                    if (!aIsDone && bIsDone) return -1;
+
+                    // 規則二：同狀態下，最新寫上去的 (列數最大的) 排在最上面
+                    return b.originalIndex - a.originalIndex;
+                });
+
+                // 3. 把排序好的資料畫到網頁上
+                let htmlContent = '';
+                parsedTasks.forEach(task => {
+                    let tagClass = 'tag-todo'; 
+                    let isChecked = '';
+                    let textClass = '';
+
+                    if (task.status === '進行中') {
+                        tagClass = 'tag-doing';
+                    } else if (task.status === '已完成') {
+                        tagClass = 'tag-done'; 
+                        isChecked = 'checked';
+                        textClass = 'task-done-text';
+                    }
+
+                    htmlContent += `
+                        <div class="task-item">
+                            <input type="checkbox" disabled ${isChecked}>
+                            <div class="task-content ${textClass}">
+                                <span class="${tagClass}">${task.status}</span> ${task.taskName} (${task.owner})
+                            </div>
+                        </div>
+                    `;
+                });
                 
                 container.innerHTML = htmlContent;
 
