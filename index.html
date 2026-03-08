@@ -146,7 +146,7 @@
                     return;
                 }
 
-                // 1. 先把資料抓下來變成陣列 (Array)
+                // 1. 將資料抓下來變成陣列
                 let parsedTasks = [];
                 for (let i = 1; i < rows.length; i++) {
                     const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
@@ -155,31 +155,40 @@
                             status: cols[0].replace(/^"|"$/g, '').trim(),
                             taskName: cols[1].replace(/^"|"$/g, '').trim(),
                             owner: cols[2].replace(/^"|"$/g, '').trim(),
-                            originalIndex: i // 記錄原本在試算表是第幾列
+                            originalIndex: i 
                         });
                     }
                 }
 
-                // 2. 啟動排序大腦 (自動排序邏輯)
+                // 2. 設定狀態的優先層級 (數字越小排越上面)
+                function getPriority(status) {
+                    if (status === '進行中') return 1;
+                    if (status === '待處理' || status === '未開始') return 2;
+                    if (status === '已完成') return 3;
+                    return 4; // 其他防呆預設
+                }
+
+                // 3. 執行排序邏輯
                 parsedTasks.sort((a, b) => {
-                    const aIsDone = (a.status === '已完成');
-                    const bIsDone = (b.status === '已完成');
+                    const priorityA = getPriority(a.status);
+                    const priorityB = getPriority(b.status);
 
-                    // 規則一：已完成的往下沉
-                    if (aIsDone && !bIsDone) return 1;
-                    if (!aIsDone && bIsDone) return -1;
-
-                    // 規則二：同狀態下，最新寫上去的 (列數最大的) 排在最上面
+                    // 規則一：先比對狀態優先級
+                    if (priorityA !== priorityB) {
+                        return priorityA - priorityB; 
+                    }
+                    // 規則二：狀態相同時，越晚新增的 (列數越大) 排越上面
                     return b.originalIndex - a.originalIndex;
                 });
 
-                // 3. 把排序好的資料畫到網頁上
+                // 4. 把排序好的資料畫到網頁上 (唯讀模式)
                 let htmlContent = '';
                 parsedTasks.forEach(task => {
                     let tagClass = 'tag-todo'; 
                     let isChecked = '';
                     let textClass = '';
 
+                    // 判斷狀態對應的顏色與樣式 (相容「待處理」與「未開始」兩種寫法)
                     if (task.status === '進行中') {
                         tagClass = 'tag-doing';
                     } else if (task.status === '已完成') {
