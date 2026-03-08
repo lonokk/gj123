@@ -116,7 +116,7 @@
             transform: translateY(-1px);
         }
 
-        /* ✨ 行內互動打勾按鈕 (給第5款專用) ✨ */
+        /* ✨ 行內互動打勾按鈕 (給連續句子條件專用) ✨ */
         .inline-check {
             display: inline-flex;
             align-items: center;
@@ -128,7 +128,7 @@
             margin: 2px 3px;
             font-size: 14px;
             color: #2c3e50;
-            white-space: nowrap; /* 確保框框和字不會被切斷 */
+            white-space: nowrap; 
             transition: 0.2s;
         }
         .inline-check:hover { background-color: #eaf2f8; border-color: #5dade2; }
@@ -156,6 +156,32 @@
             font-size: 14.5px;
             line-height: 1.6;
             color: #444;
+        }
+
+        /* --- 試算輸入框樣式 --- */
+        .calc-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .calc-row label {
+            width: 120px;
+            font-weight: bold;
+            color: #c0392b;
+            font-size: 15px;
+        }
+        .calc-input {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .calc-input:focus {
+            border-color: #e67e22;
+            box-shadow: 0 0 5px rgba(230, 126, 34, 0.3);
         }
 
         /* --- 返回按鈕 --- */
@@ -208,30 +234,12 @@
 
                 <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
                 <ul class="checklist">
-                    <li>
-                        <input type="checkbox" id="doc1-1">
-                        <label for="doc1-1">診斷證明書正本(傷病救助適用)</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="doc1-2">
-                        <label for="doc1-2">醫療收據(傷病救助適用)</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="doc1-3">
-                        <label for="doc1-3">低收、中低收入或中低老證明 (若有)</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="doc1-4">
-                        <label for="doc1-4">死亡證明 (喪葬救助適用)</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="doc1-5">
-                        <label for="doc1-5">身心障礙或重大傷病証明 (若有)</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="doc1-6">
-                        <label for="doc1-6">其他佐證資料</label>
-                    </li>
+                    <li><input type="checkbox" id="doc1-1"><label for="doc1-1">診斷證明書正本(傷病救助適用)</label></li>
+                    <li><input type="checkbox" id="doc1-2"><label for="doc1-2">醫療收據(傷病救助適用)</label></li>
+                    <li><input type="checkbox" id="doc1-3"><label for="doc1-3">低收、中低收入或中低老證明 (若有)</label></li>
+                    <li><input type="checkbox" id="doc1-4"><label for="doc1-4">死亡證明 (喪葬救助適用)</label></li>
+                    <li><input type="checkbox" id="doc1-5"><label for="doc1-5">身心障礙或重大傷病証明 (若有)</label></li>
+                    <li><input type="checkbox" id="doc1-6"><label for="doc1-6">其他佐證資料</label></li>
                 </ul>
             </div>
         </details>
@@ -239,12 +247,16 @@
         <details class="function-item">
             <summary class="function-title">📌 喪葬慰問 <span class="func-arrow">▼</span></summary>
             <div class="function-content">
-                <div class="sub-title">✅ 申請條件 (點擊可勾選檢核)</div>
-                <ul class="checklist">
-                    <li><input type="checkbox" id="cond2-1"><label for="cond2-1">未就養且未領有軍公教等政府機關核發月退休俸（金）之有眷榮民死亡。</label></li>
-                    <li><input type="checkbox" id="cond2-2"><label for="cond2-2">現居住於臺灣地區之配偶或直系血親。</label></li>
-                    <li><input type="checkbox" id="cond2-3"><label for="cond2-3">未請領社會保險喪葬給付（津貼），且未申領政府機關編列預算發給喪葬補助費。</label></li>
-                    <li><input type="checkbox" id="cond2-4"><label for="cond2-4">自榮民亡故之日起六個月內提出申請。</label></li>
+                <div class="sub-title">✅ 申請項目</div>
+                <ul class="condition-list">
+                    <li>
+                        <label class="inline-check"><input type="checkbox">未就養且未領軍公教月退休俸</label>之有眷榮民死亡，其
+                        <label class="inline-check"><input type="checkbox">現居臺灣</label>之
+                        <label class="inline-check"><input type="checkbox">配偶或直系血親</label>，
+                        <label class="inline-check"><input type="checkbox">未請領社會保險喪葬給付</label>，且
+                        <label class="inline-check"><input type="checkbox">未申領政府喪葬補助費</label>，自榮民亡故之日起
+                        <label class="inline-check"><input type="checkbox">六個月內</label>提出申請。
+                    </li>
                 </ul>
 
                 <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
@@ -278,10 +290,31 @@
             </div>
         </details>
 
-        <h3 class="section-heading">二、急難救助試算</h3>
-        <div class="info-group" style="text-align: center; color: #888; padding: 30px;">
-            <div style="font-size: 30px; margin-bottom: 10px;">🧮</div>
-            本區塊保留建置中，未來將提供救助金額自動試算服務。
+        <h3 class="section-heading">二、建議金額試算</h3>
+        <div class="info-group">
+            <div style="margin-bottom: 20px; color: #888; font-size: 13.5px;">
+                💡 試算功能建置中，您可以先在此輸入各項金額：
+            </div>
+
+            <div class="calc-row">
+                <label>一、自費總金額</label>
+                <input type="number" class="calc-input" placeholder="請輸入金額 (元)">
+            </div>
+            
+            <div class="calc-row">
+                <label>二、病房費</label>
+                <input type="number" class="calc-input" placeholder="請輸入金額 (元)">
+            </div>
+
+            <div class="calc-row">
+                <label>三、伙食費</label>
+                <input type="number" class="calc-input" placeholder="請輸入金額 (元)">
+            </div>
+
+            <div class="calc-row">
+                <label>四、其他費用</label>
+                <input type="number" class="calc-input" placeholder="請輸入金額 (元)">
+            </div>
         </div>
 
         <h3 class="section-heading">三、申請資格定義</h3>
