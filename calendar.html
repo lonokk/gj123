@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>行程與待辦事項</title>
+    <title>處內任務看板</title>
     <style>
         /* --- 基礎設定 --- */
         * { box-sizing: border-box; }
@@ -21,12 +21,12 @@
         .container {
             background-color: #ffffff;
             width: 100%; 
-            max-width: 800px; /* 行事曆需要比較寬的空間 */
+            max-width: 600px; 
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(52, 152, 219, 0.15); 
             margin-bottom: 20px;
-            border-top: 6px solid #3498db; /* 專業的藍色主題 */
+            border-top: 6px solid #3498db; 
         }
         h2 { 
             color: #2980b9; 
@@ -36,48 +36,46 @@
             font-weight: bold;
         }
 
-        /* 待辦事項捷徑按鈕 */
-        .tasks-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ebf5fb;
-            color: #2980b9;
-            text-decoration: none;
-            padding: 15px;
+        /* --- 任務清單外框與樣式 --- */
+        .task-list-box {
+            background: #f8f9fa; 
+            border: 1px solid #e1e8ed; 
             border-radius: 12px;
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 25px;
-            border: 2px dashed #a9cce3;
-            transition: 0.3s;
+            padding: 15px; 
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
         }
-        .tasks-btn:hover {
-            background-color: #2980b9;
-            color: #fff;
-            border-style: solid;
+        .task-item {
+            display: flex; 
+            align-items: flex-start; 
+            padding: 15px 0;
+            border-bottom: 1px dashed #ddd; 
+            font-size: 15px; 
+            color: #444;
         }
+        .task-item:last-child { 
+            border-bottom: none; 
+            padding-bottom: 0; 
+        }
+        
+        /* 鎖定的打勾框框 */
+        .task-item input[type="checkbox"] {
+            margin-top: 4px; 
+            margin-right: 12px; 
+            width: 18px; 
+            height: 18px; 
+            cursor: not-allowed; /* 游標變成禁止符號，提示無法點擊 */
+        }
+        
+        /* 狀態標籤 */
+        .tag-todo { background: #e74c3c; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px; font-weight: bold;}
+        .tag-doing { background: #f39c12; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px; font-weight: bold;}
+        .tag-done { background: #95a5a6; color: white; padding: 3px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px; font-weight: bold;}
+        
+        .task-content { flex-grow: 1; line-height: 1.5; }
+        .task-done-text { text-decoration: line-through; color: #aaa; }
 
-        /* 行事曆外框 */
-        .calendar-wrapper {
-            position: relative;
-            padding-bottom: 75%; /* 控制行事曆比例 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid #e1e8ed;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        .calendar-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        /* 返回按鈕 */
+        /* --- 返回按鈕 --- */
         .back-btn { 
             display: block; 
             text-align: center; 
@@ -94,22 +92,56 @@
             margin-right: auto;
         }
         .back-btn:hover { background-color: #555; color: #fff; }
+
+        /* --- 計數器區塊 --- */
+        .counter-box {
+            margin-top: 25px; 
+            padding-top: 15px; 
+            border-top: 1px dashed #eee; 
+            text-align: center;
+        }
+        .counter-box span { 
+            font-size: 13px; 
+            color: #999; 
+            margin-bottom: 5px; 
+            display: block; 
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>📅 行程與待辦中心</h2>
+        <h2>📋 處內任務看板</h2>
 
-        <a href="https://calendar.google.com/calendar/u/0/r/tasks" target="_blank" class="tasks-btn">
-            ✅ 開啟 Google 待辦事項 (Tasks)
-        </a>
-        
-        <div class="calendar-wrapper">
-          79a75b4dff2526a087754205619abf49ba5a910d9cd329ab7a39fa6f3bdac4a0@group.calendar.google.com
+        <div class="task-list-box" id="tasks-container">
+            <div class="task-item">
+                <input type="checkbox" disabled>
+                <div class="task-content">
+                    <span class="tag-todo">待處理</span> 辦理 115 年度財物研習會 (徐敬詔)
+                </div>
+            </div>
+            
+            <div class="task-item">
+                <input type="checkbox" disabled>
+                <div class="task-content">
+                    <span class="tag-doing">進行中</span> 榮院安心御老教育訓練準備 (高士傑)
+                </div>
+            </div>
+            
+            <div class="task-item">
+                <input type="checkbox" checked disabled>
+                <div class="task-content task-done-text">
+                    <span class="tag-done">已完成</span> 提交 3 月份第 1 週工作管制表
+                </div>
+            </div>
         </div>
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
+
+        <div class="counter-box">
+            <span>累積瀏覽人次</span>
+            <img src="https://api.visitorbadge.io/api/visitors?path=taitung-tasks&countColor=%233498db" alt="瀏覽計數器">
+        </div>
     </div>
 
 </body>
