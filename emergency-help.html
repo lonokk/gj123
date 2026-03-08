@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>急難救助 - 臺東榮服工作百寶箱</title>
+    <title>急難救助及慰問 - 臺東榮服工作百寶箱</title>
     <style>
         /* --- 基礎設定 --- */
         * { box-sizing: border-box; }
@@ -21,13 +21,13 @@
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
             padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
             margin-top: 20px;
             margin-bottom: 20px;
-            border-top: 5px solid #e74c3c; /* 溫暖且帶有急迫感的紅色主題 */
+            border-top: 5px solid #e74c3c; 
         }
         h2 {
             color: #c0392b; 
@@ -45,52 +45,85 @@
             padding-bottom: 15px;
         }
 
-        /* --- 資訊模組卡片設計 --- */
+        /* --- 區塊標題 --- */
+        .section-heading {
+            color: #e67e22;
+            font-size: 18px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #e67e22;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        /* --- 第一段：互動式折疊選單 --- */
+        details.function-item {
+            background-color: #fff;
+            border: 1px solid #e3f2fd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        .function-title {
+            padding: 14px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #444;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+            background-color: #f4fbf7;
+        }
+        .function-title:hover { color: #27ae60; }
+        details.function-item[open] > .function-title { color: #d35400; border-bottom: 1px dashed #eee; background-color: #fffaf5; }
+        .func-arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
+        details.function-item[open] > .function-title .func-arrow { transform: rotate(180deg); color: #d35400; }
+        
+        .function-content {
+            padding: 15px 20px;
+            background-color: #fff;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* --- 內部條列與重點標示 --- */
+        .sub-title {
+            color: #2980b9;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        .sub-title:first-child { margin-top: 0; }
+        
+        ul.condition-list { margin-top: 5px; margin-bottom: 15px; padding-left: 22px; color: #444; }
+        ul.condition-list li { margin-bottom: 6px; }
+
+        /* --- 互動式勾選清單樣式 --- */
+        .checklist { list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 15px;}
+        .checklist li { margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .checklist input[type="checkbox"] { 
+            margin-top: 4px; 
+            margin-right: 12px; 
+            width: 18px; 
+            height: 18px; 
+            cursor: pointer; 
+            flex-shrink: 0;
+        }
+        .checklist label { cursor: pointer; display: block; line-height: 1.5; color: #333; }
+
+        /* --- 第二、三段：資訊模組 --- */
         .info-group {
             background-color: #fffaf5;
             border: 1px solid #fdebd0;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-        .info-header {
-            background-color: #fae5d3;
-            padding: 12px 18px;
-            font-weight: bold;
-            color: #d35400;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-        }
-        .info-header span { margin-right: 8px; font-size: 18px; }
-        .info-body { padding: 18px; line-height: 1.6; }
-
-        /* --- 內部條列與重點標示 --- */
-        .section-title {
-            color: #c0392b;
-            font-weight: bold;
-            font-size: 15px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            border-left: 3px solid #e74c3c;
-            padding-left: 8px;
-        }
-        .section-title:first-child { margin-top: 0; }
-        
-        ul { margin-top: 5px; margin-bottom: 15px; padding-left: 22px; color: #444; }
-        li { margin-bottom: 6px; }
-
-        /* 排除條款警告框 */
-        .alert-box {
-            background-color: #fdedec;
-            border: 1px solid #fadbd8;
-            border-left: 4px solid #c0392b;
-            padding: 12px 15px;
-            border-radius: 6px;
-            font-size: 13.5px;
-            color: #c0392b;
-            margin-top: 15px;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #444;
         }
 
         /* --- 返回按鈕 --- */
@@ -110,46 +143,126 @@
             margin-right: auto;
         }
         .back-btn:hover { background-color: #555; color: #fff; }
+
+        summary::-webkit-details-marker { display: none; }
+        summary { list-style: none; outline: none; }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h2>🆘 急難救助作業指南</h2>
-        <div class="subtitle">辦理急難救助與身分資格認定標準</div>
+        <h2>🆘 急難救助及慰問作業指南</h2>
+        <div class="subtitle">依據本會榮民榮眷遺眷急難救助及慰問作業要點辦理</div>
+
+        <h3 class="section-heading">一、服務項目與應備文件</h3>
         
-        <div class="info-group">
-            <div class="info-header">
-                <span>💡</span> 第一步：確認「榮民遺眷」資格
-            </div>
-            <div class="info-body">
-                <p style="margin-top: 0; font-size: 14px; color: #666;">辦理急難救助前，請務必先檢核申請人是否符合以下法定資格：</p>
-
-                <div class="section-title">一、法定遺眷定義（須同時符合）</div>
-                <ul>
-                    <li><strong>身分關聯：</strong>亡故榮民之配偶、父母與未成年之子女，及已成年未婚之身心障礙子女。</li>
-                    <li><strong>居住地限制：</strong>現居住於臺灣地區。</li>
+        <details class="function-item">
+            <summary class="function-title">📌 急難救助 <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">✅ 申請條件 (符合其一即可)</div>
+                <ul class="condition-list">
+                    <li>遭受意外傷害致生活陷於困境者。</li>
+                    <li>罹患重病、其他原因無法工作致生活陷入困境者。</li>
+                    <li>榮民死亡致無力殮葬。</li>
+                    <li>流落外地，缺乏車資返家之榮民。</li>
+                    <li>就養榮民亡故，自亡故之日起六個月內，其無職業現居住於臺灣地區之配偶或直系血親。</li>
                 </ul>
 
-                <div class="section-title">二、準用遺眷規定（擴大照顧對象）</div>
-                <ul>
-                    <li>戰訓或因公殞命軍人之遺族。</li>
-                    <li>服現役十年以上死亡軍人之遺族。</li>
+                <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
+                <ul class="checklist">
+                    <li>
+                        <input type="checkbox" id="doc1-1">
+                        <label for="doc1-1">政府機關核發有相片之身分證件</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc1-2">
+                        <label for="doc1-2">低、中低收入戶或領取中低收入老人生活津貼證明 (若有)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc1-3">
+                        <label for="doc1-3">診斷證明書及繳費收據 (傷病救助適用)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc1-4">
+                        <label for="doc1-4">死亡證明 (喪葬救助適用)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc1-5">
+                        <label for="doc1-5">身心障礙證明或重大傷病證明文件 (若有)</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="doc1-6">
+                        <label for="doc1-6">其他相關佐證資料</label>
+                    </li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">📌 喪葬慰問 <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">✅ 申請條件</div>
+                <ul class="condition-list">
+                    <li>未就養且未領有軍公教等政府機關核發月退休俸（金）之有眷榮民死亡。</li>
+                    <li>現居住於臺灣地區之配偶或直系血親。</li>
+                    <li>未請領社會保險喪葬給付（津貼），且未申領政府機關編列預算發給喪葬補助費。</li>
+                    <li>自榮民亡故之日起六個月內提出申請。</li>
                 </ul>
 
-                <div class="alert-box">
-                    <strong>⚠️ 排除條款：</strong><br>
-                    若因酒駕、毒駕、施用毒品、犯罪自殺或從事其他違法行為致死者，依法<strong>不適用</strong>準用遺眷之規定。
-                </div>
+                <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
+                <ul class="checklist">
+                    <li><input type="checkbox" id="doc2-1"><label for="doc2-1">死亡證明文件</label></li>
+                    <li><input type="checkbox" id="doc2-2"><label for="doc2-2">申請人身分證明文件</label></li>
+                    <li><input type="checkbox" id="doc2-3"><label for="doc2-3">親屬關係證明文件</label></li>
+                    <li><input type="checkbox" id="doc2-4"><label for="doc2-4">未請領社會保險喪葬給付及政府喪葬補助費之切結書</label></li>
+                    <li><input type="checkbox" id="doc2-5"><label for="doc2-5">低、中低收入戶或領取中低收入老人生活津貼證明 (若有)</label></li>
+                    <li><input type="checkbox" id="doc2-6"><label for="doc2-6">申請人金融機構存摺封面影本或帳號資料</label></li>
+                </ul>
             </div>
+        </details>
+
+        <details class="function-item">
+            <summary class="function-title">📌 三節慰問與特殊事故慰問 <span class="func-arrow">▼</span></summary>
+            <div class="function-content">
+                <div class="sub-title">✅ 三節慰問申請條件</div>
+                <ul class="condition-list">
+                    <li>具低收入戶身分或有特殊事由經評估核認之榮民/遺眷。</li>
+                    <li>具中低收入戶身分或領取中低收入老人生活津貼之榮民/遺眷。</li>
+                    <li>八二三臺海保衛戰役及其他經國防部核定之重要戰役義務役參戰官兵未就養榮民。</li>
+                    <li>因生活困苦經專案列管有案之人員。</li>
+                </ul>
+
+                <div class="sub-title">✅ 特殊事故慰問申請條件</div>
+                <ul class="condition-list">
+                    <li>遭逢重大意外事件或特殊急難事故者。</li>
+                </ul>
+            </div>
+        </details>
+
+        <h3 class="section-heading">二、急難救助試算</h3>
+        <div class="info-group" style="text-align: center; color: #888; padding: 30px;">
+            <div style="font-size: 30px; margin-bottom: 10px;">🧮</div>
+            本區塊保留建置中，未來將提供救助金額自動試算服務。
         </div>
 
-        <div class="info-group" style="opacity: 0.7;">
-            <div class="info-header" style="background-color: #f2f4f4; color: #7f8c8d;">
-                <span>📋</span> 第二步：應備文件與申請流程 (建置中)
+        <h3 class="section-heading">三、申請資格定義</h3>
+        <div class="info-group">
+            <div style="margin-bottom: 15px;">
+                <strong style="color: #c0392b;">👨‍✈️ 榮民：</strong><br>
+                指具中華民國國籍，且現居住於臺灣地區持有榮譽國民證之退除役官兵及現居住於臺灣地區經本會服務照顧系統登錄有案之義士（民）、榮胞。
             </div>
-            <div class="info-body" style="font-size: 14px; color: #888; text-align: center; padding: 25px;">
-                這裡未來可以補上急難救助需要填寫的表單清單或作業流程。
+            
+            <div style="margin-bottom: 15px;">
+                <strong style="color: #c0392b;">👨‍👩‍👧‍👦 榮眷：</strong><br>
+                指具中華民國國籍，且現居住於臺灣地區之榮民配偶、父母、未成年之子女、已成年未婚之身心障礙子女及未取得中華民國國民身分證前，居住於臺灣地區之榮民外籍（含大陸）配偶。
+            </div>
+
+            <div>
+                <strong style="color: #c0392b;">🕊️ 遺眷：</strong><br>
+                指現居住於臺灣地區亡故榮民之配偶、父母與未成年之子女，及已成年未婚之身心障礙子女。<br>
+                <span style="font-size: 13.5px; color: #e74c3c; display: block; margin-top: 5px; background-color: #fdedec; padding: 8px; border-radius: 4px;">
+                    ⚠️ 註：戰訓、因公殞命或服現役十年以上死亡軍人之遺族，準用遺眷規定。但若因酒駕、毒駕、施用毒品、犯罪自殺或從事其他違法行為致死者，則不適用。
+                </span>
             </div>
         </div>
 
