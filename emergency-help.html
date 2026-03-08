@@ -95,12 +95,26 @@
             color: #2980b9;
             font-weight: bold;
             margin-top: 15px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         .sub-title:first-child { margin-top: 0; }
         
         ul.condition-list { margin-top: 5px; margin-bottom: 15px; padding-left: 22px; color: #444; }
-        ul.condition-list li { margin-bottom: 6px; }
+        ul.condition-list li { margin-bottom: 10px; line-height: 1.5; } /* 加大了行距讓標籤更好閱讀 */
+
+        /* ✨ 法規專屬標籤樣式 ✨ */
+        .law-tag {
+            background-color: #fae5d3;
+            color: #d35400;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12.5px;
+            font-weight: bold;
+            margin-right: 8px;
+            display: inline-block;
+            border: 1px solid #f8c471;
+            transform: translateY(-1px);
+        }
 
         /* --- 互動式勾選清單樣式 --- */
         .checklist { list-style: none; padding-left: 0; margin-top: 10px; margin-bottom: 15px;}
@@ -161,11 +175,11 @@
             <div class="function-content">
                 <div class="sub-title">✅ 申請條件 (符合其一即可)</div>
                 <ul class="condition-list">
-                    <li>第3條第1項第1款：遭受意外傷害致生活陷於困境者。</li>
-                    <li>第3條第1項第2款：罹患重病、其他原因無法工作致生活陷入困境者。</li>
-                    <li>第3條第1項第3款：榮民死亡致無力殮葬。</li>
-                    <li>第3條第1項第4款：流落外地，缺乏車資返家之榮民。</li>
-                    <li>第3條第1項第5款：就養榮民亡故，自亡故之日起六個月內，其無職業現居住於臺灣地區之配偶或直系血親，持本人有效之榮民遺眷家戶代表證者或榮民證者，發給一次性重點救助金新臺幣3萬元。</li>
+                    <li><span class="law-tag">第3條第1項第1款</span>遭受意外傷害致生活陷於困境者。</li>
+                    <li><span class="law-tag">第3條第1項第2款</span>罹患重病、其他原因無法工作致生活陷入困境者。</li>
+                    <li><span class="law-tag">第3條第1項第3款</span>榮民死亡致無力殮葬。</li>
+                    <li><span class="law-tag">第3條第1項第4款</span>流落外地，缺乏車資返家之榮民。</li>
+                    <li><span class="law-tag">第3條第1項第5款</span>就養榮民亡故，自亡故之日起六個月內，其無職業現居住於臺灣地區之配偶或直系血親，持本人有效之榮民遺眷家戶代表證者或榮民證者，發給一次性重點救助金新臺幣3萬元。</li>
                 </ul>
 
                 <div class="sub-title">📂 應備文件 (點擊可勾選確認)</div>
