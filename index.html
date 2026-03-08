@@ -163,7 +163,7 @@
                 // 2. 設定狀態的優先層級 (數字越小排越上面)
                 function getPriority(status) {
                     if (status === '進行中') return 1;
-                    if (status === '待處理' || status === '未開始') return 2;
+                    if (status === '待處理' || status === '籌備中') return 2;
                     if (status === '已完成') return 3;
                     return 4; // 其他防呆預設
                 }
@@ -188,7 +188,7 @@
                     let isChecked = '';
                     let textClass = '';
 
-                    // 判斷狀態對應的顏色與樣式 (相容「待處理」與「未開始」兩種寫法)
+                    // 判斷狀態對應的顏色與樣式 (相容「待處理」與「籌備中」兩種寫法)
                     if (task.status === '進行中') {
                         tagClass = 'tag-doing';
                     } else if (task.status === '已完成') {
