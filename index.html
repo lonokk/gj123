@@ -14,7 +14,7 @@
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* 改為 flex-start 讓內容由上往下排，避免手機版被裁切 */
+            align-items: flex-start; /* 讓內容由上往下排，避免手機版被裁切 */
             min-height: 100vh;
         }
         .card {
@@ -30,22 +30,45 @@
         }
         h1 { color: #e67e22; font-size: 24px; margin-bottom: 10px; }
         p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 25px; }
-        
-        /* --- 行事曆區塊樣式 (取代原本的重點工作) --- */
-        .calendar-wrapper {
-            width: 100%;
-            height: 350px; /* 控制行事曆高度 */
+
+        /* --- 另開視窗的日曆按鈕樣式 --- */
+        .calendar-section {
             background: #f8f9fa; 
             border: 1px solid #e1e8ed; 
             border-radius: 12px; 
+            padding: 15px; 
             margin-bottom: 25px; 
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.02); 
-            overflow: hidden; /* 確保圓角不會被 iframe 蓋住 */
+            text-align: left;
         }
-        .calendar-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .calendar-title {
+            font-size: 15px; 
+            font-weight: bold; 
+            color: #3498db; 
+            margin-bottom: 15px; 
+            border-bottom: 1px dashed #ddd; 
+            padding-bottom: 8px; 
+            text-align: center;
+        }
+        .calendar-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #e3f2fd;
+            color: #1565c0;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 16px;
+            border: 2px dashed #90caf9;
+            transition: 0.3s;
+        }
+        .calendar-btn:hover {
+            background-color: #1565c0;
+            color: #fff;
+            border-style: solid;
+            box-shadow: 0 4px 10px rgba(21, 101, 192, 0.2);
         }
 
         /* --- 主選單按鈕 --- */
@@ -78,8 +101,11 @@
         <h1>👋 Hello, 歡迎工作伙伴！</h1>
         <p>這是 臺東榮服 工作百寶箱<br>保管工作常用的工具與道具</p>
 
-        <div class="calendar-wrapper">
-            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=400&wkst=Asia%2FTaipei&src=79a75b4dff2526a087754205619abf49ba5a910d9cd329ab7a39fa6f3bdac4a0%40group.calendar.google.com&color=%23d35400&ctz=Asia%2FTaipei" frameborder="0" scrolling="no"></iframe>
+        <div class="calendar-section">
+            <div class="calendar-title">📅 處內行事曆</div>
+            <a href="https://calendar.google.com/calendar/embed?src=79a75b4dff2526a087754205619abf49ba5a910d9cd329ab7a39fa6f3bdac4a0%40group.calendar.google.com&ctz=Asia%2FTaipei" target="_blank" class="calendar-btn">
+                <span style="font-size: 22px; margin-right: 8px;">📆</span> 點我開啟「服務體系」專屬日曆
+            </a>
         </div>
 
         <div class="menu">
