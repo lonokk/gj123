@@ -34,6 +34,7 @@
         /* --- 主選單按鈕 --- */
         .menu { display: flex; flex-direction: column; gap: 15px; }
         
+        /* 預設一般按鈕 (柔和橘底無邊框) */
         .btn {
             display: block;
             text-decoration: none;
@@ -43,21 +44,45 @@
             border-radius: 12px;
             font-weight: bold;
             transition: all 0.3s ease; 
-            border: 1px solid transparent;
+            border: 2px solid transparent; /* 預留邊框空間防跳動 */
         }
         .btn:hover {
             background-color: #ffe0b2; 
             transform: translateY(-3px); 
             box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
         }
-        
-        /* 資源鏈結專屬綠色按鈕 */
+
+        /* 資源鏈結專屬按鈕 (柔和綠底無邊框) */
         .btn-green { background-color: #eafaf1; color: #27ae60; }
         .btn-green:hover { background-color: #d5f5e3; box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3); }
 
-        /* 防騙宣導專屬紅色按鈕 */
-        .btn-red { background-color: #fdedec; color: #c0392b; }
-        .btn-red:hover { background-color: #fadbd8; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
+        /* ✨ 突顯項目一：安心御老操作指南 (科技藍 + 粗邊框立體感) ✨ */
+        .btn-anxin {
+            background-color: #e8f0fe;
+            color: #1967d2;
+            border: 2px solid #aecbfa;
+            box-shadow: 0 4px 10px rgba(25, 103, 210, 0.15);
+        }
+        .btn-anxin:hover {
+            background-color: #d2e3fc;
+            border-color: #8ab4f8;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(25, 103, 210, 0.3);
+        }
+
+        /* ✨ 突顯項目二：防騙宣導 (警示紅 + 粗邊框立體感) ✨ */
+        .btn-antifraud {
+            background-color: #fce8e6;
+            color: #c5221f;
+            border: 2px solid #f28b82;
+            box-shadow: 0 4px 10px rgba(197, 34, 31, 0.15);
+        }
+        .btn-antifraud:hover {
+            background-color: #fad2cf;
+            border-color: #e6b8af;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(197, 34, 31, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -76,10 +101,13 @@
         <div class="menu">
             <a href="preparation.html" class="btn">📋 常用網站</a>
             <a href="work.html" class="btn">🛠️ 工作項目</a>
-            <a href="anxin-guide.html" class="btn">📚 安心御老操作指南</a>
+            
+            <a href="anxin-guide.html" class="btn btn-anxin">📚 安心御老操作指南</a>
+            
             <a href="resources.html" class="btn btn-green">🔗 資源鏈結</a>
             <a href="workpoint.html" class="btn">📢 業務宣導</a>
-            <a href="antifraud.html" class="btn btn-red">🛡️ 防騙宣導</a>
+            
+            <a href="antifraud.html" class="btn btn-antifraud">🛡️ 防騙宣導</a>
         </div>
     </div>
 
