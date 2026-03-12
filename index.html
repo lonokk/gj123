@@ -3,219 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>臺東榮服 工作百寶箱</title>
+    <title>臺東榮服工作百寶箱</title>
     <style>
         /* --- 基礎設定 --- */
+        * { box-sizing: border-box; }
         body {
-            background-color: #fdfbf7; 
-            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; 
-            color: #5a5a5a; 
+            background-color: #fdfbf7;
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
+            color: #5a5a5a;
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
         }
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 450px; 
-            padding: 40px;
-            border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5); 
+            max-width: 550px;
+            padding: 30px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-top: 5px solid #2980b9; 
+        }
+        
+        /* --- 標題區 --- */
+        .header-box {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        h1 {
+            color: #2c3e50; 
+            font-size: 26px;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* --- 區塊標題 --- */
+        .section-heading {
+            color: #2980b9;
+            font-size: 18px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- ✨ 行事曆區塊 ✨ --- */
+        .calendar-wrapper {
+            width: 100%;
+            height: 380px; /* 控制行事曆的高度 */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e3f2fd;
+            background-color: #f8f9fa;
+        }
+        .calendar-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- 主選單按鈕設計 --- */
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .link-btn {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background-color: #fffaf5;
+            color: #555;
+            padding: 18px 20px;
+            border-radius: 15px;
+            border: 1px solid #ffe0b2;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        .link-btn:hover {
+            background-color: #ffe0b2;
+            transform: translateY(-3px);
+            border-color: #ffcc80;
+            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.15);
+        }
+        .icon-box {
+            font-size: 30px;
+            margin-right: 18px;
+            width: 40px;
             text-align: center;
         }
-        h1 { color: #e67e22; font-size: 24px; margin-bottom: 10px; }
-        p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 25px; }
-        
-        /* --- 任務看板樣式 --- */
-        .task-list-box { 
-            background: #f8f9fa; 
-            border: 1px solid #e1e8ed; 
-            border-radius: 12px; 
-            padding: 15px; 
-            margin-bottom: 25px; 
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.02); 
-            text-align: left; 
+        .text-box {
+            display: flex;
+            flex-direction: column;
         }
-        .task-list-title { 
-            font-size: 15px; 
-            font-weight: bold; 
-            color: #3498db; 
-            margin-bottom: 10px; 
-            border-bottom: 1px dashed #ddd; 
-            padding-bottom: 8px; 
-            text-align: center; 
-        }
-        
-        #tasks-container {
-            max-height: 220px; 
-            overflow-y: auto;  
-            padding-right: 5px; 
-        }
-        
-        #tasks-container::-webkit-scrollbar { width: 6px; }
-        #tasks-container::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
-        #tasks-container::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 4px; }
-        #tasks-container::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
-
-        .task-item { 
-            display: flex; 
-            align-items: flex-start; 
-            padding: 10px 0; 
-            border-bottom: 1px dashed #ddd; 
-            font-size: 14px; 
-            color: #444; 
-            animation: fadeIn 0.5s ease-in-out; 
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .task-item:last-child { border-bottom: none; padding-bottom: 0; }
-        
-        .task-item input[type="checkbox"] { margin-top: 3px; margin-right: 10px; width: 16px; height: 16px; cursor: not-allowed; }
-        
-        .tag-todo { background: #e74c3c; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 6px; font-weight: bold;}
-        .tag-doing { background: #f39c12; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 6px; font-weight: bold;}
-        .tag-done { background: #95a5a6; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 6px; font-weight: bold;}
-        
-        .task-content { flex-grow: 1; line-height: 1.4; }
-        .task-done-text { text-decoration: line-through; color: #aaa; }
-
-        /* --- 主選單按鈕 --- */
-        .menu { display: flex; flex-direction: column; gap: 15px; }
-        
-        .btn {
-            display: block;
-            text-decoration: none;
-            background-color: #fff0e6; 
-            color: #d35400; 
-            padding: 15px 20px;
-            border-radius: 12px;
+        .main-title {
+            font-size: 18px;
             font-weight: bold;
-            transition: all 0.3s ease; 
-            border: 1px solid transparent;
+            color: #d35400;
+            margin-bottom: 4px;
         }
-        .btn:hover {
-            background-color: #ffe0b2; 
-            transform: translateY(-3px); 
-            box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
+        .link-btn:hover .main-title { color: #bf360c; }
+        .btn-sub-title {
+            font-size: 13.5px;
+            color: #888;
         }
-        
-        .btn-red { background-color: #fdedec; color: #c0392b; }
-        .btn-red:hover { background-color: #fadbd8; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
+
+        /* 安心御老專屬按鈕顏色微調 */
+        .btn-anxin { background-color: #f4fdf8; border-color: #a9dfbf; }
+        .btn-anxin .main-title { color: #27ae60; }
+        .btn-anxin:hover { background-color: #e8f8f5; border-color: #2ecc71; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.15); }
+        .btn-anxin:hover .main-title { color: #1e8449; }
+
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h1>👋 Hello, 歡迎工作伙伴！</h1>
-        <p>這是 臺東榮服 工作百寶箱<br>保管工作常用的工具與道具</p>
-
-        <div class="task-list-box">
-            <div class="task-list-title">📋 重點工作</div>
-            <div id="tasks-container">
-                <div style="text-align:center; color:#888; padding: 10px; font-size: 14px;">⏳ 正在同步雲端任務...</div>
-            </div>
+        
+        <div class="header-box">
+            <h1>🧰 臺東榮服工作百寶箱</h1>
+            <div class="subtitle">第一線同仁數位隨身助理</div>
         </div>
 
-        <div class="menu">
-            <a href="preparation.html" class="btn">📋 常用網站</a>
-            <a href="work.html" class="btn">🛠️ 工作項目</a>
-            <a href="anxin-guide.html" class="btn">📚 安心御老操作指南</a>
-            <a href="workpoint.html" class="btn">📢 業務宣導</a>
-            <a href="antifraud.html" class="btn btn-red">🛡️ 防騙宣導</a>
+        <div class="section-heading">📅 處內行事曆</div>
+        <div class="calendar-wrapper">
+            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=400&wkst=Asia%2FTaipei&src=emgtdHcudGFpd2FuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmZhci5nb29nbGUuY29t&color=%230B8043" style="border-width:0" frameborder="0" scrolling="no"></iframe>
         </div>
+
+        <div class="section-heading">🚀 系統與作業指南</div>
+        <div class="link-list">
+            
+            <a href="anxin-guide.html" class="link-btn btn-anxin">
+                <div class="icon-box">📱</div>
+                <div class="text-box">
+                    <span class="main-title">安心御老操作指南</span>
+                    <span class="btn-sub-title">（系統操作與緊急通報 SOP）</span>
+                </div>
+            </a>
+
+            <a href="work.html" class="link-btn">
+                <div class="icon-box">🛠️</div>
+                <div class="text-box">
+                    <span class="main-title">工作項目</span>
+                    <span class="btn-sub-title">（各項業務規範與權益簡表）</span>
+                </div>
+            </a>
+
+        </div>
+
     </div>
 
-    <script>
-        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vThjJ2hCKz83LQLF4x7gnejAfRzHDFP8ziHSUyIk94PXbioHzTgPcdHu5mZxrTN9t0bu8JNNFLluouZ/pub?output=csv';
-
-        async function loadTasks() {
-            const container = document.getElementById('tasks-container');
-
-            try {
-                const response = await fetch(SHEET_CSV_URL);
-                const csvText = await response.text();
-                const rows = csvText.trim().split('\n');
-                
-                if (rows.length <= 1) {
-                    container.innerHTML = '<div style="text-align:center; color:#888; padding: 10px; font-size: 14px;">✅ 目前沒有待辦任務！</div>';
-                    return;
-                }
-
-                // 1. 將資料抓下來變成陣列
-                let parsedTasks = [];
-                for (let i = 1; i < rows.length; i++) {
-                    const cols = rows[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-                    if (cols.length >= 3) {
-                        parsedTasks.push({
-                            status: cols[0].replace(/^"|"$/g, '').trim(),
-                            taskName: cols[1].replace(/^"|"$/g, '').trim(),
-                            owner: cols[2].replace(/^"|"$/g, '').trim(),
-                            originalIndex: i 
-                        });
-                    }
-                }
-
-                // 2. 設定狀態的優先層級 (數字越小排越上面)
-                function getPriority(status) {
-                    if (status === '進行中') return 1;
-                    if (status === '待處理' || status === '籌備中') return 2;
-                    if (status === '已完成') return 3;
-                    return 4; // 其他防呆預設
-                }
-
-                // 3. 執行排序邏輯
-                parsedTasks.sort((a, b) => {
-                    const priorityA = getPriority(a.status);
-                    const priorityB = getPriority(b.status);
-
-                    // 規則一：先比對狀態優先級
-                    if (priorityA !== priorityB) {
-                        return priorityA - priorityB; 
-                    }
-                    // 規則二：狀態相同時，越晚新增的 (列數越大) 排越上面
-                    return b.originalIndex - a.originalIndex;
-                });
-
-                // 4. 把排序好的資料畫到網頁上 (唯讀模式)
-                let htmlContent = '';
-                parsedTasks.forEach(task => {
-                    let tagClass = 'tag-todo'; 
-                    let isChecked = '';
-                    let textClass = '';
-
-                    // 判斷狀態對應的顏色與樣式 (相容「待處理」與「籌備中」兩種寫法)
-                    if (task.status === '進行中') {
-                        tagClass = 'tag-doing';
-                    } else if (task.status === '已完成') {
-                        tagClass = 'tag-done'; 
-                        isChecked = 'checked';
-                        textClass = 'task-done-text';
-                    }
-
-                    htmlContent += `
-                        <div class="task-item">
-                            <input type="checkbox" disabled ${isChecked}>
-                            <div class="task-content ${textClass}">
-                                <span class="${tagClass}">${task.status}</span> ${task.taskName} (${task.owner})
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                container.innerHTML = htmlContent;
-
-            } catch (error) {
-                console.error('讀取失敗:', error);
-                container.innerHTML = '<div style="text-align:center; color:#e74c3c; padding: 10px; font-size: 14px;">❌ 讀取資料失敗，請檢查網路連線。</div>';
-            }
-        }
-
-        window.onload = loadTasks;
-    </script>
 </body>
 </html>
