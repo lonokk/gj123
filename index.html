@@ -14,7 +14,7 @@
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* 改為 flex-start 讓內容由上往下排，避免手機版被裁切 */
+            align-items: flex-start; 
             min-height: 100vh;
         }
         .card {
@@ -30,17 +30,17 @@
         }
         h1 { color: #e67e22; font-size: 24px; margin-bottom: 10px; }
         p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 25px; }
-        
-        /* --- 行事曆區塊樣式 (取代原本的重點工作) --- */
+
+        /* --- ✨ 內嵌行事曆區塊樣式 ✨ --- */
         .calendar-wrapper {
             width: 100%;
-            height: 350px; /* 控制行事曆高度 */
+            height: 350px; 
             background: #f8f9fa; 
             border: 1px solid #e1e8ed; 
             border-radius: 12px; 
             margin-bottom: 25px; 
             box-shadow: inset 0 2px 5px rgba(0,0,0,0.02); 
-            overflow: hidden; /* 確保圓角不會被 iframe 蓋住 */
+            overflow: hidden; 
         }
         .calendar-wrapper iframe {
             width: 100%;
@@ -79,7 +79,7 @@
         <p>這是 臺東榮服 工作百寶箱<br>保管工作常用的工具與道具</p>
 
         <div class="calendar-wrapper">
-            <iframe src="https://calendar.google.com/calendar/u/0?cid=NzlhNzViNGRmZjI1MjZhMDg3NzU0MjA1NjE5YWJmNDliYTVhOTEwZDljZDMyOWFiN2EzOWZhNmYzYmRhYzRhMEBncm91cC5jYWxlbmRhci5nb29nbGUuY29tb7a39fa6f3bdac4a0%40group.calendar.google.com&color=%23d35400&ctz=Asia%2FTaipei" frameborder="0" scrolling="no"></iframe>
+            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=400&wkst=Asia%2FTaipei&src=79a75b4dff2526a087754205619abf49ba5a910d9cd329ab7a39fa6f3bdac4a0%40group.calendar.google.com&color=%23d35400&ctz=Asia%2FTaipei" frameborder="0" scrolling="no"></iframe>
         </div>
 
         <div class="menu">
