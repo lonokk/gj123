@@ -3,211 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>臺東榮服工作百寶箱</title>
+    <title>臺東榮服 工作百寶箱</title>
     <style>
         /* --- 基礎設定 --- */
-        * { box-sizing: border-box; }
         body {
-            background-color: #fdfbf7;
-            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #5a5a5a;
+            background-color: #fdfbf7; 
+            font-family: "Microsoft JhengHei", "Heiti TC", sans-serif; 
+            color: #5a5a5a; 
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: flex-start; /* 改為 flex-start 讓內容由上往下排，避免手機版被裁切 */
             min-height: 100vh;
         }
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 550px;
-            padding: 30px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
+            max-width: 450px; 
+            padding: 40px;
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5); 
+            text-align: center;
             margin-top: 10px;
             margin-bottom: 20px;
-            border-top: 5px solid #2980b9; 
         }
+        h1 { color: #e67e22; font-size: 24px; margin-bottom: 10px; }
+        p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 25px; }
         
-        /* --- 標題區 --- */
-        .header-box {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        h1 {
-            color: #2c3e50; 
-            font-size: 26px;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-        .subtitle {
-            color: #888;
-            font-size: 14px;
-        }
-
-        /* --- 區塊標題 --- */
-        .section-heading {
-            color: #2980b9;
-            font-size: 18px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 10px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-
-        /* --- ✨ 行事曆區塊 ✨ --- */
+        /* --- 行事曆區塊樣式 (取代原本的重點工作) --- */
         .calendar-wrapper {
             width: 100%;
-            height: 380px; 
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: 1px solid #e3f2fd;
-            background-color: #f8f9fa;
-            position: relative;
-        }
-        /* 避免日曆載入前畫面空白，給個提示底色 */
-        .calendar-wrapper::before {
-            content: "日曆載入中...";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #aaa;
-            font-size: 14px;
-            z-index: 0;
+            height: 350px; /* 控制行事曆高度 */
+            background: #f8f9fa; 
+            border: 1px solid #e1e8ed; 
+            border-radius: 12px; 
+            margin-bottom: 25px; 
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.02); 
+            overflow: hidden; /* 確保圓角不會被 iframe 蓋住 */
         }
         .calendar-wrapper iframe {
             width: 100%;
             height: 100%;
             border: none;
-            position: relative;
-            z-index: 1;
-            background-color: #fff;
         }
 
-        /* --- 主選單按鈕設計 --- */
-        .link-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .link-btn {
-            display: flex;
-            align-items: center;
+        /* --- 主選單按鈕 --- */
+        .menu { display: flex; flex-direction: column; gap: 15px; }
+        
+        .btn {
+            display: block;
             text-decoration: none;
-            background-color: #fffaf5;
-            color: #555;
-            padding: 18px 20px;
-            border-radius: 15px;
-            border: 1px solid #ffe0b2;
-            transition: all 0.2s ease;
-            text-align: left;
-        }
-        .link-btn:not(.placeholder):hover {
-            background-color: #ffe0b2;
-            transform: translateY(-3px);
-            border-color: #ffcc80;
-            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.15);
-        }
-        .icon-box {
-            font-size: 30px;
-            margin-right: 18px;
-            width: 40px;
-            text-align: center;
-        }
-        .text-box {
-            display: flex;
-            flex-direction: column;
-        }
-        .main-title {
-            font-size: 18px;
+            background-color: #fff0e6; 
+            color: #d35400; 
+            padding: 15px 20px;
+            border-radius: 12px;
             font-weight: bold;
-            color: #d35400;
-            margin-bottom: 4px;
-            transition: 0.2s;
+            transition: all 0.3s ease; 
+            border: 1px solid transparent;
         }
-        .link-btn:not(.placeholder):hover .main-title { color: #bf360c; }
-        .btn-sub-title {
-            font-size: 13.5px;
-            color: #888;
+        .btn:hover {
+            background-color: #ffe0b2; 
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 15px rgba(255, 160, 122, 0.3);
         }
-
-        /* 安心御老專屬按鈕顏色微調 */
-        .btn-anxin { background-color: #f4fdf8; border-color: #a9dfbf; }
-        .btn-anxin .main-title { color: #27ae60; }
-        .btn-anxin:not(.placeholder):hover { background-color: #e8f8f5; border-color: #2ecc71; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.15); }
-        .btn-anxin:not(.placeholder):hover .main-title { color: #1e8449; }
-
-        /* 預留選項未開通時的樣式 */
-        .placeholder {
-            background-color: #f9f9f9;
-            border: 1px dashed #ccc;
-            pointer-events: none;
-            cursor: default;
-        }
-        .placeholder .main-title { color: #aaa; }
-        .placeholder .btn-sub-title { color: #ccc; }
-        .placeholder .icon-box { filter: grayscale(100%); opacity: 0.5; }
-
+        
+        .btn-red { background-color: #fdedec; color: #c0392b; }
+        .btn-red:hover { background-color: #fadbd8; box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3); }
     </style>
 </head>
 <body>
 
     <div class="card">
-        
-        <div class="header-box">
-            <h1>🧰 臺東榮服工作百寶箱</h1>
-            <div class="subtitle">第一線同仁數位隨身助理</div>
-        </div>
+        <h1>👋 Hello, 歡迎工作伙伴！</h1>
+        <p>這是 臺東榮服 工作百寶箱<br>保管工作常用的工具與道具</p>
 
-        <div class="section-heading">📅 處內行事曆</div>
         <div class="calendar-wrapper">
-            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=400&wkst=Asia%2FTaipei&src=79a75b4dff2526a087754205619abf49ba5a910d9cd329ab7a39fa6f3bdac4a0%40group.calendar.google.com&color=%232980b9&ctz=Asia%2FTaipei" style="border-width:0" frameborder="0" scrolling="no"></iframe>
+            <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=400&wkst=Asia%2FTaipei&src=79a75b4dff2526a087754205619abf49ba5a910d9cd329ab7a39fa6f3bdac4a0%40group.calendar.google.com&color=%23d35400&ctz=Asia%2FTaipei" frameborder="0" scrolling="no"></iframe>
         </div>
 
-        <div class="section-heading">🚀 核心業務與系統指南</div>
-        <div class="link-list">
-            
-            <a href="anxin-guide.html" class="link-btn btn-anxin">
-                <div class="icon-box">📱</div>
-                <div class="text-box">
-                    <span class="main-title">安心御老操作指南</span>
-                    <span class="btn-sub-title">（系統操作與跨網絡 SOP）</span>
-                </div>
-            </a>
-
-            <a href="work.html" class="link-btn">
-                <div class="icon-box">🛠️</div>
-                <div class="text-box">
-                    <span class="main-title">工作項目</span>
-                    <span class="btn-sub-title">（各項業務規範與權益簡表）</span>
-                </div>
-            </a>
-
-            <a href="#" class="link-btn placeholder">
-                <div class="icon-box">🔗</div>
-                <div class="text-box">
-                    <span class="main-title">常用系統與網站</span>
-                    <span class="btn-sub-title">（建置中）</span>
-                </div>
-            </a>
-
-            <a href="#" class="link-btn placeholder">
-                <div class="icon-box">📂</div>
-                <div class="text-box">
-                    <span class="main-title">表單與文件下載</span>
-                    <span class="btn-sub-title">（建置中）</span>
-                </div>
-            </a>
-
+        <div class="menu">
+            <a href="preparation.html" class="btn">📋 常用網站</a>
+            <a href="work.html" class="btn">🛠️ 工作項目</a>
+            <a href="anxin-guide.html" class="btn">📚 安心御老操作指南</a>
+            <a href="workpoint.html" class="btn">📢 業務宣導</a>
+            <a href="antifraud.html" class="btn btn-red">🛡️ 防騙宣導</a>
         </div>
-
     </div>
 
 </body>
