@@ -59,7 +59,7 @@
             background-color: #f5fbff; 
             padding: 16px 20px;
             border-bottom: 2px solid #e3f2fd;
-            cursor: pointer; /* 統一加上指標游標 */
+            cursor: pointer; 
         }
         .icon-box {
             font-size: 26px;
@@ -661,105 +661,125 @@
                 <div class="toggle-icon" style="color: #8e24aa;">✚</div>
             </summary>
             
-            <div class="feature-list" style="background-color: #ffffff; padding: 25px 20px;">
+            <div class="feature-list" style="background-color: #fbf8fc; padding: 20px 15px;">
                 
-                <div style="margin-bottom: 35px;">
-                    <h3 style="color: #d35400; border-bottom: 2px dashed #ffe0b2; padding-bottom: 8px; margin-top: 0;">狀況 1：獨居病痛急需就醫</h3>
-                    <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #bdc3c7; margin-bottom: 15px; font-size: 14.5px;">
-                        <strong>💡 情境說明：</strong>服務組長訪視時發現伯伯狀況異常、精神恍惚，本處接獲通報後立即啟動跨機關應變 SOP。
-                    </p>
-                    <div style="background-color: #fffaf5; border: 1px solid #fae5d3; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>今日訪視時發現伯伯臉色蒼白、精神恍惚。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到，請撥打 119 協助送醫，並回報最新處理進度。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>請問伯伯是否吸呼急促、嘴唇發紫？ 或是單側無力、嘴角歪斜？ 有沒有手腳冰冷、喘不過氣等狀況？</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>救護車已抵達，我正隨救護車陪同前往榮院急診室<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 總幹事：</span><span>辛苦了，請持續追蹤並掌握醫療處置的情形。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師初步診斷為低血糖，目前進行先安排持續性靜脈滴注，並留院觀察是否用藥過量所導致。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>我已聯繫上伯伯家人，家屬表示大約1小時後會趕到醫院。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師問診確認伯伯具失智症病徵，可能重複用藥以致於血糖太低。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員提醒家屬準備藥物分類盒避免服藥產生問題，並建議加入御老平台以便掌握伯伯的健康狀況。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>家屬已抵達並接手照顧，感謝本處的處置與協助<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span><span style="color: #e74c3c; font-weight: bold;">@榮民人事</span> ○伯伯具失智病徵，今日過量服藥緊急送醫所幸送醫後已無大礙，為維護安全建議評估是否符合馬蘭憶述家申請資格並提供家屬諮詢。</span></div>
-                        <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮民人事：</span><span>收到，請提供家屬聯絡方式，本家將擇期前往勸住。</span></div>
+                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
+                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
+                        🎬 狀況 1：獨居病痛急需就醫 <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
+                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
+                            <strong>💡 情境說明：</strong>服務組長訪視時發現伯伯狀況異常、精神恍惚，本處接獲通報後立即啟動跨機關應變 SOP。
+                        </p>
+                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>今日訪視時發現伯伯臉色蒼白、精神恍惚。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到，請撥打 119 協助送醫，並回報最新處理進度。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>請問伯伯是否吸呼急促、嘴唇發紫？ 或是單側無力、嘴角歪斜？ 有沒有手腳冰冷、喘不過氣等狀況？</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>救護車已抵達，我正隨救護車陪同前往榮院急診室<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 總幹事：</span><span>辛苦了，請持續追蹤並掌握醫療處置的情形。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師初步診斷為低血糖，目前進行先安排持續性靜脈滴注，並留院觀察是否用藥過量所導致。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>我已聯繫上伯伯家人，家屬表示大約1小時後會趕到醫院。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師問診確認伯伯具失智症病徵，可能重複用藥以致於血糖太低。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員提醒家屬準備藥物分類盒避免服藥產生問題，並建議加入御老平台以便掌握伯伯的健康狀況。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>家屬已抵達並接手照顧，感謝本處的處置與協助<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span><span style="color: #e74c3c; font-weight: bold;">@榮民人事</span> ○伯伯具失智病徵，今日過量服藥緊急送醫所幸送醫後已無大礙，為維護安全建議評估是否符合馬蘭憶述家申請資格並提供家屬諮詢。</span></div>
+                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮民人事：</span><span>收到，請提供家屬聯絡方式，本家將擇期前往勸住。</span></div>
+                        </div>
                     </div>
-                </div>
+                </details>
 
-                <div style="margin-bottom: 35px;">
-                    <h3 style="color: #d35400; border-bottom: 2px dashed #ffe0b2; padding-bottom: 8px; margin-top: 0;">狀況 2：居家火災送醫治療</h3>
-                    <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #bdc3c7; margin-bottom: 15px; font-size: 14.5px;">
-                        <strong>💡 情境說明：</strong>伯伯住家發生火災並造成人員受傷，本處接獲通報後立即啟動跨機關應變 SOP。
-                    </p>
-                    <div style="background-color: #fffaf5; border: 1px solid #fae5d3; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>大樓管理員通知伯伯煮飯時不小心失火，目前已送往榮院急診。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>知道伯伯傷勢及現場狀況嗎？</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>手臂燒燙傷，住家受損暫時不能住。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>我到急診處確認伯伯狀況。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>廚房受損嚴重，起居室半損需要整理。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師診斷為手臂二級燒燙傷，需要留院觀察。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯今天會出院嗎？出院無法返家可能需要緊急安置。<span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>本家有床位收住，請確認伯伯的意願與出院時間。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>伯伯意識清楚，但臂部燒燙傷出院也暫時難以自理生活。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員陪同前往醫院慰問，並徵詢伯伯入住榮家意願。另請志工承辦人擇日號召榮欣志工協助清理。</span></div>
-                        <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>協助緊急安置、急難救助申請，持續追蹤關懷。</span></div>
+                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
+                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
+                        🎬 狀況 2：居家火災送醫治療 <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
+                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
+                            <strong>💡 情境說明：</strong>伯伯住家發生火災並造成人員受傷，本處接獲通報後立即啟動跨機關應變 SOP。
+                        </p>
+                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>大樓管理員通知伯伯煮飯時不小心失火，目前已送往榮院急診。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>知道伯伯傷勢及現場狀況嗎？</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>手臂燒燙傷，住家受損暫時不能住。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>我到急診處確認伯伯狀況。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>廚房受損嚴重，起居室半損需要整理。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師診斷為手臂二級燒燙傷，需要留院觀察。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯今天會出院嗎？出院無法返家可能需要緊急安置。<span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>本家有床位收住，請確認伯伯的意願與出院時間。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>伯伯意識清楚，但臂部燒燙傷出院也暫時難以自理生活。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員陪同前往醫院慰問，並徵詢伯伯入住榮家意願。另請志工承辦人擇日號召榮欣志工協助清理。</span></div>
+                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>協助緊急安置、急難救助申請，持續追蹤關懷。</span></div>
+                        </div>
                     </div>
-                </div>
+                </details>
 
-                <div style="margin-bottom: 35px;">
-                    <h3 style="color: #d35400; border-bottom: 2px dashed #ffe0b2; padding-bottom: 8px; margin-top: 0;">狀況 3：家庭暴力危及人身安全</h3>
-                    <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #bdc3c7; margin-bottom: 15px; font-size: 14.5px;">
-                        <strong>💡 情境說明：</strong>服務組長接獲伯伯求救電話，表示同住之兒子酒後情緒失控，持物品砸毀屋內設施並揚言傷害伯伯。本處接獲通報後啟動應變 SOP。
-                    </p>
-                    <div style="background-color: #fffaf5; border: 1px solid #fae5d3; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>剛接到伯伯打電話來求救，說他兒子喝醉發酒瘋，拿椅子亂砸還揚言要殺他。我已到現場帶伯伯離開。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到！請確認伯伯有沒有受傷？並請撥打 110 報警請警方到場排除危險。我來通報 113 保護專線與縣政府社會處。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯沒有明顯外傷，但受到極大驚嚇，手一直發抖。警察已經到場上樓處理了。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>先安撫伯伯情緒並讓伯伯坐下休息。如果伯伯出現胸悶、喘不過氣或頭暈的狀況，請隨時通知並協助叫救護車送醫。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>考量伯伯的人身安全要請伯伯聲請暫時保護令。同時，因家中已無法居住，建議立即啟動榮家緊急安置。 <span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>了解，本家有緊急安置床位可提供庇護收住。請確認伯伯的入住意願，若同意可隨時安排進住，以確保長輩安全。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員配合社政單位協助保護令聲請與緊急安置作業。後續視家屬狀況討論伯伯的長期居住規畫。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯同意前往榮家暫住，警方也已初步處理完畢並完成通報。我目前正陪同伯伯前往榮家的路上。</span></div>
-                        <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>已協助伯伯緊急入住確保安全無虞。後續會追蹤保護令核發進度、家庭暴力防治中心處置情形，以及伯伯在榮家的適應狀況。</span></div>
+                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
+                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
+                        🎬 狀況 3：家庭暴力危及人身安全 <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
+                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
+                            <strong>💡 情境說明：</strong>服務組長接獲伯伯求救電話，表示同住之兒子酒後情緒失控，持物品砸毀屋內設施並揚言傷害伯伯。本處接獲通報後啟動應變 SOP。
+                        </p>
+                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>剛接到伯伯打電話來求救，說他兒子喝醉發酒瘋，拿椅子亂砸還揚言要殺他。我已到現場帶伯伯離開。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到！請確認伯伯有沒有受傷？並請撥打 110 報警請警方到場排除危險。我來通報 113 保護專線與縣政府社會處。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯沒有明顯外傷，但受到極大驚嚇，手一直發抖。警察已經到場上樓處理了。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>先安撫伯伯情緒並讓伯伯坐下休息。如果伯伯出現胸悶、喘不過氣或頭暈的狀況，請隨時通知並協助叫救護車送醫。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>考量伯伯的人身安全要請伯伯聲請暫時保護令。同時，因家中已無法居住，建議立即啟動榮家緊急安置。 <span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>了解，本家有緊急安置床位可提供庇護收住。請確認伯伯的入住意願，若同意可隨時安排進住，以確保長輩安全。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員配合社政單位協助保護令聲請與緊急安置作業。後續視家屬狀況討論伯伯的長期居住規畫。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯同意前往榮家暫住，警方也已初步處理完畢並完成通報。我目前正陪同伯伯前往榮家的路上。</span></div>
+                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>已協助伯伯緊急入住確保安全無虞。後續會追蹤保護令核發進度、家庭暴力防治中心處置情形，以及伯伯在榮家的適應狀況。</span></div>
+                        </div>
                     </div>
-                </div>
+                </details>
 
-                <div style="margin-bottom: 35px;">
-                    <h3 style="color: #d35400; border-bottom: 2px dashed #ffe0b2; padding-bottom: 8px; margin-top: 0;">狀況 4：散步失聯</h3>
-                    <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #bdc3c7; margin-bottom: 15px; font-size: 14.5px;">
-                        <strong>💡 情境說明：</strong>服務組長獲報伯伯出門散步半日未歸且手機未接，隨即啟動協尋與跨機關通報 SOP。
-                    </p>
-                    <div style="background-color: #fffaf5; border: 1px solid #fae5d3; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>上午伯伯的鄰居說昨天傍晚看他出門後就一直沒回來了。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到，請通報110並在住家附近尋找，我來聯繫家屬。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>附近常去的地方找過了都沒有，且伯伯出門沒帶手機，手機還留在客廳桌上。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>伯伯輕微失智，另有慢性病需要按時服藥，如果超過一天沒吃藥可能會有危險。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>已完成報案程序，鄰居表示伯伯昨日散步時穿著棕色外套，有戴帽子、拿手杖。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>除了警方協尋之外，向家屬拿照片請鄉公所、村里長群組協尋。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>警察局通知，有民眾在山邊聽見微弱呼喊聲，尋聲發現伯伯，警察已將他帶回派出所。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>太好了，我們一塊去派出所接伯伯。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>接到伯伯後，請先初步檢視他有無外傷、脫水或失溫狀況，必要時先送醫評估。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯平安無事，只是看起來有點疲憊跟脫水。我們已買熱食跟溫水給他補充體力，準備護送回家。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@榮民人事</span></span></div>
-                        <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮民人事：</span><span>請給我家屬聯繫電話，本家會安排前往家中提供入住諮詢。</span></div>
+                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
+                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
+                        🎬 狀況 4：散步失聯 <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
+                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
+                            <strong>💡 情境說明：</strong>服務組長獲報伯伯出門散步半日未歸且手機未接，隨即啟動協尋與跨機關通報 SOP。
+                        </p>
+                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>上午伯伯的鄰居說昨天傍晚看他出門後就一直沒回來了。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到，請通報110並在住家附近尋找，我來聯繫家屬。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>附近常去的地方找過了都沒有，且伯伯出門沒帶手機，手機還留在客廳桌上。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>伯伯輕微失智，另有慢性病需要按時服藥，如果超過一天沒吃藥可能會有危險。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>已完成報案程序，鄰居表示伯伯昨日散步時穿著棕色外套，有戴帽子、拿手杖。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>除了警方協尋之外，向家屬拿照片請鄉公所、村里長群組協尋。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>警察局通知，有民眾在山邊聽見微弱呼喊聲，尋聲發現伯伯，警察已將他帶回派出所。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>太好了，我們一塊去派出所接伯伯。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>接到伯伯後，請先初步檢視他有無外傷、脫水或失溫狀況，必要時先送醫評估。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯平安無事，只是看起來有點疲憊跟脫水。我們已買熱食跟溫水給他補充體力，準備護送回家。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@榮民人事</span></span></div>
+                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮民人事：</span><span>請給我家屬聯繫電話，本家會安排前往家中提供入住諮詢。</span></div>
+                        </div>
                     </div>
-                </div>
+                </details>
 
-                <div style="margin-bottom: 10px;">
-                    <h3 style="color: #d35400; border-bottom: 2px dashed #ffe0b2; padding-bottom: 8px; margin-top: 0;">狀況 5：親屬急病，伯伯臥床陷入照顧空窗</h3>
-                    <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #bdc3c7; margin-bottom: 15px; font-size: 14.5px;">
-                        <strong>💡 情境說明：</strong>訪視發現臥床之伯伯無人照料，詢問得知主要照顧者女兒急性心肌梗塞送醫，目前在加護病房。本處接獲通報後啟動跨機關應變 SOP。
-                    </p>
-                    <div style="background-color: #fffaf5; border: 1px solid #fae5d3; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>今日訪視時發現只有臥床的伯伯一人在家。伯伯說女兒昨晚突然胸痛叫救護車送醫，現在人在加護病房。伯伯從昨晚到現在都沒進食，也沒人幫忙換尿布。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到！請先確認伯伯目前的意識與身體狀況。我來聯繫長照中心詢問居服員是否能臨時介入或申請喘息服務。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>臥床長輩如果超過 12 小時未進食及翻身，極易發生脫水、低血糖及壓瘡感染風險。請協助伯伯少量緩慢地補充溫開水或流質食物，並檢視背部臀部是否有破皮發紅。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯意識清楚但身體虛弱，我已協助餵食配方奶並更換尿布。目前暫無立即送醫需求，但家中沒有照顧人力。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>主要照顧者短期無法返家，若居服員無法立即介入請直接評估榮家緊急安置。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>長照單位目前人力吃緊，今日無法提供全天候看護，最快要等到下周一才能確定，請榮家協助緊急安置 <span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>我來安排養護堂床位。因伯伯長期臥床，請協助收拾身邊用藥與生活必需品，若沒問題可立即安排救護車接駁入住。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員與榮家對接好長輩的護理細節，另持續關心女兒的病情，視其恢復狀況再討論伯伯未來的長期安置方案。</span></div>
-                        <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯同意前往榮家居住。民間救護車已抵達，我正協助將伯伯移位上擔架，將隨車護送伯伯前往榮家養護堂。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                        <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯已平安入住榮家養護堂，並由專業護理及照服人員接手照顧。後續將持續關懷家屬病情及伯伯適應狀況。</span></div>
+                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 0; box-shadow: none;">
+                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
+                        🎬 狀況 5：親屬急病，伯伯陷入照顧空窗 <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
+                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
+                            <strong>💡 情境說明：</strong>訪視發現臥床之伯伯無人照料，詢問得知主要照顧者女兒急性心肌梗塞送醫，目前在加護病房。本處接獲通報後啟動跨機關應變 SOP。
+                        </p>
+                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>今日訪視時發現只有臥床的伯伯一人在家。伯伯說女兒昨晚突然胸痛叫救護車送醫，現在人在加護病房。伯伯從昨晚到現在都沒進食，也沒人幫忙換尿布。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到！請先確認伯伯目前的意識與身體狀況。我來聯繫長照中心詢問居服員是否能臨時介入或申請喘息服務。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>臥床長輩如果超過 12 小時未進食及翻身，極易發生脫水、低血糖及壓瘡感染風險。請協助伯伯少量緩慢地補充溫開水或流質食物，並檢視背部臀部是否有破皮發紅。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯意識清楚但身體虛弱，我已協助餵食配方奶並更換尿布。目前暫無立即送醫需求，但家中沒有照顧人力。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>主要照顧者短期無法返家，若居服員無法立即介入請直接評估榮家緊急安置。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>長照單位目前人力吃緊，今日無法提供全天候看護，最快要等到下周一才能確定，請榮家協助緊急安置 <span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>我來安排養護堂床位。因伯伯長期臥床，請協助收拾身邊用藥與生活必需品，若沒問題可立即安排救護車接駁入住。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員與榮家對接好長輩的護理細節，另持續關心女兒的病情，視其恢復狀況再討論伯伯未來的長期安置方案。</span></div>
+                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯同意前往榮家居住。民間救護車已抵達，我正協助將伯伯移位上擔架，將隨車護送伯伯前往榮家養護堂。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
+                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯已平安入住榮家養護堂，並由專業護理及照服人員接手照顧。後續將持續關懷家屬病情及伯伯適應狀況。</span></div>
+                        </div>
                     </div>
-                </div>
+                </details>
 
             </div>
         </details>
