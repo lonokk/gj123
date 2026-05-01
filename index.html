@@ -27,6 +27,7 @@
             text-align: center;
             margin-top: 10px;
             margin-bottom: 20px;
+            position: relative; /* 為了讓計數器好定位 */
         }
         h1 { color: #e67e22; font-size: 24px; margin-bottom: 10px; }
         p { font-size: 15px; line-height: 1.6; color: #888; margin-bottom: 25px; }
@@ -105,6 +106,12 @@
             <a href="workpoint.html" class="btn">📢 業務宣導</a>
             
             <a href="antifraud.html" class="btn btn-antifraud">🛡️ 防騙宣導</a>
+        </div>
+
+        <!-- ================= 網頁計數器 ================= -->
+        <div style="margin-top: 35px; display: flex; justify-content: center; opacity: 0.7;">
+            <!-- 使用免費的 seeyoufarm API，會根據 url 參數自動計算次數 -->
+            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=taitung-vac-toolbox&count_bg=%23d35400&title_bg=%23555555&title=累積人次&edge_flat=true" alt="網頁計數器">
         </div>
     </div>
 
