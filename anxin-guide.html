@@ -10,7 +10,7 @@
         body {
             background-color: #fdfbf7;
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
-            color: #5a5a5a;
+            color: #4a4a4a;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -21,19 +21,19 @@
         .card {
             background-color: #ffffff;
             width: 100%;
-            max-width: 550px;
-            padding: 30px 20px;
+            max-width: 600px;
+            padding: 30px 22px;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(230, 210, 200, 0.5);
-            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-top: 10px;
             margin-bottom: 20px;
-            border-top: 5px solid #2980b9; 
+            border-top: 6px solid #2980b9; 
         }
         h2 {
-            color: #2980b9; 
+            color: #1a5276; 
             font-size: 24px;
             margin-bottom: 25px;
-            border-bottom: 2px solid #bbdefb;
+            border-bottom: 2px dashed #bbdefb;
             padding-bottom: 15px;
             letter-spacing: 1px;
             text-align: center;
@@ -43,24 +43,25 @@
         summary::-webkit-details-marker { display: none; }
         summary { list-style: none; outline: none; }
 
-        /* ================= 模組大卡片設計 (適用於四大分類與五大模組) ================= */
+        /* ================= 模組大卡片設計 ================= */
         .module-group {
             background-color: #fff;
             border: 1px solid #cce5ff;
-            border-radius: 15px;
+            border-radius: 16px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             overflow: hidden;
             transition: all 0.3s ease;
         }
         .module-header {
             display: flex;
             align-items: center;
-            background-color: #f5fbff; 
+            background-color: #f4f9ff; 
             padding: 16px 20px;
             border-bottom: 2px solid #e3f2fd;
             cursor: pointer; 
         }
+        .module-header:hover { background-color: #eaf4ff; }
         .icon-box {
             font-size: 26px;
             margin-right: 15px;
@@ -94,22 +95,23 @@
         }
         details.module-group[open] > .module-header .toggle-icon { 
             transform: rotate(45deg); 
+            color: #1565c0;
         }
 
         /* 功能清單區 */
         .feature-list {
-            padding: 15px;
+            padding: 18px 15px;
             background-color: #fafbfc;
         }
 
-        /* ================= 具體功能選單 (最內層操作路徑) ================= */
+        /* ================= 具體功能選單 ================= */
         details.function-item {
             background-color: #ffffff;
             border: 1px solid #e3f2fd;
             border-radius: 10px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
         .function-title {
             padding: 12px 15px;
@@ -127,6 +129,7 @@
         details.function-item[open] > .function-title {
             color: #d35400;
             border-bottom: 1px dashed #eee;
+            background-color: #fffcfa;
         }
         
         .func-arrow { font-size: 12px; color: #aaa; transition: transform 0.2s; }
@@ -143,13 +146,14 @@
         .path-tag {
             background-color: #546e7a; 
             color: #ffffff;
-            padding: 2px 6px;
+            padding: 2px 8px;
             border-radius: 4px;
             font-size: 13px;
             margin: 0 2px;
             display: inline-block;
+            font-weight: 500;
         }
-        .arrow { color: #90caf9; font-size: 12px; margin: 0 2px; font-weight: bold;}
+        .arrow { color: #90caf9; font-size: 12px; margin: 0 3px; font-weight: bold;}
 
         /* 截圖樣式 */
         .inline-screenshot {
@@ -178,63 +182,101 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
+            padding: 14px 15px;
             border-bottom: 1px solid #eee;
             cursor: pointer; 
             transition: 0.2s;
         }
-        .eval-item:hover { background-color: #f9f9f9; }
+        .eval-item:hover { background-color: #fdf6f0; }
         .eval-item:last-child { border-bottom: none; }
         .eval-text { font-size: 14.5px; color: #444; flex-grow: 1; padding-right: 15px; line-height: 1.5; }
         .eval-cb { width: 22px; height: 22px; cursor: pointer; accent-color: #d35400; flex-shrink: 0; }
         .score-board {
-            background-color: #d35400;
+            background: linear-gradient(135deg, #d35400, #e67e22);
             color: #fff;
             text-align: center;
             padding: 18px;
             font-size: 16px;
             font-weight: bold;
-            margin: 15px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.2);
+            margin: 20px 15px 10px 15px;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(211, 84, 0, 0.25);
             position: sticky; 
             bottom: 20px;
             z-index: 10;
         }
-        .score-number { font-size: 36px; color: #ffe0b2; margin: 0 5px; vertical-align: middle; }
+        .score-number { font-size: 38px; color: #ffe0b2; margin: 0 5px; vertical-align: middle; }
 
-        /* ================= SOP 專屬樣式整合 ================= */
+        /* ================= 四、SOP 專屬美化樣式 ================= */
         .highlight-container {
             background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-            border-radius: 16px; padding: 18px 15px; margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(198, 40, 40, 0.08); border-left: 6px solid #e53935;
+            border-radius: 12px; 
+            padding: 16px 18px; 
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(198, 40, 40, 0.06); 
+            border-left: 6px solid #e53935;
         }
-        .type-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .type-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
         @media (min-width: 600px) { .type-grid { grid-template-columns: 1fr 1fr; } }
+        
         .type-card {
-            background-color: #fff; border-radius: 10px; padding: 14px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.06); border-top: 5px solid; display: flex; flex-direction: column;
+            background-color: #fff; 
+            border-radius: 12px; 
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+            border-top: 5px solid; 
+            display: flex; 
+            flex-direction: column;
+            border-left: 1px solid #f0f0f0;
+            border-right: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
         }
         .type-medical { border-top-color: #e74c3c; } 
         .type-disaster { border-top-color: #f39c12; } 
         .type-housing { border-top-color: #27ae60; } 
         .type-missing { border-top-color: #8e44ad; } 
-        .type-header { font-size: 15px; font-weight: bold; margin-bottom: 12px; text-align: center; }
+        
+        .type-header { 
+            font-size: 16px; 
+            font-weight: bold; 
+            margin-bottom: 14px; 
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
         .type-medical .type-header { color: #c62828; }
         .type-disaster .type-header { color: #d35400; }
-        .type-housing .type-header { color: #27ae60; }
-        .type-missing .type-header { color: #8e44ad; }
+        .type-housing .type-header { color: #1e8449; }
+        .type-missing .type-header { color: #6c3483; }
+
         .mini-node {
-            background-color: #fdfdfd; border: 1px solid #f0f0f0; padding: 8px 10px; border-radius: 6px;
-            font-size: 13px; color: #444; position: relative; line-height: 1.5; margin-bottom: 10px;
+            background-color: #fafafa; 
+            border: 1px solid #f0f0f0; 
+            padding: 10px 12px; 
+            border-radius: 8px;
+            font-size: 13.5px; 
+            color: #444; 
+            line-height: 1.6; 
+            margin-bottom: 10px;
         }
+        .mini-node:last-child { margin-bottom: 0; }
+
+        /* 亮點標籤粉飾 */
+        .tag-red { background-color: #ffebee; color: #c62828; padding: 2px 6px; border-radius: 4px; font-weight: bold; border: 1px solid #ffcdd2; }
+        .tag-orange { background-color: #fff3e0; color: #e65100; padding: 2px 6px; border-radius: 4px; font-weight: bold; border: 1px solid #ffe0b2; }
+        .tag-green { background-color: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 4px; font-weight: bold; border: 1px solid #c8e6c9; }
+        .tag-purple { background-color: #f3e5f5; color: #6a1b9a; padding: 2px 6px; border-radius: 4px; font-weight: bold; border: 1px solid #e1bee7; }
+        .tag-dark { background-color: #37474f; color: #ffffff; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
 
         .back-btn {
-            display: block; text-align: center; margin-top: 35px; color: #888;
+            display: block; text-align: center; margin-top: 35px; color: #666;
             text-decoration: none; font-size: 15px; padding: 12px 25px;
             border-radius: 30px; background-color: #f0f0f0; transition: 0.3s;
+            font-weight: 500;
         }
-        .back-btn:hover { background-color: #555; color: #fff; }
+        .back-btn:hover { background-color: #37474f; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
     </style>
 </head>
 <body>
@@ -528,8 +570,8 @@
             </div>
         </details>
 
-        <!-- 新增：四、突發狀況處理 SOP -->
-        <details class="module-group" style="border-color: #ef9a9a;">
+        <!-- 四、突發狀況處理 SOP -->
+        <details class="module-group" style="border-color: #ef9a9a;" open>
             <summary class="module-header" style="background-color: #ffebee; border-bottom: 2px solid #ef9a9a;">
                 <div class="icon-box">🚨</div>
                 <div class="text-box">
@@ -539,58 +581,102 @@
                 <div class="toggle-icon" style="color: #d32f2f;">✚</div>
             </summary>
             
-            <div class="feature-list" style="background-color: #fffaf0; padding: 20px 15px;">
+            <div class="feature-list" style="background-color: #fffcfb; padding: 20px 15px;">
                 
-                <!-- 核心原則提示 -->
+                <!-- 核心原則提示區 -->
                 <div class="highlight-container">
-                    <div style="font-weight: bold; color: #c62828; font-size: 16px; margin-bottom: 8px;">💡 核心應變原則：邊處理、邊回報[cite: 9]</div>
-                    <div style="font-size: 13.5px; color: #555; line-height: 1.6;">
-                        突發事件處理期間，請務必於平台聊天室「優先處理管理」按下 <strong>【開案】</strong>（訊息將反紅置頂警示全員）[cite: 9]；處置完全結束後按下 <strong>【解除】</strong> 恢復常態[cite: 9]。
+                    <div style="font-weight: bold; color: #c62828; font-size: 15.5px; margin-bottom: 6px;">💡 核心應變原則：邊處理、邊回報</div>
+                    <div style="font-size: 13.5px; color: #444; line-height: 1.6;">
+                        突發事件期間，請於聊天室「優先處理管理」點擊 <span class="tag-red">【開案】</span>（訊息將反紅置頂）；處理完畢後點擊 <span class="tag-green">【解除】</span> 恢復常態機制。
                     </div>
                 </div>
 
-                <!-- 分類流程卡片區 -->
+                <!-- 流程卡片區 -->
                 <div class="type-grid">
                     
                     <!-- 1. 疾病或身體不適 -->
                     <div class="type-card type-medical">
-                        <div class="type-header">🩺 疾病或身體不適[cite: 9]</div>
-                        <div class="mini-node"><strong>1. 狀況評估</strong>：確認是否有生命危險或屬緊急狀況[cite: 9]。</div>
-                        <div class="mini-node"><strong>2. 應變處置</strong>：<br>
-                        • <strong>緊急/危險</strong>：撥打 119 送醫陪同 ➔ 平台回報個案狀況 ➔ 按【開案】置頂[cite: 9]。<br>
-                        • <strong>非緊急/難判斷</strong>：平台回報狀況 ➔ 按【開案】置頂 ➔ 醫護/個管師給予建議[cite: 9]。</div>
-                        <div class="mini-node"><strong>3. 醫療處置</strong>：優先解決個案健康問題[cite: 9]。</div>
-                        <div class="mini-node"><strong>4. 後續妥處</strong>：住院期間通報狀況 ➔ 共同評估後續處遇（返家/護理之家/榮家/長照機構） ➔ 按【解除】[cite: 9]。</div>
+                        <div class="type-header">🩺 疾病或身體不適</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 狀況判斷</strong><br>
+                            評估是否有生命危險或屬緊急狀況。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 應變處置</strong><br>
+                            • <strong>緊急危險</strong>：撥打 <span class="tag-red">119</span> 送醫陪同 ➔ 平台回報 ➔ 按 <span class="tag-red">開案</span> 置頂。<br>
+                            • <strong>非緊急/難判斷</strong>：平台回報 ➔ 按 <span class="tag-red">開案</span> 置頂 ➔ 醫護/個管師評估建議。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 醫療處置</strong><br>
+                            優先解決服務對象健康問題。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 4. 後續妥處</strong><br>
+                            住院期間持續通報 ➔ 評估後續處遇（返家/護理之家/榮家/長照機構） ➔ 按 <span class="tag-green">解除</span>。
+                        </div>
                     </div>
 
                     <!-- 2. 天然災害或突發事件 -->
                     <div class="type-card type-disaster">
-                        <div class="type-header">🌊 天然災害 / 突發事件[cite: 9]</div>
-                        <div class="mini-node"><strong>1. 確認安全</strong>：先確保自身安全，再確認服務對象安全[cite: 9]。</div>
-                        <div class="mini-node"><strong>2. 救援處置</strong>：<br>
-                        • <strong>安全</strong>：群組回覆並持續追蹤[cite: 9]。<br>
-                        • <strong>危難/風險</strong>：通報警消救難單位 ➔ 平台【開案】置頂 ➔ 評估需求並連結社區資源[cite: 9]。</div>
-                        <div class="mini-node"><strong>3. 緊急安置</strong>：有必要時於平台協調社政、榮家或長照機構緊急安置[cite: 9]。</div>
-                        <div class="mini-node"><strong>4. 結案恢復</strong>：風險排除後於平台按【解除】[cite: 9]。</div>
+                        <div class="type-header">🌊 天然災害 / 突發事件</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 安全確認</strong><br>
+                            先注意<span class="tag-orange">自身安全</span>，再確認個案安全。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 救援處置</strong><br>
+                            • <strong>安全</strong>：群組回覆並追蹤。<br>
+                            • <strong>危難風險</strong>：立即通知警消救難單位 ➔ 按 <span class="tag-red">開案</span> 置頂 ➔ 評估風險並連結社區資源。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 後續安置</strong><br>
+                            有緊急安置必要時，於平台協調社政、榮家或長照機構。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 4. 結案恢復</strong><br>
+                            風險處境排除後，於平台按 <span class="tag-green">解除</span>。
+                        </div>
                     </div>
 
                     <!-- 3. 失聯狀況 -->
                     <div class="type-card type-missing">
-                        <div class="type-header">🔍 失聯協尋[cite: 9]</div>
-                        <div class="mini-node"><strong>1. 查證失聯</strong>：詢問親友/鄰居/長照單位最後接觸時間[cite: 9]。暫時外出則群組追蹤；確認失聯則啟動協尋[cite: 9]。</div>
-                        <div class="mini-node"><strong>2. 啟動協尋</strong>：平台按【開案】置頂 ➔ 協請相關人員共同尋找[cite: 9]。</div>
-                        <div class="mini-node"><strong>3. 報案協處</strong>：最遲 24 小時未尋獲，向警政單位報案[cite: 9]（有眷通知家屬，單身由榮服處辦理）[cite: 9]。</div>
-                        <div class="mini-node"><strong>4. 尋獲妥處</strong>：確認健康（必要時通報 119 送醫） ➔ 平台回報處置 ➔ 按【解除】[cite: 9]。</div>
+                        <div class="type-header">🔍 失聯協尋</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 釐清失聯</strong><br>
+                            主動詢問家屬、鄰居、長照單位最後接觸時間。<br>
+                            • 暫時外出：群組回報追蹤。<br>
+                            • 確認失聯：啟動協尋。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 啟動協尋</strong><br>
+                            按 <span class="tag-red">開案</span> 置頂 ➔ 協請相關人員共同尋找。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 報案協處</strong><br>
+                            最遲 <span class="tag-purple">24小時內</span> 未尋獲者，向警政單位報案（有眷通知家屬，單身由榮服處辦理）。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 4. 尋獲妥處</strong><br>
+                            確認健康（必要時送醫） ➔ 平台回報 ➔ 按 <span class="tag-green">解除</span>。
+                        </div>
                     </div>
 
                     <!-- 4. 送餐未取或多時未外出 -->
                     <div class="type-card type-housing">
-                        <div class="type-header">🏠 送餐未取 / 多時未外出[cite: 9]</div>
-                        <div class="mini-node"><strong>1. 生活跡象確認</strong>：檢查交通工具、門鎖狀態（外鎖/反鎖），聯絡親友鄰居釐清[cite: 9]。</div>
-                        <div class="mini-node"><strong>2. 評估破門</strong>：車在現場、門鎖反鎖且無人見過 ➔ 通報警消里長共同評估強行入內 ➔ 平台【開案】[cite: 9]。</div>
-                        <div class="mini-node"><strong>3. 入內處置</strong>：<br>
-                        • <strong>昏倒/身體不適</strong>：緊急送醫 ➔ 平台回報 ➔ 評估機構安置 ➔ 按【解除】[cite: 9]。<br>
-                        • <strong>無生命跡象</strong>：維持現場完整 ➔ 通知檢警與家屬（單身榮民由榮服處處理） ➔ 低調辦理結案 ➔ 按【解除】[cite: 9]。</div>
+                        <div class="type-header">🏠 送餐未取 / 多時未外出</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 生活跡象確認</strong><br>
+                            確認交通工具是否異常、門鎖狀態（外鎖/反鎖），並聯絡相關人員釐清。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 強行入內評估</strong><br>
+                            車在現場、門反鎖且均未見個案 ➔ 立即通報警消/里長評估強行入內 ➔ 按 <span class="tag-red">開案</span>。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 緊急處置</strong><br>
+                            • <strong>昏倒/不適</strong>：緊急送醫 ➔ 平台回報 ➔ 評估安置 ➔ 按 <span class="tag-green">解除</span>。<br>
+                            • <strong>無生命跡象</strong>：維持現場完整 ➔ 通知檢警與家屬（單身榮民由榮服處處理） ➔ <span class="tag-dark">低調辦理結案</span>。
+                        </div>
                     </div>
 
                 </div>
