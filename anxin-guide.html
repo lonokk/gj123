@@ -207,7 +207,7 @@
         }
         .score-number { font-size: 38px; color: #ffe0b2; margin: 0 5px; vertical-align: middle; }
 
-        /* ================= 四、SOP 專屬美化樣式 ================= */
+        /* ================= SOP 專屬美化樣式 ================= */
         .highlight-container {
             background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
             border-radius: 12px; 
@@ -283,6 +283,120 @@
 
     <div class="card">
         <h2>📱 安心御老操作指南</h2>
+
+        <!-- 一、突發狀況處理 SOP (已提至最前、預設收合) -->
+        <details class="module-group" style="border-color: #ef9a9a;">
+            <summary class="module-header" style="background-color: #ffebee; border-bottom: 2px solid #ef9a9a;">
+                <div class="icon-box">🚨</div>
+                <div class="text-box">
+                    <span class="main-title" style="color: #c62828;">一、突發狀況處理 SOP</span>
+                    <span class="sub-title" style="color: #d32f2f;">包含疾病不適、天然災害、失聯、送餐未取處置流程</span>
+                </div>
+                <div class="toggle-icon" style="color: #d32f2f;">✚</div>
+            </summary>
+            
+            <div class="feature-list" style="background-color: #fffcfb; padding: 20px 15px;">
+                
+                <!-- 核心原則提示區 -->
+                <div class="highlight-container">
+                    <div style="font-weight: bold; color: #c62828; font-size: 15.5px; margin-bottom: 6px;">💡 核心應變原則：邊處理、邊回報[cite: 5]</div>
+                    <div style="font-size: 13.5px; color: #444; line-height: 1.6;">
+                        突發事件期間，請於聊天室「優先處理管理」點擊 <span class="tag-red">【開案】</span>（訊息將反紅置頂）[cite: 1, 2, 3, 4]；處理完畢後點擊 <span class="tag-green">【解除】</span> 恢復常態機制[cite: 1, 2, 3, 4]。
+                    </div>
+                </div>
+
+                <!-- 流程卡片區 -->
+                <div class="type-grid">
+                    
+                    <!-- 1. 疾病或身體不適 -->
+                    <div class="type-card type-medical">
+                        <div class="type-header">🩺 疾病或身體不適</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 狀況判斷</strong><br>
+                            評估是否有生命危險或屬緊急狀況[cite: 1]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 應變處置</strong><br>
+                            • <strong>緊急危險</strong>：撥打 <span class="tag-red">119</span> 送醫陪同 ➔ 平台回報 ➔ 按 <span class="tag-red">開案</span> 置頂[cite: 1]。<br>
+                            • <strong>非緊急/難判斷</strong>：平台回報 ➔ 按 <span class="tag-red">開案</span> 置頂 ➔ 醫護/個管師評估建議[cite: 1]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 醫療處置</strong><br>
+                            優先解決服務對象健康問題[cite: 1]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 4. 後續妥處</strong><br>
+                            住院期間持續通報 ➔ 評估後續處遇（返家/護理之家/榮家/長照機構） ➔ 按 <span class="tag-green">解除</span>[cite: 1]。
+                        </div>
+                    </div>
+
+                    <!-- 2. 天然災害或突發事件 -->
+                    <div class="type-card type-disaster">
+                        <div class="type-header">🌊 天然災害 / 突發事件</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 安全確認</strong><br>
+                            先注意<span class="tag-orange">自身安全</span>，再確認個案安全[cite: 2]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 救援處置</strong><br>
+                            • <strong>安全</strong>：群組回覆並追蹤[cite: 2]。<br>
+                            • <strong>危難風險</strong>：立即通知警消救難單位 ➔ 按 <span class="tag-red">開案</span> 置頂 ➔ 評估風險並連結社區資源[cite: 2]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 後續安置</strong><br>
+                            有緊急安置必要時，於平台協調社政、榮家或長照機構[cite: 2]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 4. 結案恢復</strong><br>
+                            風險處境排除後，於平台按 <span class="tag-green">解除</span>[cite: 2]。
+                        </div>
+                    </div>
+
+                    <!-- 3. 失聯狀況 -->
+                    <div class="type-card type-missing">
+                        <div class="type-header">🔍 失聯協尋</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 釐清失聯</strong><br>
+                            主動詢問家屬、鄰居、長照單位最後接觸時間[cite: 3]。<br>
+                            • 暫時外出：群組回報追蹤[cite: 3]。<br>
+                            • 確認失聯：啟動協尋[cite: 3]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 啟動協尋</strong><br>
+                            按 <span class="tag-red">開案</span> 置頂 ➔ 協請相關人員共同尋找[cite: 3]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 報案協處</strong><br>
+                            最遲 <span class="tag-purple">24小時內</span> 未尋獲者，向警政單位報案（有眷通知家屬，單身由榮服處辦理）[cite: 3]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 4. 尋獲妥處</strong><br>
+                            確認健康（必要時送醫） ➔ 平台回報 ➔ 按 <span class="tag-green">解除</span>[cite: 3]。
+                        </div>
+                    </div>
+
+                    <!-- 4. 送餐未取或多時未外出 -->
+                    <div class="type-card type-housing">
+                        <div class="type-header">🏠 送餐未取 / 多時未外出</div>
+                        <div class="mini-node">
+                            <strong>Step 1. 生活跡象確認</strong><br>
+                            確認交通工具是否異常、門鎖狀態（外鎖/反鎖），並聯絡相關人員釐清[cite: 4]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 2. 強行入內評估</strong><br>
+                            車在現場、門反鎖且均未見個案 ➔ 立即通報警消/里長評估強行入內 ➔ 按 <span class="tag-red">開案</span>[cite: 4]。
+                        </div>
+                        <div class="mini-node">
+                            <strong>Step 3. 緊急處置</strong><br>
+                            • <strong>昏倒/不適</strong>：緊急送醫 ➔ 平台回報 ➔ 評估安置 ➔ 按 <span class="tag-green">解除</span>[cite: 4]。<br>
+                            • <strong>無生命跡象</strong>：維持現場完整 ➔ 通知檢警與家屬（單身榮民由榮服處處理） ➔ <span class="tag-dark">低調辦理結案</span>[cite: 4]。
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </details>
 
         <!-- 二、系統操作教學 -->
         <details class="module-group" style="border-color: #bbdefb;">
@@ -567,120 +681,6 @@
                     👑 目前熟練度得分<br>
                     <span id="totalScore" class="score-number">0</span> 分 / 100 分
                 </div>
-            </div>
-        </details>
-
-        <!-- 四、突發狀況處理 SOP -->
-        <details class="module-group" style="border-color: #ef9a9a;" open>
-            <summary class="module-header" style="background-color: #ffebee; border-bottom: 2px solid #ef9a9a;">
-                <div class="icon-box">🚨</div>
-                <div class="text-box">
-                    <span class="main-title" style="color: #c62828;">四、突發狀況處理 SOP</span>
-                    <span class="sub-title" style="color: #d32f2f;">包含疾病不適、天然災害、失聯、送餐未取處置流程</span>
-                </div>
-                <div class="toggle-icon" style="color: #d32f2f;">✚</div>
-            </summary>
-            
-            <div class="feature-list" style="background-color: #fffcfb; padding: 20px 15px;">
-                
-                <!-- 核心原則提示區 -->
-                <div class="highlight-container">
-                    <div style="font-weight: bold; color: #c62828; font-size: 15.5px; margin-bottom: 6px;">💡 核心應變原則：邊處理、邊回報</div>
-                    <div style="font-size: 13.5px; color: #444; line-height: 1.6;">
-                        突發事件期間，請於聊天室「優先處理管理」點擊 <span class="tag-red">【開案】</span>（訊息將反紅置頂）；處理完畢後點擊 <span class="tag-green">【解除】</span> 恢復常態機制。
-                    </div>
-                </div>
-
-                <!-- 流程卡片區 -->
-                <div class="type-grid">
-                    
-                    <!-- 1. 疾病或身體不適 -->
-                    <div class="type-card type-medical">
-                        <div class="type-header">🩺 疾病或身體不適</div>
-                        <div class="mini-node">
-                            <strong>Step 1. 狀況判斷</strong><br>
-                            評估是否有生命危險或屬緊急狀況。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 2. 應變處置</strong><br>
-                            • <strong>緊急危險</strong>：撥打 <span class="tag-red">119</span> 送醫陪同 ➔ 平台回報 ➔ 按 <span class="tag-red">開案</span> 置頂。<br>
-                            • <strong>非緊急/難判斷</strong>：平台回報 ➔ 按 <span class="tag-red">開案</span> 置頂 ➔ 醫護/個管師評估建議。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 3. 醫療處置</strong><br>
-                            優先解決服務對象健康問題。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 4. 後續妥處</strong><br>
-                            住院期間持續通報 ➔ 評估後續處遇（返家/護理之家/榮家/長照機構） ➔ 按 <span class="tag-green">解除</span>。
-                        </div>
-                    </div>
-
-                    <!-- 2. 天然災害或突發事件 -->
-                    <div class="type-card type-disaster">
-                        <div class="type-header">🌊 天然災害 / 突發事件</div>
-                        <div class="mini-node">
-                            <strong>Step 1. 安全確認</strong><br>
-                            先注意<span class="tag-orange">自身安全</span>，再確認個案安全。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 2. 救援處置</strong><br>
-                            • <strong>安全</strong>：群組回覆並追蹤。<br>
-                            • <strong>危難風險</strong>：立即通知警消救難單位 ➔ 按 <span class="tag-red">開案</span> 置頂 ➔ 評估風險並連結社區資源。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 3. 後續安置</strong><br>
-                            有緊急安置必要時，於平台協調社政、榮家或長照機構。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 4. 結案恢復</strong><br>
-                            風險處境排除後，於平台按 <span class="tag-green">解除</span>。
-                        </div>
-                    </div>
-
-                    <!-- 3. 失聯狀況 -->
-                    <div class="type-card type-missing">
-                        <div class="type-header">🔍 失聯協尋</div>
-                        <div class="mini-node">
-                            <strong>Step 1. 釐清失聯</strong><br>
-                            主動詢問家屬、鄰居、長照單位最後接觸時間。<br>
-                            • 暫時外出：群組回報追蹤。<br>
-                            • 確認失聯：啟動協尋。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 2. 啟動協尋</strong><br>
-                            按 <span class="tag-red">開案</span> 置頂 ➔ 協請相關人員共同尋找。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 3. 報案協處</strong><br>
-                            最遲 <span class="tag-purple">24小時內</span> 未尋獲者，向警政單位報案（有眷通知家屬，單身由榮服處辦理）。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 4. 尋獲妥處</strong><br>
-                            確認健康（必要時送醫） ➔ 平台回報 ➔ 按 <span class="tag-green">解除</span>。
-                        </div>
-                    </div>
-
-                    <!-- 4. 送餐未取或多時未外出 -->
-                    <div class="type-card type-housing">
-                        <div class="type-header">🏠 送餐未取 / 多時未外出</div>
-                        <div class="mini-node">
-                            <strong>Step 1. 生活跡象確認</strong><br>
-                            確認交通工具是否異常、門鎖狀態（外鎖/反鎖），並聯絡相關人員釐清。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 2. 強行入內評估</strong><br>
-                            車在現場、門反鎖且均未見個案 ➔ 立即通報警消/里長評估強行入內 ➔ 按 <span class="tag-red">開案</span>。
-                        </div>
-                        <div class="mini-node">
-                            <strong>Step 3. 緊急處置</strong><br>
-                            • <strong>昏倒/不適</strong>：緊急送醫 ➔ 平台回報 ➔ 評估安置 ➔ 按 <span class="tag-green">解除</span>。<br>
-                            • <strong>無生命跡象</strong>：維持現場完整 ➔ 通知檢警與家屬（單身榮民由榮服處處理） ➔ <span class="tag-dark">低調辦理結案</span>。
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
         </details>
 
