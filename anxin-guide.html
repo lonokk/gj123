@@ -204,40 +204,15 @@
         .score-number { font-size: 36px; color: #ffe0b2; margin: 0 5px; vertical-align: middle; }
 
         /* ================= SOP 專屬樣式整合 ================= */
-        .section-title {
-            font-size: 17px;
-            font-weight: bold;
-            color: #2980b9;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .bordered-box {
-            background-color: #ffffff;
-            border: 2px solid #1565c0;
-            border-radius: 12px;
-            padding: 15px 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .core-flow { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; }
-        .core-node {
-            background-color: #e3f2fd; color: #1565c0; padding: 8px 12px; border-radius: 20px;
-            font-size: 13.5px; font-weight: bold; text-align: center; border: 1px solid #bbdefb;
-        }
-        .core-node.highlight { background-color: #1565c0; color: #fff; }
-        .core-node.end { background-color: #27ae60; color: #fff; border-color: #27ae60; }
-        .core-arrow { color: #90caf9; font-size: 16px; font-weight: bold; }
-
         .highlight-container {
-            background: linear-gradient(135deg, #f0f8ff 0%, #e1f0fc 100%);
-            border-radius: 16px; padding: 20px 15px; margin-bottom: 25px;
-            box-shadow: 0 6px 15px rgba(21, 101, 192, 0.12); border-left: 6px solid #f39c12;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+            border-radius: 16px; padding: 18px 15px; margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(198, 40, 40, 0.08); border-left: 6px solid #e53935;
         }
         .type-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
         @media (min-width: 600px) { .type-grid { grid-template-columns: 1fr 1fr; } }
         .type-card {
-            background-color: #fff; border-radius: 10px; padding: 12px;
+            background-color: #fff; border-radius: 10px; padding: 14px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.06); border-top: 5px solid; display: flex; flex-direction: column;
         }
         .type-medical { border-top-color: #e74c3c; } 
@@ -245,36 +220,13 @@
         .type-housing { border-top-color: #27ae60; } 
         .type-missing { border-top-color: #8e44ad; } 
         .type-header { font-size: 15px; font-weight: bold; margin-bottom: 12px; text-align: center; }
-        .type-medical .type-header { color: #e74c3c; }
+        .type-medical .type-header { color: #c62828; }
         .type-disaster .type-header { color: #d35400; }
         .type-housing .type-header { color: #27ae60; }
         .type-missing .type-header { color: #8e44ad; }
         .mini-node {
-            background-color: #fdfdfd; border: 1px solid #eee; padding: 6px 8px; border-radius: 6px;
-            font-size: 13px; color: #444; text-align: center; position: relative; line-height: 1.4;
-        }
-        .mini-node:not(:last-child)::after {
-            content: '▼'; position: absolute; bottom: -16px; left: 50%;
-            transform: translateX(-50%); color: #bbb; font-size: 12px;
-        }
-        .mini-node:not(:last-child) { margin-bottom: 18px; }
-
-        .bordered-box-dark {
-            background-color: #ffffff; border: 2px solid #34495e; border-radius: 12px;
-            padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .hierarchy-list { display: flex; flex-direction: column; gap: 10px; }
-        .hierarchy-item {
-            display: flex; align-items: center; background-color: #f8f9fa;
-            padding: 10px 12px; border-radius: 8px; border-left: 5px solid #34495e;
-        }
-        .h-level { font-weight: bold; color: #e74c3c; width: 65px; flex-shrink: 0; font-size: 14.5px; }
-        .h-text { color: #333; font-size: 14.5px; font-weight: bold; }
-        .h-sub { color: #7f8c8d; font-size: 12px; margin-left: 4px; font-weight: normal; }
-        @media (max-width: 480px) {
-            .hierarchy-item { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .h-level { width: 100%; border-bottom: 1px dashed #ddd; padding-bottom: 4px; }
-            .h-sub { display: block; margin-left: 0; margin-top: 2px;}
+            background-color: #fdfdfd; border: 1px solid #f0f0f0; padding: 8px 10px; border-radius: 6px;
+            font-size: 13px; color: #444; position: relative; line-height: 1.5; margin-bottom: 10px;
         }
 
         .back-btn {
@@ -289,84 +241,8 @@
 
     <div class="card">
         <h2>📱 安心御老操作指南</h2>
-        
-        <details class="module-group" style="border-color: #ffcdd2;">
-            <summary class="module-header" style="background-color: #fff0f0; border-bottom: 2px solid #ffcdd2;">
-                <div class="icon-box">🚨</div>
-                <div class="text-box">
-                    <span class="main-title" style="color: #c0392b;">一、跨機關應變 SOP</span>
-                    <span class="sub-title" style="color: #e74c3c;">核心流程 / 四大類型 / 層級通報</span>
-                </div>
-                <div class="toggle-icon" style="color: #e74c3c;">✚</div>
-            </summary>
-            
-            <div class="feature-list" style="background-color: #ffffff;">
-                <div class="section-title">📌 核心流程</div>
-                <div class="bordered-box">
-                    <div class="core-flow">
-                        <div class="core-node highlight">異常通報</div><span class="core-arrow">➔</span>
-                        <div class="core-node">訪視確認</div><span class="core-arrow">➔</span>
-                        <div class="core-node">分類判定</div><span class="core-arrow">➔</span>
-                        <div class="core-node">轉主責機關</div><span class="core-arrow">➔</span>
-                        <div class="core-node">後續安置或救助</div><span class="core-arrow">➔</span>
-                        <div class="core-node end">追蹤結案</div>
-                    </div>
-                </div>
 
-                <div class="highlight-container">
-                    <div class="section-title" style="margin-top: 0;">📌 四大類型處置流程</div>
-                    <div class="type-grid">
-                        <div class="type-card type-medical">
-                            <div class="type-header">🚑 (一) 醫療緊急類</div>
-                            <div class="mini-node">訪視確認</div>
-                            <div class="mini-node">通報 119與榮院</div>
-                            <div class="mini-node">個管評估與治療</div>
-                            <div class="mini-node">返家或榮家安置</div>
-                        </div>
-                        <div class="type-card type-disaster">
-                            <div class="type-header">🔥 (二) 災害安置類</div>
-                            <div class="mini-node">通報 119</div>
-                            <div class="mini-node">收容安置<br><span style="font-size:12px; color:#777;">(鄉鎮市、榮家)</span></div>
-                            <div class="mini-node">個管評估與治療</div>
-                            <div class="mini-node">急難救助</div>
-                        </div>
-                        <div class="type-card type-housing">
-                            <div class="type-header">🏠 (三) 居住危機類</div>
-                            <div class="mini-node">訪視確認</div>
-                            <div class="mini-node">通報社會處</div>
-                            <div class="mini-node">短期安置</div>
-                            <div class="mini-node">急難救助</div>
-                        </div>
-                        <div class="type-card type-missing">
-                            <div class="type-header">❓ (四) 失聯走失類</div>
-                            <div class="mini-node">通報 110</div>
-                            <div class="mini-node">警政協尋</div>
-                            <div class="mini-node">個管評估</div>
-                            <div class="mini-node">返家或榮家安置</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-title">📌 層級通報原則</div>
-                <div class="bordered-box-dark" style="margin-bottom: 0;">
-                    <div class="hierarchy-list">
-                        <div class="hierarchy-item">
-                            <div class="h-level">第一層</div>
-                            <div class="h-text">社區服務組長即時通報</div>
-                        </div>
-                        <div class="hierarchy-item">
-                            <div class="h-level">第二層</div>
-                            <div class="h-text">責任區輔導員統籌協調</div>
-                        </div>
-                        <div class="hierarchy-item">
-                            <div class="h-level">第三層</div>
-                            <div class="h-text">陳報總幹事協處 <span class="h-sub">（重大案件陳報處長）</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </details>
-
+        <!-- 二、系統操作教學 -->
         <details class="module-group" style="border-color: #bbdefb;">
             <summary class="module-header" style="background-color: #e3f2fd; border-bottom: 2px solid #bbdefb;">
                 <div class="icon-box">📘</div>
@@ -606,6 +482,7 @@
             </div>
         </details>
 
+        <!-- 三、操作熟悉度評鑑 -->
         <details class="module-group" style="border-color: #ffe0b2;">
             <summary class="module-header" style="background-color: #fff3e0; border-bottom: 2px solid #ffe0b2;">
                 <div class="icon-box">📝</div>
@@ -651,135 +528,72 @@
             </div>
         </details>
 
-        <details class="module-group" style="border-color: #d1c4e9;">
-            <summary class="module-header" style="background-color: #f3e5f5; border-bottom: 2px solid #d1c4e9;">
-                <div class="icon-box">🎬</div>
+        <!-- 新增：四、突發狀況處理 SOP -->
+        <details class="module-group" style="border-color: #ef9a9a;">
+            <summary class="module-header" style="background-color: #ffebee; border-bottom: 2px solid #ef9a9a;">
+                <div class="icon-box">🚨</div>
                 <div class="text-box">
-                    <span class="main-title" style="color: #6a1b9a;">四、狀況模擬演練</span>
-                    <span class="sub-title" style="color: #8e24aa;">5 種實務情境對話與處置參考</span>
+                    <span class="main-title" style="color: #c62828;">四、突發狀況處理 SOP</span>
+                    <span class="sub-title" style="color: #d32f2f;">包含疾病不適、天然災害、失聯、送餐未取處置流程</span>
                 </div>
-                <div class="toggle-icon" style="color: #8e24aa;">✚</div>
+                <div class="toggle-icon" style="color: #d32f2f;">✚</div>
             </summary>
             
-            <div class="feature-list" style="background-color: #fbf8fc; padding: 20px 15px;">
+            <div class="feature-list" style="background-color: #fffaf0; padding: 20px 15px;">
                 
-                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
-                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
-                        🎬 狀況 1：獨居病痛急需就醫 <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
-                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
-                            <strong>💡 情境說明：</strong>服務組長訪視時發現伯伯狀況異常、精神恍惚，本處接獲通報後立即啟動跨機關應變 SOP。
-                        </p>
-                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>今日訪視時發現伯伯臉色蒼白、精神恍惚。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到，請撥打 119 協助送醫，並回報最新處理進度。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>請問伯伯是否吸呼急促、嘴唇發紫？ 或是單側無力、嘴角歪斜？ 有沒有手腳冰冷、喘不過氣等狀況？</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>救護車已抵達，我正隨救護車陪同前往榮院急診室<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 總幹事：</span><span>辛苦了，請持續追蹤並掌握醫療處置的情形。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師初步診斷為低血糖，目前進行先安排持續性靜脈滴注，並留院觀察是否用藥過量所導致。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>我已聯繫上伯伯家人，家屬表示大約1小時後會趕到醫院。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師問診確認伯伯具失智症病徵，可能重複用藥以致於血糖太低。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員提醒家屬準備藥物分類盒避免服藥產生問題，並建議加入御老平台以便掌握伯伯的健康狀況。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>家屬已抵達並接手照顧，感謝本處的處置與協助<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span><span style="color: #e74c3c; font-weight: bold;">@榮民人事</span> ○伯伯具失智病徵，今日過量服藥緊急送醫所幸送醫後已無大礙，為維護安全建議評估是否符合馬蘭憶述家申請資格並提供家屬諮詢。</span></div>
-                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮民人事：</span><span>收到，請提供家屬聯絡方式，本家將擇期前往勸住。</span></div>
-                        </div>
+                <!-- 核心原則提示 -->
+                <div class="highlight-container">
+                    <div style="font-weight: bold; color: #c62828; font-size: 16px; margin-bottom: 8px;">💡 核心應變原則：邊處理、邊回報[cite: 9]</div>
+                    <div style="font-size: 13.5px; color: #555; line-height: 1.6;">
+                        突發事件處理期間，請務必於平台聊天室「優先處理管理」按下 <strong>【開案】</strong>（訊息將反紅置頂警示全員）[cite: 9]；處置完全結束後按下 <strong>【解除】</strong> 恢復常態[cite: 9]。
                     </div>
-                </details>
+                </div>
 
-                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
-                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
-                        🎬 狀況 2：居家火災送醫治療 <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
-                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
-                            <strong>💡 情境說明：</strong>伯伯住家發生火災並造成人員受傷，本處接獲通報後立即啟動跨機關應變 SOP。
-                        </p>
-                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>大樓管理員通知伯伯煮飯時不小心失火，目前已送往榮院急診。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>知道伯伯傷勢及現場狀況嗎？</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>手臂燒燙傷，住家受損暫時不能住。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>我到急診處確認伯伯狀況。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>廚房受損嚴重，起居室半損需要整理。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>醫師診斷為手臂二級燒燙傷，需要留院觀察。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯今天會出院嗎？出院無法返家可能需要緊急安置。<span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>本家有床位收住，請確認伯伯的意願與出院時間。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>伯伯意識清楚，但臂部燒燙傷出院也暫時難以自理生活。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員陪同前往醫院慰問，並徵詢伯伯入住榮家意願。另請志工承辦人擇日號召榮欣志工協助清理。</span></div>
-                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>協助緊急安置、急難救助申請，持續追蹤關懷。</span></div>
-                        </div>
+                <!-- 分類流程卡片區 -->
+                <div class="type-grid">
+                    
+                    <!-- 1. 疾病或身體不適 -->
+                    <div class="type-card type-medical">
+                        <div class="type-header">🩺 疾病或身體不適[cite: 9]</div>
+                        <div class="mini-node"><strong>1. 狀況評估</strong>：確認是否有生命危險或屬緊急狀況[cite: 9]。</div>
+                        <div class="mini-node"><strong>2. 應變處置</strong>：<br>
+                        • <strong>緊急/危險</strong>：撥打 119 送醫陪同 ➔ 平台回報個案狀況 ➔ 按【開案】置頂[cite: 9]。<br>
+                        • <strong>非緊急/難判斷</strong>：平台回報狀況 ➔ 按【開案】置頂 ➔ 醫護/個管師給予建議[cite: 9]。</div>
+                        <div class="mini-node"><strong>3. 醫療處置</strong>：優先解決個案健康問題[cite: 9]。</div>
+                        <div class="mini-node"><strong>4. 後續妥處</strong>：住院期間通報狀況 ➔ 共同評估後續處遇（返家/護理之家/榮家/長照機構） ➔ 按【解除】[cite: 9]。</div>
                     </div>
-                </details>
 
-                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
-                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
-                        🎬 狀況 3：家庭暴力危及人身安全 <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
-                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
-                            <strong>💡 情境說明：</strong>服務組長接獲伯伯求救電話，表示同住之兒子酒後情緒失控，持物品砸毀屋內設施並揚言傷害伯伯。本處接獲通報後啟動應變 SOP。
-                        </p>
-                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>剛接到伯伯打電話來求救，說他兒子喝醉發酒瘋，拿椅子亂砸還揚言要殺他。我已到現場帶伯伯離開。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到！請確認伯伯有沒有受傷？並請撥打 110 報警請警方到場排除危險。我來通報 113 保護專線與縣政府社會處。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯沒有明顯外傷，但受到極大驚嚇，手一直發抖。警察已經到場上樓處理了。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>先安撫伯伯情緒並讓伯伯坐下休息。如果伯伯出現胸悶、喘不過氣或頭暈的狀況，請隨時通知並協助叫救護車送醫。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>考量伯伯的人身安全要請伯伯聲請暫時保護令。同時，因家中已無法居住，建議立即啟動榮家緊急安置。 <span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>了解，本家有緊急安置床位可提供庇護收住。請確認伯伯的入住意願，若同意可隨時安排進住，以確保長輩安全。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員配合社政單位協助保護令聲請與緊急安置作業。後續視家屬狀況討論伯伯的長期居住規畫。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯同意前往榮家暫住，警方也已初步處理完畢並完成通報。我目前正陪同伯伯前往榮家的路上。</span></div>
-                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>已協助伯伯緊急入住確保安全無虞。後續會追蹤保護令核發進度、家庭暴力防治中心處置情形，以及伯伯在榮家的適應狀況。</span></div>
-                        </div>
+                    <!-- 2. 天然災害或突發事件 -->
+                    <div class="type-card type-disaster">
+                        <div class="type-header">🌊 天然災害 / 突發事件[cite: 9]</div>
+                        <div class="mini-node"><strong>1. 確認安全</strong>：先確保自身安全，再確認服務對象安全[cite: 9]。</div>
+                        <div class="mini-node"><strong>2. 救援處置</strong>：<br>
+                        • <strong>安全</strong>：群組回覆並持續追蹤[cite: 9]。<br>
+                        • <strong>危難/風險</strong>：通報警消救難單位 ➔ 平台【開案】置頂 ➔ 評估需求並連結社區資源[cite: 9]。</div>
+                        <div class="mini-node"><strong>3. 緊急安置</strong>：有必要時於平台協調社政、榮家或長照機構緊急安置[cite: 9]。</div>
+                        <div class="mini-node"><strong>4. 結案恢復</strong>：風險排除後於平台按【解除】[cite: 9]。</div>
                     </div>
-                </details>
 
-                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 12px; box-shadow: none;">
-                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
-                        🎬 狀況 4：散步失聯 <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
-                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
-                            <strong>💡 情境說明：</strong>服務組長獲報伯伯出門散步半日未歸且手機未接，隨即啟動協尋與跨機關通報 SOP。
-                        </p>
-                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>上午伯伯的鄰居說昨天傍晚看他出門後就一直沒回來了。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到，請通報110並在住家附近尋找，我來聯繫家屬。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>附近常去的地方找過了都沒有，且伯伯出門沒帶手機，手機還留在客廳桌上。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>伯伯輕微失智，另有慢性病需要按時服藥，如果超過一天沒吃藥可能會有危險。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>已完成報案程序，鄰居表示伯伯昨日散步時穿著棕色外套，有戴帽子、拿手杖。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>除了警方協尋之外，向家屬拿照片請鄉公所、村里長群組協尋。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>警察局通知，有民眾在山邊聽見微弱呼喊聲，尋聲發現伯伯，警察已將他帶回派出所。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>太好了，我們一塊去派出所接伯伯。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>接到伯伯後，請先初步檢視他有無外傷、脫水或失溫狀況，必要時先送醫評估。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯平安無事，只是看起來有點疲憊跟脫水。我們已買熱食跟溫水給他補充體力，準備護送回家。<span style="color: #1967d2; font-weight: bold;">【照片】</span> <span style="color: #e74c3c; font-weight: bold;">@榮民人事</span></span></div>
-                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮民人事：</span><span>請給我家屬聯繫電話，本家會安排前往家中提供入住諮詢。</span></div>
-                        </div>
+                    <!-- 3. 失聯狀況 -->
+                    <div class="type-card type-missing">
+                        <div class="type-header">🔍 失聯協尋[cite: 9]</div>
+                        <div class="mini-node"><strong>1. 查證失聯</strong>：詢問親友/鄰居/長照單位最後接觸時間[cite: 9]。暫時外出則群組追蹤；確認失聯則啟動協尋[cite: 9]。</div>
+                        <div class="mini-node"><strong>2. 啟動協尋</strong>：平台按【開案】置頂 ➔ 協請相關人員共同尋找[cite: 9]。</div>
+                        <div class="mini-node"><strong>3. 報案協處</strong>：最遲 24 小時未尋獲，向警政單位報案[cite: 9]（有眷通知家屬，單身由榮服處辦理）[cite: 9]。</div>
+                        <div class="mini-node"><strong>4. 尋獲妥處</strong>：確認健康（必要時通報 119 送醫） ➔ 平台回報處置 ➔ 按【解除】[cite: 9]。</div>
                     </div>
-                </details>
 
-                <details class="function-item" style="border-color: #e1bee7; margin-bottom: 0; box-shadow: none;">
-                    <summary class="function-title" style="color: #8e24aa; font-size: 15.5px;">
-                        🎬 狀況 5：親屬急病，伯伯陷入照顧空窗 <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path" style="background-color: #ffffff; padding: 18px 15px;">
-                        <p style="background-color: #f9f9f9; padding: 10px 15px; border-left: 4px solid #ce93d8; margin-top: 0; margin-bottom: 15px; font-size: 14.5px;">
-                            <strong>💡 情境說明：</strong>訪視發現臥床之伯伯無人照料，詢問得知主要照顧者女兒急性心肌梗塞送醫，目前在加護病房。本處接獲通報後啟動跨機關應變 SOP。
-                        </p>
-                        <div style="background-color: #faf5ff; border: 1px solid #f3e5f5; border-radius: 8px; padding: 15px; font-size: 14.5px;">
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>今日訪視時發現只有臥床的伯伯一人在家。伯伯說女兒昨晚突然胸痛叫救護車送醫，現在人在加護病房。伯伯從昨晚到現在都沒進食，也沒人幫忙換尿布。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>收到！請先確認伯伯目前的意識與身體狀況。我來聯繫長照中心詢問居服員是否能臨時介入或申請喘息服務。 <span style="color: #e74c3c; font-weight: bold;">@個管師</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 個管師：</span><span>臥床長輩如果超過 12 小時未進食及翻身，極易發生脫水、低血糖及壓瘡感染風險。請協助伯伯少量緩慢地補充溫開水或流質食物，並檢視背部臀部是否有破皮發紅。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯意識清楚但身體虛弱，我已協助餵食配方奶並更換尿布。目前暫無立即送醫需求，但家中沒有照顧人力。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>主要照顧者短期無法返家，若居服員無法立即介入請直接評估榮家緊急安置。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>長照單位目前人力吃緊，今日無法提供全天候看護，最快要等到下周一才能確定，請榮家協助緊急安置 <span style="color: #e74c3c; font-weight: bold;">@榮家人事</span></span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 榮家人事：</span><span>我來安排養護堂床位。因伯伯長期臥床，請協助收拾身邊用藥與生活必需品，若沒問題可立即安排救護車接駁入住。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 處長：</span><span>請輔導員與榮家對接好長輩的護理細節，另持續關心女兒的病情，視其恢復狀況再討論伯伯未來的長期安置方案。</span></div>
-                            <div style="margin-bottom: 12px; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 服務組長：</span><span>伯伯同意前往榮家居住。民間救護車已抵達，我正協助將伯伯移位上擔架，將隨車護送伯伯前往榮家養護堂。<span style="color: #1967d2; font-weight: bold;">【照片】</span></span></div>
-                            <div style="margin-bottom: 0; display: flex;"><span style="font-weight: bold; color: #2c3e50; min-width: 90px; flex-shrink: 0;">👤 輔導員：</span><span>伯伯已平安入住榮家養護堂，並由專業護理及照服人員接手照顧。後續將持續關懷家屬病情及伯伯適應狀況。</span></div>
-                        </div>
+                    <!-- 4. 送餐未取或多時未外出 -->
+                    <div class="type-card type-housing">
+                        <div class="type-header">🏠 送餐未取 / 多時未外出[cite: 9]</div>
+                        <div class="mini-node"><strong>1. 生活跡象確認</strong>：檢查交通工具、門鎖狀態（外鎖/反鎖），聯絡親友鄰居釐清[cite: 9]。</div>
+                        <div class="mini-node"><strong>2. 評估破門</strong>：車在現場、門鎖反鎖且無人見過 ➔ 通報警消里長共同評估強行入內 ➔ 平台【開案】[cite: 9]。</div>
+                        <div class="mini-node"><strong>3. 入內處置</strong>：<br>
+                        • <strong>昏倒/身體不適</strong>：緊急送醫 ➔ 平台回報 ➔ 評估機構安置 ➔ 按【解除】[cite: 9]。<br>
+                        • <strong>無生命跡象</strong>：維持現場完整 ➔ 通知檢警與家屬（單身榮民由榮服處處理） ➔ 低調辦理結案 ➔ 按【解除】[cite: 9]。</div>
                     </div>
-                </details>
+
+                </div>
 
             </div>
         </details>
