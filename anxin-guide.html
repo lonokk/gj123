@@ -8,7 +8,7 @@
         /* --- 基礎設定 --- */
         * { box-sizing: border-box; }
         body {
-            background-color: #f8f9fa;
+            background-color: #f0f4f8; /* 柔和的淺藍灰色背景，突顯中央卡片 */
             font-family: "Microsoft JhengHei", "Heiti TC", sans-serif;
             color: #333;
             margin: 0;
@@ -29,50 +29,83 @@
             margin-bottom: 20px;
         }
 
-        /* 主標題樣式（參考圖片深藍風格） */
+        /* 主標題樣式（深藍色塊） */
         .header-banner {
-            background-color: #1a2b4c;
+            background: linear-gradient(135deg, #1a2b4c, #2c3e50);
             color: #ffffff;
             text-align: center;
-            padding: 20px 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            padding: 22px 15px;
+            border-radius: 14px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 12px rgba(26, 43, 76, 0.2);
         }
         .header-banner h2 {
             margin: 0 0 6px 0;
             font-size: 22px;
             letter-spacing: 1px;
-            border: none;
             color: #ffffff;
         }
         .header-banner .subtitle {
             font-size: 13px;
-            color: #a0aec0;
+            color: #cbd5e0;
         }
 
         /* 隱藏預設的黑色小三角形 */
         summary::-webkit-details-marker { display: none; }
         summary { list-style: none; outline: none; }
 
-        /* ================= 模組大卡片設計 ================= */
+        /* ================= 大模組色塊分區設計 ================= */
         .module-group {
-            background-color: #fff;
-            border: 1px solid #e2e8f0;
+            background-color: #ffffff;
             border-radius: 16px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            margin-bottom: 22px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
             overflow: hidden;
             transition: all 0.3s ease;
         }
+
+        /* 模組一：突發狀況 SOP (暖黃色系色塊) */
+        .module-sop {
+            border: 2px solid #feebc8;
+        }
+        .module-sop > .module-header {
+            background-color: #fffaf0;
+            border-bottom: 1px solid #feebc8;
+        }
+        .module-sop > .module-header:hover {
+            background-color: #feebc8;
+        }
+
+        /* 模組二：系統操作教學 (冷灰藍色系色塊) */
+        .module-tutorial {
+            border: 2px solid #e2e8f0;
+        }
+        .module-tutorial > .module-header {
+            background-color: #f7fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .module-tutorial > .module-header:hover {
+            background-color: #edf2f7;
+        }
+
+        /* 模組三：操作熟悉度評鑑 (柔和綠色系色塊) */
+        .module-eval {
+            border: 2px solid #c6f6d5;
+        }
+        .module-eval > .module-header {
+            background-color: #f0fff4;
+            border-bottom: 1px solid #c6f6d5;
+        }
+        .module-eval > .module-header:hover {
+            background-color: #c6f6d5;
+        }
+
         .module-header {
             display: flex;
             align-items: center;
-            background-color: #f7fafc; 
             padding: 16px 20px;
-            border-bottom: 1px solid #e2e8f0;
             cursor: pointer; 
         }
-        .module-header:hover { background-color: #edf2f7; }
         .icon-box {
             font-size: 24px;
             margin-right: 15px;
@@ -86,7 +119,7 @@
             flex-grow: 1;
         }
         .main-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: bold;
             color: #1a2b4c; 
             margin-bottom: 4px;
@@ -97,7 +130,7 @@
         }
         
         .toggle-icon {
-            font-size: 20px;
+            font-size: 18px;
             color: #a0aec0;
             font-weight: bold;
             transition: transform 0.3s ease;
@@ -109,14 +142,12 @@
         }
 
         .feature-list {
-            padding: 18px 12px;
-            background-color: #fafbfc;
+            padding: 18px 14px;
         }
 
-        /* ================= SOP 圖片風格重構樣式 ================= */
-        /* 核心應變原則頂欄 */
+        /* ================= SOP 內容區塊與色塊 ================= */
         .sop-core-bar {
-            background-color: #fffaf0;
+            background-color: #fff5e6;
             border: 1px solid #feebc8;
             border-left: 5px solid #dd6b20;
             border-radius: 10px;
@@ -145,7 +176,7 @@
             font-weight: 500;
         }
 
-        /* SOP 頁籤/選單列 */
+        /* 頁籤選單色塊 */
         .sop-tab-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -158,15 +189,15 @@
             }
         }
         .sop-tab-item {
-            background: #fff;
-            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            border: 1px solid #cbd5e0;
             border-radius: 8px;
             padding: 10px 6px;
             text-align: center;
             font-size: 13px;
             font-weight: bold;
             color: #4a5568;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
         }
         .sop-tab-item.active {
             border: 2px solid #3182ce;
@@ -174,7 +205,6 @@
             background-color: #ebf8ff;
         }
 
-        /* SOP 流程流程圖區塊 */
         .flow-container {
             display: flex;
             flex-direction: column;
@@ -182,9 +212,8 @@
             gap: 12px;
         }
 
-        /* 通用步驟卡片 base */
+        /* 步驟卡片基礎 */
         .step-card {
-            background-color: #fffaf0;
             border-radius: 10px;
             padding: 14px 16px;
             width: 100%;
@@ -200,7 +229,6 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background-color: #dd6b20;
             color: #fff;
             display: flex;
             align-items: center;
@@ -211,9 +239,7 @@
             margin-top: 2px;
         }
 
-        .step-content {
-            flex-grow: 1;
-        }
+        .step-content { flex-grow: 1; }
         .step-title {
             font-weight: bold;
             font-size: 15px;
@@ -225,17 +251,10 @@
             color: #4a5568;
             line-height: 1.5;
         }
-        .step-desc ul {
-            margin: 4px 0 0 0;
-            padding-left: 18px;
-        }
-        .step-desc li {
-            margin-bottom: 4px;
-        }
+        .step-desc ul { margin: 4px 0 0 0; padding-left: 18px; }
+        .step-desc li { margin-bottom: 4px; }
 
-        /* 下箭頭號 */
         .flow-arrow-down {
-            color: #3182ce;
             background-color: #3182ce;
             color: #fff;
             width: 22px;
@@ -247,7 +266,7 @@
             font-size: 12px;
         }
 
-        /* 雙分叉結構 (適應直列/橫列) */
+        /* 雙分叉 (寬螢幕並排，窄螢幕自動直列) */
         .fork-row {
             display: flex;
             flex-direction: column;
@@ -255,138 +274,124 @@
             width: 100%;
         }
         @media (min-width: 580px) {
-            .fork-row {
-                flex-direction: row;
-            }
+            .fork-row { flex-direction: row; }
         }
 
-        /* 各種顏色變體 (依圖片色彩) */
-        .card-danger {
-            background-color: #fff5f5;
-            border-left-color: #e53e3e;
-        }
+        /* 各狀態色塊變體 */
+        .card-danger { background-color: #fff5f5; border-left-color: #e53e3e; border: 1px solid #fed7d7; border-left-width: 6px; }
         .card-danger .step-icon-circle { background-color: #e53e3e; }
 
-        .card-warning {
-            background-color: #fffaf0;
-            border-left-color: #dd6b20;
-        }
+        .card-warning { background-color: #fffaf0; border-left-color: #dd6b20; border: 1px solid #feebc8; border-left-width: 6px; }
         .card-warning .step-icon-circle { background-color: #dd6b20; }
 
-        .card-info {
-            background-color: #ebf8ff;
-            border-left-color: #3182ce;
-        }
+        .card-info { background-color: #ebf8ff; border-left-color: #3182ce; border: 1px solid #bee3f8; border-left-width: 6px; }
         .card-info .step-icon-circle { background-color: #3182ce; }
 
-        .card-success {
-            background-color: #f0fff4;
-            border-left-color: #38a169;
-        }
+        .card-success { background-color: #f0fff4; border-left-color: #38a169; border: 1px solid #c6f6d5; border-left-width: 6px; }
         .card-success .step-icon-circle { background-color: #38a169; }
 
-        .card-dark {
-            background-color: #f7fafc;
-            border-left-color: #4a5568;
-        }
+        .card-dark { background-color: #f7fafc; border-left-color: #4a5568; border: 1px solid #e2e8f0; border-left-width: 6px; }
         .card-dark .step-icon-circle { background-color: #4a5568; }
 
         .sop-section-block {
             margin-bottom: 25px;
-            border-bottom: 2px dashed #edf2f7;
-            padding-bottom: 20px;
-        }
-        .sop-section-block:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 16px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
         .sop-type-header {
-            font-size: 16px;
+            font-size: 15.5px;
             font-weight: bold;
             color: #1a2b4c;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 8px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 8px;
         }
 
-        /* 按鈕標籤 */
-        .btn-tag-red {
-            background-color: #e53e3e;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .btn-tag-green {
-            background-color: #38a169;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-        }
+        /* 標籤按鈕 */
+        .btn-tag-red { background-color: #e53e3e; color: white; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .btn-tag-green { background-color: #38a169; color: white; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; }
 
-        /* ================= 具體功能選單 (通用) ================= */
-        details.function-item {
+        /* ================= 系統教學內層小卡色塊 ================= */
+        .sub-module-box {
             background-color: #ffffff;
+            border: 1px solid #cbd5e0;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+        .sub-module-header {
+            display: flex;
+            align-items: center;
+            background-color: #edf2f7;
+            padding: 12px 16px;
+            cursor: pointer;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .sub-module-header:hover { background-color: #e2e8f0; }
+
+        details.function-item {
+            background-color: #fafbfc;
             border: 1px solid #e2e8f0;
-            border-radius: 10px;
+            border-radius: 8px;
             margin-bottom: 10px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
         .function-title {
-            padding: 12px 15px;
-            font-size: 14.5px;
+            padding: 11px 14px;
+            font-size: 14px;
             font-weight: bold;
             color: #4a5568;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #fff;
             transition: 0.2s;
         }
         .function-title:hover { background-color: #ebf8ff; color: #2b6cb0; }
         
         details.function-item[open] > .function-title {
-            color: #dd6b20;
-            border-bottom: 1px dashed #e2e8f0;
-            background-color: #fffaf0;
+            color: #2b6cb0;
+            border-bottom: 1px dashed #cbd5e0;
+            background-color: #ebf8ff;
         }
         
         .func-arrow { font-size: 12px; color: #a0aec0; transition: transform 0.2s; }
-        details.function-item[open] > .function-title .func-arrow { transform: rotate(180deg); color: #dd6b20; }
+        details.function-item[open] > .function-title .func-arrow { transform: rotate(180deg); color: #2b6cb0; }
 
         .function-path {
-            padding: 15px;
-            background-color: #fffaf0; 
-            font-size: 14px;
+            padding: 14px;
+            background-color: #f7fafc; 
+            font-size: 13.5px;
             line-height: 1.6;
             color: #4a5568;
         }
         .path-tag {
             background-color: #4a5568; 
             color: #ffffff;
-            padding: 2px 8px;
+            padding: 2px 7px;
             border-radius: 4px;
-            font-size: 12.5px;
+            font-size: 12px;
             margin: 0 2px;
             display: inline-block;
             font-weight: 500;
         }
         .arrow { color: #3182ce; font-size: 12px; margin: 0 3px; font-weight: bold;}
 
-        /* 截圖樣式 */
         .inline-screenshot {
             width: 60%;
             height: auto;
             border-radius: 8px;
             border: 1px solid #cbd5e0;
             margin: 12px auto 0 auto; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
             display: block;
         }
         .img-row {
@@ -400,42 +405,45 @@
             margin: 0;
         }
 
-        /* ================= 評鑑專屬樣式 ================= */
-        .eval-list { padding: 0; background-color: #fff; }
+        /* ================= 評鑑專屬色塊樣式 ================= */
+        .eval-list { background-color: #ffffff; padding: 5px; }
         .eval-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 15px;
-            border-bottom: 1px solid #edf2f7;
+            padding: 13px 14px;
+            background-color: #fafbfc;
+            border: 1px solid #edf2f7;
+            border-radius: 8px;
+            margin-bottom: 8px;
             cursor: pointer; 
             transition: 0.2s;
         }
-        .eval-item:hover { background-color: #fffaf0; }
-        .eval-item:last-child { border-bottom: none; }
-        .eval-text { font-size: 14px; color: #4a5568; flex-grow: 1; padding-right: 15px; line-height: 1.5; }
-        .eval-cb { width: 20px; height: 20px; cursor: pointer; accent-color: #dd6b20; flex-shrink: 0; }
+        .eval-item:hover { background-color: #f0fff4; border-color: #9ae6b4; }
+        .eval-text { font-size: 13.5px; color: #2d3748; flex-grow: 1; padding-right: 15px; line-height: 1.4; }
+        .eval-cb { width: 18px; height: 18px; cursor: pointer; accent-color: #38a169; flex-shrink: 0; }
+        
         .score-board {
-            background: linear-gradient(135deg, #dd6b20, #ed8936);
+            background: linear-gradient(135deg, #38a169, #2f855a);
             color: #fff;
             text-align: center;
-            padding: 18px;
+            padding: 16px;
             font-size: 15px;
             font-weight: bold;
-            margin: 20px 15px 10px 15px;
+            margin: 20px 0 10px 0;
             border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(221, 107, 32, 0.25);
+            box-shadow: 0 4px 12px rgba(56, 161, 105, 0.25);
             position: sticky; 
             bottom: 20px;
             z-index: 10;
         }
-        .score-number { font-size: 36px; color: #feebc8; margin: 0 5px; vertical-align: middle; }
+        .score-number { font-size: 32px; color: #e6fffa; margin: 0 5px; vertical-align: middle; }
 
         .back-btn {
-            display: block; text-align: center; margin-top: 30px; color: #4a5568;
-            text-decoration: none; font-size: 14.5px; padding: 12px 25px;
+            display: block; text-align: center; margin-top: 25px; color: #4a5568;
+            text-decoration: none; font-size: 14px; padding: 12px 25px;
             border-radius: 30px; background-color: #edf2f7; transition: 0.3s;
-            font-weight: 500;
+            font-weight: 500; border: 1px solid #cbd5e0;
         }
         .back-btn:hover { background-color: #2d3748; color: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
     </style>
@@ -444,26 +452,26 @@
 
     <div class="card">
         
-        <!-- 頂部深藍 Banner 標題區 -->
-        <div classheader-banner class="header-banner">
+        <!-- 頂部深藍標題區塊 -->
+        <div class="header-banner">
             <h2>安心御老平台 突發狀況應變流程指南</h2>
             <div class="subtitle">第一線服務人員與督導專員 視覺化作業 SOP</div>
         </div>
 
-        <!-- 一、突發狀況處理 SOP -->
-        <details class="module-group" open style="border-color: #feebc8;">
-            <summary class="module-header" style="background-color: #fffaf0;">
+        <!-- 模組一：突發狀況處理 SOP (暖黃色主題色塊) -->
+        <details class="module-group module-sop" open>
+            <summary class="module-header">
                 <div class="icon-box">🚨</div>
                 <div class="text-box">
                     <span class="main-title" style="color: #c05621;">一、突發狀況處理 SOP</span>
-                    <span class="sub-title" style="color: #dd6b20;">包含疾病不適、天然災害、失聯、送餐未取處置流程</span>
+                    <span class="sub-title">包含疾病不適、天然災害、失聯、送餐未取處置流程</span>
                 </div>
                 <div class="toggle-icon" style="color: #dd6b20;">✚</div>
             </summary>
             
-            <div class="feature-list" style="background-color: #ffffff;">
+            <div class="feature-list">
                 
-                <!-- 核心原則提示列 (圖片頂部風格) -->
+                <!-- 核心原則提示色塊 -->
                 <div class="sop-core-bar">
                     <div class="sop-core-title">💡 核心應變原則：邊處理、邊回報</div>
                     <div class="sop-core-action">
@@ -471,7 +479,7 @@
                     </div>
                 </div>
 
-                <!-- 類別頁籤導覽 (圖片標籤列風格) -->
+                <!-- 類別頁籤選單 -->
                 <div class="sop-tab-grid">
                     <div class="sop-tab-item active">🚑 1. 疾病/身體不適</div>
                     <div class="sop-tab-item">🌪️ 2. 天災/突發事件</div>
@@ -479,12 +487,10 @@
                     <div class="sop-tab-item">🍱 4. 送餐未取/未出</div>
                 </div>
 
-                <!-- 流程 1: 疾病或身體不適 -->
+                <!-- 流程 1 -->
                 <div class="sop-section-block">
                     <div class="sop-type-header">🩺 1. 疾病或身體不適處置流程</div>
                     <div class="flow-container">
-                        
-                        <!-- 步驟 1 -->
                         <div class="step-card card-warning">
                             <div class="step-icon-circle">1</div>
                             <div class="step-content">
@@ -495,7 +501,6 @@
 
                         <div class="flow-arrow-down">⬇</div>
 
-                        <!-- 步驟 2 雙分叉 -->
                         <div class="fork-row">
                             <div class="step-card card-danger">
                                 <div class="step-icon-circle">🚨</div>
@@ -527,7 +532,6 @@
 
                         <div class="flow-arrow-down">⬇</div>
 
-                        <!-- 步驟 3 -->
                         <div class="step-card card-info">
                             <div class="step-icon-circle">🏥</div>
                             <div class="step-content">
@@ -538,7 +542,6 @@
 
                         <div class="flow-arrow-down">⬇</div>
 
-                        <!-- 步驟 4 -->
                         <div class="step-card card-success">
                             <div class="step-icon-circle">✓</div>
                             <div class="step-content">
@@ -546,11 +549,10 @@
                                 <div class="step-desc">身體不適狀況處置完畢後，於「優先處理管理」按下 <span class="btn-tag-green">解除</span>，回歸常態服務。</div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- 流程 2: 天然災害或突發事件 -->
+                <!-- 流程 2 -->
                 <div class="sop-section-block">
                     <div class="sop-type-header">🌊 2. 天然災害 / 突發事件處置流程</div>
                     <div class="flow-container">
@@ -610,7 +612,7 @@
                     </div>
                 </div>
 
-                <!-- 流程 3: 失聯協尋 -->
+                <!-- 流程 3 -->
                 <div class="sop-section-block">
                     <div class="sop-type-header">🔍 3. 失聯協尋處置流程</div>
                     <div class="flow-container">
@@ -654,7 +656,7 @@
                     </div>
                 </div>
 
-                <!-- 流程 4: 送餐未取或多時未外出 -->
+                <!-- 流程 4 -->
                 <div class="sop-section-block">
                     <div class="sop-type-header">🏠 4. 送餐未取 / 多時未外出處置流程</div>
                     <div class="flow-container">
@@ -701,8 +703,8 @@
             </div>
         </details>
 
-        <!-- 二、系統操作教學 -->
-        <details class="module-group" style="border-color: #e2e8f0;">
+        <!-- 模組二：系統操作教學 (冷灰藍色主題色塊) -->
+        <details class="module-group module-tutorial">
             <summary class="module-header">
                 <div class="icon-box">📘</div>
                 <div class="text-box">
@@ -712,273 +714,290 @@
                 <div class="toggle-icon">✚</div>
             </summary>
             
-            <div class="feature-list" style="background-color: #fafbfc;">
+            <div class="feature-list">
                 
-                <details class="module-group" style="box-shadow: none; border-color: #cbd5e0; margin-bottom: 12px;">
-                    <summary class="module-header" style="background-color: #edf2f7;">
-                        <div class="icon-box" style="font-size: 18px;">🏠</div>
-                        <div class="text-box"><span class="main-title" style="font-size: 15px;">1. 首頁模組</span></div>
-                        <div class="toggle-icon" style="font-size: 16px;">✚</div>
-                    </summary>
-                    <div class="feature-list" style="background-color: #fff;">
-                        <details class="function-item">
-                            <summary class="function-title">📌 查看當日行程 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path"><div><span class="path-tag">首頁</span> (登入後預設顯示)</div></div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 訪視打卡 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path"><div><span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">點選個案行程</span> <span class="arrow">➔</span> <span class="path-tag">訪視打卡</span></div></div>
-                        </details>
-                    </div>
-                </details>
+                <!-- 1. 首頁模組 -->
+                <div class="sub-module-box">
+                    <details>
+                        <summary class="sub-module-header">
+                            <div class="icon-box" style="font-size: 18px;">🏠</div>
+                            <div class="text-box"><span class="main-title" style="font-size: 15px;">1. 首頁模組</span></div>
+                            <div class="toggle-icon" style="font-size: 15px;">✚</div>
+                        </summary>
+                        <div style="padding: 12px; background: #fff;">
+                            <details class="function-item">
+                                <summary class="function-title">📌 查看當日行程 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path"><div><span class="path-tag">首頁</span> (登入後預設顯示)</div></div>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 訪視打卡 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path"><div><span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">點選個案行程</span> <span class="arrow">➔</span> <span class="path-tag">訪視打卡</span></div></div>
+                            </details>
+                        </div>
+                    </details>
+                </div>
 
-                <details class="module-group" style="box-shadow: none; border-color: #cbd5e0; margin-bottom: 12px;">
-                    <summary class="module-header" style="background-color: #edf2f7;">
-                        <div class="icon-box" style="font-size: 18px;">💬</div>
-                        <div class="text-box"><span class="main-title" style="font-size: 15px;">2. 聊天室模組</span></div>
-                        <div class="toggle-icon" style="font-size: 16px;">✚</div>
-                    </summary>
-                    <div class="feature-list" style="background-color: #fff;">
-                        <details class="function-item">
-                            <summary class="function-title">📌 新建群組 (專業/家屬/聊天) <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">聊天室</span> <span class="arrow">➔</span> 右下角 <span class="path-tag">新建群組</span></div>
-                                <img src="images/anxix-2-1-1.jpg" alt="新建群組圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 傳送圖片 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>進入群組 <span class="arrow">➔</span> 點選下方 <span class="path-tag">圖片圖示</span></div>
-                                <img src="images/anxix-2-2-1.jpg" alt="傳送圖片圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 管理與邀請成員 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> <span class="path-tag">新增/刪除成員</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-2-3-1.jpg" alt="管理成員圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-2-3-2.jpg" alt="管理成員圖解2" class="inline-screenshot">
+                <!-- 2. 聊天室模組 -->
+                <div class="sub-module-box">
+                    <details>
+                        <summary class="sub-module-header">
+                            <div class="icon-box" style="font-size: 18px;">💬</div>
+                            <div class="text-box"><span class="main-title" style="font-size: 15px;">2. 聊天室模組</span></div>
+                            <div class="toggle-icon" style="font-size: 15px;">✚</div>
+                        </summary>
+                        <div style="padding: 12px; background: #fff;">
+                            <details class="function-item">
+                                <summary class="function-title">📌 新建群組 (專業/家屬/聊天) <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">聊天室</span> <span class="arrow">➔</span> 右下角 <span class="path-tag">新建群組</span></div>
+                                    <img src="images/anxix-2-1-1.jpg" alt="新建群組圖解" class="inline-screenshot">
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 編輯群組與發起會議 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> 點 <span class="path-tag">橘色鉛筆</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-2-4-1.jpg" alt="編輯群組圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-2-4-2.jpg" alt="編輯群組圖解2" class="inline-screenshot">
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 傳送圖片 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>進入群組 <span class="arrow">➔</span> 點選下方 <span class="path-tag">圖片圖示</span></div>
+                                    <img src="images/anxix-2-2-1.jpg" alt="傳送圖片圖解" class="inline-screenshot">
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 結構化紀錄與評估 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>點擊下方 <span class="path-tag">鍵盤圖示</span> (或輸入 <span class="path-tag">@</span>標記 <span class="path-tag">!</span>注意 <span class="path-tag">#</span>待辦)</div>
-                                <div class="img-row">
-                                    <img src="images/anxix-2-5-1.jpg" alt="結構化紀錄圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-2-5-2.jpg" alt="結構化紀錄圖解2" class="inline-screenshot">
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 管理與邀請成員 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> <span class="path-tag">新增/刪除成員</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-2-3-1.jpg" alt="管理成員圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-2-3-2.jpg" alt="管理成員圖解2" class="inline-screenshot">
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                    </div>
-                </details>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 編輯群組與發起會議 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>進入群組 <span class="arrow">➔</span> 點頂部名稱 <span class="path-tag">></span> <span class="arrow">➔</span> 點 <span class="path-tag">橘色鉛筆</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-2-4-1.jpg" alt="編輯群組圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-2-4-2.jpg" alt="編輯群組圖解2" class="inline-screenshot">
+                                    </div>
+                                </div>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 結構化紀錄與評估 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>點擊下方 <span class="path-tag">鍵盤圖示</span> (或輸入 <span class="path-tag">@</span>標記 <span class="path-tag">!</span>注意 <span class="path-tag">#</span>待辦)</div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-2-5-1.jpg" alt="結構化紀錄圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-2-5-2.jpg" alt="結構化紀錄圖解2" class="inline-screenshot">
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </details>
+                </div>
 
-                <details class="module-group" style="box-shadow: none; border-color: #cbd5e0; margin-bottom: 12px;">
-                    <summary class="module-header" style="background-color: #edf2f7;">
-                        <div class="icon-box" style="font-size: 18px;">📅</div>
-                        <div class="text-box"><span class="main-title" style="font-size: 15px;">3. 行事曆模組</span></div>
-                        <div class="toggle-icon" style="font-size: 16px;">✚</div>
-                    </summary>
-                    <div class="feature-list" style="background-color: #fff;">
-                        <details class="function-item">
-                            <summary class="function-title">📌 查看同訪人員 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> <span class="path-tag">同訪人員</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-3-1-1.jpg" alt="查看同訪人員圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-3-1-2.jpg" alt="查看同訪人員圖解2" class="inline-screenshot">
+                <!-- 3. 行事曆模組 -->
+                <div class="sub-module-box">
+                    <details>
+                        <summary class="sub-module-header">
+                            <div class="icon-box" style="font-size: 18px;">📅</div>
+                            <div class="text-box"><span class="main-title" style="font-size: 15px;">3. 行事曆模組</span></div>
+                            <div class="toggle-icon" style="font-size: 15px;">✚</div>
+                        </summary>
+                        <div style="padding: 12px; background: #fff;">
+                            <details class="function-item">
+                                <summary class="function-title">📌 查看同訪人員 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> <span class="path-tag">同訪人員</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-3-1-1.jpg" alt="同訪人員圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-3-1-2.jpg" alt="同訪人員圖解2" class="inline-screenshot">
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 新增行程 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> 右上角 <span class="path-tag">(+)</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-3-2-1.jpg" alt="新增行程圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-3-2-2.jpg" alt="新增行程圖解2" class="inline-screenshot">
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 新增行程 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">行事曆</span> <span class="arrow">➔</span> <span class="path-tag">點選日期</span> <span class="arrow">➔</span> 右上角 <span class="path-tag">(+)</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-3-2-1.jpg" alt="新增行程圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-3-2-2.jpg" alt="新增行程圖解2" class="inline-screenshot">
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 修改 / 退出 / 刪除行程 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>點選行程的 <span class="path-tag">鉛筆圖示</span> <span class="arrow">➔</span> 執行對應操作</div>
-                                <div class="img-row">
-                                    <img src="images/anxix-3-3-1.jpg" alt="修改刪除行程圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-3-3-2.jpg" alt="修改刪除行程圖解2" class="inline-screenshot">
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 修改 / 退出 / 刪除行程 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>點選行程的 <span class="path-tag">鉛筆圖示</span> <span class="arrow">➔</span> 執行對應操作</div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-3-3-1.jpg" alt="修改刪除圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-3-3-2.jpg" alt="修改刪除圖解2" class="inline-screenshot">
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 複製行程 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>點選行程的 <span class="path-tag">複製圖示</span> <span class="arrow">➔</span> 修改日期並儲存</div>
-                                <img src="images/anxix-3-4-1.jpg" alt="複製行程圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                    </div>
-                </details>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 複製行程 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>點選行程的 <span class="path-tag">複製圖示</span> <span class="arrow">➔</span> 修改日期並儲存</div>
+                                    <img src="images/anxix-3-4-1.jpg" alt="複製行程圖解" class="inline-screenshot">
+                                </div>
+                            </details>
+                        </div>
+                    </details>
+                </div>
 
-                <details class="module-group" style="box-shadow: none; border-color: #cbd5e0; margin-bottom: 12px;">
-                    <summary class="module-header" style="background-color: #edf2f7;">
-                        <div class="icon-box" style="font-size: 18px;">📂</div>
-                        <div class="text-box"><span class="main-title" style="font-size: 15px;">4. 清單模組 (個案資料)</span></div>
-                        <div class="toggle-icon" style="font-size: 16px;">✚</div>
-                    </summary>
-                    <div class="feature-list" style="background-color: #fff;">
-                        <details class="function-item">
-                            <summary class="function-title">📌 編輯與分享個案 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">編輯</span> 或 <span class="path-tag">分享</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-4-1-1.jpg" alt="編輯與分享個案圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-4-1-2.jpg" alt="編輯與分享個案圖解2" class="inline-screenshot">
+                <!-- 4. 清單模組 -->
+                <div class="sub-module-box">
+                    <details>
+                        <summary class="sub-module-header">
+                            <div class="icon-box" style="font-size: 18px;">📂</div>
+                            <div class="text-box"><span class="main-title" style="font-size: 15px;">4. 清單模組 (個案資料)</span></div>
+                            <div class="toggle-icon" style="font-size: 15px;">✚</div>
+                        </summary>
+                        <div style="padding: 12px; background: #fff;">
+                            <details class="function-item">
+                                <summary class="function-title">📌 編輯與分享個案 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">編輯</span> 或 <span class="path-tag">分享</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-4-1-1.jpg" alt="編輯分享圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-4-1-2.jpg" alt="編輯分享圖解2" class="inline-screenshot">
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 查看健康數據 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">健康</span></div>
-                                <img src="images/anxix-4-2-1.jpg" alt="查看健康數據圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 填寫與查詢評估量表 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">評估</span></div>
-                                <img src="images/anxix-4-3-1.jpg" alt="填寫與查詢評估量表圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 查看家屬與專業歷程 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">家屬</span> 或 <span class="path-tag">專業</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-4-4-1.jpg" alt="查看家屬與專業歷程圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-4-4-2.jpg" alt="查看家屬與專業歷程圖解2" class="inline-screenshot">
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 查看健康數據 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">健康</span></div>
+                                    <img src="images/anxix-4-2-1.jpg" alt="健康數據圖解" class="inline-screenshot">
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 加入照護清單 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">清單</span> <span class="arrow">➔</span> <span class="path-tag">搜尋</span> <span class="arrow">➔</span> <span class="path-tag">加入</span></div>
-                                <img src="images/anxix-4-5-1.jpg" alt="加入照護清單圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                    </div>
-                </details>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 填寫與查詢評估量表 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">評估</span></div>
+                                    <img src="images/anxix-4-3-1.jpg" alt="評估量表圖解" class="inline-screenshot">
+                                </div>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 查看家屬與專業歷程 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>個案 <span class="path-tag">查看更多</span> <span class="arrow">➔</span> <span class="path-tag">家屬</span> 或 <span class="path-tag">專業</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-4-4-1.jpg" alt="歷程圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-4-4-2.jpg" alt="歷程圖解2" class="inline-screenshot">
+                                    </div>
+                                </div>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 加入照護清單 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">清單</span> <span class="arrow">➔</span> <span class="path-tag">搜尋</span> <span class="arrow">➔</span> <span class="path-tag">加入</span></div>
+                                    <img src="images/anxix-4-5-1.jpg" alt="加入照護清單圖解" class="inline-screenshot">
+                                </div>
+                            </details>
+                        </div>
+                    </details>
+                </div>
 
-                <details class="module-group" style="box-shadow: none; border-color: #cbd5e0; margin-bottom: 0;">
-                    <summary class="module-header" style="background-color: #edf2f7;">
-                        <div class="icon-box" style="font-size: 18px;">🧰</div>
-                        <div class="text-box"><span class="main-title" style="font-size: 15px;">5. 工具箱模組</span></div>
-                        <div class="toggle-icon" style="font-size: 16px;">✚</div>
-                    </summary>
-                    <div class="feature-list" style="background-color: #fff;">
-                        <details class="function-item">
-                            <summary class="function-title">📌 修改密碼與個資 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div>頂部 <span class="path-tag">個人姓名</span> <span class="arrow">➔</span> 修改基本資料/密碼</div>
-                                <div class="img-row">
-                                    <img src="images/anxix-5-1-1.jpg" alt="修改密碼與個資圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-5-1-2.jpg" alt="修改密碼與個資圖解2" class="inline-screenshot">
+                <!-- 5. 工具箱模組 -->
+                <div class="sub-module-box" style="margin-bottom: 0;">
+                    <details>
+                        <summary class="sub-module-header">
+                            <div class="icon-box" style="font-size: 18px;">🧰</div>
+                            <div class="text-box"><span class="main-title" style="font-size: 15px;">5. 工具箱模組</span></div>
+                            <div class="toggle-icon" style="font-size: 15px;">✚</div>
+                        </summary>
+                        <div style="padding: 12px; background: #fff;">
+                            <details class="function-item">
+                                <summary class="function-title">📌 修改密碼與個資 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div>頂部 <span class="path-tag">個人姓名</span> <span class="arrow">➔</span> 修改基本資料/密碼</div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-5-1-1.jpg" alt="修改個資圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-5-1-2.jpg" alt="修改個資圖解2" class="inline-screenshot">
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 新增個案 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">新增個案</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-5-2-1.jpg" alt="新增個案圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-5-2-2.jpg" alt="新增個案圖解2" class="inline-screenshot">
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 新增個案 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">新增個案</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-5-2-1.jpg" alt="新增個案圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-5-2-2.jpg" alt="新增個案圖解2" class="inline-screenshot">
+                                    </div>
                                 </div>
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 量表與血壓總覽 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">評估</span> 或 <span class="path-tag">血壓分布</span></div>
-                                <img src="images/anxix-5-3-1.jpg" alt="量表與血壓總覽圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 教學與機構通訊錄 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">操作教學</span> 或 <span class="path-tag">通訊錄</span></div>
-                                <img src="images/anxix-5-4-1.jpg" alt="教學與機構通訊錄圖解" class="inline-screenshot">
-                            </div>
-                        </details>
-                        <details class="function-item">
-                            <summary class="function-title">📌 系統登入登出 <span class="func-arrow">▼</span></summary>
-                            <div class="function-path">
-                                <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">螢幕上滑</span> <span class="arrow">➔</span> <span class="path-tag">登出</span></div>
-                                <div class="img-row">
-                                    <img src="images/anxix-5-5-1.jpg" alt="系統登入登出圖解1" class="inline-screenshot">
-                                    <img src="images/anxix-5-5-2.jpg" alt="系統登入登出圖解2" class="inline-screenshot">
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 量表與血壓總覽 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">評估</span> 或 <span class="path-tag">血壓分布</span></div>
+                                    <img src="images/anxix-5-3-1.jpg" alt="血壓總覽圖解" class="inline-screenshot">
                                 </div>
-                            </div>
-                        </details>
-                    </div>
-                </details>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 教學與機構通訊錄 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">操作教學</span> 或 <span class="path-tag">通訊錄</span></div>
+                                    <img src="images/anxix-5-4-1.jpg" alt="通訊錄圖解" class="inline-screenshot">
+                                </div>
+                            </details>
+                            <details class="function-item">
+                                <summary class="function-title">📌 系統登入登出 <span class="func-arrow">▼</span></summary>
+                                <div class="function-path">
+                                    <div><span class="path-tag">工具箱</span> <span class="arrow">➔</span> <span class="path-tag">螢幕上滑</span> <span class="arrow">➔</span> <span class="path-tag">登出</span></div>
+                                    <div class="img-row">
+                                        <img src="images/anxix-5-5-1.jpg" alt="登入登出圖解1" class="inline-screenshot">
+                                        <img src="images/anxix-5-5-2.jpg" alt="登入登出圖解2" class="inline-screenshot">
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </details>
+                </div>
 
             </div>
         </details>
 
-        <!-- 三、操作熟悉度評鑑 -->
-        <details class="module-group" style="border-color: #feebc8;">
-            <summary class="module-header" style="background-color: #fffaf0;">
+        <!-- 模組三：操作熟悉度評鑑 (柔和綠色主題色塊) -->
+        <details class="module-group module-eval">
+            <summary class="module-header">
                 <div class="icon-box">📝</div>
                 <div class="text-box">
-                    <span class="main-title" style="color: #c05621;">三、操作熟悉度評鑑</span>
-                    <span class="sub-title" style="color: #dd6b20;">勾選您已熟悉的操作，系統將自動計分</span>
+                    <span class="main-title" style="color: #22543d;">三、操作熟悉度評鑑</span>
+                    <span class="sub-title" style="color: #38a169;">勾選您已熟悉的操作，系統將自動計算分數</span>
                 </div>
-                <div class="toggle-icon" style="color: #dd6b20;">✚</div>
+                <div class="toggle-icon" style="color: #38a169;">✚</div>
             </summary>
             
-            <div class="eval-list" style="padding-top: 10px;">
-                <label class="eval-item"><span class="eval-text">1. 系統登入、登出、密碼變更、忘記密碼</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">2. 個人資料維護(職稱修正)功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">3. 撥打專業人員電話功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">4. 個案資料維護(基本資料、家中環境)操作及更換個案大頭貼</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">5. 健康首頁功能瞭解及生理數據輸入</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">6. 授權書簽署</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">7. 個案加入及解除照護清單操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">8. 邀請專業人員綁定個案</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">9. 修改日期及時間功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">10. 行程備註及私人註記功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">11. 選擇個案、日期、時間、照護項目功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">12. 選擇同訪人員功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">13. 修改日期及時間功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">14. 刪除及退出行程功能操作，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">15. 選擇簽到、簽退時間、訪視方式及訪視問項</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">16. 輸入訪視註記(文字及語音輸入)</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">17. 上傳訪視照片</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">18. 健康資訊選擇及上傳生理數據、藥袋等照片</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">19. 暫存及儲存並上陳功能操作，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">20. 新增標籤、個人化標籤(含選擇個案)，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">21. 點選標籤分類個案功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">22. 標籤管理(刪除分類及管理個案)功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">23. 輸入文字及上傳照片功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">24. 標記人員功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">25. 視訊通話功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
-                <label class="eval-item"><span class="eval-text">26. 聊天室內容選擇為歷程功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+            <div class="feature-list">
+                <div class="eval-list">
+                    <label class="eval-item"><span class="eval-text">1. 系統登入、登出、密碼變更、忘記密碼</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">2. 個人資料維護(職稱修正)功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">3. 撥打專業人員電話功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">4. 個案資料維護(基本資料、家中環境)操作及更換個案大頭貼</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">5. 健康首頁功能瞭解及生理數據輸入</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">6. 授權書簽署</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">7. 個案加入及解除照護清單操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">8. 邀請專業人員綁定個案</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">9. 修改日期及時間功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">10. 行程備註及私人註記功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">11. 選擇個案、日期、時間、照護項目功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">12. 選擇同訪人員功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">13. 修改日期及時間功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">14. 刪除及退出行程功能操作，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">15. 選擇簽到、簽退時間、訪視方式及訪視問項</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">16. 輸入訪視註記(文字及語音輸入)</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">17. 上傳訪視照片</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">18. 健康資訊選擇及上傳生理數據、藥袋等照片</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">19. 暫存及儲存並上陳功能操作，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">20. 新增標籤、個人化標籤(含選擇個案)，並回復兩者差異</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">21. 點選標籤分類個案功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">22. 標籤管理(刪除分類及管理個案)功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">23. 輸入文字及上傳照片功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">24. 標記人員功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">25. 視訊通話功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                    <label class="eval-item"><span class="eval-text">26. 聊天室內容選擇為歷程功能操作</span><input type="checkbox" class="eval-cb" onchange="calculateScore()"></label>
+                </div>
 
                 <div class="score-board">
                     👑 目前熟練度得分<br>
