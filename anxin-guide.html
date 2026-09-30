@@ -187,34 +187,26 @@
             border-left: 8px solid #d32f2f;
         }
 
-        /* SOP 折疊項目各別顏色款式 */
-        /* 1. 醫療：紅 */
+        /* 第一段 SOP 各主題個別配色樣式 */
         details.sop-medical { border-color: #ffcdd2; }
         details.sop-medical > .function-title { color: #c62828; background-color: #fff8f8; }
         details.sop-medical > .function-title:hover { background-color: #ffebee; }
         details.sop-medical[open] > .function-title { background-color: #ffebee; color: #b71c1c; border-bottom: 1px dashed #ffcdd2; }
-        details.sop-medical .function-path { background-color: #fffcfc; }
 
-        /* 2. 災害：橘 */
         details.sop-disaster { border-color: #ffe0b2; }
         details.sop-disaster > .function-title { color: #ef6c00; background-color: #fffdf5; }
         details.sop-disaster > .function-title:hover { background-color: #fff3e0; }
         details.sop-disaster[open] > .function-title { background-color: #fff3e0; color: #e65100; border-bottom: 1px dashed #ffe0b2; }
-        details.sop-disaster .function-path { background-color: #fffffb; }
 
-        /* 3. 失聯：紫 */
         details.sop-missing { border-color: #e1bee7; }
         details.sop-missing > .function-title { color: #6a1b9a; background-color: #fcf8ff; }
         details.sop-missing > .function-title:hover { background-color: #f3e5f5; }
         details.sop-missing[open] > .function-title { background-color: #f3e5f5; color: #4a148c; border-bottom: 1px dashed #e1bee7; }
-        details.sop-missing .function-path { background-color: #fdfbfd; }
 
-        /* 4. 送餐/居住：綠 */
         details.sop-housing { border-color: #c8e6c9; }
         details.sop-housing > .function-title { color: #2e7d32; background-color: #f6fbf7; }
         details.sop-housing > .function-title:hover { background-color: #e8f5e9; }
         details.sop-housing[open] > .function-title { background-color: #e8f5e9; color: #1b5e20; border-bottom: 1px dashed #c8e6c9; }
-        details.sop-housing .function-path { background-color: #fcfdfe; }
 
         .mini-node {
             background-color: #fafafa; 
@@ -228,7 +220,7 @@
         }
         .mini-node:last-child { margin-bottom: 0; }
 
-        /* 強化標籤與強調文字樣式 */
+        /* 標籤與強調文字 */
         .tag-red { background-color: #d32f2f; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
         .tag-green { background-color: #2e7d32; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
         .tag-orange { background-color: #ef6c00; color: #ffffff; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
@@ -251,7 +243,7 @@
     <div class="card">
         <h2>📱 安心御老操作指南</h2>
 
-        <!-- 一、突發狀況處理 SOP -->
+        <!-- 一、突發狀況處理 SOP (已調整為可折疊條狀) -->
         <details class="module-group" style="border-color: #ef9a9a;">
             <summary class="module-header" style="background-color: #ffebee; border-bottom: 2px solid #ef9a9a;">
                 <div class="icon-box">🚨</div>
@@ -274,8 +266,6 @@
                     </div>
                 </div>
 
-                <!-- 四種突發狀況折疊選單 -->
-                
                 <!-- 1. 疾病或身體不適 -->
                 <details class="function-item sop-medical">
                     <summary class="function-title">
@@ -384,90 +374,62 @@
             </div>
         </details>
 
-        <!-- 二、系統操作 -->
+        <!-- 二、優先處理管理操作說明（完全維持原內容與圖片） -->
         <details class="module-group">
             <summary class="module-header">
-                <div class="icon-box">💻</div>
+                <div class="icon-box">⚙️</div>
                 <div class="text-box">
-                    <span class="main-title">二、系統操作</span>
-                    <span class="sub-title">查詢個案、填寫紀錄、設備設定與通報</span>
+                    <span class="main-title">二、優先處理（開案與解除）操作說明</span>
+                    <span class="sub-title">點擊閃電圖示與清單管理開案、解除流程</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             
             <div class="feature-list">
                 
+                <!-- 開案操作 -->
                 <details class="function-item">
                     <summary class="function-title">
-                        <span>1. 照護清單與訪視紀錄</span>
+                        <span>1. 開案操作說明（啟用優先處理）</span>
                         <span class="func-arrow">▼</span>
                     </summary>
                     <div class="function-path">
-                        <span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">照護清單</span> <span class="arrow">➔</span> 點擊個案 <span class="arrow">➔</span> <span class="path-tag">訪視紀錄</span> <span class="arrow">➔</span> <span class="path-tag">填寫紀錄</span>
-                        <img src="訪視紀錄.png" alt="訪視紀錄操作畫面" class="inline-screenshot">
-                    </div>
-                </details>
-
-                <details class="function-item">
-                    <summary class="function-title">
-                        <span>2. 填寫紀錄、新增防跌與體溫設備</span>
-                        <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path">
-                        <span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">照護清單</span> <span class="arrow">➔</span> 點擊個案 <span class="arrow">➔</span> <span class="path-tag">個案資料</span> <span class="arrow">➔</span> <span class="path-tag">變更</span> <span class="arrow">➔</span> 點選防跌或體溫設備進行綁定與變更
+                        <strong>操作步驟：</strong><br>
+                        1. 於畫面頂端點擊 <span class="path-tag">閃電圖示</span>（優先處理管理）。<br>
+                        2. 在目標個案右側點擊橘色 <span class="tag-orange">【開案】</span> 按鈕。<br>
+                        3. 於快顯視窗中輸入開案說明（建議包含：人、事、時、地、狀況），並點擊 <span class="tag-red">【確定開案】</span>。<br>
+                        4. 啟用後將在首頁、照護清單與聊天室置頂，並套用紅色警示樣式。
+                        
                         <div class="img-row">
-                            <img src="新增綁定設備1.png" alt="點擊變更" class="inline-screenshot">
-                            <img src="新增綁定設備2.png" alt="變更設備" class="inline-screenshot">
+                            <img src="開案1.jpg" alt="點擊閃電圖示" class="inline-screenshot">
+                            <img src="開案3.jpg" alt="選擇個案點擊開案" class="inline-screenshot">
                         </div>
+                        <img src="開案2.jpg" alt="輸入開案說明並確定開案" class="inline-screenshot" style="width: 50%;">
                     </div>
                 </details>
 
+                <!-- 解除操作 -->
                 <details class="function-item">
                     <summary class="function-title">
-                        <span>3. 生理量測與異動通報</span>
+                        <span>2. 解除操作說明（關閉優先處理）</span>
                         <span class="func-arrow">▼</span>
                     </summary>
                     <div class="function-path">
-                        <span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 點擊個案聊天室 <span class="arrow">➔</span> 點擊下方功能列 <span class="path-tag">生理量測</span> 或 <span class="path-tag">異動通報</span>
+                        <strong>操作步驟：</strong><br>
+                        1. 點擊頂端 <span class="path-tag">閃電圖示</span> 開啟「優先處理管理」視窗。<br>
+                        2. 找到目前狀態為「優先處理中」的個案，點擊右側紅色 <span class="tag-red">【解除】</span> 按鈕。<br>
+                        3. 於跳出的確認視窗中點擊 <span class="tag-red">【確定解除】</span>。<br>
+                        4. 解除後系統將自動取消優先處理標記與警示樣式，恢復常態。
+                        
                         <div class="img-row">
-                            <img src="生理量測.png" alt="生理量測功能" class="inline-screenshot">
-                            <img src="異動通報.png" alt="異動通報功能" class="inline-screenshot">
-                        </div>
-                    </div>
-                </details>
-
-                <details class="function-item">
-                    <summary class="function-title">
-                        <span>4. 關懷通報</span>
-                        <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path">
-                        <span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 點擊個案聊天室 <span class="arrow">➔</span> 點擊下方功能列 <span class="path-tag">關懷通報</span>
-                        <img src="關懷通報.png" alt="關懷通報功能" class="inline-screenshot">
-                    </div>
-                </details>
-
-                <details class="function-item">
-                    <summary class="function-title">
-                        <span>5. 門磁告警取消與事件處置說明</span>
-                        <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path">
-                        <span class="path-tag">首頁</span> <span class="arrow">➔</span> <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 點擊該個案聊天室 <span class="arrow">➔</span> 點擊 <span class="path-tag">告警處置</span> 按鈕 <span class="arrow">➔</span> 選擇該次門磁告警紀錄並填寫處置說明
-                        <div class="img-row">
-                            <img src="告警處置1.png" alt="告警處置按鈕" class="inline-screenshot">
-                            <img src="告警處置2.png" alt="填寫處置說明" class="inline-screenshot">
+                            <img src="解除1.jpg" alt="點擊解除按鈕" class="inline-screenshot">
+                            <img src="解除2.jpg" alt="確認解除優先處理" class="inline-screenshot">
                         </div>
                     </div>
                 </details>
 
             </div>
         </details>
-
-        <!-- 三、操作熟悉度評鑑 -->
-        <a href="https://forms.gle/41o3x95Wk3P2gUpt5" target="_blank" class="back-btn">
-            📝 第三區塊：點此進行「操作熟悉度評鑑」
-        </a>
 
     </div>
 </body>
