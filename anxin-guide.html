@@ -175,7 +175,7 @@
             margin: 0;
         }
 
-        /* ================= 應變原則專屬加強樣式 ================= */
+        /* ================= 核心原則與 SOP 各項風格 ================= */
         .highlight-container {
             background: #fff5f5;
             border-radius: 12px; 
@@ -185,64 +185,35 @@
             border: 1px solid #ffcdd2;
             border-left: 6px solid #d32f2f;
         }
-        .type-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
-        @media (min-width: 580px) { .type-grid { grid-template-columns: 1fr 1fr; } }
-        
-        /* 四種不同主題顏色的卡片風格 */
-        .type-card {
-            border-radius: 12px; 
-            padding: 16px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.04); 
-            border: 1px solid;
-            display: flex; 
-            flex-direction: column;
-        }
 
-        /* 1. 醫療卡片：紅 */
-        .type-medical { 
-            background-color: #fff8f8; 
-            border-color: #ffcdd2;
-            border-top: 5px solid #e53935;
-        }
-        .type-medical .type-header { color: #c62828; border-bottom: 2px solid #ffcdd2; }
-        .type-medical .mini-node { background-color: #ffffff; border: 1px solid #ffebee; }
+        /* SOP 折疊項目各別顏色款式 */
+        /* 1. 醫療：紅 */
+        details.sop-medical { border-color: #ffcdd2; }
+        details.sop-medical > .function-title { color: #c62828; background-color: #fff8f8; }
+        details.sop-medical > .function-title:hover { background-color: #ffebee; }
+        details.sop-medical[open] > .function-title { background-color: #ffebee; color: #b71c1c; border-bottom: 1px dashed #ffcdd2; }
+        details.sop-medical .function-path { background-color: #fffcfc; }
 
-        /* 2. 災害卡片：橘 */
-        .type-disaster { 
-            background-color: #fffdf5; 
-            border-color: #ffe0b2;
-            border-top: 5px solid #fb8c00;
-        }
-        .type-disaster .type-header { color: #ef6c00; border-bottom: 2px solid #ffe0b2; }
-        .type-disaster .mini-node { background-color: #ffffff; border: 1px solid #fff3e0; }
+        /* 2. 災害：橘 */
+        details.sop-disaster { border-color: #ffe0b2; }
+        details.sop-disaster > .function-title { color: #ef6c00; background-color: #fffdf5; }
+        details.sop-disaster > .function-title:hover { background-color: #fff3e0; }
+        details.sop-disaster[open] > .function-title { background-color: #fff3e0; color: #e65100; border-bottom: 1px dashed #ffe0b2; }
+        details.sop-disaster .function-path { background-color: #fffffb; }
 
-        /* 3. 失聯卡片：紫 */
-        .type-missing { 
-            background-color: #fcf8ff; 
-            border-color: #e1bee7;
-            border-top: 5px solid #8e24aa;
-        }
-        .type-missing .type-header { color: #6a1b9a; border-bottom: 2px solid #e1bee7; }
-        .type-missing .mini-node { background-color: #ffffff; border: 1px solid #f3e5f5; }
+        /* 3. 失聯：紫 */
+        details.sop-missing { border-color: #e1bee7; }
+        details.sop-missing > .function-title { color: #6a1b9a; background-color: #fcf8ff; }
+        details.sop-missing > .function-title:hover { background-color: #f3e5f5; }
+        details.sop-missing[open] > .function-title { background-color: #f3e5f5; color: #4a148c; border-bottom: 1px dashed #e1bee7; }
+        details.sop-missing .function-path { background-color: #fdfbfd; }
 
-        /* 4. 居住/送餐卡片：綠 */
-        .type-housing { 
-            background-color: #f6fbf7; 
-            border-color: #c8e6c9;
-            border-top: 5px solid #43a047;
-        }
-        .type-housing .type-header { color: #2e7d32; border-bottom: 2px solid #c8e6c9; }
-        .type-housing .mini-node { background-color: #ffffff; border: 1px solid #e8f5e9; }
-
-        .type-header { 
-            font-size: 16px; 
-            font-weight: bold; 
-            margin-bottom: 12px; 
-            padding-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        /* 4. 送餐/居住：綠 */
+        details.sop-housing { border-color: #c8e6c9; }
+        details.sop-housing > .function-title { color: #2e7d32; background-color: #f6fbf7; }
+        details.sop-housing > .function-title:hover { background-color: #e8f5e9; }
+        details.sop-housing[open] > .function-title { background-color: #e8f5e9; color: #1b5e20; border-bottom: 1px dashed #c8e6c9; }
+        details.sop-housing .function-path { background-color: #fcfdfe; }
 
         .mini-node {
             padding: 10px 12px; 
@@ -251,6 +222,8 @@
             color: #37474f; 
             line-height: 1.6; 
             margin-bottom: 10px;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
         }
         .mini-node:last-child { margin-bottom: 0; }
@@ -271,12 +244,12 @@
     <div class="card">
         <h2>📱 安心御老操作指南</h2>
 
-        <!-- 一、突發狀況處理原則 -->
+        <!-- 一、突發狀況處理 SOP -->
         <details class="module-group" style="border-color: #ffcdd2;">
             <summary class="module-header" style="background-color: #fff5f5; border-bottom: 2px solid #ffcdd2;">
                 <div class="icon-box">🚨</div>
                 <div class="text-box">
-                    <span class="main-title" style="color: #c62828;">一、突發狀況處理原則</span>
+                    <span class="main-title" style="color: #c62828;">一、突發狀況處理 SOP</span>
                     <span class="sub-title" style="color: #b71c1c;">包含疾病不適、天然災害、失聯、送餐未取處置流程</span>
                 </div>
                 <div class="toggle-icon" style="color: #c62828;">✚</div>
@@ -294,12 +267,15 @@
                     </div>
                 </div>
 
-                <!-- 流程卡片區 -->
-                <div class="type-grid">
-                    
-                    <!-- 1. 疾病或身體不適 (紅色主題) -->
-                    <div class="type-card type-medical">
-                        <div class="type-header">🩺 疾病或身體不適</div>
+                <!-- 四種突發狀況折疊選單 -->
+                
+                <!-- 1. 疾病或身體不適 -->
+                <details class="function-item sop-medical">
+                    <summary class="function-title">
+                        <span>🩺 1. 疾病或身體不適</span>
+                        <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path">
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 狀況判斷</span></strong><br>
                             評估是否有生命危險或屬緊急狀況。
@@ -318,10 +294,15 @@
                             住院期間持續通報 ➔ 評估後續處遇（返家/護理之家/榮家/長照機構） ➔ 按 <span class="tag-green">解除</span>。
                         </div>
                     </div>
+                </details>
 
-                    <!-- 2. 天然災害或突發事件 (橘色主題) -->
-                    <div class="type-card type-disaster">
-                        <div class="type-header">🌊 天然災害 / 突發事件</div>
+                <!-- 2. 天然災害或突發事件 -->
+                <details class="function-item sop-disaster">
+                    <summary class="function-title">
+                        <span>🌊 2. 天然災害 / 突發事件</span>
+                        <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path">
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 安全確認</span></strong><br>
                             先注意<span class="tag-orange">自身安全</span>，再確認個案安全。
@@ -340,10 +321,15 @@
                             風險處境排除後，於平台按 <span class="tag-green">解除</span>。
                         </div>
                     </div>
+                </details>
 
-                    <!-- 3. 失聯狀況 (紫色主題) -->
-                    <div class="type-card type-missing">
-                        <div class="type-header">🔍 失聯協尋</div>
+                <!-- 3. 失聯狀況 -->
+                <details class="function-item sop-missing">
+                    <summary class="function-title">
+                        <span>🔍 3. 失聯協尋</span>
+                        <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path">
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 釐清失聯</span></strong><br>
                             主動詢問家屬、鄰居、長照單位最後接觸時間。<br>
@@ -363,10 +349,15 @@
                             確認健康（必要時送醫） ➔ 平台回報 ➔ 按 <span class="tag-green">解除</span>。
                         </div>
                     </div>
+                </details>
 
-                    <!-- 4. 送餐未取或多時未外出 (綠色主題) -->
-                    <div class="type-card type-housing">
-                        <div class="type-header">🏠 送餐未取 / 多時未外出</div>
+                <!-- 4. 送餐未取或多時未外出 -->
+                <details class="function-item sop-housing">
+                    <summary class="function-title">
+                        <span>🏠 4. 送餐未取 / 多時未外出</span>
+                        <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path">
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 生活跡象確認</span></strong><br>
                             確認交通工具是否異常、門鎖狀態（外鎖/反鎖），並聯絡相關人員釐清。
@@ -381,8 +372,7 @@
                             • <span class="text-alert">無生命跡象</span>：維持現場完整 ➔ 通知檢警與家屬（單身榮民由榮服處處理） ➔ <span class="tag-dark">低調辦理結案</span>。
                         </div>
                     </div>
-
-                </div>
+                </details>
 
             </div>
         </details>
