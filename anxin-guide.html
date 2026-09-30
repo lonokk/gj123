@@ -187,6 +187,41 @@
             border-left: 8px solid #d32f2f;
         }
 
+        .type-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        @media (min-width: 600px) { .type-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .type-card {
+            background-color: #fff; 
+            border-radius: 12px; 
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+            border-top: 6px solid; 
+            display: flex; 
+            flex-direction: column;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .type-medical { border-top-color: #e74c3c; } 
+        .type-disaster { border-top-color: #f39c12; } 
+        .type-housing { border-top-color: #27ae60; } 
+        .type-missing { border-top-color: #8e44ad; } 
+        
+        .type-header { 
+            font-size: 16px; 
+            font-weight: bold; 
+            margin-bottom: 14px; 
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .type-medical .type-header { color: #c62828; }
+        .type-disaster .type-header { color: #d35400; }
+        .type-housing .type-header { color: #1e8449; }
+        .type-missing .type-header { color: #6c3483; }
+
         .mini-node {
             background-color: #fafafa; 
             border: 1px solid #eee; 
@@ -224,12 +259,12 @@
     <div class="card">
         <h2>📱 安心御老操作指南</h2>
 
-        <!-- 一、突發狀況處理原則 -->
+        <!-- 一、突發狀況處理 SOP -->
         <details class="module-group" style="border-color: #ef9a9a;">
             <summary class="module-header" style="background-color: #ffebee; border-bottom: 2px solid #ef9a9a;">
                 <div class="icon-box">🚨</div>
                 <div class="text-box">
-                    <span class="main-title" style="color: #c62828;">一、突發狀況處理原則</span>
+                    <span class="main-title" style="color: #c62828;">一、突發狀況處理 SOP</span>
                     <span class="sub-title" style="color: #d32f2f;">包含疾病不適、天然災害、失聯、送餐未取處置流程</span>
                 </div>
                 <div class="toggle-icon" style="color: #d32f2f;">✚</div>
@@ -243,17 +278,16 @@
                         ⚠️ 核心應變原則：邊處理、邊回報
                     </div>
                     <div style="font-size: 14px; color: #333; line-height: 1.6;">
-                        突發事件期間，請於平台即時通報並完成處置；處理完畢後恢復常態機制。
+                        突發事件期間，請於平台即時通報並完成處置；處理完畢後點擊 <span class="tag-green">【解除】</span> 恢復常態機制。
                     </div>
                 </div>
 
-                <!-- 1. 疾病或身體不適 -->
-                <details class="function-item">
-                    <summary class="function-title">
-                        <span style="color: #c62828;">🩺 1. 疾病或身體不適</span>
-                        <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path">
+                <!-- 流程卡片區 -->
+                <div class="type-grid">
+                    
+                    <!-- 1. 疾病或身體不適 -->
+                    <div class="type-card type-medical">
+                        <div class="type-header">🩺 疾病或身體不適</div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 狀況判斷</span></strong><br>
                             評估是否有生命危險或屬緊急狀況。
@@ -269,18 +303,13 @@
                         </div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 4. 後續妥處</span></strong><br>
-                            住院期間持續通報 ➔ 評估後續處遇（返家/護理之家/榮家/長照機構）。
+                            住院期間持續通報 ➔ 評估後續處遇（返家/護理之家/榮家/長照機構） ➔ 按 <span class="tag-green">解除</span>。
                         </div>
                     </div>
-                </details>
 
-                <!-- 2. 天然災害或突發事件 -->
-                <details class="function-item">
-                    <summary class="function-title">
-                        <span style="color: #d35400;">🌊 2. 天然災害 / 突發事件</span>
-                        <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path">
+                    <!-- 2. 天然災害或突發事件 -->
+                    <div class="type-card type-disaster">
+                        <div class="type-header">🌊 天然災害 / 突發事件</div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 安全確認</span></strong><br>
                             先注意<span class="tag-orange">自身安全</span>，再確認個案安全。
@@ -296,18 +325,13 @@
                         </div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 4. 結案恢復</span></strong><br>
-                            風險處境排除後，於平台恢復常態。
+                            風險處境排除後，於平台按 <span class="tag-green">解除</span>。
                         </div>
                     </div>
-                </details>
 
-                <!-- 3. 失聯狀況 -->
-                <details class="function-item">
-                    <summary class="function-title">
-                        <span style="color: #6c3483;">🔍 3. 失聯協尋</span>
-                        <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path">
+                    <!-- 3. 失聯狀況 -->
+                    <div class="type-card type-missing">
+                        <div class="type-header">🔍 失聯協尋</div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 釐清失聯</span></strong><br>
                             主動詢問家屬、鄰居、長照單位最後接觸時間。<br>
@@ -324,18 +348,13 @@
                         </div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 4. 尋獲妥處</span></strong><br>
-                            確認健康（必要時送醫） ➔ 平台回報。
+                            確認健康（必要時送醫） ➔ 平台回報 ➔ 按 <span class="tag-green">解除</span>。
                         </div>
                     </div>
-                </details>
 
-                <!-- 4. 送餐未取或多時未外出 -->
-                <details class="function-item">
-                    <summary class="function-title">
-                        <span style="color: #1e8449;">🏠 4. 送餐未取 / 多時未外出</span>
-                        <span class="func-arrow">▼</span>
-                    </summary>
-                    <div class="function-path">
+                    <!-- 4. 送餐未取或多時未外出 -->
+                    <div class="type-card type-housing">
+                        <div class="type-header">🏠 送餐未取 / 多時未外出</div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 1. 生活跡象確認</span></strong><br>
                             確認交通工具是否異常、門鎖狀態（外鎖/反鎖），並聯絡相關人員釐清。
@@ -346,11 +365,12 @@
                         </div>
                         <div class="mini-node">
                             <strong><span class="tag-black">Step 3. 緊急處置</span></strong><br>
-                            • <strong>昏倒/不適</strong>：緊急送醫 ➔ 平台回報 ➔ 評估安置。<br>
+                            • <strong>昏倒/不適</strong>：緊急送醫 ➔ 平台回報 ➔ 評估安置 ➔ 按 <span class="tag-green">解除</span>。<br>
                             • <span class="text-alert">無生命跡象</span>：維持現場完整 ➔ 通知檢警與家屬（單身榮民由榮服處處理） ➔ <span class="tag-dark">低調辦理結案</span>。
                         </div>
                     </div>
-                </details>
+
+                </div>
 
             </div>
         </details>
@@ -358,111 +378,146 @@
         <!-- 二、系統操作教學 -->
         <details class="module-group">
             <summary class="module-header">
-                <div class="icon-box">📘</div>
+                <div class="icon-box">📱</div>
                 <div class="text-box">
                     <span class="main-title">二、系統操作教學</span>
-                    <span class="sub-title">包含回報、量測資料、關懷紀錄、權限管理與基本設定</span>
+                    <span class="sub-title">點擊下方功能查看詳細圖解操作步驟</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             
             <div class="feature-list">
-                
-                <!-- 功能 1 -->
+                <!-- 1. 服務對象基本資料查詢與新增 -->
                 <details class="function-item">
                     <summary class="function-title">
-                        <span>1. 每日狀況回報</span>
+                        <span>1. 服務對象基本資料查詢與新增</span>
                         <span class="func-arrow">▼</span>
                     </summary>
                     <div class="function-path">
-                        <strong>操作路徑：</strong><br>
-                        進入 <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 點擊左下角 <span class="path-tag">＋</span> <span class="arrow">➔</span> 選擇 <span class="path-tag">每日回報</span> <span class="arrow">➔</span> 填寫問卷內容 <span class="arrow">➔</span> 送出。
-                        
-                        <img src="每日回報.jpg" alt="每日狀況回報操作示意圖" class="inline-screenshot">
+                        點擊右下角選單按鈕 <span class="arrow">➔</span> 點擊 <span class="path-tag">【安心御老照護清單】</span> <span class="arrow">➔</span> 點擊 <span class="path-tag">【服務對象】</span> <span class="arrow">➔</span> 於搜尋列搜尋長者姓名或選擇「尚未建檔長者」進行新增作業
+                        <div class="img-row">
+                            <img src="image_0.png" class="inline-screenshot">
+                            <img src="image_1.png" class="inline-screenshot">
+                        </div>
                     </div>
                 </details>
 
-                <!-- 功能 2 -->
+                <!-- 2. 歷史紀錄查詢 -->
                 <details class="function-item">
                     <summary class="function-title">
-                        <span>2. 量測資料查詢</span>
+                        <span>2. 歷史紀錄查詢</span>
                         <span class="func-arrow">▼</span>
                     </summary>
                     <div class="function-path">
-                        <strong>操作路徑：</strong><br>
-                        進入 <span class="path-tag">聊天室</span> <span class="arrow">➔</span> 點擊左下角 <span class="path-tag">＋</span> <span class="arrow">➔</span> 選擇 <span class="path-tag">生理量測</span> <span class="arrow">➔</span> 檢視血壓/血糖歷史數據。
-                        
-                        <img src="量測資料.jpg" alt="量測資料查詢操作示意圖" class="inline-screenshot">
+                        點擊右下角選單按鈕 <span class="arrow">➔</span> 點擊 <span class="path-tag">【安心御老照護清單】</span> <span class="arrow">➔</span> 點擊 <span class="path-tag">【聊天紀錄】</span> 或 <span class="path-tag">【狀況處置歷史】</span>
+                        <div class="img-row">
+                            <img src="image_2.png" class="inline-screenshot">
+                            <img src="image_3.png" class="inline-screenshot">
+                        </div>
                     </div>
                 </details>
 
-                <!-- 功能 3 -->
+                <!-- 3. 定期服務紀錄與不定期關懷 -->
                 <details class="function-item">
                     <summary class="function-title">
-                        <span>3. 填寫關懷紀錄</span>
+                        <span>3. 定期服務紀錄與不定期關懷</span>
                         <span class="func-arrow">▼</span>
                     </summary>
                     <div class="function-path">
-                        <strong>操作路徑：</strong><br>
-                        點擊右下角 <span class="path-tag">選單</span> <span class="arrow">➔</span> 選擇 <span class="path-tag">訪視服務紀錄</span> <span class="arrow">➔</span> 選擇個案 <span class="arrow">➔</span> 輸入紀錄並儲存。
-                        
-                        <img src="關懷紀錄.jpg" alt="填寫關懷紀錄操作示意圖" class="inline-screenshot">
+                        進入長者聊天室 <span class="arrow">➔</span> 點擊聊天室內下方快顯選單 <span class="arrow">➔</span> 選擇 <span class="path-tag">【定期服務紀錄】</span> 或 <span class="path-tag">【不定期關懷與其他紀錄】</span> 進行填寫
+                        <div class="img-row">
+                            <img src="image_4.png" class="inline-screenshot">
+                            <img src="image_5.png" class="inline-screenshot">
+                        </div>
                     </div>
                 </details>
 
-                <!-- 功能 4 -->
+                <!-- 4. 生理量測與異常管理 -->
                 <details class="function-item">
                     <summary class="function-title">
-                        <span>4. 個案權限管理與轉介</span>
+                        <span>4. 生理量測與異常管理</span>
                         <span class="func-arrow">▼</span>
                     </summary>
                     <div class="function-path">
-                        <strong>操作路徑：</strong><br>
-                        點擊右上角 <span class="path-tag">⚙️ 圖示</span> <span class="arrow">➔</span> 選擇 <span class="path-tag">成員管理</span> <span class="arrow">➔</span> 調整服務人員權限或執行個案轉介。
-                        
-                        <img src="權限管理.jpg" alt="個案權限管理操作示意圖" class="inline-screenshot">
+                        進入長者聊天室 <span class="arrow">➔</span> 點擊聊天室內下方快顯選單 <span class="arrow">➔</span> 點擊 <span class="path-tag">【量測紀錄】</span> 查看或輸入生理數據
+                        <div class="img-row">
+                            <img src="image_6.png" class="inline-screenshot">
+                            <img src="image_7.png" class="inline-screenshot">
+                        </div>
                     </div>
                 </details>
 
-                <!-- 功能 5 -->
+                <!-- 5. 邀請人員 -->
                 <details class="function-item">
                     <summary class="function-title">
-                        <span>5. 系統基本設定</span>
+                        <span>5. 邀請人員</span>
                         <span class="func-arrow">▼</span>
                     </summary>
                     <div class="function-path">
-                        <strong>操作路徑：</strong><br>
-                        進入 <span class="path-tag">個人中心</span> <span class="arrow">➔</span> 點擊 <span class="path-tag">系統設定</span> <span class="arrow">➔</span> 調整通知開關與個人資料修改。
-                        
-                        <img src="系統設定.jpg" alt="系統基本設定操作示意圖" class="inline-screenshot">
+                        進入長者聊天室 <span class="arrow">➔</span> 點擊聊天室內下方快顯選單 <span class="arrow">➔</span> 點擊 <span class="path-tag">【邀請人員】</span> 產出連結或 QR Code 邀請相關人員加入
+                        <div class="img-row">
+                            <img src="image_8.png" class="inline-screenshot">
+                            <img src="image_9.png" class="inline-screenshot">
+                        </div>
                     </div>
                 </details>
 
+                <!-- 6. 個案報告產出與下載 -->
+                <details class="function-item">
+                    <summary class="function-title">
+                        <span>6. 個案報告產出與下載</span>
+                        <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path">
+                        進入長者聊天室 <span class="arrow">➔</span> 點擊聊天室內下方快顯選單 <span class="arrow">➔</span> 點擊 <span class="path-tag">【報告產出】</span> 選擇日期區間匯出 PDF 報告
+                        <div class="img-row">
+                            <img src="image_10.png" class="inline-screenshot">
+                            <img src="image_11.png" class="inline-screenshot">
+                        </div>
+                    </div>
+                </details>
+
+                <!-- 7. 系統設定 -->
+                <details class="function-item">
+                    <summary class="function-title">
+                        <span>7. 系統設定</span>
+                        <span class="func-arrow">▼</span>
+                    </summary>
+                    <div class="function-path">
+                        進入長者聊天室 <span class="arrow">➔</span> 點擊聊天室內下方快顯選單 <span class="arrow">➔</span> 點擊 <span class="path-tag">【系統設定】</span> 進行個人化與通知設定
+                        <div class="img-row">
+                            <img src="image_12.png" class="inline-screenshot">
+                            <img src="image_13.png" class="inline-screenshot">
+                        </div>
+                    </div>
+                </details>
             </div>
         </details>
 
         <!-- 三、操作熟悉度評鑑 -->
         <details class="module-group">
             <summary class="module-header">
-                <div class="icon-box">📝</div>
+                <div class="icon-box">✏️</div>
                 <div class="text-box">
                     <span class="main-title">三、操作熟悉度評鑑</span>
-                    <span class="sub-title">請完成系統操作測試以評估熟悉程度</span>
+                    <span class="sub-title">隨堂自我測驗，檢視您的安心御老系統熟練度</span>
                 </div>
                 <div class="toggle-icon">✚</div>
             </summary>
             
             <div class="feature-list">
-                <div class="function-path" style="background-color: #ffffff; text-align: center;">
-                    <p style="margin-bottom: 15px; color: #555;">點擊下方按鈕前往填寫「安心御老系統操作熟悉度評鑑問卷」：</p>
-                    <a href="#" style="display: inline-block; background-color: #2980b9; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s;">前往線上評鑑測驗 ➔</a>
+                <div style="background-color: #ffffff; padding: 15px; border-radius: 10px; border: 1px solid #e3f2fd; font-size: 14px; line-height: 1.6; color: #555;">
+                    <p style="margin-top: 0; font-weight: bold; color: #1565c0;">測驗說明：</p>
+                    <p style="margin-bottom: 10px;">請根據您對安心御老系統的操作理解完成評鑑問卷，點擊下方按鈕開始評鑑。</p>
+                    <a href="eval.html" style="display: block; text-align: center; background-color: #2980b9; color: white; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; margin-top: 15px;">開始熟悉度評鑑測驗 ➔</a>
                 </div>
             </div>
         </details>
 
-        <!-- 回到首頁按鈕 -->
-        <a href="#" class="back-btn">🏠 回到首頁</a>
+        <!-- 回到首頁 -->
+        <a href="index.html" class="back-btn">🏠 回到首頁</a>
 
     </div>
+
 </body>
 </html>
