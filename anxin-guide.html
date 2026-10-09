@@ -212,22 +212,6 @@
             display: flex;
             align-items: center;
         }
-        .bordered-box {
-            background-color: #ffffff;
-            border: 2px solid #1565c0;
-            border-radius: 12px;
-            padding: 15px 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .core-flow { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; }
-        .core-node {
-            background-color: #e3f2fd; color: #1565c0; padding: 8px 12px; border-radius: 20px;
-            font-size: 13.5px; font-weight: bold; text-align: center; border: 1px solid #bbdefb;
-        }
-        .core-node.highlight { background-color: #1565c0; color: #fff; }
-        .core-node.end { background-color: #27ae60; color: #fff; border-color: #27ae60; }
-        .core-arrow { color: #90caf9; font-size: 16px; font-weight: bold; }
 
         .highlight-container {
             background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
@@ -279,25 +263,13 @@
             <summary class="module-header" style="background-color: #fff0f0; border-bottom: 2px solid #ffcdd2;">
                 <div class="icon-box">🚨</div>
                 <div class="text-box">
-                    <span class="main-title" style="color: #c0392b;">一、跨機關應變 SOP</span>
-                    <span class="sub-title" style="color: #e74c3c;">核心流程 / 突發狀況處置 / 層級通報</span>
+                    <span class="main-title" style="color: #c0392b;">一、突發狀況處理原則</span>
+                    <span class="sub-title" style="color: #e74c3c;">四大突發狀況 / 層級通報</span>
                 </div>
                 <div class="toggle-icon" style="color: #e74c3c;">✚</div>
             </summary>
             
             <div class="feature-list" style="background-color: #ffffff;">
-                <div class="section-title">📌 核心流程</div>
-                <div class="bordered-box">
-                    <div class="core-flow">
-                        <div class="core-node highlight">異常通報</div><span class="core-arrow">➔</span>
-                        <div class="core-node">訪視確認</div><span class="core-arrow">➔</span>
-                        <div class="core-node">分類判定</div><span class="core-arrow">➔</span>
-                        <div class="core-node">轉主責機關</div><span class="core-arrow">➔</span>
-                        <div class="core-node">後續安置或救助</div><span class="core-arrow">➔</span>
-                        <div class="core-node end">追蹤結案</div>
-                    </div>
-                </div>
-
                 <div class="highlight-container">
                     <div class="section-title" style="margin-top: 0; color: #c0392b;">📌 突發狀況處理原則</div>
                     
@@ -313,8 +285,8 @@
                                 <summary class="function-title">📌 (一) 判斷是否有生命危險或屬緊急狀況 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ol class="sop-step-list">
-                                        <li><strong>有生命危險或緊急狀況：</strong>先撥打 <span class="path-tag">119</span> 緊急送醫及陪同就醫，並於安心御老平台回報個案狀況，於聊天室「優先處理管理」點選 <span class="path-tag">開案</span>（反紅置頂）。[cite: 2]</li>
-                                        <li><strong>無生命危險或無法判斷：</strong>於平台回報現況並點選 <span class="path-tag">開案</span>（反紅置頂），俾利醫師或個管師評估建議。[cite: 2]</li>
+                                        <li><strong>有生命危險或緊急狀況：</strong>先撥打 <span class="path-tag">119</span> 緊急送醫及陪同就醫，並於安心御老平台回報個案狀況，於聊天室「優先處理管理」點選 <span class="path-tag">開案</span>（反紅置頂）。</li>
+                                        <li><strong>無生命危險或無法判斷：</strong>於平台回報現況並點選 <span class="path-tag">開案</span>（反紅置頂），俾利醫師或個管師評估建議。</li>
                                     </ol>
                                 </div>
                             </details>
@@ -322,7 +294,7 @@
                                 <summary class="function-title">📌 (二) 醫療處置 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ul class="sop-step-list" style="list-style-type: disc;">
-                                        <li>優先解決服務對象之健康問題。[cite: 2]</li>
+                                        <li>優先解決服務對象之健康問題。</li>
                                     </ul>
                                 </div>
                             </details>
@@ -330,8 +302,8 @@
                                 <summary class="function-title">📌 (三) 後續妥處 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ol class="sop-step-list">
-                                        <li><strong>醫療體系就醫者：</strong>住院期間由個管師於平台通報，並由服務與醫療端共同評估後續處置（返家、護理之家、榮家或其他長照機構）。[cite: 2]</li>
-                                        <li><strong>完成處理：</strong>狀況處理完畢後，於「優先處理管理」點選 <span class="path-tag">解除</span>，回歸預設服務。[cite: 2]</li>
+                                        <li><strong>醫療體系就醫者：</strong>住院期間由個管師於平台通報，並由服務與醫療端共同評估後續處置（返家、入住護理之家、榮家或其他長照機構）。</li>
+                                        <li><strong>完成處理：</strong>狀況處理完畢後，於「優先處理管理」點選 <span class="path-tag">解除</span>，回歸預設服務。</li>
                                     </ol>
                                 </div>
                             </details>
@@ -350,9 +322,9 @@
                                 <summary class="function-title">📌 (一) 確認服務對象安全情形 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ul class="sop-step-list" style="list-style-type: disc;">
-                                        <li>服務人員先注意自身安全，再確認服務對象安全。[cite: 2]</li>
-                                        <li><strong>安全：</strong>於群組回覆並追蹤後續。[cite: 2]</li>
-                                        <li><strong>危難或風險：</strong>立即通知救難、警消單位，並於平台上傳處置情形共同協處。[cite: 2]</li>
+                                        <li>服務人員先注意自身安全，再確認服務對象安全。</li>
+                                        <li><strong>安全：</strong>於群組回覆並追蹤後續。</li>
+                                        <li><strong>危難或風險：</strong>立即通知救難、警消單位，並於平台上傳處置情形共同協處。</li>
                                     </ul>
                                 </div>
                             </details>
@@ -360,8 +332,8 @@
                                 <summary class="function-title">📌 (二) 救援處置 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ol class="sop-step-list">
-                                        <li>於平台聊天室「優先處理管理」點選 <span class="path-tag">開案</span>（反紅置頂），警示全體人員協同救援。[cite: 2]</li>
-                                        <li>評估身體狀況、居住風險及經濟負擔，主動連結社區與資源（含 NPO 或個人），並於平台回報。[cite: 2]</li>
+                                        <li>於平台聊天室「優先處理管理」點選 <span class="path-tag">開案</span>（反紅置頂），警示全體人員協同救援。</li>
+                                        <li>評估身體狀況、居住風險及經濟負擔，主動連結社區與資源（含 NPO 或個人），並於平台回報。</li>
                                     </ol>
                                 </div>
                             </details>
@@ -369,8 +341,8 @@
                                 <summary class="function-title">📌 (三) 後續妥處 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ol class="sop-step-list">
-                                        <li>有立即緊急安置必要者，於平台內協調社政、榮家、老人養護中心或其他長照機構安置。[cite: 2]</li>
-                                        <li>風險結束後，於「優先處理管理」點選 <span class="path-tag">解除</span>，回歸預設服務。[cite: 2]</li>
+                                        <li>有立即緊急安置必要者，於平台內協調社政、榮家、老人養護中心或其他長照機構安置。</li>
+                                        <li>風險結束後，於「優先處理管理」點選 <span class="path-tag">解除</span>，回歸預設服務。</li>
                                     </ol>
                                 </div>
                             </details>
@@ -389,9 +361,9 @@
                                 <summary class="function-title">📌 (一) 確認服務對象是否失聯 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ul class="sop-step-list" style="list-style-type: disc;">
-                                        <li>主動向家屬、友人、鄰居、鄰托人及長照單位詢問最後接觸時間。[cite: 2]</li>
-                                        <li><strong>暫時外出：</strong>於群組回報追蹤狀況。[cite: 2]</li>
-                                        <li><strong>確屬失聯：</strong>進行協尋作業。[cite: 2]</li>
+                                        <li>主動向家屬、友人、鄰居、鄰托人及長照單位詢問最後接觸時間。</li>
+                                        <li><strong>暫時外出：</strong>於群組回報追蹤狀況。</li>
+                                        <li><strong>確屬失聯：</strong>進行協尋作業。</li>
                                     </ul>
                                 </div>
                             </details>
@@ -399,9 +371,9 @@
                                 <summary class="function-title">📌 (二) 協尋與處置 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ol class="sop-step-list">
-                                        <li>於聊天室「優先處理管理」點選 <span class="path-tag">開案</span>（反紅置頂）。[cite: 2]</li>
-                                        <li>協請家屬、鄰居、里長、長照單位共同尋找。最遲 <strong>24 小時內</strong> 未尋獲應報警協處（有眷者通知家屬；單身者由榮服處辦理）。[cite: 2]</li>
-                                        <li><strong>尋獲後：</strong>確認健康狀況（必要時送醫並於平台回報）。處理完畢後點選 <span class="path-tag">解除</span>，回歸預設服務。[cite: 2]</li>
+                                        <li>於聊天室「優先處理管理」點選 <span class="path-tag">開案</span>（反紅置頂）。</li>
+                                        <li>協請家屬、鄰居、里長、長照單位共同尋找。最遲 <strong>24 小時內</strong> 未尋獲應報警協處（有眷者通知家屬；單身者由榮服處辦理）。</li>
+                                        <li><strong>尋獲後：</strong>確認健康狀況（必要時送醫並於平台回報）。處理完畢後點選 <span class="path-tag">解除</span>，回歸預設服務。</li>
                                     </ol>
                                 </div>
                             </details>
@@ -420,9 +392,9 @@
                                 <summary class="function-title">📌 (一) 確認服務對象生活跡象 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ol class="sop-step-list">
-                                        <li>檢查平日交通工具（腳踏車、代步車）是否異常？門鎖為外鎖還是反鎖？[cite: 2]</li>
-                                        <li>主動聯絡家屬、鄰居、鄰托人及長照單位等人員釐清狀況。[cite: 2]</li>
-                                        <li>代步工具在場、屋門反鎖且無人見過，應立即通報警消、里長共同評估是否強行入內，並於平台點選 <span class="path-tag">開案</span>（反紅置頂）。[cite: 2]</li>
+                                        <li>檢查平日交通工具（腳踏車、代步車）是否異常？門鎖為外鎖還是反鎖？</li>
+                                        <li>主動聯絡家屬、鄰居、鄰托人及長照單位等人員釐清狀況。</li>
+                                        <li>代步工具在場、屋門反鎖且無人見過，應立即通報警消、里長共同評估是否強行入內，並於平台點選 <span class="path-tag">開案</span>（反紅置頂）。</li>
                                     </ol>
                                 </div>
                             </details>
@@ -430,8 +402,8 @@
                                 <summary class="function-title">📌 (二) 緊急妥處 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ul class="sop-step-list" style="list-style-type: disc;">
-                                        <li><strong>發現不適/昏倒：</strong>緊急送醫並於平台回報，由服務與醫療端協處。[cite: 2]</li>
-                                        <li><strong>無生命跡象：</strong>保持現場完整，通知檢警及家屬；單身榮民由榮服處辦理善後及遺產管理並辦理結案（低調進行、避免刊登媒體）。[cite: 2]</li>
+                                        <li><strong>發現不適/昏倒：</strong>緊急送醫並於平台回報，由服務與醫療端協處。</li>
+                                        <li><strong>無生命跡象：</strong>保持現場完整，通知檢警及家屬；單身榮民由榮服處辦理善後及遺產管理並辦理結案（低調進行、避免刊登媒體）。</li>
                                     </ul>
                                 </div>
                             </details>
@@ -439,8 +411,8 @@
                                 <summary class="function-title">📌 (三) 後續處置 <span class="func-arrow">▼</span></summary>
                                 <div class="function-path">
                                     <ol class="sop-step-list">
-                                        <li>送醫期間多方協同關懷，並評估後續是否安置入住榮院護理之家、榮家或其他長照機構。[cite: 2]</li>
-                                        <li>現況處理完畢後，於「優先處理管理」點選 <span class="path-tag">解除</span>，回歸預設服務。[cite: 2]</li>
+                                        <li>送醫期間多方協同關懷，並評估後續是否安置入住榮院護理之家、榮家或其他長照機構。</li>
+                                        <li>現況處理完畢後，於「優先處理管理」點選 <span class="path-tag">解除</span>，回歸預設服務。</li>
                                     </ol>
                                 </div>
                             </details>
@@ -462,7 +434,7 @@
                         </div>
                         <div class="hierarchy-item">
                             <div class="h-level">第三層</div>
-                            <div class="h-text">陳報總幹事協處 <span class="h-sub">（重大案件陳報處長）</span></div>
+                            <div class="h-text">通報三長協處(10分鐘內) <span class="h-sub">（重大案件陳報處長）</span></div>
                         </div>
                     </div>
                 </div>
