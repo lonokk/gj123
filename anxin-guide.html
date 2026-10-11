@@ -235,7 +235,7 @@
 
         .highlight-container {
             background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-            border-radius: 16px; padding: 20px 15px; margin-bottom: 25px;
+            border-radius: 16px; padding: 20px 15px; margin-bottom: 0;
             box-shadow: 0 6px 15px rgba(192, 57, 43, 0.12); border-left: 6px solid #e74c3c;
         }
 
@@ -256,24 +256,6 @@
             margin-bottom: 8px;
         }
 
-        .bordered-box-dark {
-            background-color: #ffffff; border: 2px solid #34495e; border-radius: 12px;
-            padding: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-        }
-        .hierarchy-list { display: flex; flex-direction: column; gap: 10px; }
-        .hierarchy-item {
-            display: flex; align-items: center; background-color: #f8f9fa;
-            padding: 10px 12px; border-radius: 8px; border-left: 5px solid #34495e;
-        }
-        .h-level { font-weight: bold; color: #e74c3c; width: 65px; flex-shrink: 0; font-size: 14.5px; }
-        .h-text { color: #333; font-size: 14.5px; font-weight: bold; }
-        .h-sub { color: #7f8c8d; font-size: 12px; margin-left: 4px; font-weight: normal; }
-        @media (max-width: 480px) {
-            .hierarchy-item { flex-direction: column; align-items: flex-start; gap: 5px; }
-            .h-level { width: 100%; border-bottom: 1px dashed #ddd; padding-bottom: 4px; }
-            .h-sub { display: block; margin-left: 0; margin-top: 2px;}
-        }
-
         .back-btn {
             display: block; text-align: center; margin-top: 35px; color: #888;
             text-decoration: none; font-size: 15px; padding: 12px 25px;
@@ -292,7 +274,7 @@
                 <div class="icon-box">🚨</div>
                 <div class="text-box">
                     <span class="main-title" style="color: #c0392b;">一、突發狀況處理原則</span>
-                    <span class="sub-title" style="color: #e74c3c;">四大突發狀況 / 層級通報</span>
+                    <span class="sub-title" style="color: #e74c3c;">四大突發狀況 / 開案與解除操作</span>
                 </div>
                 <div class="toggle-icon" style="color: #e74c3c;">✚</div>
             </summary>
@@ -312,7 +294,7 @@
                             <div class="function-path" style="border-radius: 8px;">
                                 <div class="sub-section-title">📌 (一) 判斷是否有生命危險或屬緊急狀況</div>
                                 <ol class="sop-step-list">
-                                    <li><strong>有生命危險或緊急狀況：</strong>先撥打 <span class="path-tag">119</span> 緊急送醫及陪同就醫，並於安心御老平台回報個案狀況，於聊天室「優先處理管理」點選 <span class="tag-red">開案</span>。</li>
+                                    <li><strong>有生命危險或緊急狀況：</strong>先撥打 <span class="path-tag">119</span> 緊急送醫及陪同就醫，並於安心御老平台回報個案狀況，於聊天室點選 <span class="tag-red">開案</span>。</li>
                                     <li><strong>無生命危險或無法判斷：</strong>於平台回報現況並點選 <span class="tag-red">開案</span>，俾利醫師或個管師評估建議。</li>
                                 </ol>
 
@@ -324,7 +306,7 @@
                                 <div class="sub-section-title">📌 (三) 後續妥處</div>
                                 <ol class="sop-step-list">
                                     <li><strong>醫療體系就醫者：</strong>住院期間由個管師於平台通報，並由服務與醫療端共同評估後續處置（返家、入住護理之家、榮家或其他長照機構）。</li>
-                                    <li><strong>完成處理：</strong>狀況處理完畢後，於「優先處理管理」點選 <span class="tag-green">解除</span>，回歸預設服務。</li>
+                                    <li><strong>完成處理：</strong>狀況處理完畢後，點選 <span class="tag-green">解除</span>，回歸預設服務。</li>
                                 </ol>
                             </div>
                         </div>
@@ -343,19 +325,19 @@
                                 <ul class="sop-step-list" style="list-style-type: disc;">
                                     <li>服務人員先注意自身安全，再確認服務對象安全。</li>
                                     <li><strong>安全：</strong>於群組回覆並追蹤後續。</li>
-                                    <li><strong>危難或風險：</strong>條即通知救難、警消單位，並於平台上傳處置情形共同協處。</li>
+                                    <li><strong>危難或風險：</strong>立即通知救難、警消單位，並於平台上傳處置情形共同協處。</li>
                                 </ul>
 
                                 <div class="sub-section-title">📌 (二) 救援處置</div>
                                 <ol class="sop-step-list">
-                                    <li>於平台聊天室「優先處理管理」點選 <span class="tag-red">開案</span>，警示全體人員協同救援。</li>
+                                    <li>於平台聊天室點選 <span class="tag-red">開案</span>，警示全體人員協同救援。</li>
                                     <li>評估身體狀況、居住風險及經濟負擔，主動連結社區與資源（含 NPO 或個人），並於平台回報。</li>
                                 </ol>
 
                                 <div class="sub-section-title">📌 (三) 後續妥處</div>
                                 <ol class="sop-step-list">
                                     <li>有立即緊急安置必要者，於平台內協調社政、榮家、老人養護中心或其他長照機構安置。</li>
-                                    <li>風險結束後，於「優先處理管理」點選 <span class="tag-green">解除</span>，回歸預設服務。</li>
+                                    <li>風險結束後，點選 <span class="tag-green">解除</span>，回歸預設服務。</li>
                                 </ol>
                             </div>
                         </div>
@@ -379,7 +361,7 @@
 
                                 <div class="sub-section-title">📌 (二) 協尋與處置</div>
                                 <ol class="sop-step-list">
-                                    <li>於聊天室「優先處理管理」點選 <span class="tag-red">開案</span>。</li>
+                                    <li>於聊天室點選 <span class="tag-red">開案</span>。</li>
                                     <li>協請家屬、鄰居、里長、長照單位共同尋找。最遲 <strong>24 小時內</strong> 未尋獲應報警協處（有眷者通知家屬；單身者由榮服處辦理）。</li>
                                     <li><strong>尋獲後：</strong>確認健康狀況（必要時送醫並於平台回報）。處理完畢後點選 <span class="tag-green">解除</span>，回歸預設服務。</li>
                                 </ol>
@@ -412,7 +394,7 @@
                                 <div class="sub-section-title">📌 (三) 後續處置</div>
                                 <ol class="sop-step-list">
                                     <li>送醫期間多方協同關懷，並評估後續是否安置入住榮院護理之家、榮家或其他長照機構。</li>
-                                    <li>現況處理完畢後，於「優先處理管理」點選 <span class="tag-green">解除</span>，回歸預設服務。</li>
+                                    <li>現況處理完畢後，點選 <span class="tag-green">解除</span>，回歸預設服務。</li>
                                 </ol>
                             </div>
                         </div>
@@ -420,23 +402,47 @@
 
                 </div>
 
-                <div class="section-title">📌 層級通報原則</div>
-                <div class="bordered-box-dark" style="margin-bottom: 0;">
-                    <div class="hierarchy-list">
-                        <div class="hierarchy-item">
-                            <div class="h-level">第一層</div>
-                            <div class="h-text">社區服務組長即時通報</div>
+                <!-- 開案操作說明 (帶入指定的 5 張照片與對應圖文結構) -->
+                <div class="section-title" style="margin-top: 25px;">📌 開案操作說明</div>
+                <div class="feature-list" style="background-color: #fff; border: 1px solid #ffcdd2; border-radius: 12px; padding: 10px;">
+                    
+                    <!-- 開案部分 -->
+                    <details class="function-item">
+                        <summary class="function-title">📌 開案：步驟一覽與圖解 <span class="func-arrow">▼</span></summary>
+                        <div class="function-path">
+                            <ol class="sop-step-list" style="padding-left: 15px; margin-bottom: 10px;">
+                                <li><strong>步驟 1：</strong>點選上方閃電符號</li>
+                            </ol>
+                            <img src="images/lockcase-1.jpg" alt="點選閃電符號圖解" class="inline-screenshot">
+                            
+                            <ol class="sop-step-list" style="padding-left: 15px; margin-top: 15px; margin-bottom: 10px;">
+                                <li><strong>步驟 2：</strong>填寫人、事、時、地、狀況後確認開案</li>
+                            </ol>
+                            <img src="images/lockcase-2.jpg" alt="填寫開案資訊圖解" class="inline-screenshot">
+                            
+                            <ol class="sop-step-list" style="padding-left: 15px; margin-top: 15px; margin-bottom: 10px;">
+                                <li><strong>步驟 3：</strong>個案將會呈現優先處理</li>
+                            </ol>
+                            <img src="images/lockcase-3.jpg" alt="個案優先處理呈現圖解" class="inline-screenshot">
                         </div>
-                        <div class="hierarchy-item">
-                            <div class="h-level">第二層</div>
-                            <div class="h-text">責任區輔導員統籌協調</div>
+                    </details>
+
+                    <!-- 解除部分 -->
+                    <details class="function-item" style="margin-bottom: 0;">
+                        <summary class="function-title">📌 解除：狀況解除後操作 <span class="func-arrow">▼</span></summary>
+                        <div class="function-path">
+                            <ol class="sop-step-list" style="padding-left: 15px; margin-bottom: 10px;">
+                                <li><strong>步驟：</strong>狀況解除後點選「解除」按鈕後確認</li>
+                            </ol>
+                            <div class="img-row">
+                                <img src="images/unlockcase-1.jpg" alt="解除操作圖解1" class="inline-screenshot">
+                                <img src="images/unlockcase-2.jpg" alt="解除操作圖解2" class="inline-screenshot">
+                            </div>
                         </div>
-                        <div class="hierarchy-item">
-                            <div class="h-level">第三層</div>
-                            <div class="h-text">通報三長協處(10分鐘內)</div>
-                        </div>
-                    </div>
+                    </details>
+
                 </div>
+
             </div>
         </details>
 
