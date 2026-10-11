@@ -149,7 +149,7 @@
             margin: 0 2px;
             display: inline-block;
         }
-        /* 顯著處理：加強開案與解除按鈕樣式 */
+        /* 顯著標示樣式 (開案、解除、閃電) */
         .tag-red {
             background-color: #e74c3c;
             color: #ffffff;
@@ -171,6 +171,17 @@
             display: inline-block;
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(39, 174, 96, 0.4);
+        }
+        .tag-yellow {
+            background-color: #f39c12;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin: 0 2px;
+            display: inline-block;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(243, 156, 18, 0.4);
         }
         .arrow { color: #90caf9; font-size: 12px; margin: 0 2px; font-weight: bold;}
 
@@ -405,7 +416,7 @@
 
                 </div>
 
-                <!-- 開案操作說明 (已刪除數字編號，並強化開案與解除顯示) -->
+                <!-- 開案操作說明 (最後一層已將開案、解除、閃電顯著標示) -->
                 <div class="section-title" style="margin-top: 25px;">📌 開案操作說明</div>
                 <div class="feature-list" style="background-color: #fff; border: 1px solid #ffcdd2; border-radius: 12px; padding: 10px;">
                     
@@ -413,13 +424,13 @@
                     <details class="function-item">
                         <summary class="function-title">📌 <span class="tag-red">開案</span>：步驟一覽與圖解 <span class="func-arrow">▼</span></summary>
                         <div class="function-path">
-                            <div style="margin-bottom: 8px;"><strong>點選上方閃電符號</strong></div>
+                            <div style="margin-bottom: 8px;">點選上方 <span class="tag-yellow">閃電</span> 符號</div>
                             <img src="images/lockcase-1.jpg" alt="點選閃電符號圖解" class="inline-screenshot">
                             
-                            <div style="margin-top: 15px; margin-bottom: 8px;"><strong>填寫人、事、時、地、狀況後確認開案</strong></div>
+                            <div style="margin-top: 15px; margin-bottom: 8px;">填寫人、事、時、地、狀況後確認 <span class="tag-red">開案</span></div>
                             <img src="images/lockcase-2.jpg" alt="填寫開案資訊圖解" class="inline-screenshot">
                             
-                            <div style="margin-top: 15px; margin-bottom: 8px;"><strong>個案將會呈現優先處理</strong></div>
+                            <div style="margin-top: 15px; margin-bottom: 8px;">個案將會呈現優先處理</div>
                             <img src="images/lockcase-3.jpg" alt="個案優先處理呈現圖解" class="inline-screenshot">
                         </div>
                     </details>
@@ -428,7 +439,7 @@
                     <details class="function-item" style="margin-bottom: 0;">
                         <summary class="function-title">📌 <span class="tag-green">解除</span>：狀況解除後操作 <span class="func-arrow">▼</span></summary>
                         <div class="function-path">
-                            <div style="margin-bottom: 8px;"><strong>狀況解除後點選「解除」按鈕後確認</strong></div>
+                            <div style="margin-bottom: 8px;">狀況解除後點選 <span class="tag-green">解除</span> 按鈕後確認</div>
                             <div class="img-row">
                                 <img src="images/unlockcase-1.jpg" alt="解除操作圖解1" class="inline-screenshot">
                                 <img src="images/unlockcase-2.jpg" alt="解除操作圖解2" class="inline-screenshot">
