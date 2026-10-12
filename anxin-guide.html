@@ -183,6 +183,19 @@
             font-weight: bold;
             box-shadow: 0 2px 5px rgba(243, 156, 18, 0.4);
         }
+        /* 邊處理邊回報的備註標籤樣式 */
+        .tag-note {
+            background-color: #e8f8f5;
+            color: #16a085;
+            border: 1px solid #a3e4d7;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
         .arrow { color: #90caf9; font-size: 12px; margin: 0 2px; font-weight: bold;}
 
         /* 截圖樣式 */
@@ -295,7 +308,9 @@
             
             <div class="feature-list" style="background-color: #ffffff;">
                 <div class="highlight-container">
-                    <div class="section-title" style="margin-top: 0; color: #c0392b;">📌 突發狀況處理原則</div>
+                    <div class="section-title" style="margin-top: 0; color: #c0392b;">
+                        📌 突發狀況處理原則 <span class="tag-note">邊處理、邊回報</span>
+                    </div>
                     
                     <!-- 1. 疾病或身體不適 -->
                     <details class="module-group" style="box-shadow: none; border-color: #ffcdd2; margin-bottom: 12px;">
@@ -396,7 +411,7 @@
                                 <ol class="sop-step-list">
                                     <li>檢查平日交通工具（腳踏車、代步車）是否異常？門鎖為外鎖還是反鎖？</li>
                                     <li>主動聯絡家屬、鄰居、鄰托人及長照單位等人員釐清狀況。</li>
-                                    <li>代步工具在場、屋門反鎖且無人見過，應立即通報警消、里長共同評估是否強行入內，並於平台點選 <span class="tag-red">開案</span>。</li>
+                                    <li>代步工具在場、屋門反鎖且無人見過，應立即通報警消,里長共同評估是否強行入內，並於平台點選 <span class="tag-red">開案</span>。</li>
                                 </ol>
 
                                 <div class="sub-section-title">📌 (二) 緊急妥處</div>
@@ -420,7 +435,7 @@
                 <div class="section-title" style="margin-top: 25px;">📌 開案操作說明</div>
                 <div class="feature-list" style="background-color: #fff; border: 1px solid #ffcdd2; border-radius: 12px; padding: 10px;">
                     
-                    <!-- 開案操作圖解 (比照第2階層四大狀況的模組卡片風格) -->
+                    <!-- 開案操作圖解 -->
                     <details class="module-group" style="box-shadow: none; border-color: #ffcdd2; margin-bottom: 12px;">
                         <summary class="module-header" style="background-color: #fff5f5;">
                             <div class="icon-box" style="font-size: 20px;">⚡</div>
@@ -441,7 +456,7 @@
                         </div>
                     </details>
 
-                    <!-- 狀況解除操作 (比照第2階層四大狀況的模組卡片風格) -->
+                    <!-- 狀況解除操作 -->
                     <details class="module-group" style="box-shadow: none; border-color: #ffcdd2; margin-bottom: 0;">
                         <summary class="module-header" style="background-color: #fff5f5;">
                             <div class="icon-box" style="font-size: 20px;">✅</div>
