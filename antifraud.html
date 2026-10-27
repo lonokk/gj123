@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>臺東榮服防騙宣導</title>
     <style>
-        /* --- 基礎設定 --- */
         * { box-sizing: border-box; }
         body {
             background-color: #fdfbf7;
@@ -32,38 +31,47 @@
         h2 { 
             color: #c0392b; 
             font-size: 24px; 
-            margin-bottom: 25px; 
+            margin-bottom: 20px; 
             font-weight: bold;
         }
-        
-        /* FB Iframe 容器 */
-        .fb-wrapper {
-            width: 100%;
-            max-width: 340px;
-            height: 500px; 
-            margin: 0 auto;
+        .info-card {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
+            border: 1px solid #f5c6cb;
             border-radius: 12px;
-            overflow: hidden; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 1px solid #e1e8ed;
-            position: relative;
-            background-color: #fff;
+            padding: 25px 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.08);
         }
-
-        .fb-wrapper iframe {
-            position: absolute;
-            top: 0; 
-            left: 0;
-            width: 100%;
-            height: 100%; 
-            border: none;
+        .info-card h3 {
+            color: #c0392b;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 10px;
         }
-        
-        /* 返回按鈕 */
+        .info-card p {
+            font-size: 14.5px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .action-btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(231,76,60,0.3);
+            transition: 0.3s;
+        }
+        .action-btn:hover {
+            background-color: #c0392b;
+        }
         .back-btn { 
             display: inline-block; 
             text-align: center; 
-            margin-top: 30px; 
+            margin-top: 20px; 
             color: #888; 
             text-decoration: none; 
             font-size: 15px; 
@@ -73,20 +81,6 @@
             transition: 0.3s; 
         }
         .back-btn:hover { background-color: #555; color: #fff; }
-
-        /* 計數器區塊樣式 */
-        .counter-box {
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px dashed #eee;
-            text-align: center;
-        }
-        .counter-box span {
-            font-size: 13px;
-            color: #999;
-            margin-bottom: 5px;
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -94,24 +88,17 @@
     <div class="container">
         <h2>🛡️ 臺東榮服防騙宣導</h2>
         
-        <!-- FB 嵌入頁面容器與更新後的 iframe 參數 -->
-        <div class="fb-wrapper">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F165bear&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false" 
-                    width="340" height="500" 
-                    style="border:none;overflow:hidden" 
-                    scrolling="no" frameborder="0" 
-                    allowfullscreen="true" 
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-            </iframe>
+        <div class="info-card">
+            <h3>📢 守護荷包，慎防詐騙</h3>
+            <p>
+                近期詐騙手法層出不窮。為隨時掌握最新反詐騙資訊、各類防騙懶人包與警政署即時通報，建議直接前往官方專屬頻道查看最完整內容！
+            </p>
+            <a href="https://www.facebook.com/165bear" target="_blank" class="action-btn">
+                👉 前往 165 全民防騙粉絲專頁
+            </a>
         </div>
 
-        <!-- 備用文字連結：若瀏覽器完全阻擋 iframe 時可供點擊 -->
-        <p style="margin-top: 12px; font-size: 13px; color: #666;">
-            若畫面無法正常載入，請直接點擊：<a href="https://www.facebook.com/165bear" target="_blank" style="color: #c0392b; text-decoration: underline;">開啟 165 粉絲專頁查看</a>
-        </p>
-
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
-
     </div>
 
 </body>
