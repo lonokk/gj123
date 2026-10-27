@@ -31,47 +31,32 @@
         h2 { 
             color: #c0392b; 
             font-size: 24px; 
-            margin-bottom: 20px; 
+            margin-bottom: 10px; 
             font-weight: bold;
         }
-        .info-card {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-            border: 1px solid #f5c6cb;
+        
+        /* 嵌入容器設定 */
+        .embed-wrapper {
+            width: 100%;
+            height: 540px;
+            margin: 15px 0;
             border-radius: 12px;
-            padding: 25px 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.08);
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #e1e8ed;
+            background-color: #fff;
         }
-        .info-card h3 {
-            color: #c0392b;
-            font-size: 18px;
-            margin-top: 0;
-            margin-bottom: 10px;
+
+        .embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
-        .info-card p {
-            font-size: 14.5px;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .action-btn {
-            display: inline-block;
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(231,76,60,0.3);
-            transition: 0.3s;
-        }
-        .action-btn:hover {
-            background-color: #c0392b;
-        }
+        
         .back-btn { 
             display: inline-block; 
             text-align: center; 
-            margin-top: 20px; 
+            margin-top: 15px; 
             color: #888; 
             text-decoration: none; 
             font-size: 15px; 
@@ -87,15 +72,13 @@
 
     <div class="container">
         <h2>🛡️ 臺東榮服防騙宣導</h2>
-        
-        <div class="info-card">
-            <h3>📢 守護荷包，慎防詐騙</h3>
-            <p>
-                近期詐騙手法層出不窮。為隨時掌握最新反詐騙資訊、各類防騙懶人包與警政署即時通報，建議直接前往官方專屬頻道查看最完整內容！
-            </p>
-            <a href="https://www.facebook.com/165bear" target="_blank" class="action-btn">
-                👉 前往 165 全民防騙粉絲專頁
-            </a>
+        <p style="font-size: 13.5px; color: #666; margin-top: 0; margin-bottom: 10px;">
+            警政署 165 即時防詐手法與最新案例
+        </p>
+
+        <!-- 直接嵌入 165打詐儀錶板的最新案例分頁 -->
+        <div class="embed-wrapper">
+            <iframe src="https://165dashboard.tw/#/cases" title="165最新詐騙案例"></iframe>
         </div>
 
         <a href="index.html" class="back-btn">⬅️ 返回首頁</a>
